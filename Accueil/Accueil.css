@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    @apply lg:shrink-0;
+}
+.runway-container{
+    @apply h-screen w-[425px] lg:ml-[320px] sm:ml-auto;
+}
+.container-intern{
+    @apply h-[250px] w-[425px] bg-secondary-white max-w-lg mx-auto my-5 rounded-xl shadow-2xl overflow-hidden lg:max-w-2xl hover:scale-110 hover:ease-linear transition-all lg:flex outline outline-green-button;
+}
+.container-h1{
+    @apply text-xl underline font-bold mx-auto;
+}
+.container-paragraph {
+    @apply mt-2 text-secondary-black;
+}
+.container-skills ul{
+    @apply flex items-center right-[10px] inline-block;
+}
+.container-skills li{
+    @apply bg-green-button w-[125px] h-[38px] flex items-center rounded-xl;
+}
+.container-div-para {
+    @apply p-8;
+}
+.addContainer-intern{
+    @apply fixed right-10 bottom-10 bg-secondary-white text-5xl rounded-full py-3 px-5 transition-all;
+}
