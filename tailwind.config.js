@@ -3,8 +3,7 @@ module.exports = {
   content: ["./*/.{php,js}"],
   theme: {
     fontFamily: {
-      display: ['Inter', 'system-ui', 'sans-serif'],
-      body: ['Inter', 'system-ui', 'sans-serif'],
+      display: ['Inter']
     },
     colors: {
       green: {

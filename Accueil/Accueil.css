@@ -1,31 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    @apply font-display bg-secondary-white;
+}
 
 a {
     @apply lg:shrink-0;
 }
 .runway-container{
-    @apply h-screen w-[425px] lg:ml-[320px] sm:ml-auto;
+    @apply h-screen w-[425px] mx-auto lg:ml-[320px];
+}
+.focus\:outline-green-button:focus{
+    border-color : #39A325;
+}
+.disabled\:outline-secondary-grey:focus{
+    border-color: #B9B9B9;
+}
+.focus\:bg-green-button:focus{
+    background-color : #39A325;
+}
+.disabled\:bg-secondary-grey:focus{
+    background-color: #B9B9B9;
 }
 .container-intern{
-    @apply h-[250px] w-[425px] bg-secondary-white max-w-lg mx-auto my-5 rounded-xl shadow-2xl overflow-hidden lg:max-w-2xl hover:scale-110 hover:ease-linear transition-all lg:flex outline outline-green-button;
+    @apply focus:outline-green-button h-[250px] w-[425px] bg-secondary-white max-w-lg my-5 rounded-xl shadow-2xl overflow-hidden lg:max-w-2xl hover:scale-110 hover:ease-linear transition-all outline disabled:outline-secondary-grey;
 }
 .container-h1{
-    @apply text-xl underline font-bold mx-auto;
+    @apply text-xl underline font-bold text-justify;
 }
 .container-paragraph {
-    @apply mt-2 text-secondary-black;
+    @apply mt-2 text-secondary-black text-justify;
+}
+.container-skills{
+    @apply relative mt-8;
 }
 .container-skills ul{
-    @apply flex items-center right-[10px] inline-block;
+    @apply flex;
 }
 .container-skills li{
-    @apply bg-green-button w-[125px] h-[38px] flex items-center rounded-xl;
+    @apply flex items-center justify-center disabled:bg-secondary-grey focus:bg-green-button w-[125px] h-[38px] rounded-xl p-3 mx-1;
 }
 .container-div-para {
     @apply p-8;
 }
 .addContainer-intern{
-    @apply fixed right-10 bottom-10 bg-secondary-white text-5xl rounded-full py-3 px-5 transition-all;
+    @apply fixed right-10 bottom-10 bg-secondary-grey text-5xl rounded-full py-3 px-5 transition-all;
 }
+
+ /*generalite sur les filtres*/
+.search_bar{
+    @apply block h-7 w-full;  
+}
+.search_bar input[type=search]{
+    @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-filter_grey ;
+}
+.search_bar button[type=button]{
+    @apply h-full w-1/6 inline-block rounded-r-xl bg-secondary-filter_grey;
+}
+.filter-any_search-top p{
+    @apply pl-1 underline;
+}
+.filter-any_search-bot ul{
+    @apply w-1/2 inline-block mr-[-5px] mt-1;
+}
+.filter-any_search-bot li{
+    @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6;
+}
+
+/*filtre*/
+.filter{
+    @apply h-[832px] w-[228px] ml-4 mt-10;
+}
+.filter-green{
+    @apply h-[792px] w-full mt-4 bg-green-filter;
+}
+.filter-location{
+    @apply h-[116px] w-full px-1;
+}
+
+
+/*w-198*h-116*/
