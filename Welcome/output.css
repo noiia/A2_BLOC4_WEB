@@ -570,6 +570,7 @@ video {
 }
 
 .container{
+  z-index: 40;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -677,4 +678,138 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+footer{
+  z-index: 50;
+  height: 970px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 37 37 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 1024px){
+  footer{
+    display: flex;
+    height: auto;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+footer h1{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+footer li{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(164 164 164 / var(--tw-text-opacity));
+}
+
+footer div{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+@media (min-width: 1024px){
+  footer div{
+    text-align: left;
+  }
+}
+
+.footer-logo-picture{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  height: auto;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@media (min-width: 1024px){
+  .footer-logo-picture{
+    height: 60px;
+  }
+}
+
+.footer-society-list{
+  margin-left: 100px;
+  display: inline;
+}
+
+@media (min-width: 1024px){
+  .footer-society-list{
+    display: inline-block;
+  }
+}
+
+.footer-society-list li{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-help-list{
+  margin-left: 100px;
+  display: inline;
+}
+
+@media (min-width: 1024px){
+  .footer-help-list{
+    display: inline-block;
+  }
+}
+
+.footer-help-list li{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-image-list{
+  margin-left: 100px;
+  display: inline;
+  height: 40px;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px){
+  .footer-image-list{
+    display: inline-block;
+  }
+
+  .footer-image-list ul{
+    display: flex;
+  }
+}
+
+.footer-image-list li{
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px){
+  .footer-image-list li{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.logo{
+  height: 20px;
+  width: auto;
+}
+
+@media (min-width: 1024px){
+  .logo{
+    height: 40px;
+  }
 }

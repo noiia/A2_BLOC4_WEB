@@ -72,13 +72,46 @@
     </div>
 </body>
 
-<script>
-    var container = document.getElementById("container");
-    container.addEventListener('click', function () {
-        container.classList.add("clicked");
-        console.log("clicked");
-    });
-</script>
 <link href="http://e0.extreme-dm.com/s9.g?login=daoudi&jv=n&j=y&srw=1920&srb=24&l=https%3A//www.adaoudi.com/">
+<footer>
+    <div class="footer-logo">
+        <img src="../../Assets/Icones/logo_seul_blanc.png" alt="logo de l'entreprise" class="footer-logo-picture">
+        <img src="../../Assets/Icones/logo_text_seul.png" alt="logo de l'entreprise" class="footer-logo-picture">
+    </div>
+    <div class="footer-society-list">
+        <h1>Société</h1>
+        <ul>
+            <li>Condition d'utilisation</li>
+            <li>Politique de confidentialité</li>
+            <li>Politique de cookies</li>
+            <li>Carrière</li>
+            <li>A propos de nous</li>
+        </ul>
+    </div>
+    <div class="footer-help-list">
+        <h1>Aide</h1>
+        <ul>
+            <li>FAQs</li>
+            <li>Nous contacter</li>
+        </ul>
+    </div>
+    <div class="footer-image-list">
+        <h1>Suis nous</h1>
+        <ul>
+            <a href="https://www.facebook.com">
+                <li class="logo"><img src="../../Assets/Icones/Facebook_Logo_(2019).png" alt="logo facebook"></li>
+            </a>
+            <a href="https://www.instagram.com">
+                <li class="logo"><img src="../../Assets/Icones/87390.png" alt="logo instagram"></li>
+            </a>
+            <a href="https://www.youtube.com">
+                <li class="logo"><img src="../../Assets/Icones/logo_ytb.png" alt="logo youtube"></li>
+            </a>
+            <a href="https://www.twitter.com">
+                <li class="logo"><img src="../../Assets/Icones/logo_X.png" alt="logo X"></li>
+            </a>
+        </ul>
+    </div>
+</footer>
 
 </html>
