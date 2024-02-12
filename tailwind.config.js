@@ -36,6 +36,11 @@ module.exports = {
         true_black: "#000000",
       },
     },
+    extend:{
+      backgroundImage:{
+        'login': "url('../../Assets/Background/login.gif')"
+      }
+    }
   },
   plugins: [
     require('tailwindcss'),

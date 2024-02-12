@@ -10,15 +10,26 @@
 a {
     @apply lg:shrink-0;
 }
-
+.header{
+    @apply h-[115px] w-auto bg-green-filter;
+}
+.header-logo{
+    @apply h-[70px] w-auto inline-block;
+}
+.header ul {
+    @apply right-0 inline-block;
+}
+.header li {
+    @apply inline-block my-5 text-xl justify-center;
+}
 .runway-container{
-    @apply h-screen w-[425px] mx-auto lg:ml-[320px];
+    @apply h-auto sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px];
 }
 .container{
     @apply my-5 z-40;
 }
 .container-intern{
-    @apply h-[250px] w-[425px] bg-secondary-white max-w-lg rounded-xl overflow-hidden lg:max-w-2xl hover:ease-linear hover:scale-110 transition-transform outline outline-secondary-grey z-10;
+    @apply h-[175px] w-[300px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-lg rounded-xl overflow-hidden lg:max-w-2xl hover:ease-linear hover:scale-110 transition-transform outline outline-secondary-grey;
 }
 .container:focus{
     .container-intern{
@@ -51,7 +62,7 @@ a {
 }
 
 footer{
-    @apply bg-secondary-footer_black h-[970px] lg:flex lg:justify-center lg:items-start lg:h-auto z-50; 
+    @apply bg-secondary-footer_black h-[1050px] w-screen lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
 }
 footer h1{
     @apply text-secondary-true_white text-xl;

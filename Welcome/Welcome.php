@@ -9,6 +9,30 @@
     <title>Inter'net - Accueil</title>
 </head>
 
+<script>
+    var profil = "profil";
+</script>
+<header>
+    <div class="header">
+        <img src="../../Assets/Icones/logo_seul_blanc.png" alt="company-logo" class="header-logo">
+        <img src="../../Assets/Icones/logo_text_seul.png" alt="company-logo" class="header-logo">
+        <ul>
+            <a href="">
+                <li>Stages</li>
+            </a>
+            <a href="">
+                <li>Entreprises</li>
+            </a>
+            <a href="">
+                <li>Statistiques</li>
+            </a>
+            <a href="../../Login/login.php">
+                <li>Profil</li>
+            </a>
+        </ul>
+    </div>
+</header>
+
 <body>
     <div class="runway-container">
 
