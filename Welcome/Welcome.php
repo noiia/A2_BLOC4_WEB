@@ -4,33 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Accueil</title>
 </head>
 
-<script>
-    var profil = "profil";
-</script>
 <header>
-    <div class="header">
-        <img src="../../Assets/Icones/logo_seul_blanc.png" alt="company-logo" class="header-logo">
-        <img src="../../Assets/Icones/logo_text_seul.png" alt="company-logo" class="header-logo">
-        <ul>
-            <a href="">
-                <li>Stages</li>
-            </a>
-            <a href="">
-                <li>Entreprises</li>
-            </a>
-            <a href="">
-                <li>Statistiques</li>
-            </a>
-            <a href="../../Login/login.php">
-                <li>Profil</li>
-            </a>
-        </ul>
-    </div>
+    <nav class="navbar">
+        <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
+        <img src="../../Assets/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
+        <div class="navbar-links">
+            <ul>
+                <li>
+                    <a href="">
+                        <span aria-hidden="true">Stages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span aria-hidden="true">Entreprises</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span aria-hidden="true">Statistiques</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../Login/login.php">
+                        <span aria-hidden="true">Profil</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
+    </nav>
 </header>
 
 <body>
@@ -137,5 +146,11 @@
         </ul>
     </div>
 </footer>
+<script>
+    const menuHamburger = document.querySelector(".navbar-hamburger")
+    const navbarLinks = document.querySelector(".navbar-links")
+
+    menuHamburger.addEventListener('click', () => { navbarLinks.classList.toggle('mobile-menu') })
+</script>
 
 </html>

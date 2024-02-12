@@ -34,7 +34,15 @@ module.exports = {
         left_bg_grey: '#D9D9D9',
         footer_black: '#252525', 
         true_black: "#000000",
+        transparent: 'transparent',
       },
+    },
+    screens:{
+      'sm' : '500px',
+      'md' : '768px',
+      'lg' : '1024px',
+      'xl' : '1280px',
+      '2xl' : '1536px',
     },
     extend:{
       backgroundImage:{
