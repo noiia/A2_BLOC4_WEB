@@ -3,8 +3,7 @@ module.exports = {
   content: ["./*/.{php,js}"],
   theme: {
     fontFamily: {
-      display: ['Inter', 'system-ui', 'sans-serif'],
-      body: ['Inter', 'system-ui', 'sans-serif'],
+      display: ['Inter']
     },
     colors: {
       blue:{
@@ -37,7 +36,15 @@ module.exports = {
         true_black: "#000000",
       },
     },
+    extend:{
+      backgroundImage:{
+        'login': "url('../../Assets/Background/login.gif')"
+      }
+    }
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
 }
 

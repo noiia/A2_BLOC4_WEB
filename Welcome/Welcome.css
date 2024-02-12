@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-display;
+}
+a {
+    @apply lg:shrink-0;
+}
+.header{
+    @apply h-[115px] w-auto bg-green-filter;
+}
+.header-logo{
+    @apply h-[70px] w-auto inline-block;
+}
+.header ul {
+    @apply right-0 inline-block;
+}
+.header li {
+    @apply inline-block my-5 text-xl justify-center;
+}
+.runway-container{
+    @apply h-auto sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px];
+}
+.container{
+    @apply my-5 z-40;
+}
+.container-intern{
+    @apply h-[175px] w-[300px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-lg rounded-xl overflow-hidden lg:max-w-2xl hover:ease-linear hover:scale-110 transition-transform outline outline-secondary-grey;
+}
+.container:focus{
+    .container-intern{
+        @apply  outline outline-green-button rounded-xl;
+    }
+    .container-skills li{
+        @apply bg-green-button;
+    }
+}
+.container-h1{
+    @apply text-xl underline font-bold text-justify;
+}
+.container-paragraph {
+    @apply mt-2 text-secondary-true_black text-justify;
+}
+.container-skills{
+    @apply relative mt-8;
+}
+.container-skills ul{
+    @apply flex;
+}
+.container-skills li{
+    @apply  w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+}
+.container-div-para {
+    @apply p-8;
+}
+.addContainer-intern{
+    @apply fixed right-10 bottom-10 bg-secondary-white text-5xl rounded-full py-3 px-5 transition-all;
+}
+
+footer{
+    @apply bg-secondary-footer_black h-[1050px] w-screen lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
+}
+footer h1{
+    @apply text-secondary-true_white text-xl;
+}
+footer li{
+    @apply text-secondary-footer_grey text-lg;
+}
+footer div{
+    @apply py-[30px] text-center lg:text-left;
+}
+.footer-logo-picture{
+    @apply inline-block h-auto lg:h-[60px] transition-all my-[20px];
+}
+.footer-society-list {
+    @apply ml-[100px] inline lg:inline-block;
+}
+.footer-society-list li{
+    @apply my-5;
+}
+.footer-help-list{
+    @apply ml-[100px] inline lg:inline-block;
+}
+.footer-help-list li{
+    @apply my-5;
+}
+.footer-image-list{
+    @apply ml-[100px] inline lg:inline-block h-[40px] w-auto text-center items-center justify-center;
+}
+.footer-image-list ul{
+    @apply lg:flex;
+}
+.footer-image-list li{
+    @apply flex justify-center mt-5 lg:mx-2;
+}
+.logo {
+    @apply h-[20px] lg:h-[40px] w-auto;
+}
