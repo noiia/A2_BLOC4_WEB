@@ -7,6 +7,9 @@
 *{
     @apply font-display;
 }
+body{
+    @apply inline-block;
+}
 a {
     @apply lg:shrink-0;
 }
@@ -20,7 +23,7 @@ a {
     @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
 .navbar-links{
-    @apply flex items-center max-[850px]:z-10 max-[850px]:top-0 max-[850px]:left-0 max-[850px]:absolute max-[850px]:w-screen max-[850px]:bg-secondary-footer_grey max-[850px]:bg-opacity-100 max-[850px]:h-[100vh] max-[850px]:justify-center max-[850px]:items-center max-[850px]:ml-[200%] max-[850px]:transition-all;
+    @apply flex items-center max-[850px]:z-10 max-[850px]:top-0 max-[850px]:left-0 max-[850px]:absolute max-[850px]:w-screen max-[850px]:bg-secondary-footer_grey max-[850px]:bg-opacity-100 max-[850px]:h-[100vh] max-[850px]:justify-center max-[850px]:items-center max-[850px]:ml-[200%] max-[850px]:transition-all sm:mr-10;
 }
 .mobile-menu{
     @apply max-[850px]:ml-0 z-20;
@@ -39,9 +42,67 @@ a {
     @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[850px]:block max-[850px]:z-50;
 }
 
+/* filter */
+.search_bar{
+    @apply block h-7 w-full flex;  
+}
+.search_bar input[type=search]{
+    @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
+}
+.search_bar button[type=button]{
+    @apply h-full w-1/6 inline-block rounded-none rounded-r-xl bg-secondary-white;
+}
+.search_bar img{
+    @apply h-full pl-1 inline-block;
+}
+.filter-any_search-top p{
+    @apply pl-1 underline;
+}
+.filter-any_search-bot ul{
+    @apply w-1/2 inline-block mr-[-5px] mt-1;
+}
+.filter-any_search-bot li{
+    @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+}
+.search_min-max {
+    @apply rounded-xl bg-secondary-white my-1 flex justify-around;
+}
+.search_min-max input{
+    @apply flex w-3/5 bg-secondary-transparent focus:outline-0 mr-1 ;
+}
+.search_range {
+    @apply flex justify-around;
+}
+button[type=button]{
+    @apply bg-green-true_btn rounded-xl h-8 w-4/5;
+}
 
+/*filtre*/
+.filter{
+    @apply h-[998px] w-[228px] ml-4 mt-10 inline-block;
+}
+#general-search_bar, #general-button_search{
+    @apply bg-secondary-filter_grey;
+}
+.filter-green{
+    @apply h-[950px] w-full mt-4 bg-green-filter;
+}
+.filter-location, .filter-skills, .filter-company{
+    @apply h-[116px] w-full px-1;
+}
+.filter-start_internship, .filter-duration_internship, .filter-max_places, .filter-postulation, .filter-hourly_rate{
+    @apply flex h-[100px] w-full px-1 flex-col justify-evenly;
+}
+.filter-promotion{
+    @apply flex h-[58px] w-full px-1 flex-col justify-evenly;
+}
+.filter-validate{
+    @apply flex justify-center h-[45px] w-full px-1;
+}
+
+/* runway */
 .runway-container{
-    @apply h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px];
+    @apply h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[100px] inline-block;
 }
 .container{
     @apply my-5 z-40 items-stretch flex;
@@ -77,7 +138,7 @@ a {
 }
 
 
-
+/* footer */
 footer{
     @apply bg-secondary-footer_black h-[1050px] w-screen lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
 }
