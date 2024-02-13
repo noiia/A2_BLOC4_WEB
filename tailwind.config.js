@@ -19,6 +19,7 @@ module.exports = {
         filter_grey: '#CBCBCB',
         beige: '#EDE5A6',
         black: "#000000",
+        transparent: 'transparent',
       },
     },
   },

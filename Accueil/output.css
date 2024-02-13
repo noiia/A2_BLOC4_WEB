@@ -706,6 +706,7 @@ body{
 
 .search_bar{
   display: block;
+  display: flex;
   height: 1.75rem;
   width: 100%;
 }
@@ -718,18 +719,31 @@ body{
   border-top-left-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   text-align: center;
+}
+
+.search_bar input[type=search]:focus{
+  --tw-text-opacity: 1;
+  color: rgb(57 163 37 / var(--tw-text-opacity));
+  outline-width: 0px;
 }
 
 .search_bar button[type=button]{
   display: inline-block;
   height: 100%;
   width: 16.666667%;
+  border-radius: 0px;
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+}
+
+.search_bar img{
+  display: inline-block;
+  height: 100%;
+  padding-left: 0.25rem;
 }
 
 .filter-any_search-top p{
@@ -749,10 +763,45 @@ body{
   margin-bottom: 0.25rem;
   height: 1.5rem;
   width: 91.666667%;
+  overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(203 203 203 / var(--tw-bg-opacity));
   text-align: center;
+}
+
+.search_min-max{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+}
+
+.search_min-max input{
+  margin-right: 0.25rem;
+  display: flex;
+  width: 60%;
+  background-color: transparent;
+}
+
+.search_min-max input:focus{
+  outline-width: 0px;
+}
+
+.search_range{
+  display: flex;
+  justify-content: space-around;
+}
+
+button[type=button]{
+  height: 2rem;
+  width: 80%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
 /*filtre*/
@@ -760,21 +809,55 @@ body{
 .filter{
   margin-left: 1rem;
   margin-top: 2.5rem;
-  height: 832px;
+  height: 998px;
   width: 228px;
+}
+
+#general-search_bar, #general-button_search{
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
 }
 
 .filter-green{
   margin-top: 1rem;
-  height: 792px;
+  height: 950px;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
 }
 
-.filter-location{
+.filter-location, .filter-skills, .filter-company{
   height: 116px;
   width: 100%;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.filter-start_internship, .filter-duration_internship, .filter-max_places, .filter-postulation, .filter-hourly_rate{
+  display: flex;
+  height: 100px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.filter-promotion{
+  display: flex;
+  height: 58px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.filter-validate{
+  display: flex;
+  height: 45px;
+  width: 100%;
+  justify-content: center;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }

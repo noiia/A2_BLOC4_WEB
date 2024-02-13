@@ -52,13 +52,16 @@ a {
 
  /*generalite sur les filtres*/
 .search_bar{
-    @apply block h-7 w-full;  
+    @apply block h-7 w-full flex;  
 }
 .search_bar input[type=search]{
-    @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-filter_grey ;
+    @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
 }
 .search_bar button[type=button]{
-    @apply h-full w-1/6 inline-block rounded-r-xl bg-secondary-filter_grey;
+    @apply h-full w-1/6 inline-block rounded-none rounded-r-xl bg-secondary-white;
+}
+.search_bar img{
+    @apply h-full pl-1 inline-block;
 }
 .filter-any_search-top p{
     @apply pl-1 underline;
@@ -67,19 +70,42 @@ a {
     @apply w-1/2 inline-block mr-[-5px] mt-1;
 }
 .filter-any_search-bot li{
-    @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6;
+    @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+}
+.search_min-max {
+    @apply rounded-xl bg-secondary-white my-1 flex justify-around;
+}
+.search_min-max input{
+    @apply flex w-3/5 bg-secondary-transparent focus:outline-0 mr-1 ;
+}
+.search_range {
+    @apply flex justify-around;
+}
+button[type=button]{
+    @apply bg-green-true_btn rounded-xl h-8 w-4/5;
 }
 
 /*filtre*/
 .filter{
-    @apply h-[832px] w-[228px] ml-4 mt-10;
+    @apply h-[998px] w-[228px] ml-4 mt-10;
+}
+#general-search_bar, #general-button_search{
+    @apply bg-secondary-filter_grey;
 }
 .filter-green{
-    @apply h-[792px] w-full mt-4 bg-green-filter;
+    @apply h-[950px] w-full mt-4 bg-green-filter;
 }
-.filter-location{
+.filter-location, .filter-skills, .filter-company{
     @apply h-[116px] w-full px-1;
 }
-
+.filter-start_internship, .filter-duration_internship, .filter-max_places, .filter-postulation, .filter-hourly_rate{
+    @apply flex h-[100px] w-full px-1 flex-col justify-evenly;
+}
+.filter-promotion{
+    @apply flex h-[58px] w-full px-1 flex-col justify-evenly;
+}
+.filter-validate{
+    @apply flex justify-center h-[45px] w-full px-1;
+}
 
 /*w-198*h-116*/
