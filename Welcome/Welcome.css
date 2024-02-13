@@ -77,9 +77,11 @@ button[type=button]{
     @apply bg-green-true_btn rounded-xl h-8 w-4/5;
 }
 
-/*filtre*/
+.parent-filter{
+    @apply absolute top-[120px] inline-block;
+}
 .filter{
-    @apply h-[998px] w-[228px] ml-4 mt-10 inline-block;
+    @apply h-[998px] w-[228px] ml-4 mt-10;
 }
 #general-search_bar, #general-button_search{
     @apply bg-secondary-filter_grey;
@@ -102,7 +104,7 @@ button[type=button]{
 
 /* runway */
 .runway-container{
-    @apply h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[100px] inline-block;
+    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px] inline-block;
 }
 .container{
     @apply my-5 z-40 items-stretch flex;

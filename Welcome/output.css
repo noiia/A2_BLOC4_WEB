@@ -832,12 +832,15 @@ button[type=button]{
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
-/*filtre*/
+.parent-filter{
+  position: absolute;
+  top: 120px;
+  display: inline-block;
+}
 
 .filter{
   margin-left: 1rem;
   margin-top: 2.5rem;
-  display: inline-block;
   height: 998px;
   width: 228px;
 }
@@ -894,6 +897,7 @@ button[type=button]{
 /* runway */
 
 .runway-container{
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
@@ -911,7 +915,7 @@ button[type=button]{
 
 @media (min-width: 1024px){
   .runway-container{
-    margin-left: 100px;
+    margin-left: 320px;
   }
 }
 
