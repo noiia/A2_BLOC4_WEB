@@ -8,6 +8,30 @@
     @apply font-display;
 }
 
-body {
+body{
    @apply bg-[url('../Assets/Background/login.gif')] bg-cover;
+}
+.container-login{
+    @apply mx-auto relative top-[130px] h-[550px] w-[500px] bg-secondary-grey rounded-3xl;
+}
+.logo{
+    @apply mx-auto relative top-[50px];
+}
+.container-login h1{
+    @apply text-2xl relative top-[100px] left-[40px];
+}
+.title-username{
+    @apply mx-8 ;
+}
+.title-password{
+    @apply mx-8 relative top-[150px];
+}
+.tb-login{
+    @apply relative top-[100px] left-[50px] rounded-lg h-[50px] w-[400];
+}
+.tb-password{
+    @apply relative top-[150px] left-[50px] rounded-lg h-[50px] w-[400];
+}
+.connexion-btn{
+    @apply relative text-lg rounded-lg top-[250px] left-[120px] bottom-5;
 }

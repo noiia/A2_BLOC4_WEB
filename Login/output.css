@@ -554,3 +554,70 @@ body{
   background-image: url('../Assets/Background/login.gif');
   background-size: cover;
 }
+
+.container-login{
+  position: relative;
+  top: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 550px;
+  width: 500px;
+  border-radius: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+.logo{
+  position: relative;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-login h1{
+  position: relative;
+  top: 100px;
+  left: 40px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.title-username{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.title-password{
+  position: relative;
+  top: 150px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.tb-login{
+  position: relative;
+  top: 100px;
+  left: 50px;
+  height: 50px;
+  width: 400;
+  border-radius: 0.5rem;
+}
+
+.tb-password{
+  position: relative;
+  top: 150px;
+  left: 50px;
+  height: 50px;
+  width: 400;
+  border-radius: 0.5rem;
+}
+
+.connexion-btn{
+  position: relative;
+  top: 250px;
+  left: 120px;
+  bottom: 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
