@@ -830,19 +830,49 @@ button[type=button]{
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  font-weight: 700;
+}
+
+input[type=range]{
+  cursor: pointer;
+}
+
+input[type=date]{
+  accent-color: #94C676;
 }
 
 .parent-filter{
   position: absolute;
   top: 120px;
-  display: inline-block;
+  display: none;
+  width: 300px;
+}
+
+@media (max-width: 500px){
+  .parent-filter{
+    top: 65px;
+  }
+}
+
+@media (min-width: 1024px){
+  .parent-filter{
+    display: inline-block;
+  }
 }
 
 .filter{
+  position: relative;
+  left: 10%;
   margin-left: 1rem;
   margin-top: 2.5rem;
   height: 998px;
-  width: 228px;
+  width: 80%;
+}
+
+@media not all and (min-width: 1024px){
+  .filter{
+    margin-top: 0.25rem;
+  }
 }
 
 #general-search_bar, #general-button_search{
@@ -894,6 +924,21 @@ button[type=button]{
   padding-right: 0.25rem;
 }
 
+.filter-mobile_on-filter{
+  display: inline-block;
+  width: 350px;
+}
+
+@media (min-width: 500px){
+  .filter-mobile_on-filter{
+    width: 425px;
+  }
+}
+
+.filter-mobile_on-container{
+  margin-top: 1000px;
+}
+
 /* runway */
 
 .runway-container{
@@ -916,6 +961,19 @@ button[type=button]{
 @media (min-width: 1024px){
   .runway-container{
     margin-left: 320px;
+  }
+}
+
+.filter-button{
+  position: relative;
+  left: 10%;
+  margin-top: 1.25rem;
+  display: inline-block;
+}
+
+@media (min-width: 1024px){
+  .filter-button{
+    display: none;
   }
 }
 
