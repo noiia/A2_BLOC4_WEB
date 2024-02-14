@@ -9,29 +9,36 @@
 }
 
 body{
-   @apply bg-[url('../Assets/Background/login.gif')] bg-cover;
+   @apply bg-gradient-to-r from-green-1 from-30% to-blue-links;
 }
 .container-login{
-    @apply mx-auto relative top-[130px] h-[550px] w-[500px] bg-secondary-grey rounded-3xl;
+    @apply mx-auto relative top-[130px] h-[550px] w-[500px] bg-secondary-grey rounded-3xl z-10;
+    
 }
 .logo{
     @apply mx-auto relative top-[50px];
 }
+.bottom-elements{
+    @apply relative top-[-20px];
+}
 .container-login h1{
-    @apply text-2xl relative top-[100px] left-[40px];
+    @apply text-2xl relative left-[50px];
 }
 .title-username{
-    @apply mx-8 ;
+    @apply top-[100px];
 }
 .title-password{
-    @apply mx-8 relative top-[150px];
+    @apply top-[135px];
 }
 .tb-login{
-    @apply relative top-[100px] left-[50px] rounded-lg h-[50px] w-[400];
+    @apply relative top-[110px] left-[45px] rounded-lg h-[50px] w-[400px] px-3;
 }
 .tb-password{
-    @apply relative top-[150px] left-[50px] rounded-lg h-[50px] w-[400];
+    @apply relative top-[140px] left-[45px] rounded-lg h-[50px] w-[400px] px-3;
 }
 .connexion-btn{
-    @apply relative text-lg rounded-lg top-[250px] left-[120px] bottom-5;
+    @apply relative text-lg rounded-lg top-[200px] left-[320px] bottom-5 bg-secondary-true_white p-2;
+}
+.connexion-btn-hidden{
+    @apply hidden;
 }

@@ -149,6 +149,12 @@
                         <div class="search_range">
                             <input type="range" min="0" max="8" step="1" id="rangeInput" value="0">
                             <span id="rangeValue">Bac+0</span>
+                            <script>
+                                var rangeInput = document.getElementById("rangeInput");
+                                var rangeValue = document.getElementById("rangeValue");
+
+                                rangeInput.addEventListener("input", function () { rangeValue.textContent = "Bac+" + this.value; });
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -210,9 +216,7 @@
         </div>
     </div>
     <div class="runway-container">
-        <div class="filter-mobile">
-            <button type="button" class="filter-button">Filtrer</button>
-        </div>
+
         <button class="container" id="container">
             <span>
                 <div class="container-intern" id="container-intern">
@@ -447,27 +451,7 @@
         </ul>
     </div>
 </footer>
-
 <script>
-    var rangeInput = document.getElementById("rangeInput");
-    var rangeValue = document.getElementById("rangeValue");
-    rangeInput.addEventListener("input", function () { rangeValue.textContent = "Bac+" + this.value; });
-
-    const filterShutter = document.querySelector(".filter-button")
-    const filterMenu = document.querySelector(".parent-filter")
-    const container = document.querySelector(".runway-container")
-
-    filterShutter.addEventListener('click', () => { filterMenu.classList.toggle('filter-mobile_on-filter') })
-    filterShutter.addEventListener('click', () => { container.classList.toggle('filter-mobile_on-container') })
-
-    window.addEventListener("resize",()=>{
-    const widthScreen = window.innerWidth;
-    if (widthScreen > 1024){
-        filterMenu.classList.remove('filter-mobile_on-filter')
-        container.classList.remove('filter-mobile_on-container')
-
-    }});
-
     const menuHamburger = document.querySelector(".navbar-hamburger")
     const navbarLinks = document.querySelector(".navbar-links")
 
