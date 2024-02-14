@@ -42,6 +42,10 @@ a {
     @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[850px]:block max-[850px]:z-50;
 }
 
+/* full-runway */
+.full-runway{
+    @apply grid max-[850px]:grid-cols-1 grid-cols-2 max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
+}
 /* filter */
 .search_bar{
     @apply block h-7 w-full flex;  
@@ -84,16 +88,16 @@ input[type=date]{
 }
 
 .parent-filter{
-    @apply absolute top-[120px] max-[500px]:top-[65px] hidden lg:inline-block w-[300px];
+    @apply absolute top-[120px] max-[500px]:top-[65px] hidden ml:inline-block w-[300px] max-[850px]:mx-auto;
 }
 .filter{
-    @apply h-[998px] max-lg:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
+    @apply h-[998px] max-ml:mt-1 w-4/5 left-[24%] ml:left-[10%] ml:ml-4 mt-10 relative;
 }
 #general-search_bar, #general-button_search{
     @apply bg-secondary-filter_grey;
 }
 .filter-green{
-    @apply h-[950px] w-full mt-4 bg-green-filter;
+    @apply h-[950px] w-full mt-4 bg-green-filter max-[850px]:rounded-xl max-[850px]:mx-auto;
 }
 .filter-location, .filter-skills, .filter-company{
     @apply h-[116px] w-full px-1;
@@ -108,7 +112,7 @@ input[type=date]{
     @apply flex justify-center h-[45px] w-full px-1;
 }
 .filter-mobile_on-filter{
-    @apply inline-block w-[350px] sm:w-[425px];
+    @apply inline-block w-[350px] ml:w-[425px];
 }
 .filter-mobile_on-container{
     @apply mt-[1000px];
@@ -116,10 +120,10 @@ input[type=date]{
 
 /* runway */
 .runway-container{
-    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px] inline-block;
+    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto ml:ml-[320px] inline-block;
 }
 .filter-button{
-    @apply inline-block mt-5 lg:hidden left-[10%] relative;
+    @apply inline-block mt-5 ml:hidden left-[10%] relative;
 }
 .container{
     @apply my-5 z-40 items-stretch flex;
@@ -169,7 +173,7 @@ footer div{
     @apply py-[30px] text-center lg:text-left;
 }
 .footer-logo-picture{
-    @apply inline-block h-auto lg:h-[60px] transition-all my-[20px];
+    @apply inline-block px-10 h-auto ml:h-[60px] transition-all my-[20px];
 }
 .footer-society-list {
     @apply ml-[100px] inline lg:inline-block;

@@ -730,6 +730,28 @@ body{
   }
 }
 
+/* full-runway */
+
+.full-runway{
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 850px){
+  .full-runway{
+    width: 450px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px){
+  .full-runway{
+    width: 300;
+  }
+}
+
 /* filter */
 
 .search_bar{
@@ -848,13 +870,20 @@ input[type=date]{
   width: 300px;
 }
 
+@media (max-width: 850px){
+  .parent-filter{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 500px){
   .parent-filter{
     top: 65px;
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 850px){
   .parent-filter{
     display: inline-block;
   }
@@ -862,16 +891,22 @@ input[type=date]{
 
 .filter{
   position: relative;
-  left: 10%;
-  margin-left: 1rem;
+  left: 24%;
   margin-top: 2.5rem;
   height: 998px;
   width: 80%;
 }
 
-@media not all and (min-width: 1024px){
+@media not all and (min-width: 850px){
   .filter{
     margin-top: 0.25rem;
+  }
+}
+
+@media (min-width: 850px){
+  .filter{
+    left: 10%;
+    margin-left: 1rem;
   }
 }
 
@@ -886,6 +921,14 @@ input[type=date]{
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
+}
+
+@media (max-width: 850px){
+  .filter-green{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.75rem;
+  }
 }
 
 .filter-location, .filter-skills, .filter-company{
@@ -929,7 +972,7 @@ input[type=date]{
   width: 350px;
 }
 
-@media (min-width: 500px){
+@media (min-width: 850px){
   .filter-mobile_on-filter{
     width: 425px;
   }
@@ -952,13 +995,11 @@ input[type=date]{
 
 @media (min-width: 500px){
   .runway-container{
-    margin-left: auto;
-    margin-right: auto;
     width: 425px;
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 850px){
   .runway-container{
     margin-left: 320px;
   }
@@ -971,7 +1012,7 @@ input[type=date]{
   display: inline-block;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 850px){
   .filter-button{
     display: none;
   }
@@ -1143,12 +1184,14 @@ footer div{
   margin-bottom: 20px;
   display: inline-block;
   height: auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-@media (min-width: 1024px){
+@media (min-width: 850px){
   .footer-logo-picture{
     height: 60px;
   }
