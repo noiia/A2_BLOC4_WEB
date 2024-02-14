@@ -4,12 +4,8 @@ module.exports = {
   theme: {
     fontFamily: {
       display: ['Inter']
-      display: ['Inter']
     },
     colors: {
-      blue:{
-        links: '#0081F9',
-      },
       blue:{
         links: '#0081F9',
       },
@@ -55,18 +51,6 @@ module.exports = {
         transparent: 'transparent',
       },
     },
-    screens:{
-      'sm' : '500px',
-      'md' : '768px',
-      'lg' : '1024px',
-      'xl' : '1280px',
-      '2xl' : '1536px',
-    },
-    extend:{
-      backgroundImage:{
-        'login': "url('../../Assets/Background/login.gif')"
-      }
-    }
     screens:{
       'sm' : '500px',
       'md' : '768px',
