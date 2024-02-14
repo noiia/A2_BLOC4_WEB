@@ -14,13 +14,16 @@
 <!-- header -->
 
 <?php
-$username = $_POST['username'];
+session_start();
+
 $ProfilValue = "";
 $ProfilLink = "";
 
-if ($username != "") {
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
     $ProfilValue = $username;
 } else {
+    $username = "";
     $ProfilLink = 'href="../Login/login.php"';
     $ProfilValue = "Profil";
 }
