@@ -546,8 +546,71 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+body{
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+}
+
+body::-webkit-scrollbar{
+  width:15px;
+}
+
+.second-scroll-bar::-webkit-scrollbar-track {
+  margin-block: 20px;
+  border-radius: 15px;
+}
+
+body::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  border-radius: 15px;
+}
+
+body::-webkit-scrollbar-thumb{
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(203,203,203);
+  border-radius: 15px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(203,203,203);
+  border-radius: 15px;
+}
+
 *{
   font-family: Inter;
+}
+
+.second-scroll-bar::-webkit-scrollbar{
+  width:15px;
+}
+
+.second-scroll-bar::-webkit-scrollbar-track {
+  margin-block: 20px;
+  border-radius: 15px;
+}
+
+.second-scroll-bar::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  border-radius: 15px;
+}
+
+.second-scroll-bar::-webkit-scrollbar-thumb{
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(203,203,203);
+  border-radius: 15px;
+}
+
+.second-scroll-bar::-webkit-scrollbar-thumb:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(203,203,203);
+  border-radius: 15px;
 }
 
 @media (min-width: 1024px){
@@ -586,6 +649,7 @@ video {
 .runway-container{
   margin-left: auto;
   margin-right: auto;
+  display: inline-block;
   height: auto;
 }
 
@@ -720,11 +784,243 @@ video {
   transition-duration: 150ms;
 }
 
+/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
+
+.runway-container-intern-details{
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  height: auto;
+  vertical-align: top;
+  font-weight: 500;
+}
+
+@media (min-width: 640px){
+  .runway-container-intern-details{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1040px;
+  }
+}
+
+@media (min-width: 1024px){
+  .runway-container-intern-details{
+    margin-left: 55px;
+  }
+}
+
+.container-intern-details{
+  margin-top: 1.25rem;
+  height: 830px;
+  overflow-y: auto;
+  border-radius: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-color: #39A325;
+}
+
+.container-div-par-intern-details{
+  margin-bottom: 2.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  height: auto;
+}
+
+.container-close-tab {
+}
+
+.close-tab-logo-picture{
+  display: inline;
+  height: 23px;
+  width: auto;
+}
+
+@media (min-width: 1024px){
+  .close-tab-logo-picture{
+    display: inline-block;
+  }
+}
+
+.button-close-tab{
+  margin-top: 0.5rem;
+  margin-left: 985px;
+  display: inline;
+}
+
+@media (min-width: 1024px){
+  .button-close-tab{
+    display: inline-block;
+  }
+}
+
+.header-intern-details{
+  margin-bottom: 1.25rem;
+}
+
+.company-logo-picture{
+  display: inline-block;
+  height: 103px;
+  width: auto;
+}
+
+.unselected-wishlist-logo-picture{
+  display: inline-block;
+  height: 43px;
+  width: auto;
+  cursor: pointer;
+}
+
+.selected-wishlist-logo-picture{
+  display: none;
+  height: 43px;
+  width: auto;
+  cursor: pointer;
+}
+
+.is-selected{
+  display: inline-block;
+}
+
+.remove-wishlist-picture{
+  display: none;
+}
+
+.container-header-intern-details{
+  margin-left: 160px;
+  margin-right: 160px;
+  display: inline-block;
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.container-left-informations{
+  display: inline-block;
+  width: 436px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container-left-informations h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-left-informations a{
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+
+.container-right-informations{
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+}
+
+.container-right-informations p{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-skills-details{
+  position: relative;
+  margin-top: 2rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.container-skills-details div{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: flex;
+  height: 55px;
+  width: 176px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.button-postuler{
+  height: 64px;
+  width: 337px;
+  cursor: pointer;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #000000;
+}
+
+.button-postuler:hover{
+  height: 64px;
+  width: 337px;
+  cursor: pointer;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
+.container1-bottom-informations{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container1-bottom-informations h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container2-bottom-informations{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container2-bottom-informations h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+
 footer{
   z-index: 10;
   margin-top: 2.5rem;
   height: 1050px;
-  width: 100vw;
+  width: auto;
   --tw-bg-opacity: 1;
   background-color: rgb(37 37 37 / var(--tw-bg-opacity));
 }
