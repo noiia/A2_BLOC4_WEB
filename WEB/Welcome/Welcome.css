@@ -13,11 +13,22 @@ body{
 a {
     @apply lg:shrink-0;
 }
+
+input[type=range] {
+    @apply w-[70%] appearance-none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;    
+}
+input[type=range]::-webkit-slider-thumb {
+    @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
+}
+
 .navbar{
     @apply flex justify-between box-border h-[60px] sm:h-[115px] w-screen bg-green-filter max-[850px]:p-0;
 }
 .navbar-logo{
-    @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
+    @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block; 
 }
 .mini-navbar-logo{
     @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
@@ -75,9 +86,6 @@ a {
 }
 button[type=button]{
     @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
-}
-input[type=range]{
-    @apply cursor-pointer;
 }
 input[type=date]{
     @apply accent-green-header;
