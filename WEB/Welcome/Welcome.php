@@ -10,6 +10,23 @@
     <title>Inter'net - Accueil</title>
 </head>
 
+
+<!-- header -->
+
+<?php
+$username = $_POST['username'];
+$ProfilValue = "";
+$ProfilLink = "";
+
+if ($username != "") {
+    $ProfilValue = $username;
+} else {
+    $ProfilLink = 'href="../Login/login.php"';
+    $ProfilValue = "Profil";
+}
+?>
+
+
 <header>
     <nav class="navbar">
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
@@ -32,8 +49,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../Login/login.php">
-                        <span aria-hidden="true">Profil</span>
+                    <a <?php echo $ProfilLink ?>>
+                        <span aria-hidden="true">
+                            <?php echo $ProfilValue ?>
+                        </span>
                     </a>
                 </li>
             </ul>
@@ -41,6 +60,10 @@
         <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
     </nav>
 </header>
+
+
+<!-- ! body -->
+
 
 <body>
     <div class="full-runway">
