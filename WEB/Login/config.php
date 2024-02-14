@@ -1,8 +1,12 @@
 <?php
+session_start();
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$id_session = session_id();
 
+$_SESSION['username'] = $_POST['username'];
+$_SESSION['password'] = $_POST['password'];
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
 if (!empty($username) && !empty($password)) {
     echo "success ; username:" . $username . " password:" . $password . "<br>";
     $server_name = "127.0.0.1";
@@ -24,7 +28,7 @@ if (!empty($username) && !empty($password)) {
     }
     $num_ligne = mysqli_num_rows($req);
     if ($num_ligne > 0) {
-        header("Location: bienvenue.php");
+        header("Location: ../../Welcome/Welcome.php");
     } else {
         echo "Adresse mail ou mot de passe incorrect";
     }
