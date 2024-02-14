@@ -13,6 +13,21 @@ body{
 a {
     @apply lg:shrink-0;
 }
+button[type=button]{
+    @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
+}
+input[type=range] {
+    @apply w-[70%] appearance-none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;    
+}
+input[type=range]::-webkit-slider-thumb {
+    @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
+}
+input[type=date]{
+    @apply accent-green-header;
+}
 .navbar{
     @apply flex justify-between box-border h-[60px] sm:h-[115px] w-screen bg-green-filter max-[850px]:p-0;
 }
@@ -42,6 +57,10 @@ a {
     @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[850px]:block max-[850px]:z-50;
 }
 
+/* full-runway */
+.full-runway{
+    @apply grid max-[850px]:grid-cols-1 grid-cols-2 max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
+}
 /* filter */
 .search_bar{
     @apply block h-7 w-full flex;  
@@ -72,15 +91,6 @@ a {
 }
 .search_range {
     @apply flex justify-around;
-}
-button[type=button]{
-    @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
-}
-input[type=range]{
-    @apply cursor-pointer;
-}
-input[type=date]{
-    @apply accent-green-header;
 }
 
 .parent-filter{
@@ -153,7 +163,112 @@ input[type=date]{
         @apply bg-green-button;
     }
 }
+/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
+.runway-container-intern-details {
+    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block align-top;
+}
+
+.container-intern-details {
+    @apply overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
+}
+
+.container-div-par-intern-details {
+    @apply h-auto mb-10 ml-20 mr-20;
+}
+
+.container-close-tab {
+    
+}
+
+.close-tab-logo-picture {
+    @apply inline lg:inline-block h-[23px] w-auto;
+}
+
+.button-close-tab {
+    @apply mt-2 ml-[985px] inline lg:inline-block;
+}
+
+.header-intern-details {
+    @apply mb-5;
+}
+
+.company-logo-picture {
+    @apply inline-block h-[103px] w-auto;
+}
+
+.unselected-wishlist-logo-picture {
+    @apply inline-block h-[43px] w-auto cursor-pointer;
+}
+
+.selected-wishlist-logo-picture {
+    @apply h-[43px] w-auto cursor-pointer hidden;
+}
+
+.is-selected {
+    @apply inline-block;
+}
+
+.remove-wishlist-picture{
+    @apply hidden;
+}
+
+.container-header-intern-details {
+    @apply inline-block text-center text-5xl mx-[160px];
+}
+
+.container-left-informations {
+    @apply inline-block w-[436px] text-2xl; 
+}
+
+.container-left-informations h1 {
+    @apply underline underline-offset-4;
+}
+
+.container-left-informations a {
+    @apply underline font-bold;
+}
+
+.container-right-informations {
+    @apply inline-block w-auto align-top;
+}
+
+.container-right-informations p {
+    @apply text-3xl underline underline-offset-4 py-6;
+}
+
+.container-skills-details{
+    @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
+}
+.container-skills-details div{
+    @apply  text-2xl w-[176px] h-[55px] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
+}
+
+.button-postuler {
+    @apply cursor-pointer bg-green-true_btn w-[337px] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
+}
+
+.button-postuler:hover {
+    @apply cursor-pointer bg-green-true_btn w-[337px] h-[64px] text-3xl rounded-2xl outline outline-green-2 outline-4 shadow-2xl;
+}
+
+.container1-bottom-informations {
+    @apply my-10 text-2xl;
+}
+
+.container1-bottom-informations h1 {
+    @apply underline underline-offset-4;
+}
+
+.container2-bottom-informations {
+    @apply text-2xl;
+}
+
+.container2-bottom-informations h1 {
+    @apply underline underline-offset-4;
+}
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 
 /* footer */
 footer{
