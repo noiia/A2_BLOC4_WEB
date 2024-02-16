@@ -59,11 +59,6 @@ module.exports = {
       'xl' : '1280px',
       '2xl' : '1536px',
     },
-    extend:{
-      backgroundImage:{
-        'login': "url('../../Assets/Background/login.gif')"
-      }
-    }
   },
   plugins: [
     require('tailwindcss'),

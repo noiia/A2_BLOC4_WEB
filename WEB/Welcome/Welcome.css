@@ -10,11 +10,71 @@
 body{
     @apply inline-block;
 }
+
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+body::-webkit-scrollbar-thumb{
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+
 a {
     @apply lg:shrink-0;
 }
+button[type=button]{
+    @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
+}
+input[type=range] {
+    @apply w-[70%] appearance-none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;    
+}
+input[type=range]::-webkit-slider-thumb {
+    @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
+}
+input[type=date]{
+    @apply accent-green-header;
+}
 .navbar{
-    @apply flex justify-between box-border h-[60px] sm:h-[115px] w-screen bg-green-filter max-[850px]:p-0;
+    @apply flex justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-green-filter max-[850px]:p-0;
 }
 .navbar-logo{
     @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
@@ -44,7 +104,7 @@ a {
 
 /* full-runway */
 .full-runway{
-    @apply grid max-[850px]:grid-cols-1 grid-cols-2 max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
+    @apply grid max-[850px]:grid-cols-1 grid-cols-[40%_60%] max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
 }
 /* filter */
 .search_bar{
@@ -77,27 +137,18 @@ a {
 .search_range {
     @apply flex justify-around;
 }
-button[type=button]{
-    @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
-}
-input[type=range]{
-    @apply cursor-pointer;
-}
-input[type=date]{
-    @apply accent-green-header;
-}
 
 .parent-filter{
-    @apply absolute top-[120px] max-[500px]:top-[65px] hidden ml:inline-block w-[300px] max-[850px]:mx-auto;
+    @apply absolute top-[120px] max-[500px]:top-[65px] hidden lg:inline-block w-[300px];
 }
 .filter{
-    @apply h-[998px] max-ml:mt-1 w-4/5 left-[24%] ml:left-[10%] ml:ml-4 mt-10 relative;
+    @apply h-[998px] max-lg:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
 }
 #general-search_bar, #general-button_search{
     @apply bg-secondary-filter_grey;
 }
 .filter-green{
-    @apply h-[950px] w-full mt-4 bg-green-filter max-[850px]:rounded-xl max-[850px]:mx-auto;
+    @apply h-[950px] w-full mt-4 bg-green-filter;
 }
 .filter-location, .filter-skills, .filter-company{
     @apply h-[116px] w-full px-1;
@@ -112,7 +163,7 @@ input[type=date]{
     @apply flex justify-center h-[45px] w-full px-1;
 }
 .filter-mobile_on-filter{
-    @apply inline-block w-[350px] ml:w-[425px];
+    @apply inline-block w-[350px] sm:w-[425px];
 }
 .filter-mobile_on-container{
     @apply mt-[1000px];
@@ -120,10 +171,10 @@ input[type=date]{
 
 /* runway */
 .runway-container{
-    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto ml:ml-[320px] inline-block;
+    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px] inline-block;
 }
 .filter-button{
-    @apply inline-block mt-5 ml:hidden left-[10%] relative;
+    @apply inline-block mt-5 lg:hidden left-[10%] relative;
 }
 .container{
     @apply my-5 z-40 items-stretch flex;
@@ -160,11 +211,11 @@ input[type=date]{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-container-intern-details {
-    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block align-top;
+    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block grid-cols-2;
 }
 
 .container-intern-details {
-    @apply overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
+    @apply sticky top-7 overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
 }
 
 .container-div-par-intern-details {
@@ -266,7 +317,7 @@ input[type=date]{
 
 /* footer */
 footer{
-    @apply bg-secondary-footer_black h-[1050px] w-screen lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
+    @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
 }
 footer h1{
     @apply text-secondary-true_white text-xl;
@@ -278,7 +329,7 @@ footer div{
     @apply py-[30px] text-center lg:text-left;
 }
 .footer-logo-picture{
-    @apply inline-block px-10 h-auto ml:h-[60px] transition-all my-[20px];
+    @apply inline-block h-auto lg:h-[60px] transition-all my-[20px];
 }
 .footer-society-list {
     @apply ml-[100px] inline lg:inline-block;

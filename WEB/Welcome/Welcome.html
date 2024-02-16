@@ -67,6 +67,7 @@ if ($username != "") {
 
 <body>
     <div class="full-runway">
+    <div class="runway-elements">
         <div class="parent-filter">
             <div class="filter">
                 <div class="search_bar">
@@ -432,18 +433,18 @@ if ($username != "") {
     <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
 
     <div class="runway-container-intern-details">
-        <div class="container-intern-details second-scroll-bar">
+        <div class="container-intern-details second-scrollbar">
             <div class="container-close-tab">
                 <button class="button-close-tab" id="button-close-tab">
-                    <img src="../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
+                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
                 </button>
             </div>
             <div class="container-div-par-intern-details">
                 <div class="header-intern-details">
-                    <img src="../Assets/Icones/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
+                    <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
                     <h1 class="container-header-intern-details"> Commercial H/F</h1>
-                    <img src="../Assets/Icones/contour-en-forme-de-coeur.png" alt="logo wishlist" class="unselected-wishlist-logo-picture">
-                    <img src="../Assets/Icones/contour-en-forme-de-coeur-selected.png" alt="logo wishlist" class="selected-wishlist-logo-picture">
+                    <img src="../../Assets/Icones/contour-en-forme-de-coeur.png" alt="logo wishlist" class="unselected-wishlist-logo-picture">
+                    <img src="../../Assets/Icones/contour-en-forme-de-coeur-selected.png" alt="logo wishlist" class="selected-wishlist-logo-picture">
                 </div>
 
                 <div class="container-left-informations">
@@ -485,7 +486,10 @@ if ($username != "") {
             </div>
         </div>
     </div>
+</div>
 </body>
+
+<!-- -------------------------------LA FIN DE LA BUBULLE FAITE PAR STEPHAN------------------------- -->
 
 <link href="http://e0.extreme-dm.com/s9.g?login=daoudi&jv=n&j=y&srw=1920&srb=24&l=https%3A//www.adaoudi.com/">
 <footer>
@@ -555,5 +559,24 @@ if ($username != "") {
 
     menuHamburger.addEventListener('click', () => { navbarLinks.classList.toggle('mobile-menu') })
 </script>
+
+<!-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- -->
+
+<script>
+    const unselectedWishlist = document.querySelector(".unselected-wishlist-logo-picture");
+    const selectedWishlist = document.querySelector(".selected-wishlist-logo-picture");
+
+    unselectedWishlist.addEventListener('click', () => {
+        unselectedWishlist.classList.add('remove-wishlist-picture');
+        selectedWishlist.classList.add('is-selected');
+    });
+
+    selectedWishlist.addEventListener('click', () => {
+        selectedWishlist.classList.remove('is-selected');
+        unselectedWishlist.classList.remove('remove-wishlist-picture');
+    });
+</script>
+
+<!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
 
 </html>
