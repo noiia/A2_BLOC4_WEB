@@ -602,10 +602,6 @@ input[type=range]::-webkit-slider-thumb{
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
-input[type=date]{
-  accent-color: #94C676;
-}
-
 .navbar{
   box-sizing: border-box;
   display: flex;

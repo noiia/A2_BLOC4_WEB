@@ -10,6 +10,51 @@
 body{
     @apply inline-block;
 }
+
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+body::-webkit-scrollbar-thumb{
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+
 a {
     @apply lg:shrink-0;
 }
@@ -29,7 +74,7 @@ input[type=date]{
     @apply accent-green-header;
 }
 .navbar{
-    @apply flex justify-between box-border h-[60px] sm:h-[115px] w-screen bg-green-filter max-[850px]:p-0;
+    @apply flex justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-green-filter max-[850px]:p-0;
 }
 .navbar-logo{
     @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
@@ -59,7 +104,7 @@ input[type=date]{
 
 /* full-runway */
 .full-runway{
-    @apply grid max-[850px]:grid-cols-1 grid-cols-2 max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
+    @apply grid max-[850px]:grid-cols-1 grid-cols-[40%_60%] max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
 }
 /* filter */
 .search_bar{
@@ -166,11 +211,11 @@ input[type=date]{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-container-intern-details {
-    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block align-top;
+    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block grid-cols-2;
 }
 
 .container-intern-details {
-    @apply overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
+    @apply sticky top-7 overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
 }
 
 .container-div-par-intern-details {
@@ -272,7 +317,7 @@ input[type=date]{
 
 /* footer */
 footer{
-    @apply bg-secondary-footer_black h-[1050px] w-screen lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
+    @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10; 
 }
 footer h1{
     @apply text-secondary-true_white text-xl;
