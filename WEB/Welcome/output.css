@@ -554,6 +554,54 @@ body{
   display: inline-block;
 }
 
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar{
+  width: 15px;
+}
+
+body::-webkit-scrollbar-thumb{
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185,185,185);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track{
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+  width: 15px;
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb{
+  margin-block: 20px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185,185,185);
+  border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track{
+  margin-block: 20px;
+  border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+
 @media (min-width: 1024px){
   a{
     flex-shrink: 0;
@@ -606,7 +654,7 @@ input[type=range]::-webkit-slider-thumb{
   box-sizing: border-box;
   display: flex;
   height: 60px;
-  width: 100vw;
+  width: 99.2dvw;
   justify-content: space-between;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -778,7 +826,7 @@ input[type=range]::-webkit-slider-thumb{
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 40% 60%;
 }
 
 @media (max-width: 850px){
@@ -1146,7 +1194,7 @@ input[type=range]::-webkit-slider-thumb{
   margin-right: auto;
   display: inline-block;
   height: auto;
-  vertical-align: top;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   font-weight: 500;
 }
 
@@ -1165,6 +1213,8 @@ input[type=range]::-webkit-slider-thumb{
 }
 
 .container-intern-details{
+  position: sticky;
+  top: 1.75rem;
   margin-top: 1.25rem;
   height: 830px;
   overflow-y: auto;
@@ -1183,9 +1233,6 @@ input[type=range]::-webkit-slider-thumb{
   margin-left: 5rem;
   margin-right: 5rem;
   height: auto;
-}
-
-.container-close-tab {
 }
 
 .close-tab-logo-picture{
@@ -1371,13 +1418,139 @@ input[type=range]::-webkit-slider-thumb{
 
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 
+/* -------------------------------BULLE POSTULER -----------------------------*/
+
+.when_apply{
+  --tw-blur: blur(4px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.apply-bg{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+}
+
+.apply-block{
+  position: relative;
+  top: 12.5%;
+  left: 12.5%;
+  height: 75%;
+  width: 75%;
+  border-radius: 1rem;
+  border-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(57 163 37 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+}
+
+.apply-top{
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  height: 16.666667%;
+  width: 75%;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(57 163 37 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.apply-bottom{
+  position: relative;
+  margin-top: 1.25rem;
+  display: flex;
+  height: 72%;
+  flex-direction: row;
+}
+
+.apply-motivation{
+  position: relative;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  width: 50%;
+  border-radius: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.apply-motivation_letter{
+  position: relative;
+  height: 90%;
+  width: 95%;
+  resize: none;
+  border-radius: 1.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.apply-motivation_letter:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+#apply-text_center{
+  position: relative;
+  top: 50%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 1.25rem;
+}
+
+.apply-right{
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 40%;
+  flex-direction: column;
+}
+
+.apply-block_docs{
+  position: relative;
+  margin-right: 2rem;
+  height: 80%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 129 249 / var(--tw-bg-opacity));
+}
+
+.apply-right button{
+  position: relative;
+  top: 5%;
+  margin-right: 2rem;
+  align-self: center;
+}
+
+/*--------------------------------FIN BULLE POSTULER --------------------------*/
+
 /* footer */
 
 footer{
   z-index: 10;
   margin-top: 2.5rem;
   height: 1050px;
-  width: 100vw;
+  width: 99.2dvw;
   --tw-bg-opacity: 1;
   background-color: rgb(37 37 37 / var(--tw-bg-opacity));
 }
