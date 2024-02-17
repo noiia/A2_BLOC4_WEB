@@ -174,7 +174,7 @@ input[type=date]{
 .container-close-tab {
     
 }
-
+ 
 .close-tab-logo-picture {
     @apply inline lg:inline-block h-[23px] w-auto;
 }

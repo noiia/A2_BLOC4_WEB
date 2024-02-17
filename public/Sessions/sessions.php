@@ -1,4 +1,6 @@
 <?php
+namespace App\Controller;
+
 class Session
 {
     const SESSION_STARTED = TRUE;
