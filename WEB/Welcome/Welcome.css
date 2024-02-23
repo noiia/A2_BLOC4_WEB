@@ -321,31 +321,31 @@ input[type=range]::-webkit-slider-thumb {
     @apply fixed;
 }
 .postulation-block{
-    @apply relative w-3/4 h-3/4 top-[12.5%] left-[12.5%] bg-secondary-white border-4 border-green-button rounded-2xl;
+    @apply relative bg-secondary-white border-4 border-green-button rounded-2xl ml:w-3/4 ml:h-3/4 ml:top-[12.5%] ml:left-[12.5%] h-[98%] w-[90%] top-[1%] left-[5%];
 }
 .postulation-top{
-    @apply inline-block w-3/4 h-1/6 mx-[12.5%] my-5 text-xl bg-secondary-white border-4 border-green-button rounded-3xl text-center align-middle overflow-hidden;
+    @apply inline-block text-xl bg-secondary-white border-4 border-green-button rounded-3xl text-center align-middle overflow-hidden ml:w-3/4 h-1/6 ml:mx-[12.5%] my-5 w-5/6 mx-[8.333%];
 }
 .postulation-top img{
     @apply absolute top-1 right-2 h-6 cursor-pointer;
 }
 .postulation-bottom{
-    @apply relative flex flex-row h-[72%] mt-5;
+    @apply relative flex ml:flex-row ml:h-[72%] flex-col h-[77%];
 }
 .postulation-motivation{
-    @apply relative w-1/2 mb-2 bg-green-header rounded-3xl ml-8 text-center text-lg;
+    @apply relative bg-green-header rounded-3xl text-center ml:text-lg ml:w-1/2 ml:mb-2 ml:ml-8 w-[98%] h-full mx-[1%];
 }
 .postulation-motivation_letter{
-    @apply relative w-[95%] h-[90%] bg-secondary-white rounded-3xl text-base focus:outline-none px-2 py-1 resize-none;
+    @apply relative w-[95%] ml:h-[90%] h-[87%] bg-secondary-white rounded-3xl text-base focus:outline-none px-2 py-1 resize-none;
 }
 #postulation-text_center{
-    @apply relative top-1/2 h-5 mx-4;
+    @apply relative ml:top-1/2 ml:h-5 ml:mx-4 max-ml:left-1/2 max-ml:my-3;
 }
 .postulation-right{
-    @apply relative flex flex-col w-[40%] h-full;
+    @apply relative flex flex-col h-full ml:w-[40%] w-full;
 }
 .postulation-block_docs{
-    @apply relative h-4/5 mr-8 bg-green-header text-center rounded-xl;
+    @apply relative h-4/5 bg-green-header text-center rounded-xl ml:mr-8 max-ml:mx-[1%];
 }
 .postulation-list_docs{
     @apply relative h-[90%] w-full flex flex-col;
@@ -360,7 +360,7 @@ input[type=range]::-webkit-slider-thumb {
     @apply relative inline-block bg-green-true_btn h-full cursor-pointer;
 }
 .postulation-right button{
-    @apply relative self-center mr-8 top-[5%];
+    @apply relative self-center top-[5%] ml:mr-8;
 }
 
 /*--------------------------------FIN BULLE POSTULER --------------------------*/

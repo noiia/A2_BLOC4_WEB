@@ -1443,10 +1443,10 @@ input[type=range]::-webkit-slider-thumb{
 
 .postulation-block{
   position: relative;
-  top: 12.5%;
-  left: 12.5%;
-  height: 75%;
-  width: 75%;
+  top: 1%;
+  left: 5%;
+  height: 98%;
+  width: 90%;
   border-radius: 1rem;
   border-width: 4px;
   --tw-border-opacity: 1;
@@ -1455,14 +1455,23 @@ input[type=range]::-webkit-slider-thumb{
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
 }
 
+@media (min-width: 850px){
+  .postulation-block{
+    top: 12.5%;
+    left: 12.5%;
+    height: 75%;
+    width: 75%;
+  }
+}
+
 .postulation-top{
-  margin-left: 12.5%;
-  margin-right: 12.5%;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+  margin-left: 8.333%;
+  margin-right: 8.333%;
   display: inline-block;
   height: 16.666667%;
-  width: 75%;
+  width: 83.333333%;
   overflow: hidden;
   border-radius: 1.5rem;
   border-width: 4px;
@@ -1476,6 +1485,14 @@ input[type=range]::-webkit-slider-thumb{
   line-height: 1.75rem;
 }
 
+@media (min-width: 850px){
+  .postulation-top{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+  }
+}
+
 .postulation-top img{
   position: absolute;
   top: 0.25rem;
@@ -1486,28 +1503,43 @@ input[type=range]::-webkit-slider-thumb{
 
 .postulation-bottom{
   position: relative;
-  margin-top: 1.25rem;
   display: flex;
-  height: 72%;
-  flex-direction: row;
+  height: 77%;
+  flex-direction: column;
+}
+
+@media (min-width: 850px){
+  .postulation-bottom{
+    height: 72%;
+    flex-direction: row;
+  }
 }
 
 .postulation-motivation{
   position: relative;
-  margin-bottom: 0.5rem;
-  margin-left: 2rem;
-  width: 50%;
+  margin-left: 1%;
+  margin-right: 1%;
+  height: 100%;
+  width: 98%;
   border-radius: 1.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(148 198 118 / var(--tw-bg-opacity));
   text-align: center;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+}
+
+@media (min-width: 850px){
+  .postulation-motivation{
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    width: 50%;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .postulation-motivation_letter{
   position: relative;
-  height: 90%;
+  height: 87%;
   width: 95%;
   resize: none;
   border-radius: 1.5rem;
@@ -1526,30 +1558,67 @@ input[type=range]::-webkit-slider-thumb{
   outline-offset: 2px;
 }
 
+@media (min-width: 850px){
+  .postulation-motivation_letter{
+    height: 90%;
+  }
+}
+
 #postulation-text_center{
   position: relative;
-  top: 50%;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  height: 1.25rem;
+}
+
+@media not all and (min-width: 850px){
+  #postulation-text_center{
+    left: 50%;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 850px){
+  #postulation-text_center{
+    top: 50%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 1.25rem;
+  }
 }
 
 .postulation-right{
   position: relative;
   display: flex;
   height: 100%;
-  width: 40%;
+  width: 100%;
   flex-direction: column;
+}
+
+@media (min-width: 850px){
+  .postulation-right{
+    width: 40%;
+  }
 }
 
 .postulation-block_docs{
   position: relative;
-  margin-right: 2rem;
   height: 80%;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(148 198 118 / var(--tw-bg-opacity));
   text-align: center;
+}
+
+@media not all and (min-width: 850px){
+  .postulation-block_docs{
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+}
+
+@media (min-width: 850px){
+  .postulation-block_docs{
+    margin-right: 2rem;
+  }
 }
 
 .postulation-list_docs{
@@ -1595,8 +1664,13 @@ input[type=range]::-webkit-slider-thumb{
 .postulation-right button{
   position: relative;
   top: 5%;
-  margin-right: 2rem;
   align-self: center;
+}
+
+@media (min-width: 850px){
+  .postulation-right button{
+    margin-right: 2rem;
+  }
 }
 
 /*--------------------------------FIN BULLE POSTULER --------------------------*/
