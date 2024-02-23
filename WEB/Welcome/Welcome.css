@@ -308,37 +308,58 @@ input[type=range]::-webkit-slider-thumb {
 
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 /* -------------------------------BULLE POSTULER -----------------------------*/
-.when_apply{
+.when_postulation{
     @apply blur-sm;
 }
-.apply-bg{
-    @apply fixed w-full h-full top-0 left-0 z-50;
+.postulation-bg{
+    @apply w-full h-full top-0 left-0 z-50;
 }
-.apply-block{
+.postulation-off{
+    @apply hidden;
+}
+.postulation-on{
+    @apply fixed;
+}
+.postulation-block{
     @apply relative w-3/4 h-3/4 top-[12.5%] left-[12.5%] bg-secondary-white border-4 border-green-button rounded-2xl;
 }
-.apply-top{
+.postulation-top{
     @apply inline-block w-3/4 h-1/6 mx-[12.5%] my-5 text-xl bg-secondary-white border-4 border-green-button rounded-3xl text-center align-middle overflow-hidden;
 }
-.apply-bottom{
+.postulation-top img{
+    @apply absolute top-1 right-2 h-6 cursor-pointer;
+}
+.postulation-bottom{
     @apply relative flex flex-row h-[72%] mt-5;
 }
-.apply-motivation{
+.postulation-motivation{
     @apply relative w-1/2 mb-2 bg-green-header rounded-3xl ml-8 text-center text-lg;
 }
-.apply-motivation_letter{
+.postulation-motivation_letter{
     @apply relative w-[95%] h-[90%] bg-secondary-white rounded-3xl text-base focus:outline-none px-2 py-1 resize-none;
 }
-#apply-text_center{
+#postulation-text_center{
     @apply relative top-1/2 h-5 mx-4;
 }
-.apply-right{
+.postulation-right{
     @apply relative flex flex-col w-[40%] h-full;
 }
-.apply-block_docs{
-    @apply relative h-4/5 mr-8 bg-blue-links;
+.postulation-block_docs{
+    @apply relative h-4/5 mr-8 bg-green-header text-center rounded-xl;
 }
-.apply-right button{
+.postulation-list_docs{
+    @apply relative h-[90%] w-full flex flex-col;
+}
+.postulation-docs{
+    @apply relative flex justify-between bg-secondary-filter_grey h-7 mx-2 mt-1 pl-1 items-center overflow-y-hidden;
+}
+.postulation-docs p{
+    @apply text-blue-links underline cursor-pointer overflow-hidden;
+}
+.postulation-docs img{
+    @apply relative inline-block bg-green-true_btn h-full cursor-pointer;
+}
+.postulation-right button{
     @apply relative self-center mr-8 top-[5%];
 }
 
