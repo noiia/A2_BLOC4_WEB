@@ -26,37 +26,37 @@ if ($username != "") {
 }
 ?>
 
-
 <header>
     <nav class="navbar">
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
         <img src="../../Assets/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
-        <div class="navbar-links">
-            <ul>
-                <li>
-                    <a href="">
-                        <span aria-hidden="true">Stages</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span aria-hidden="true">Entreprises</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <span aria-hidden="true">Statistiques</span>
-                    </a>
-                </li>
-                <li>
-                    <a <?php echo $ProfilLink ?>>
-                        <span aria-hidden="true">
-                            <?php echo $ProfilValue ?>
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <div class="navbar-links">
+                <div class="navbar-current">
+                <a href="../Welcome/Welcome.php">Stages</a>
+                <label class="label">**********</label>
+                </div>
+                <a href="../Welcome/Entreprises.php">Entreprises</a>
+                <div class="dropdown1">
+                <button class="dropdown-btn">Statistiques</button>
+                <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo-1">
+                <div class="dropdown-items1">
+                    <a href="#">Entreprise</a>
+                    <a href="#">Stages</a>
+                    <br>
+                </div>
+            </div>
+                    <div class="dropdown2">
+                    <button class="dropdown-btn">Prénom Nom</button>
+                    <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo-2">
+                    <div class="dropdown-items2">
+                        <a href="#">Mon Profil</a>
+                        <a href="#">Wishlist</a>
+                        <a href="../Login/login.php"><span>Déconnexion</span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+			<nav>
         <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
     </nav>
 </header>
@@ -66,7 +66,7 @@ if ($username != "") {
 
 
 <body>
-    <div class="full-runway">
+    <div class="full-runway" id="full-runway">
     <div class="runway-elements">
         <div class="parent-filter">
             <div class="filter">
@@ -234,7 +234,7 @@ if ($username != "") {
                 </div>
             </div>
         </div>
-        <div class="runway-container">
+        <div class="runway-container" id="runway-container">
             <div class="filter-mobile">
                 <button type="button" class="filter-button">Filtrer</button>
             </div>
@@ -428,12 +428,69 @@ if ($username != "") {
                     </div>
                 </span>
             </button>
+            <button class="container" id="container">
+                <span>
+                    <div class="container-intern" id="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <div class="container-skills">
+                                <ul>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </button>
+            <button class="container" id="container">
+                <span>
+                    <div class="container-intern" id="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <div class="container-skills">
+                                <ul>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </button>
+            <button class="container" id="container">
+                <span>
+                    <div class="container-intern" id="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <div class="container-skills">
+                                <ul>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                    <li>Js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </button> 
         </div>
     </div>
     <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
 
-    <div class="runway-container-intern-details">
-        <div class="container-intern-details second-scrollbar">
+    <div class="runway-container-intern-details" id="runway-container-intern-details">
+        <div class="container-intern-details second-scrollbar" id="container-intern-details">
             <div class="container-close-tab">
                 <button class="button-close-tab" id="button-close-tab">
                     <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
@@ -450,22 +507,22 @@ if ($username != "") {
                 <div class="container-left-informations">
                         <h1>Entreprise :</h1>
                         <p><a href="https://inter-net.loc/Entreprise/Orange">Orange</a></p>
-                        <h1>Emplacement :</h1>
+                        <h1>Emplacement:</h1>
                         <p>51500 - Reims</p>
-                        <h1>Niveau d'étude :</h1>
+                        <h1>Niveau d'étude:</h1>
                         <p>Bac+2</p>
-                        <h1>Salaire :</h1>
+                        <h1>Salaire:</h1>
                         <p>1000€ la semaine - 12€/h</p>
-                        <h1>Date de début du stage :</h1>
+                        <h1>Date de début du stage:</h1>
                         <p>31/01/2024</p>
-                        <h1>Durée du stage :</h1>
+                        <h1>Durée du stage:</h1>
                         <p>3 semaines</p>
                 </div>
                 <div class="container-right-informations">
                     <button class="button-postuler" id="button-postuler" value="Postuler">
                         Postuler
                     </button>
-                    <p>Compétences recherchées :</p>
+                    <p>Compétences recherchées:</p>
                     <div class="container-skills-details">
                         
                             <div>Suite office</div>
@@ -487,6 +544,7 @@ if ($username != "") {
         </div>
     </div>
 </div>
+<input id="button-retour-haut" type="button" class="retourHaut" value="REVENIR EN HAUT" onclick="retournerEnHaut()">
 </body>
 
 <!-- -------------------------------LA FIN DE LA BUBULLE FAITE PAR STEPHAN------------------------- -->
@@ -575,6 +633,54 @@ if ($username != "") {
         selectedWishlist.classList.remove('is-selected');
         unselectedWishlist.classList.remove('remove-wishlist-picture');
     });
+</script>
+
+<script>
+    const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
+    const containerInternDetails = document.querySelector(".container-intern-details");
+    const containerIntern = document.querySelector(".container-intern");
+
+    buttonCloseTab.addEventListener('click', () => {
+        containerInternDetails.classList.add('close-tab-clicked');
+    });
+
+    containerIntern.addEventListener('click', () => {
+        containerInternDetails.classList.remove('close-tab-clicked');
+    });
+
+    window.onscroll = function() {
+    afficherOuMasquerBouton();
+    calculRunwayDist();
+};
+
+function afficherOuMasquerBouton() {
+    var boutonRetourHaut = document.getElementById("button-retour-haut");
+
+    if (document.documentElement.scrollTop > 115) {
+        boutonRetourHaut.classList.add('retourHaut');
+        boutonRetourHaut.classList.remove('display-none');
+    } else {
+        boutonRetourHaut.classList.add('display-none');
+        boutonRetourHaut.classList.remove('retourHaut');
+    }
+}
+
+function retournerEnHaut() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+function calculRunwayDist(){
+    var runwayContainer = document.getElementById('runway-container');
+    var heightRunwayContainer = runwayContainer.clientHeight;
+    console.log(heightRunwayContainer);
+    var element = document.getElementById('runway-container-intern-details');
+    if (heightRunwayContainer < 750){
+        runwayContainer.style.height = 750 + 'px'; 
+    }else {
+        element.style.height = heightRunwayContainer + 'px';
+    }
+}
 </script>
 
 <!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->

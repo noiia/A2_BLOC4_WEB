@@ -14,7 +14,7 @@ body{
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar{
-    @apply w-[15px];
+    @apply w-[15px] max-xl:overflow-y-hidden;
 }
 
 body::-webkit-scrollbar-thumb{
@@ -73,8 +73,11 @@ input[type=range]::-webkit-slider-thumb {
 input[type=date]{
     @apply accent-green-header;
 }
+
+/* -----------------------DEBUT HEADER------------------------------- */
+
 .navbar{
-    @apply flex justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-green-filter max-[850px]:p-0;
+    @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
 }
 .navbar-logo{
     @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
@@ -83,32 +86,81 @@ input[type=date]{
     @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
 .navbar-links{
-    @apply flex items-center max-[850px]:z-10 max-[850px]:top-0 max-[850px]:left-0 max-[850px]:absolute max-[850px]:w-screen max-[850px]:bg-secondary-footer_grey max-[850px]:bg-opacity-100 max-[850px]:h-[100vh] max-[850px]:justify-center max-[850px]:items-center max-[850px]:ml-[200%] max-[850px]:transition-all sm:mr-10;
+    @apply flex items-center mt-3 max-ml:left-0 max-ml:absolute max-ml:w-screen max-ml:bg-secondary-footer_grey max-ml:bg-opacity-100 max-ml:h-[100vh] max-ml:justify-center max-ml:items-center max-ml:ml-[200%] max-ml:transition-all sm:mr-10 max-ml:flex-col;
+}
+.navbar-current{
+    @apply  flex flex-col items-center max-ml:items-center;
+}
+.navbar-current label{
+    @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-ml:hidden;
 }
 .mobile-menu{
-    @apply max-[850px]:ml-0 z-20;
+    @apply max-ml:ml-0 max-ml:h-[450px] z-20;
 }
-.navbar a{
-    @apply text-secondary-true_white no-underline top-0 text-[20px] font-semibold transition-all max-[850px]:z-50 max-[850px]:hover:text-green-button;
+.navbar-links a{
+    @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-ml:mb-[40px];
 }
-.navbar ul {
-    @apply flex max-[850px]:flex-col max-[850px]:flex max-[850px]:items-center;
+.dropdown1{
+    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] z-50;
 }
-.navbar ul li {
-    @apply my-[30px] list-none mx-5 max-[850px]:mx-[25px] max-[850px]:my-5 max-[850px]:text-[1.2em] max-[850px]:z-50;
+.dropdown2{
+    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] z-50;
+}
+.polygone-logo-1{
+    @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
+}
+.polygone-logo-2{
+    @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
+}
+.dropdown-items1{
+    @apply hidden absolute bg-green-volet min-w-6 w-full;
+}
+.dropdown-items2{
+    @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-ml:relative;
+}
+.dropdown-items1 a{
+    @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
+}
+.dropdown-items2 a{
+    @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
+}
+.dropdown-items1 a:hover{
+    @apply hover:text-green-button;
+}
+.dropdown-items2 a:hover{
+    @apply hover:text-green-button;
+}
+.dropdown-items1:hover{
+    @apply max-ml:hidden;
+}
+.dropdown-items2:hover{
+    @apply max-ml:hidden;
+}
+.dropdown-items2 span{
+    @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-ml:mb-0 max-ml:absolute;
+}
+.dropdown-btn{
+    @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
+}
+.dropdown1:hover .dropdown-items1 {
+    @apply block max-ml:z-50;
+}
+.dropdown2:hover .dropdown-items2 {
+    display: block;
+}
+.navbar-hamburger{
+    @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-ml:block max-ml:z-50;
 }
 
-.navbar-hamburger{
-    @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[850px]:block max-[850px]:z-50;
-}
+/* -----------------------FIN HEADER------------------------------- */
 
 /* full-runway */
 .full-runway{
-    @apply grid max-[850px]:grid-cols-1 grid-cols-[40%_60%] max-[500px]:w-[300] max-[850px]:w-[450px] mx-auto;
+    @apply xl:grid xl:grid-cols-[500px_67.4%] 2xl:grid-cols-[800px_58%] max-[500px]:w-[350px] mx-auto;
 }
 /* filter */
 .search_bar{
-    @apply block h-7 w-full flex;  
+    @apply h-7 w-full flex;
 }
 .search_bar input[type=search]{
     @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
@@ -139,10 +191,10 @@ input[type=date]{
 }
 
 .parent-filter{
-    @apply absolute top-[120px] max-[500px]:top-[65px] hidden lg:inline-block w-[300px];
+    @apply absolute top-[120px] max-[500px]:top-[65px] hidden 2xl:inline-block w-[300px] xl:ml-[-25px];
 }
 .filter{
-    @apply h-[998px] max-lg:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
+    @apply h-[998px] max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
 }
 #general-search_bar, #general-button_search{
     @apply bg-secondary-filter_grey;
@@ -171,16 +223,16 @@ input[type=date]{
 
 /* runway */
 .runway-container{
-    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto lg:ml-[320px] inline-block;
+    @apply  relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto 2xl:ml-[295px] inline-block z-40;
 }
 .filter-button{
-    @apply inline-block mt-5 lg:hidden left-[10%] relative;
+    @apply inline-block mt-5 2xl:hidden left-[10%] relative;
 }
 .container{
     @apply my-5 z-40 items-stretch flex;
 }
 .container-intern{
-    @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-lg rounded-xl overflow-hidden lg:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+    @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
 }
 .container-div-para {
     @apply p-8;
@@ -210,16 +262,24 @@ input[type=date]{
 }
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
+.runway-elements {
+    @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
+}
+
+/* 
+mettre un bouton qui remet en haut de la page
+*/
+
 .runway-container-intern-details {
-    @apply font-medium h-auto sm:w-[1040px] mx-auto sm:mx-auto lg:ml-[55px] inline-block grid-cols-2;
+    @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px];
 }
 
 .container-intern-details {
-    @apply sticky top-7 overflow-y-auto h-[830px] mt-5 bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl;
+    @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
 }
 
 .container-div-par-intern-details {
-    @apply h-auto mb-10 ml-20 mr-20;
+    @apply w-[84%] h-auto mb-10 mx-[8%];
 }
 
 .container-close-tab {
@@ -227,27 +287,27 @@ input[type=date]{
 }
 
 .close-tab-logo-picture {
-    @apply inline lg:inline-block h-[23px] w-auto;
+    @apply inline-block h-[23px];
 }
 
 .button-close-tab {
-    @apply mt-2 ml-[985px] inline lg:inline-block;
+    @apply mt-2 ml-[96%] inline-block;
 }
 
 .header-intern-details {
-    @apply mb-5;
+    @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
 }
 
 .company-logo-picture {
-    @apply inline-block h-[103px] w-auto;
+    @apply inline-block h-[103px];
 }
 
 .unselected-wishlist-logo-picture {
-    @apply inline-block h-[43px] w-auto cursor-pointer;
+    @apply h-[43px] cursor-pointer;
 }
 
 .selected-wishlist-logo-picture {
-    @apply h-[43px] w-auto cursor-pointer hidden;
+    @apply h-[43px] cursor-pointer hidden;
 }
 
 .is-selected {
@@ -259,11 +319,11 @@ input[type=date]{
 }
 
 .container-header-intern-details {
-    @apply inline-block text-center text-5xl mx-[160px];
+    @apply text-center text-5xl;
 }
 
 .container-left-informations {
-    @apply inline-block w-[436px] text-2xl; 
+    @apply inline-block w-[50%] text-2xl;
 }
 
 .container-left-informations h1 {
@@ -275,7 +335,7 @@ input[type=date]{
 }
 
 .container-right-informations {
-    @apply inline-block w-auto align-top;
+    @apply inline-block w-[49%] align-top;
 }
 
 .container-right-informations p {
@@ -286,15 +346,15 @@ input[type=date]{
     @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
 }
 .container-skills-details div{
-    @apply  text-2xl w-[176px] h-[55px] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
+    @apply  text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
 }
 
 .button-postuler {
-    @apply cursor-pointer bg-green-true_btn w-[337px] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
+    @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
 }
 
 .button-postuler:hover {
-    @apply cursor-pointer bg-green-true_btn w-[337px] h-[64px] text-3xl rounded-2xl outline outline-green-2 outline-4 shadow-2xl;
+    @apply outline-green-2;
 }
 
 .container1-bottom-informations {
@@ -311,6 +371,18 @@ input[type=date]{
 
 .container2-bottom-informations h1 {
     @apply underline underline-offset-4;
+}
+
+.close-tab-clicked{
+    @apply hidden -z-0;
+}
+
+.display-none {
+    @apply hidden;
+}
+
+.retourHaut {
+    @apply fixed bottom-10 right-10 bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden;
 }
 
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
