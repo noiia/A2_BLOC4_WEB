@@ -67,13 +67,15 @@ if ($username != "") {
 
 <body>
     <div class="full-runway" id="full-runway">
+        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut()">
+            <img src="../../Assets/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
+        </button>
     <div class="runway-elements">
         <div class="parent-filter">
             <div class="filter">
                 <div class="search_bar">
                     <input type="search" placeholder="Rechercher" id="general-search_bar">
-                    <button type="button" id="general-button_search"><img src="../../Assets/Icones/logo_seul.png"
-                            alt="V" /></button>
+                    <button type="button" id="general-button_search"><img src="../../Assets/Icones/logo_seul.png"alt="V" /></button>
                 </div>
                 <div class="filter-green">
                     <div class="filter-location">
@@ -519,7 +521,7 @@ if ($username != "") {
                         <p>3 semaines</p>
                 </div>
                 <div class="container-right-informations">
-                    <button class="button-postuler" id="button-postuler" value="Postuler">
+                    <button class="button-postuler" id="button-postuler" value="Postuler"  onclick="block_postulation()">
                         Postuler
                     </button>
                     <p>Compétences recherchées:</p>
@@ -544,7 +546,40 @@ if ($username != "") {
         </div>
     </div>
 </div>
-<input id="button-retour-haut" type="button" class="retourHaut" value="REVENIR EN HAUT" onclick="retournerEnHaut()">
+<!-- ---------------------- POSTULER ------------------- -->
+    <div class="postulation-bg postulation-off">
+        <div class="postulation-block">
+            <div class="postulation-top">
+                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                Nous vous invitons à renseigner vos documents.
+                <img src="../../Assets/Icones/croix-supprimer-le-signe.png" onclick="block_postulation()"/>
+            </div>
+            <div class="postulation-bottom">
+                <div class="postulation-motivation">
+                    Ecrire sa lettre de motivation
+                    <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis intéressé par votre offre de stage..."></textarea>                        
+                </div>
+                <label id="postulation-text_center">ET/OU</label>
+                <div class="postulation-right">
+                    <div class="postulation-block_docs">
+                        Vos documents
+                        <div class="postulation-list_docs">
+                            <div class="postulation-docs">
+                                <p>CV.pdf</p>
+                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
+                            </div>
+                            <div class="postulation-docs">
+                                <p>lettre_motiv.pdf</p>
+                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <!-- -------------------------------LA FIN DE LA BUBULLE FAITE PAR STEPHAN------------------------- -->
@@ -659,21 +694,19 @@ function afficherOuMasquerBouton() {
     if (document.documentElement.scrollTop > 115) {
         boutonRetourHaut.classList.add('retourHaut');
         boutonRetourHaut.classList.remove('display-none');
-    } else {
+    }else {
         boutonRetourHaut.classList.add('display-none');
         boutonRetourHaut.classList.remove('retourHaut');
     }
 }
 
 function retournerEnHaut() {
-    document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
 function calculRunwayDist(){
     var runwayContainer = document.getElementById('runway-container');
     var heightRunwayContainer = runwayContainer.clientHeight;
-    console.log(heightRunwayContainer);
     var element = document.getElementById('runway-container-intern-details');
     if (heightRunwayContainer < 750){
         runwayContainer.style.height = 750 + 'px'; 
@@ -684,5 +717,20 @@ function calculRunwayDist(){
 </script>
 
 <!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
-
+<!-- ---------------   JS POSTULATION ------------------------ -->
+<script>
+    function block_postulation() {
+        const header = document.querySelector("header");
+        const body = document.querySelector(".full-runway");
+        const footer = document.querySelector("footer");
+        const postulation_div = document.querySelector(".postulation-bg");
+    
+        header.classList.toggle("when_postulation");
+        body.classList.toggle("when_postulation");
+        footer.classList.toggle("when_postulation");
+        postulation_div.classList.toggle("postulation-off");
+        postulation_div.classList.toggle("postulation-on");
+    }
+</script>
+    <!-- --------------FIN JS POSTULATION ------------------------ -->
 </html>
