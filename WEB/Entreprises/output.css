@@ -594,6 +594,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
+  cursor: default;
 }
 
 .second-scrollbar::-webkit-scrollbar-track {
@@ -604,6 +605,7 @@ body::-webkit-scrollbar-track:hover{
 .second-scrollbar::-webkit-scrollbar-track:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+  cursor: default;
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
@@ -1203,7 +1205,7 @@ input[type="date"]{
 
 .filter-green{
   margin-top: 1rem;
-  height: 950px;
+  height: 430px;
   width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -1352,6 +1354,7 @@ input[type="date"]{
 }
 
 .container-div-para{
+  position: relative;
   padding: 2rem;
 }
 
@@ -1527,118 +1530,6 @@ input[type="date"]{
   display: inline-block;
 }
 
-.remove-wishlist-picture{
-  display: none;
-}
-
-.container-header-intern-details{
-  text-align: center;
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.container-left-informations{
-  display: inline-block;
-  width: 50%;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.container-left-informations h1{
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
-.container-left-informations a{
-  font-weight: 700;
-  text-decoration-line: underline;
-}
-
-.container-right-informations{
-  display: inline-block;
-  width: 49%;
-  vertical-align: top;
-}
-
-.container-right-informations p{
-  margin-top: 46px;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
-.container-skills-details{
-  position: relative;
-  margin-top: 2rem;
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.container-skills-details div{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
-  padding: 0.75rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.button-postuler{
-  height: 64px;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 1rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  outline-style: solid;
-  outline-width: 4px;
-  outline-color: #000000;
-}
-
-.button-postuler:hover{
-  outline-color: #39A325;
-}
-
-.container1-bottom-informations{
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.container1-bottom-informations h1{
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
-.container2-bottom-informations{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.container2-bottom-informations h1{
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
 .close-tab-clicked{
   z-index: 0;
   display: none;
@@ -1673,264 +1564,228 @@ input[type="date"]{
   }
 }
 
-/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+/* DEBUT ENTREPRISES */
 
-/* -------------------------------BULLE POSTULER -----------------------------*/
-
-.when_postulation{
-  --tw-blur: blur(4px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+.container-header-company-details{
+  margin-left: 8%;
+  margin-right: 8%;
+  height: auto;
 }
 
-.postulation-bg{
-  top: 0px;
-  left: 0px;
-  z-index: 50;
-  height: 100%;
-  width: 100%;
-}
-
-.postulation-off{
-  display: none;
-}
-
-.postulation-on{
-  position: fixed;
-}
-
-.postulation-block{
-  position: relative;
-  top: 1%;
-  left: 5%;
-  height: 98%;
-  width: 90%;
-  border-radius: 1rem;
-  border-width: 4px;
-  --tw-border-opacity: 1;
-  border-color: rgb(57 163 37 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-}
-
-@media (min-width: 850px){
-  .postulation-block{
-    top: 12.5%;
-    left: 12.5%;
-    height: 75%;
-    width: 75%;
-  }
-}
-
-.postulation-top{
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  margin-left: 8.333%;
-  margin-right: 8.333%;
+.container-header-company-details h1{
+  margin-left: 25%;
+  margin-right: 25%;
   display: inline-block;
-  height: 16.666667%;
-  width: 83.333333%;
-  overflow: hidden;
-  border-radius: 1.5rem;
-  border-width: 4px;
-  --tw-border-opacity: 1;
-  border-color: rgb(57 163 37 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   text-align: center;
-  vertical-align: middle;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
-@media (min-width: 850px){
-  .postulation-top{
-    margin-left: 12.5%;
-    margin-right: 12.5%;
-    width: 75%;
-  }
+.container-company-details-left{
+  margin-left: 8%;
+  margin-top: 1rem;
+  display: inline-block;
+  height: auto;
+  width: 41%;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-.postulation-top img{
-  position: absolute;
-  top: 0.25rem;
-  right: 0.5rem;
-  height: 1.5rem;
-  cursor: pointer;
+.container-company-details-sites h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 
-.postulation-bottom{
-  position: relative;
-  display: flex;
-  height: 77%;
-  flex-direction: column;
+.container-company-details-student-number{
+  margin-top: 1rem;
 }
 
-@media (min-width: 850px){
-  .postulation-bottom{
-    height: 72%;
-    flex-direction: row;
-  }
+.container-company-details-student-number h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 
-.postulation-motivation{
-  position: relative;
-  margin-left: 1%;
-  margin-right: 1%;
-  height: 100%;
-  width: 98%;
-  border-radius: 1.5rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+.container-company-details-right{
+  margin-right: 8%;
+  margin-top: 1rem;
+  display: inline-block;
+  height: auto;
+  width: 41%;
   text-align: center;
+  vertical-align: top;
 }
 
-@media (min-width: 850px){
-  .postulation-motivation{
-    margin-bottom: 0.5rem;
-    margin-left: 2rem;
-    width: 50%;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
+.container-company-details-note{
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-.postulation-motivation_letter{
-  position: relative;
-  height: 87%;
-  width: 95%;
-  resize: none;
-  border-radius: 1.5rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.postulation-motivation_letter:focus{
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-@media (min-width: 850px){
-  .postulation-motivation_letter{
-    height: 90%;
-  }
-}
-
-#postulation-text_center{
-  position: relative;
-}
-
-@media not all and (min-width: 850px){
-  #postulation-text_center{
-    left: 50%;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-}
-
-@media (min-width: 850px){
-  #postulation-text_center{
-    top: 50%;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    height: 1.25rem;
-  }
-}
-
-.postulation-right{
-  position: relative;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-}
-
-@media (min-width: 850px){
-  .postulation-right{
-    width: 40%;
-  }
-}
-
-.postulation-block_docs{
-  position: relative;
-  height: 80%;
+.container-company-details-note-bar{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 0.75rem;
+  width: 80%;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+}
+
+.container-company-details-sector{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container-company-details-sector h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-company-details-sector-name ul{
+  margin-right: -5px;
+  margin-top: 0.25rem;
+  display: inline-block;
+  width: 50%;
+}
+
+.container-company-details-sector-name li{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: auto;
+  width: 91.666667%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   text-align: center;
 }
 
-@media not all and (min-width: 850px){
-  .postulation-block_docs{
-    margin-left: 1%;
-    margin-right: 1%;
-  }
+.container-company-details-description{
+  margin-left: 8%;
+  margin-top: 1rem;
+  height: auto;
+  width: 84%;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-@media (min-width: 850px){
-  .postulation-block_docs{
-    margin-right: 2rem;
-  }
-}
-
-.postulation-list_docs{
-  position: relative;
-  display: flex;
-  height: 90%;
-  width: 100%;
-  flex-direction: column;
-}
-
-.postulation-docs{
-  position: relative;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
-  display: flex;
-  height: 1.75rem;
-  align-items: center;
-  justify-content: space-between;
-  overflow-y: hidden;
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
-  padding-left: 0.25rem;
-}
-
-.postulation-docs p{
-  cursor: pointer;
-  overflow: hidden;
-  --tw-text-opacity: 1;
-  color: rgb(0 129 249 / var(--tw-text-opacity));
+.container-company-details-description h1{
   text-decoration-line: underline;
+  text-underline-offset: 4px;
 }
 
-.postulation-docs img{
-  position: relative;
-  display: inline-block;
-  height: 100%;
-  cursor: pointer;
+.container-company-details-intern{
+  margin-left: 8%;
+  margin-top: 1rem;
+  height: auto;
+  width: 84%;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container-company-details-intern h1{
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-company-details-container-details-button{
+  z-index: 40;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.container-company-details-container-details{
+  height: 200px;
+  width: 350px;
+  max-width: 42rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  outline-style: solid;
+  outline-color: #B9B9B9;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
-.postulation-right button{
-  position: relative;
-  top: 5%;
-  align-self: center;
+.container-company-details-container-details:hover{
+  transition-timing-function: linear;
 }
 
-@media (min-width: 850px){
-  .postulation-right button{
-    margin-right: 2rem;
+@media (min-width: 500px){
+  .container-company-details-container-details{
+    height: 250px;
+    width: 425px;
+  }
+
+  .container-company-details-container-details:hover{
+    --tw-scale-x: 1.1;
+    --tw-scale-y: 1.1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
 
-/*--------------------------------FIN BULLE POSTULER --------------------------*/
+@media (min-width: 1536px){
+  .container-company-details-container-details{
+    max-width: 42rem;
+  }
+}
+
+.container-company-intern-div-para{
+  position: relative;
+  padding: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.container-company-intern-skills{
+  position: relative;
+}
+
+@media (min-width: 500px){
+  .container-company-intern-skills{
+    margin-top: 2rem;
+  }
+}
+
+.container-company-intern-skills ul{
+  display: flex;
+}
+
+.container-company-intern-skills li{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: flex;
+  height: 38px;
+  width: 125px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+  padding: 0.75rem;
+}
+
+/* FIN ENTREPRISES * /
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+
+/* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
+
+.logo-company{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin-top: 2.25rem;
+  margin-right: 2.5rem;
+  height: 100px;
+  width: 100px;
+}
+
+/* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
 
 /* footer */
 

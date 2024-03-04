@@ -31,13 +31,13 @@ if ($username != "") {
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
         <img src="../../Assets/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
             <div class="navbar-links">
+<!-- -------------------------------------remettre en .php ------------------------------- -->
+                    <a href="../Welcome/Welcome.html">Stages</a>
+<!-- -------------------------------------remettre en .php ------------------------------- -->
                 <div class="navbar-current">
-<!-- -------------------------------------remettre en .php ------------------------------- -->
-                <a href="../Welcome/Welcome.html">Stages</a>
-                <label>**********</label>
+                    <a href="../Entreprises/Entreprises.html">Entreprises</a>
+                    <label>***************</label>
                 </div>
-<!-- -------------------------------------remettre en .php ------------------------------- -->
-                <a href="../Entreprises/Entreprises.html">Entreprises</a>
                 <div class="dropdown1">
                 <button class="dropdown-btn">Statistiques</button>
                 <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo-1">
@@ -99,9 +99,9 @@ if ($username != "") {
                             </ul>
                         </div>
                     </div>
-                    <div class="filter-skills">
+                    <div class="filter-skills"> <!-- changer nom classe -->
                         <div class="filter-any_search-top">
-                            <p>Compétences :</p>
+                            <p>Secteur d'activités :</p>
                             <div class="search_bar">
                                 <input type="search" placeholder="Rechercher">
                                 <button type="button"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
@@ -109,16 +109,16 @@ if ($username != "") {
                         </div>
                         <div class="filter-any_search-bot">
                             <ul>
-                                <li>Compétence 1</li>
-                                <li>comp 2</li>
+                                <li>Secteur 1</li>
+                                <li>Sec 2</li>
                             </ul>
                             <ul>
-                                <li>comp 3</li>
-                                <li>comp 4</li>
+                                <li>Sec 3</li>
+                                <li>Sec 4</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="filter-start_internship">
+                    <!-- <div class="filter-start_internship">
                         <div class="filter-any_search-top">
                             <p>Debut de l'offre :</p>
                         </div>
@@ -132,25 +132,19 @@ if ($username != "") {
                                 <input type="date" id="maximum_start_internship" inputmode="numeric" />
                             </div>
                         </div>
-                    </div>
-                    <div class="filter-duration_internship">
+                    </div> -->
+                    <div class="filter-promotion">
                         <div class="filter-any_search-top">
-                            <p>Durée du stage :</p>
+                            <p>Note de l'entreprise :</p>
                         </div>
                         <div class="filter-any_search-bot">
-                            <div class="search_min-max">
-                                <label for="minimum-duration_internship">Minimum</label>
-                                <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
-                                    max="26" placeholder="de 0 à 26 semaines" />
-                                <!--min à 0 et max à 26 car la loi l'impose-->
-                            </div>
-                            <div class="search_min-max">
-                                <label for="maximum-duration_internship">Maximum</label>
-                                <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
-                                    max="26" placeholder="de 0 à 26 semaines" />
+                            <div class="search_range">
+                                <input type="range" min="1" max="10" step="1" id="rangeInput" value="0">
+                                <span id="rangeValue">0/10</span>
                             </div>
                         </div>
                     </div>
+                    <!-- 
                     <div class="filter-company">
                         <div class="filter-any_search-top">
                             <p>Entreprises :</p>
@@ -169,18 +163,25 @@ if ($username != "") {
                                 <li>Entrep 4</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="filter-promotion">
+                    </div> -->
+                    <div class="filter-duration_internship">
                         <div class="filter-any_search-top">
-                            <p>Niveau d'études :</p>
+                            <p>Nombre d'étudiants reçus :</p>
                         </div>
                         <div class="filter-any_search-bot">
-                            <div class="search_range">
-                                <input type="range" min="0" max="8" step="1" id="rangeInput" value="0">
-                                <span id="rangeValue">Bac+0</span>
+                            <div class="search_min-max">
+                                <label for="minimum-duration_internship">Minimum</label>
+                                <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
+                                    placeholder="nombre minimum" />
+                            </div>
+                            <div class="search_min-max">
+                                <label for="maximum-duration_internship">Maximum</label>
+                                <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
+                                    placeholder="nombre maximum" />
                             </div>
                         </div>
                     </div>
+                    <!-- 
                     <div class="filter-max_places">
                         <div class="filter-any_search-top">
                             <p>Nombre de places :</p>
@@ -232,6 +233,7 @@ if ($username != "") {
                             </div>
                         </div>
                     </div>
+                    -->
                     <div class="filter-validate">
                         <button type="button">Valider</button>
                     </div>
@@ -246,10 +248,47 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
+                            <div class="container-skills">
+                                <ul>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
+                                </ul>
+                            </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
+                        </div>
+                    </div>
+                </span>
+            </button>
+            <button class="container" id="container">
+                <span>
+                    <div class="container-intern" id="container-intern">
+                        <div class="container-div-para">
+                            <img src="../../Assets/Icones/cesi-logo.png" alt="mini-company-logo" class="logo-company">
+                            <h1 class="container-h1">Cesi</h1>
+                            <p class="container-paragraph">Note: 12/10</p>
+                            <p class="container-paragraph">7 stages</p>
+                            <div class="container-skills">
+                                <ul>
+                                    <li>Js</li>
+                                    <li>PHP</li>
+                                    <li>Js</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </button>
+            <button class="container" id="container">
+                <span>
+                    <div class="container-intern" id="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Acé-mieu</h1>
+                            <p class="container-paragraph">Note: 50/10</p>
+                            <p class="container-paragraph">87145 stages</p>
                             <div class="container-skills">
                                 <ul>
                                     <li>Js</li>
@@ -265,17 +304,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -284,17 +323,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -303,17 +342,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -322,17 +361,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -341,17 +380,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -360,17 +399,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -379,17 +418,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -398,17 +437,17 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
@@ -417,81 +456,24 @@ if ($username != "") {
                 <span>
                     <div class="container-intern" id="container-intern">
                         <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
+                            <h1 class="container-h1">Orange</h1>
+                            <p class="container-paragraph">Note: 4/10</p>
+                            <p class="container-paragraph">3 Stages</p>
                             <div class="container-skills">
                                 <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
+                                    <li>Informatique</li>
+                                    <li>Transport</li>
+                                    <li>Électronique</li>
                                 </ul>
                             </div>
+                            <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="mini-company-logo" class="logo-company">
                         </div>
                     </div>
                 </span>
             </button>
-            <button class="container" id="container">
-                <span>
-                    <div class="container-intern" id="container-intern">
-                        <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
-                            <div class="container-skills">
-                                <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-            </button>
-            <button class="container" id="container">
-                <span>
-                    <div class="container-intern" id="container-intern">
-                        <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
-                            <div class="container-skills">
-                                <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-            </button>
-            <button class="container" id="container">
-                <span>
-                    <div class="container-intern" id="container-intern">
-                        <div class="container-div-para">
-                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
-                            <p class="container-paragraph">Orange - Reims</p>
-                            <p class="container-paragraph">Début = 31/01/2024</p>
-                            <p class="container-paragraph">3 semaines</p>
-                            <div class="container-skills">
-                                <ul>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                    <li>Js</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-            </button> 
         </div>
     </div>
-    <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
+    <!-- --------------------------------------------------------DEBUT BUBULLE ENTREPRISES------------------------------------------------------------------------- -->
 
     <div class="runway-container-intern-details" id="runway-container-intern-details">
         <div class="container-intern-details second-scrollbar" id="container-intern-details">
@@ -500,92 +482,73 @@ if ($username != "") {
                     <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
                 </button>
             </div>
-            <div class="container-div-par-intern-details">
-                <div class="header-intern-details">
-                    <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
-                    <h1 class="container-header-intern-details"> Commercial H/F</h1>
-                    <img src="../../Assets/Icones/contour-en-forme-de-coeur.png" alt="logo wishlist" class="unselected-wishlist-logo-picture">
-                    <img src="../../Assets/Icones/contour-en-forme-de-coeur-selected.png" alt="logo wishlist" class="selected-wishlist-logo-picture">
+            <div class="container-header-company-details">
+                <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
+                <h1>Orange</h1>
+            </div>
+            <div class="container-company-details-left">
+                <div class="container-company-details-sites">
+                    <h1>Site(s):</h1>
+                    <p>51100 - Reims</p>
+                    <p>75001 - Paris</p>
                 </div>
+                <div class="container-company-details-student-number">
+                    <h1>Nombre d'étudiants reçus:</h1>
+                    <p>525 étudiants</p>
+                </div>
+            </div>
+            <div class="container-company-details-right">
+                <div class="container-company-details-note">
+                    <h1>Note moyenne: 4/10</h1>
+                </div>
+                <div class="container-company-details-note-bar">
+                    <p>prout</p>
+                </div>
+                <div class="container-company-details-sector">
+                    <h1>Secteurs d'activités de l'entreprise:</h1>
+                </div>
+                <div class="container-company-details-sector-name"> <!-- filter-any_search-bot -->
+                    <ul>
+                        <li>Informatique / Télécoms</li>
+                        <li>Électronique / Électricité</li>
+                    </ul>
+                    <ul>
+                        <li>Transport / Logistique</li>
+                        <li>Service aux entreprises</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-company-details-description">
+                <h1>Description de l'entreprise:</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+            <div class="container-company-details-intern">
+                <h1>4 stages disponibles:</h1>
 
-                <div class="container-left-informations">
-                        <h1>Entreprise :</h1>
-                        <p><a href="https://inter-net.loc/Entreprise/Orange">Orange</a></p>
-                        <h1>Emplacement:</h1>
-                        <p>51500 - Reims</p>
-                        <h1>Niveau d'étude:</h1>
-                        <p>Bac+2</p>
-                        <h1>Salaire:</h1>
-                        <p>1000€ la semaine - 12€/h</p>
-                        <h1>Date de début du stage:</h1>
-                        <p>31/01/2024</p>
-                        <h1>Durée du stage:</h1>
-                        <p>3 semaines</p>
-                </div>
-                <div class="container-right-informations">
-                    <button class="button-postuler" id="button-postuler" value="Postuler"  onclick="block_postulation()">
-                        Postuler
-                    </button>
-                    <p>Compétences recherchées:</p>
-                    <div class="container-skills-details">
-                        
-                            <div>Suite office</div>
-                            <div>JS</div>
-                            <div>Autonomie</div>
-                            <div>Python</div>
-                            <div>PHP</div>
-                    </div>
-                </div>
-                <div class="container1-bottom-informations">
-                    <h1>Avantages :</h1>
-                    <p>Véhicule de fonction - Essence remboursée - Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée- Véhicule de fonction - Essence remboursée</p>
-                </div>
-                <div class="container2-bottom-informations">
-                    <h1>Description du poste :</h1>
-                    <p>Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Le poste vraiment trop cool là Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
+                <button class="container-company-details-container-details-button" id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details" id="container-company-details-container-details">
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Informatique</li>
+                                        <li>Transport</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                
             </div>
         </div>
     </div>
 </div>
-<!-- ---------------------- POSTULER ------------------- -->
-    <div class="postulation-bg postulation-off">
-        <div class="postulation-block">
-            <div class="postulation-top">
-                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
-                Nous vous invitons à renseigner vos documents.
-                <img src="../../Assets/Icones/croix-supprimer-le-signe.png" onclick="block_postulation()"/>
-            </div>
-            <div class="postulation-bottom">
-                <div class="postulation-motivation">
-                    Ecrire sa lettre de motivation
-                    <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis intéressé par votre offre de stage..."></textarea>                        
-                </div>
-                <label id="postulation-text_center">ET/OU</label>
-                <div class="postulation-right">
-                    <div class="postulation-block_docs">
-                        Vos documents
-                        <div class="postulation-list_docs">
-                            <div class="postulation-docs">
-                                <p>CV.pdf</p>
-                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
-                            </div>
-                            <div class="postulation-docs">
-                                <p>lettre_motiv.pdf</p>
-                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <button type="button" id="postulation-button_postulation">Postuler</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-<!-- -------------------------------LA FIN DE LA BUBULLE FAITE PAR STEPHAN------------------------- -->
-
+<!-- --------------------------------------------------------FIN BUBULLE ENTREPRISES------------------------------------------------------------------------- -->
 <link href="http://e0.extreme-dm.com/s9.g?login=daoudi&jv=n&j=y&srw=1920&srb=24&l=https%3A//www.adaoudi.com/">
 <footer>
     <div class="footer-logo">
@@ -630,7 +593,7 @@ if ($username != "") {
 <script>
     var rangeInput = document.getElementById("rangeInput");
     var rangeValue = document.getElementById("rangeValue");
-    rangeInput.addEventListener("input", function () { rangeValue.textContent = "Bac+" + this.value; });
+    rangeInput.addEventListener("input", function () { rangeValue.textContent = this.value + "/10"; });
 </script>
 <script>
     const filterShutter = document.querySelector(".filter-button")

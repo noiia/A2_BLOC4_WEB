@@ -203,7 +203,7 @@ input[type="date"] {
   @apply bg-secondary-filter_grey;
 }
 .filter-green {
-  @apply h-[950px] w-full mt-4 bg-green-filter;
+  @apply h-[430px] w-full mt-4 bg-green-filter;
 }
 .filter-location,
 .filter-skills,
@@ -244,7 +244,7 @@ input[type="date"] {
   @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
 }
 .container-div-para {
-  @apply p-8;
+  @apply relative p-8;
 }
 .container-h1 {
   @apply text-xl underline font-bold text-justify max-[500px]:leading-3;
@@ -318,65 +318,6 @@ input[type="date"] {
   @apply inline-block;
 }
 
-.remove-wishlist-picture {
-  @apply hidden;
-}
-
-.container-header-intern-details {
-  @apply text-center text-5xl;
-}
-
-.container-left-informations {
-  @apply inline-block w-[50%] text-2xl;
-}
-
-.container-left-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container-left-informations a {
-  @apply underline font-bold;
-}
-
-.container-right-informations {
-  @apply inline-block w-[49%] align-top;
-}
-
-.container-right-informations p {
-  @apply text-2xl underline underline-offset-4 mt-[46px];
-}
-
-.container-skills-details {
-  @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
-}
-.container-skills-details div {
-  @apply text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
-}
-
-.button-postuler {
-  @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
-}
-
-.button-postuler:hover {
-  @apply outline-green-2;
-}
-
-.container1-bottom-informations {
-  @apply my-10 text-2xl;
-}
-
-.container1-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container2-bottom-informations {
-  @apply text-2xl;
-}
-
-.container2-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
 .close-tab-clicked {
   @apply hidden z-0;
 }
@@ -393,64 +334,104 @@ input[type="date"] {
   @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
 }
 
-/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
-/* -------------------------------BULLE POSTULER -----------------------------*/
-.when_postulation {
-  @apply blur-sm;
-}
-.postulation-bg {
-  @apply w-full h-full top-0 left-0 z-50;
-}
-.postulation-off {
-  @apply hidden;
-}
-.postulation-on {
-  @apply fixed;
-}
-.postulation-block {
-  @apply relative bg-secondary-white border-4 border-green-button rounded-2xl ml:w-3/4 ml:h-3/4 ml:top-[12.5%] ml:left-[12.5%] h-[98%] w-[90%] top-[1%] left-[5%];
-}
-.postulation-top {
-  @apply inline-block text-xl bg-secondary-white border-4 border-green-button rounded-3xl text-center align-middle overflow-hidden ml:w-3/4 h-1/6 ml:mx-[12.5%] my-5 w-5/6 mx-[8.333%];
-}
-.postulation-top img {
-  @apply absolute top-1 right-2 h-6 cursor-pointer;
-}
-.postulation-bottom {
-  @apply relative flex ml:flex-row ml:h-[72%] flex-col h-[77%];
-}
-.postulation-motivation {
-  @apply relative bg-green-header rounded-3xl text-center ml:text-lg ml:w-1/2 ml:mb-2 ml:ml-8 w-[98%] h-full mx-[1%];
-}
-.postulation-motivation_letter {
-  @apply relative w-[95%] ml:h-[90%] h-[87%] bg-secondary-white rounded-3xl text-base focus:outline-none px-2 py-1 resize-none;
-}
-#postulation-text_center {
-  @apply relative ml:top-1/2 ml:h-5 ml:mx-4 max-ml:left-1/2 max-ml:my-3;
-}
-.postulation-right {
-  @apply relative flex flex-col h-full ml:w-[40%] w-full;
-}
-.postulation-block_docs {
-  @apply relative h-4/5 bg-green-header text-center rounded-xl ml:mr-8 max-ml:mx-[1%];
-}
-.postulation-list_docs {
-  @apply relative h-[90%] w-full flex flex-col;
-}
-.postulation-docs {
-  @apply relative flex justify-between bg-secondary-filter_grey h-7 mx-2 mt-1 pl-1 items-center overflow-y-hidden;
-}
-.postulation-docs p {
-  @apply text-blue-links underline cursor-pointer overflow-hidden;
-}
-.postulation-docs img {
-  @apply relative inline-block bg-green-true_btn h-full cursor-pointer;
-}
-.postulation-right button {
-  @apply relative self-center top-[5%] ml:mr-8;
+/* DEBUT ENTREPRISES */
+.container-header-company-details {
+  @apply mx-[8%] h-auto;
 }
 
-/*--------------------------------FIN BULLE POSTULER --------------------------*/
+.container-header-company-details h1{
+  @apply inline-block text-center text-4xl mx-[25%];
+}
+
+.container-company-details-left{
+  @apply inline-block ml-[8%] mt-4 h-auto text-2xl w-[41%];
+}
+
+.container-company-details-sites h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-student-number{
+  @apply mt-4;
+}
+
+.container-company-details-student-number h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-right {
+  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top text-center ;
+}
+
+.container-company-details-note {
+  @apply text-2xl;
+}
+.container-company-details-note-bar{
+  @apply bg-green-2 w-[80%] mt-3 mx-[10%] rounded-xl;
+}
+
+.container-company-details-sector{
+  @apply text-2xl mt-4;
+}
+
+.container-company-details-sector h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-sector-name ul {
+  @apply w-1/2 inline-block mr-[-5px] mt-1;
+}
+.container-company-details-sector-name li {
+  @apply rounded-xl bg-green-button text-center w-11/12 my-4 h-auto overflow-hidden;
+}
+
+.container-company-details-description {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-[84%];
+}
+
+.container-company-details-description h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-intern {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-[84%];
+}
+
+.container-company-details-intern h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-container-details-button {
+  @apply my-5 z-40 items-stretch flex;
+}
+
+.container-company-details-container-details {
+  @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+}
+
+.container-company-intern-div-para {
+  @apply relative p-8 text-sm;
+}
+
+.container-company-intern-skills {
+  @apply relative sm:mt-8;
+}
+.container-company-intern-skills ul {
+  @apply flex;
+}
+.container-company-intern-skills li {
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+}
+
+/* FIN ENTREPRISES * /
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+/* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
+.logo-company {
+  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10;
+}
+/* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
+
 /* footer */
 footer {
   @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10;
