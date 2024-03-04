@@ -613,6 +613,20 @@ if ($username != "") {
 </script>
 
 <!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
+<script>
+$(document).ready(function(){
+    $("#postulation-button_postulation").click(function(){
+        console.log("postulation");
+        var postulationValue = "postulation";
+        var welcomePHP = "Welcome.php";
+        data = {
+            action : postulationValue
+        };
+        $.post(welcomePHP, data, function(response){})
+    })
+})
+</script>
+
 <!-- ---------------   JS POSTULATION ------------------------ -->
 <script>
 function block_postulation() {
@@ -627,7 +641,6 @@ function block_postulation() {
     postulation_div.classList.toggle("postulation-off");
     postulation_div.classList.toggle("postulation-on");
 }
-
 </script>
 <!-- --------------FIN JS POSTULATION ------------------------ -->
 </html>

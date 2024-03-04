@@ -58,7 +58,7 @@ body::-webkit-scrollbar-track:hover{
 a {
     @apply lg:shrink-0;
 }
-button[type=button]{
+button[type=button], button[type=submit]{
     @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
 }
 input[type=range] {
