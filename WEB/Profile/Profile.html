@@ -9,37 +9,23 @@
     <title>Inter'net - Profile</title>
 </head>
 
+<script>
+    $(document).ready(function(){
+        var roleValue = "role";
+        var profilePHP = "Profile.php";
+        data = {
+            action : roleValue
+        };
+        $.post(profilePHP, data, function(response){
+            $(".main_left").append(response);
+        })
+    })
+</script>
+
 <body>
     <div class="main_left">
         <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
         <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
-        <div class="left_container">
-            <p>Etudiants</p>
-            <ul>
-                <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../WishList/WishList.html">WishList</a></li>
-                <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
-            </ul>
-        </div>
-        <div class="left_container">
-            <p>Pilote</p>
-            <ul>
-                <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../Students/Students.html">Mes étudiants</a></li>
-                <li><a href="../Company/Company.html">Mes entreprises</a></li>
-                <li><a href="../Internship/Internship.html">Mes stages</a></li>
-            </ul>
-        </div>
-        <div class="left_container">
-            <p>Admin</p>
-            <ul>
-                <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../Students/Students.html">Etudiants</a></li>
-                <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../Company/Company.html">Entreprises</a></li>
-                <li><a href="../WishList/WishList.html">WishList</a></li>
-            </ul>
-        </div>
     </div>
     <div class="main_right">
         <p id="right_title">Mon profil</p>
