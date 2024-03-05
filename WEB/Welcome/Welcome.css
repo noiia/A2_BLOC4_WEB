@@ -264,7 +264,8 @@ input[type="date"] {
   .container-skills li {
     @apply bg-green-button;
   }
-}/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
+}
+/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements {
     @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
