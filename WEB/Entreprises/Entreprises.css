@@ -8,13 +8,13 @@
   @apply font-display;
 }
 body {
-  @apply inline-block;
+  @apply inline-block overflow-x-hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar {
-  @apply w-[15px] max-xl:overflow-y-hidden;
+  @apply w-[15px];
 }
 
 body::-webkit-scrollbar-thumb {
@@ -56,6 +56,35 @@ body::-webkit-scrollbar-track:hover {
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
+
+/* --------------------- HORIZONTAL SCROLL BAR ------------- */
+
+.container-company-details-intern-second-scrollbar {
+  @apply h-[270px] w-[865px] px-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar {
+  @apply h-[15px] ml-2;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-secondary-scroll_bar_grey mx-5 mt-1;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
+  @apply mx-5 mt-1;
+  border-radius: 10px;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* --------------------- FIN HORIZONTAL SCROLL BAR ------------- */
 
 a {
   @apply lg:shrink-0;
@@ -203,7 +232,7 @@ input[type="date"] {
   @apply bg-secondary-filter_grey;
 }
 .filter-green {
-  @apply h-[430px] w-full mt-4 bg-green-filter;
+  @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
 }
 .filter-location,
 .filter-skills,
@@ -360,14 +389,14 @@ input[type="date"] {
 }
 
 .container-company-details-right {
-  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top text-center ;
+  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top ;
 }
 
 .container-company-details-note {
-  @apply text-2xl;
+  @apply text-2xl text-center;
 }
 .container-company-details-note-bar{
-  @apply bg-green-2 w-[80%] mt-3 mx-[10%] rounded-xl;
+  @apply bg-green-2 w-[80%] mt-3 mx-[10%] rounded-xl text-center;
 }
 
 .container-company-details-sector{
@@ -375,14 +404,14 @@ input[type="date"] {
 }
 
 .container-company-details-sector h1{
-  @apply underline underline-offset-4;
+  @apply underline underline-offset-4 text-center;
 }
 
 .container-company-details-sector-name ul {
   @apply w-1/2 inline-block mr-[-5px] mt-1;
 }
 .container-company-details-sector-name li {
-  @apply rounded-xl bg-green-button text-center w-11/12 my-4 h-auto overflow-hidden;
+  @apply rounded-xl text-center bg-green-button w-11/12 my-4 h-auto min-h-[50px] overflow-hidden;
 }
 
 .container-company-details-description {
@@ -394,30 +423,30 @@ input[type="date"] {
 }
 
 .container-company-details-intern {
-  @apply ml-[8%] mt-4 h-auto text-2xl w-[84%];
+  @apply ml-[8%] mt-4 h-auto text-2xl w-auto flex;
 }
 
-.container-company-details-intern h1{
-  @apply underline underline-offset-4;
+.container-company-details-intern-name h1{
+  @apply mt-4 ml-[8%] text-2xl underline underline-offset-4;
 }
 
 .container-company-details-container-details-button {
-  @apply my-5 z-40 items-stretch flex;
+  @apply flex-none my-5 z-40 items-stretch ml-2 mr-2;
 }
 
 .container-company-details-container-details {
-  @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+  @apply h-[214px] w-[290px] bg-secondary-white max-w-2xl rounded-xl 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
 }
 
 .container-company-intern-div-para {
-  @apply relative p-8 text-sm;
+  @apply relative p-4 text-sm;
 }
 
 .container-company-intern-skills {
   @apply relative sm:mt-8;
 }
 .container-company-intern-skills ul {
-  @apply flex;
+  @apply inline-flex;
 }
 .container-company-intern-skills li {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;

@@ -552,18 +552,13 @@ video {
 
 body{
   display: inline-block;
+  overflow-x: hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar{
   width: 15px;
-}
-
-@media not all and (min-width: 1280px){
-  body::-webkit-scrollbar{
-    overflow-y: hidden;
-  }
 }
 
 body::-webkit-scrollbar-thumb{
@@ -609,6 +604,50 @@ body::-webkit-scrollbar-track:hover{
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
+
+/* --------------------- HORIZONTAL SCROLL BAR ------------- */
+
+.container-company-details-intern-second-scrollbar{
+  display: flex;
+  height: 270px;
+  width: 865px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar{
+  margin-left: 0.5rem;
+  height: 15px;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-top: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-top: 0.25rem;
+  border-radius: 10px;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+  cursor: default;
+}
+
+/* --------------------- FIN HORIZONTAL SCROLL BAR ------------- */
 
 @media (min-width: 1024px){
   a{
@@ -1207,6 +1246,7 @@ input[type="date"]{
   margin-top: 1rem;
   height: 430px;
   width: 100%;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
 }
@@ -1611,11 +1651,11 @@ input[type="date"]{
   display: inline-block;
   height: auto;
   width: 41%;
-  text-align: center;
   vertical-align: top;
 }
 
 .container-company-details-note{
+  text-align: center;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -1628,6 +1668,7 @@ input[type="date"]{
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  text-align: center;
 }
 
 .container-company-details-sector{
@@ -1637,6 +1678,7 @@ input[type="date"]{
 }
 
 .container-company-details-sector h1{
+  text-align: center;
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
@@ -1652,6 +1694,7 @@ input[type="date"]{
   margin-top: 1rem;
   margin-bottom: 1rem;
   height: auto;
+  min-height: 50px;
   width: 91.666667%;
   overflow: hidden;
   border-radius: 0.75rem;
@@ -1677,13 +1720,18 @@ input[type="date"]{
 .container-company-details-intern{
   margin-left: 8%;
   margin-top: 1rem;
+  display: flex;
   height: auto;
-  width: 84%;
+  width: auto;
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
-.container-company-details-intern h1{
+.container-company-details-intern-name h1{
+  margin-top: 1rem;
+  margin-left: 8%;
+  font-size: 1.5rem;
+  line-height: 2rem;
   text-decoration-line: underline;
   text-underline-offset: 4px;
 }
@@ -1692,15 +1740,16 @@ input[type="date"]{
   z-index: 40;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  display: flex;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  flex: none;
   align-items: stretch;
 }
 
 .container-company-details-container-details{
-  height: 200px;
-  width: 350px;
+  height: 214px;
+  width: 290px;
   max-width: 42rem;
-  overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
@@ -1716,11 +1765,6 @@ input[type="date"]{
 }
 
 @media (min-width: 500px){
-  .container-company-details-container-details{
-    height: 250px;
-    width: 425px;
-  }
-
   .container-company-details-container-details:hover{
     --tw-scale-x: 1.1;
     --tw-scale-y: 1.1;
@@ -1736,7 +1780,7 @@ input[type="date"]{
 
 .container-company-intern-div-para{
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -1752,7 +1796,7 @@ input[type="date"]{
 }
 
 .container-company-intern-skills ul{
-  display: flex;
+  display: inline-flex;
 }
 
 .container-company-intern-skills li{
