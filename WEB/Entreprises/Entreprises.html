@@ -67,7 +67,7 @@ if ($username != "") {
 <!-- ! body -->
 
 
-<body>
+<body class="body-move" id="body">
     <div class="full-runway" id="full-runway">
         <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut()">
             <img src="../../Assets/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
@@ -743,7 +743,13 @@ if ($username != "") {
                     </span>
                 </button>
             </div>
-            <div class="container-intern-your-note">
+            <div class="container-intern-container-note">
+                <div class="container-intern-your-note">
+                    <h1>Vote note: 9/10</h1>
+                    <div class="container-company-details-note-bar2">
+                        <p>prout</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -836,16 +842,23 @@ if ($username != "") {
 </script>
 
 <script>
-    const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
+
+</script>
+
+<script>
+const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
     const containerInternDetails = document.querySelector(".container-intern-details");
     const containerIntern = document.querySelector(".container-intern");
+    const body = document.querySelector("body");
 
     buttonCloseTab.addEventListener('click', () => {
         containerInternDetails.classList.add('close-tab-clicked');
+        body.classList.add('mobile-scroll');
     });
 
     containerIntern.addEventListener('click', () => {
         containerInternDetails.classList.remove('close-tab-clicked');
+        body.classList.remove('mobile-scroll');
     });
 
     window.onscroll = function() {

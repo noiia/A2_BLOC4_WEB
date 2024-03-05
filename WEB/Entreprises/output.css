@@ -551,8 +551,17 @@ video {
 }
 
 body{
-  display: inline-block;
   overflow-x: hidden;
+}
+
+@media not all and (min-width: 1280px){
+  body{
+    overflow-y: hidden;
+  }
+
+  .mobile-scroll{
+    overflow-y: auto;
+  }
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
@@ -580,6 +589,7 @@ body::-webkit-scrollbar-track:hover{
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
 .second-scrollbar::-webkit-scrollbar{
+  height: 15px;
   width: 15px;
 }
 
@@ -610,7 +620,7 @@ body::-webkit-scrollbar-track:hover{
 .container-company-details-intern-second-scrollbar{
   display: flex;
   height: 270px;
-  width: 865px;
+  width: 885px;
   overflow-y: hidden;
   overflow-x: scroll;
   white-space: nowrap;
@@ -619,13 +629,13 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar{
-  margin-left: 0.5rem;
   height: 15px;
+  width: 15px;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-left: 65px;
+  margin-right: 45px;
   margin-top: 0.25rem;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
@@ -635,8 +645,8 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-left: 65px;
+  margin-right: 45px;
   margin-top: 0.25rem;
   border-radius: 10px;
 }
@@ -1511,6 +1521,7 @@ input[type="date"]{
   margin-top: 1.25rem;
   height: 79.6vh;
   overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 1.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
@@ -1740,10 +1751,17 @@ input[type="date"]{
   z-index: 40;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 2.5rem;
   flex: none;
   align-items: stretch;
+}
+
+.container-company-details-container-details-button:first-child{
+  margin-left: 58px;
+}
+
+.container-company-details-container-details-button:last-child{
+  margin-right: 2.5rem;
 }
 
 .container-company-details-container-details{
@@ -1811,6 +1829,30 @@ input[type="date"]{
   --tw-bg-opacity: 1;
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
   padding: 0.75rem;
+}
+
+.container-intern-container-note{
+  margin-left: 8%;
+  margin-right: 8%;
+  width: 35%;
+}
+
+.container-intern-your-note h1{
+  margin-top: 2.5rem;
+  width: auto;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container-company-details-note-bar2{
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  width: auto;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  text-align: center;
 }
 
 /* FIN ENTREPRISES * /
