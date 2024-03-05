@@ -11,48 +11,50 @@
 
 <body>
     <div class="main_left">
-        <button id="button_back">Retour</button>
+        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
         <div class="left_container">
             <p>Etudiants</p>
             <ul>
-                <li><p id="actual_page">Mon profil</p></li>
-                <li><p>WishList</p></li>
-                <li><p>Mes postulations</p></li>
+                <li><a id="actual_page">Mon profil</a></li>
+                <li><a href="../WishList/WishList.html">WishList</a></li>
+                <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
             </ul>
         </div>
         <div class="left_container">
             <p>Pilote</p>
             <ul>
-                <li><p id="actual_page">Mon profil</p></li>
-                <li><p>Mes étudiants</p></li>
-                <li><p>Mes entreprises</p></li>
-                <li><p>Mes stages</p></li>
+                <li><a id="actual_page">Mon profil</a></li>
+                <li><a href="../Students/Students.html">Mes étudiants</a></li>
+                <li><a href="../Company/Company.html">Mes entreprises</a></li>
+                <li><a href="../Internship/Internship.html">Mes stages</a></li>
             </ul>
         </div>
         <div class="left_container">
             <p>Admin</p>
             <ul>
-                <li><p id="actual_page">Mon profil</p></li>
-                <li><p>Etudiants</p></li>
-                <li><p>Pilotes</p></li>
-                <li><p>Entreprises</p></li>
-                <li><p>WishList</p></li>
+                <li><a id="actual_page">Mon profil</a></li>
+                <li><a href="../Students/Students.html">Etudiants</a></li>
+                <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
+                <li><a href="../Company/Company.html">Entreprises</a></li>
+                <li><a href="../WishList/WishList.html">WishList</a></li>
             </ul>
         </div>
     </div>
     <div class="main_right">
         <p id="right_title">Mon profil</p>
         <div class="right_top">
-            <img src="../../Assets/Icones/logo_seul_blanc.png" alt="photo de l'étudiant" id="student_photo">
+            <img src="../../Assets/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+            <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
             <div class="student_info">
-                <p>Nom</p>
-                <p>Prenom</p>
-                <p id="student_info-long_text">N°utilisateur</p>
-                <p>Age</p>
-                <p>Année d'études</p>
-                <p>Campus</p>
-                <p>promotion</p>
-                <p id="student_info-long_text">mail</p>
+                <p>Albert</p>
+                <p>Einstein</p>
+                <p id="student_info-long_text">N°78952224476</p>
+                <p>145 ans</p>
+                <p>Bac+104</p>
+                <p>Monaco</p>
+                <p>Physique</p>
+                <p id="student_info-long_text">AlbertE.du78@science.com</p>
             </div>
         </div>
         <div class="right_bot">
@@ -72,4 +74,14 @@
 </body>
 
 </html>
+
+<script>
+function toggle_menu(){
+    const leftMenu = document.querySelector(".main_left");
+    const closeMenu = document.querySelector("#close_menu");
+    leftMenu.classList.toggle('mobile-menu');
+    closeMenu.classList.toggle('display-cross');
+}
+
+</script>
 
