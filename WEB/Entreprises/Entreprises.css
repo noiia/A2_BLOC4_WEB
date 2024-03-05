@@ -8,13 +8,13 @@
   @apply font-display;
 }
 body {
-  @apply inline-block;
+  @apply inline-block overflow-x-hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar {
-  @apply w-[15px] max-xl:overflow-y-hidden;
+  @apply w-[15px];
 }
 
 body::-webkit-scrollbar-thumb {
@@ -57,6 +57,35 @@ body::-webkit-scrollbar-track:hover {
 
 /* --------------------- FIN SCROLLBARS-------------------- */
 
+/* --------------------- HORIZONTAL SCROLL BAR ------------- */
+
+.container-company-details-intern-second-scrollbar {
+  @apply h-[270px] w-[865px] px-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar {
+  @apply h-[15px] ml-2;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-secondary-scroll_bar_grey mx-5 mt-1;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
+  @apply mx-5 mt-1;
+  border-radius: 10px;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* --------------------- FIN HORIZONTAL SCROLL BAR ------------- */
+
 a {
   @apply lg:shrink-0;
 }
@@ -77,77 +106,81 @@ input[type="date"] {
 }
 
 /* -----------------------DEBUT HEADER------------------------------- */
-.navbar{
-    @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-[850px]:p-0;
+
+.navbar {
+  @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-gradient-to-r from-green-header to-secondary-true_white max-ml:p-0;
 }
-.navbar-logo{
-    @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
+.navbar-logo {
+  @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
 }
-.mini-navbar-logo{
-    @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
+.mini-navbar-logo {
+  @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
-.navbar-links{
-    @apply flex items-center mt-3 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
+.navbar-links {
+  @apply flex items-center mt-3 max-ml:left-0 max-ml:absolute max-ml:w-screen max-ml:bg-secondary-footer_grey max-ml:bg-opacity-100 max-ml:h-[100vh] max-ml:justify-center max-ml:items-center max-ml:ml-[200%] max-ml:transition-all sm:mr-10 max-ml:flex-col;
 }
-.navbar-current{
-    @apply  flex flex-col items-center max-[850px]:items-center;
+.navbar-current {
+  @apply flex flex-col items-center max-ml:items-center;
 }
-.navbar-current label{
-    @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-[850px]:hidden;
+.navbar-current label {
+  @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-ml:hidden;
 }
-.mobile-menu{
-    @apply max-[850px]:ml-0 max-[850px]:h-[450px] z-20;
+.mobile-menu {
+  @apply max-ml:ml-0 max-ml:h-[450px] z-50;
 }
-.navbar-links a{
-    @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px];
+.navbar-links a {
+  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-ml:mb-[40px];
 }
-.dropdown1{
-    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-[850px]:w-[190px] max-[850px]:mb-[40px];
+.dropdown1 {
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-button max-ml:w-[190px] max-ml:mb-[40px] z-50;
 }
-.dropdown2{
-    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-[850px]:w-[190px];
+.dropdown2 {
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-button max-ml:w-[190px] z-50;
 }
-.polygone-logo{
-    @apply h-[15px] w-[35.42px] inline-block;
+.polygone-logo-1 {
+  @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
 }
-.dropdown-items1{
-    @apply hidden absolute bg-green-volet min-w-6 w-full z-50;
+.polygone-logo-2 {
+  @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
 }
-.dropdown-items2{
-    @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-[850px]:relative z-50;
+.dropdown-items1 {
+  @apply hidden absolute bg-green-button min-w-6 w-full;
 }
-.dropdown-items1 > a{
-    @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
+.dropdown-items2 {
+  @apply hidden absolute bg-green-button min-w-6 w-full mt-auto max-ml:relative;
 }
-.dropdown-items2 > a{
-    @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
+.dropdown-items1 a {
+  @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
 }
-.dropdown-items1 a:hover{
-    @apply hover:text-green-button;
+.dropdown-items2 a {
+  @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
 }
-.dropdown-items2 a:hover{
-    @apply hover:text-green-button;
+.dropdown-items1 a:hover {
+  @apply hover:text-green-button;
 }
-.dropdown-items1:hover{
-    @apply max-[850px]:hidden;
+.dropdown-items2 a:hover {
+  @apply hover:text-green-button;
 }
-.dropdown-items2:hover{
-    @apply max-[850px]:hidden;
+.dropdown-items1:hover {
+  @apply max-ml:hidden;
 }
-.dropdown-items2 span{
-    @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-[850px]:mb-0 max-[850px]:absolute;
+.dropdown-items2:hover {
+  @apply max-ml:hidden;
 }
-.dropdown-btn{
-    @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
+.dropdown-items2 span {
+  @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-ml:mb-0 max-ml:absolute;
+}
+.dropdown-btn {
+  @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
 }
 .dropdown1:hover .dropdown-items1 {
-    @apply block max-[850px]:z-50;
+  @apply block max-ml:z-50;
 }
 .dropdown2:hover .dropdown-items2 {
-    display: block;
+  display: block;
 }
-.navbar-hamburger{
-    @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[1024px]:block max-[1024px]:z-50;
+.navbar-hamburger {
+  @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-ml:block max-ml:z-50;
 }
 
 /* -----------------------FIN HEADER------------------------------- */
@@ -199,7 +232,7 @@ input[type="date"] {
   @apply bg-secondary-filter_grey;
 }
 .filter-green {
-  @apply h-[950px] w-full mt-4 bg-green-filter rounded-xl;
+  @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
 }
 .filter-location,
 .filter-skills,
@@ -240,7 +273,7 @@ input[type="date"] {
   @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
 }
 .container-div-para {
-  @apply p-8;
+  @apply relative p-8;
 }
 .container-h1 {
   @apply text-xl underline font-bold text-justify max-[500px]:leading-3;
@@ -314,65 +347,6 @@ input[type="date"] {
   @apply inline-block;
 }
 
-.remove-wishlist-picture {
-  @apply hidden;
-}
-
-.container-header-intern-details {
-  @apply text-center text-5xl;
-}
-
-.container-left-informations {
-  @apply inline-block w-[50%] text-2xl;
-}
-
-.container-left-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container-left-informations a {
-  @apply underline font-bold;
-}
-
-.container-right-informations {
-  @apply inline-block w-[49%] align-top;
-}
-
-.container-right-informations p {
-  @apply text-2xl underline underline-offset-4 mt-[46px];
-}
-
-.container-skills-details {
-  @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
-}
-.container-skills-details div {
-  @apply text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
-}
-
-.button-postuler {
-  @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
-}
-
-.button-postuler:hover {
-  @apply outline-green-2;
-}
-
-.container1-bottom-informations {
-  @apply my-10 text-2xl;
-}
-
-.container1-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container2-bottom-informations {
-  @apply text-2xl;
-}
-
-.container2-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
 .close-tab-clicked {
   @apply hidden z-0;
 }
@@ -389,64 +363,104 @@ input[type="date"] {
   @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
 }
 
-/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
-/* -------------------------------BULLE POSTULER -----------------------------*/
-.when_postulation {
-  @apply blur-sm;
-}
-.postulation-bg {
-  @apply w-full h-full top-0 left-0 z-50;
-}
-.postulation-off {
-  @apply hidden;
-}
-.postulation-on {
-  @apply fixed;
-}
-.postulation-block {
-  @apply relative bg-secondary-white border-4 border-green-button rounded-2xl ml:w-3/4 ml:h-3/4 ml:top-[12.5%] ml:left-[12.5%] h-[98%] w-[90%] top-[1%] left-[5%];
-}
-.postulation-top {
-  @apply inline-block text-xl bg-secondary-white border-4 border-green-button rounded-3xl text-center align-middle overflow-hidden ml:w-3/4 h-1/6 ml:mx-[12.5%] my-5 w-5/6 mx-[8.333%];
-}
-.postulation-top img {
-  @apply absolute top-1 right-2 h-6 cursor-pointer;
-}
-.postulation-bottom {
-  @apply relative flex ml:flex-row ml:h-[72%] flex-col h-[77%];
-}
-.postulation-motivation {
-  @apply relative bg-green-header rounded-3xl text-center ml:text-lg ml:w-1/2 ml:mb-2 ml:ml-8 w-[98%] h-full mx-[1%];
-}
-.postulation-motivation_letter {
-  @apply relative w-[95%] ml:h-[90%] h-[87%] bg-secondary-white rounded-3xl text-base focus:outline-none px-2 py-1 resize-none;
-}
-#postulation-text_center {
-  @apply relative ml:top-1/2 ml:h-5 ml:mx-4 max-ml:left-1/2 max-ml:my-3;
-}
-.postulation-right {
-  @apply relative flex flex-col h-full ml:w-[40%] w-full;
-}
-.postulation-block_docs {
-  @apply relative h-4/5 bg-green-header text-center rounded-xl ml:mr-8 max-ml:mx-[1%];
-}
-.postulation-list_docs {
-  @apply relative h-[90%] w-full flex flex-col;
-}
-.postulation-docs {
-  @apply relative flex justify-between bg-secondary-filter_grey h-7 mx-2 mt-1 pl-1 items-center overflow-y-hidden;
-}
-.postulation-docs p {
-  @apply text-blue-links underline cursor-pointer overflow-hidden;
-}
-.postulation-docs img {
-  @apply relative inline-block bg-green-true_btn h-full cursor-pointer;
-}
-.postulation-right button {
-  @apply relative self-center top-[5%] ml:mr-8;
+/* DEBUT ENTREPRISES */
+.container-header-company-details {
+  @apply mx-[8%] h-auto;
 }
 
-/*--------------------------------FIN BULLE POSTULER --------------------------*/
+.container-header-company-details h1{
+  @apply inline-block text-center text-4xl mx-[25%];
+}
+
+.container-company-details-left{
+  @apply inline-block ml-[8%] mt-4 h-auto text-2xl w-[41%];
+}
+
+.container-company-details-sites h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-student-number{
+  @apply mt-4;
+}
+
+.container-company-details-student-number h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-right {
+  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top ;
+}
+
+.container-company-details-note {
+  @apply text-2xl text-center;
+}
+.container-company-details-note-bar{
+  @apply bg-green-2 w-[80%] mt-3 mx-[10%] rounded-xl text-center;
+}
+
+.container-company-details-sector{
+  @apply text-2xl mt-4;
+}
+
+.container-company-details-sector h1{
+  @apply underline underline-offset-4 text-center;
+}
+
+.container-company-details-sector-name ul {
+  @apply w-1/2 inline-block mr-[-5px] mt-1;
+}
+.container-company-details-sector-name li {
+  @apply rounded-xl text-center bg-green-button w-11/12 my-4 h-auto min-h-[50px] overflow-hidden;
+}
+
+.container-company-details-description {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-[84%];
+}
+
+.container-company-details-description h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-intern {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-auto flex;
+}
+
+.container-company-details-intern-name h1{
+  @apply mt-4 ml-[8%] text-2xl underline underline-offset-4;
+}
+
+.container-company-details-container-details-button {
+  @apply flex-none my-5 z-40 items-stretch ml-2 mr-2;
+}
+
+.container-company-details-container-details {
+  @apply h-[214px] w-[290px] bg-secondary-white max-w-2xl rounded-xl 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+}
+
+.container-company-intern-div-para {
+  @apply relative p-4 text-sm;
+}
+
+.container-company-intern-skills {
+  @apply relative sm:mt-8;
+}
+.container-company-intern-skills ul {
+  @apply inline-flex;
+}
+.container-company-intern-skills li {
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+}
+
+/* FIN ENTREPRISES * /
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+/* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
+.logo-company {
+  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10;
+}
+/* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
+
 /* footer */
 footer {
   @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10;

@@ -16,7 +16,29 @@ function send_mail(){
     mail($to_student, $subject, $message_student);
 }
 
+function links_profile(){
+    $username = "Moi";//$_POST['username'];
+    $ProfilValue = "";
+    $ProfilLink = "";
+
+    if ($username != "") {
+        $ProfilValue = $username;
+    } else {
+        $ProfilLink = 'href="../Login/login.php"';
+        $ProfilValue = "Profil";
+    }
+
+    echo "<a ".$ProfilLink.">
+            <span aria-hidden='true'>
+                ".$ProfilValue."
+            </span>
+        </a>";
+}
+
 if ($_POST['action'] == 'postulation') {
     send_mail();
+}
+elseif ($_POST['action'] == 'profile'){
+    links_profile();
 }
 ?>
