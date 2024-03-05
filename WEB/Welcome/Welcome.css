@@ -8,7 +8,7 @@
   @apply font-display;
 }
 body {
-  @apply inline-block;
+  @apply inline-block max-lg:overflow-x-hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
@@ -78,7 +78,7 @@ input[type="date"] {
 
 /* -----------------------DEBUT HEADER------------------------------- */
 .navbar{
-    @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-[850px]:p-0;
+    @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
 }
 .navbar-logo{
     @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
@@ -87,34 +87,34 @@ input[type="date"] {
     @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
 .navbar-links{
-    @apply flex items-center mt-3 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
+    @apply flex items-center mt-3 max-lg:z-50 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
 }
 .navbar-current{
     @apply  flex flex-col items-center max-[850px]:items-center;
 }
 .navbar-current label{
-    @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-[850px]:hidden;
+    @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-lg:hidden;
 }
 .mobile-menu{
-    @apply max-[850px]:ml-0 max-[850px]:h-[450px] z-20;
+    @apply max-ml:ml-0 m-0 fixed;
 }
 .navbar-links a{
     @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px];
 }
 .dropdown1{
-    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-[850px]:w-[190px] max-[850px]:mb-[40px];
+    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] max-lg:hover:bg-secondary-pp_grey;
 }
 .dropdown2{
-    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-[850px]:w-[190px];
+    @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-lg:hover:bg-secondary-pp_grey;
 }
 .polygone-logo{
     @apply h-[15px] w-[35.42px] inline-block;
 }
 .dropdown-items1{
-    @apply hidden absolute bg-green-volet min-w-6 w-full z-50;
+    @apply hidden absolute bg-green-volet min-w-6 w-full z-50 max-lg:bg-secondary-pp_grey;
 }
 .dropdown-items2{
-    @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-[850px]:relative z-50;
+    @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-ml:relative z-50 max-lg:bg-secondary-pp_grey;
 }
 .dropdown-items1 > a{
     @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
@@ -264,132 +264,135 @@ input[type="date"] {
   .container-skills li {
     @apply bg-green-button;
   }
-}
-/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
+}/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements {
-  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
-}
+    @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
+  }
+  
+  .runway-container-intern-details {
+    @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px];
+  }
+  
+  .container-intern-details {
+    @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
+  }
+  
+  .container-div-par-intern-details {
+    @apply w-[84%] h-auto mb-10 mx-[8%];
+  }
+  
+  .close-tab-logo-picture {
+    @apply inline-block h-[23px];
+  }
+  
+  .button-close-tab {
+    @apply mt-2 ml-[96%] inline-block;
+  }
+  
+  .header-intern-details {
+    @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
+  }
+  
+  .company-logo-picture {
+    @apply inline-block h-[103px];
+  }
+  
+  .unselected-wishlist-logo-picture {
+    @apply h-[43px] cursor-pointer;
+  }
+  
+  .selected-wishlist-logo-picture {
+    @apply h-[43px] cursor-pointer hidden;
+  }
+  
+  .is-selected {
+    @apply inline-block;
+  }
+  
+  .remove-wishlist-picture {
+    @apply hidden;
+  }
+  
+  .container-header-intern-details {
+    @apply text-center text-5xl;
+  }
+  
+  .container-left-informations {
+    @apply inline-block w-[50%] text-2xl;
+  }
+  
+  .container-left-informations h1 {
+    @apply underline underline-offset-4;
+  }
+  
+  .container-left-informations a {
+    @apply underline font-bold;
+  }
+  
+  .container-right-informations {
+    @apply inline-block w-[49%] align-top;
+  }
+  
+  .container-right-informations p {
+    @apply text-2xl underline underline-offset-4 mt-[46px];
+  }
+  
+  .container-skills-details {
+    @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
+  }
+  .container-skills-details div {
+    @apply text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
+  }
+  
+  .button-postuler {
+    @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
+  }
+  
+  .button-postuler:hover {
+    @apply outline-green-2;
+  }
+  
+  .container1-bottom-informations {
+    @apply my-10 text-2xl;
+  }
+  
+  .container1-bottom-informations h1 {
+    @apply underline underline-offset-4;
+  }
+  
+  .container2-bottom-informations {
+    @apply text-2xl;
+  }
+  
+  .container2-bottom-informations h1 {
+    @apply underline underline-offset-4;
+  }
+  
+  .close-tab-clicked {
+    @apply hidden z-0;
+  }
+  
+  .display-none {
+    @apply hidden;
+  }
+  
+  .retaur-haut-logo-picture {
+    @apply h-[23px];
+  }
+  
+  .retourHaut {
+    @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
+  }
 
-.runway-container-intern-details {
-  @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px];
-}
-
-.container-intern-details {
-  @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
-}
-
-.container-div-par-intern-details {
-  @apply w-[84%] h-auto mb-10 mx-[8%];
-}
-
-.container-close-tab {
-}
-
-.close-tab-logo-picture {
-  @apply inline-block h-[23px];
-}
-
-.button-close-tab {
-  @apply mt-2 ml-[96%] inline-block;
-}
-
-.header-intern-details {
-  @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
-}
-
-.company-logo-picture {
-  @apply inline-block h-[103px];
-}
-
-.unselected-wishlist-logo-picture {
-  @apply h-[43px] cursor-pointer;
-}
-
-.selected-wishlist-logo-picture {
-  @apply h-[43px] cursor-pointer hidden;
-}
-
-.is-selected {
-  @apply inline-block;
-}
-
-.remove-wishlist-picture {
-  @apply hidden;
-}
-
-.container-header-intern-details {
-  @apply text-center text-5xl;
-}
-
-.container-left-informations {
-  @apply inline-block w-[50%] text-2xl;
-}
-
-.container-left-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container-left-informations a {
-  @apply underline font-bold;
-}
-
-.container-right-informations {
-  @apply inline-block w-[49%] align-top;
-}
-
-.container-right-informations p {
-  @apply text-2xl underline underline-offset-4 mt-[46px];
-}
-
-.container-skills-details {
-  @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
-}
-.container-skills-details div {
-  @apply text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
-}
-
-.button-postuler {
-  @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
-}
-
-.button-postuler:hover {
-  @apply outline-green-2;
-}
-
-.container1-bottom-informations {
-  @apply my-10 text-2xl;
-}
-
-.container1-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.container2-bottom-informations {
-  @apply text-2xl;
-}
-
-.container2-bottom-informations h1 {
-  @apply underline underline-offset-4;
-}
-
-.close-tab-clicked {
-  @apply hidden z-0;
-}
-
-.display-none {
-  @apply hidden;
-}
-
-.retaur-haut-logo-picture {
-  @apply h-[23px];
-}
-
-.retourHaut {
-  @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
-}
-
-/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+  body {
+    @apply max-xl:overflow-y-hidden;
+  }
+  .mobile-scroll{
+    @apply max-xl:overflow-y-auto;
+  }
+  
+  /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 /* -------------------------------BULLE POSTULER -----------------------------*/
 .when_postulation {
   @apply blur-sm;

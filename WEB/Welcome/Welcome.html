@@ -31,10 +31,10 @@
         <img src="../../Assets/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
             <div class="navbar-links">
                 <div class="navbar-current">
-                    <a href="../../Welcome/Welcome.html">Stages</a>
+                    <a href="../Welcome/Welcome.html">Stages</a>
                     <label class="label">**********</label>
                 </div>
-                <a href="../../Welcome/Entreprises.html">Entreprises</a>
+                <a href="../Entreprises/Entreprises.html">Entreprises</a>
                 <div class="dropdown1">
                     <button class="dropdown-btn">Statistiques</button>
                     <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo">
@@ -461,7 +461,6 @@
                             <p>3 semaines</p>
                     </div>
                     <div class="container-right-informations">
-<!-- ----------------------------------------------------------------------------------------- ajout onclick -->
                         <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
                             Postuler
                         </button>
@@ -609,6 +608,55 @@
         selectedWishlist.classList.remove('is-selected');
         unselectedWishlist.classList.remove('remove-wishlist-picture');
     });
+</script>
+
+<script>
+    const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
+    const containerInternDetails = document.querySelector(".container-intern-details");
+    const containerIntern = document.querySelector(".container-intern");
+    const body = document.querySelector("body");
+
+    buttonCloseTab.addEventListener('click', () => {
+        containerInternDetails.classList.add('close-tab-clicked');
+        body.classList.add('mobile-scroll');
+    });
+
+    containerIntern.addEventListener('click', () => {
+        containerInternDetails.classList.remove('close-tab-clicked');
+        body.classList.remove('mobile-scroll');
+    });
+
+    window.onscroll = function() {
+    afficherOuMasquerBouton();
+    calculRunwayDist();
+};
+
+function afficherOuMasquerBouton() {
+    var boutonRetourHaut = document.getElementById("button-retour-haut");
+
+    if (document.documentElement.scrollTop > 115) {
+        boutonRetourHaut.classList.add('retourHaut');
+        boutonRetourHaut.classList.remove('display-none');
+    }else {
+        boutonRetourHaut.classList.add('display-none');
+        boutonRetourHaut.classList.remove('retourHaut');
+    }
+}
+
+function retournerEnHaut() {
+    document.documentElement.scrollTop = 0;
+}
+
+function calculRunwayDist(){
+    var runwayContainer = document.getElementById('runway-container');
+    var heightRunwayContainer = runwayContainer.clientHeight;
+    var element = document.getElementById('runway-container-intern-details');
+    if (heightRunwayContainer < 750){
+        runwayContainer.style.height = 750 + 'px'; 
+    }else {
+        element.style.height = heightRunwayContainer + 'px';
+    }
+}
 </script>
 
 <!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
