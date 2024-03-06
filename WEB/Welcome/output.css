@@ -594,6 +594,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
+  cursor: default;
 }
 
 .second-scrollbar::-webkit-scrollbar-track {
@@ -604,6 +605,7 @@ body::-webkit-scrollbar-track:hover{
 .second-scrollbar::-webkit-scrollbar-track:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+  cursor: default;
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
@@ -1205,6 +1207,7 @@ input[type="date"]{
   margin-top: 1rem;
   height: 950px;
   width: 100%;
+  border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
 }
