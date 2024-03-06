@@ -638,7 +638,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(217 217 217 / var(--tw-bg-opacity));
 }
 
-@media not all and (min-width: 850px){
+@media not all and (min-width: 1024px){
   .main_left{
     display: none;
     width: 100%;
@@ -734,8 +734,8 @@ body::-webkit-scrollbar-track:hover{
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   outline-style: solid;
@@ -743,9 +743,18 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-@media not all and (min-width: 850px){
+@media not all and (min-width: 1024px){
   .main_right{
     left: 0px;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .main_right{
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-bottom: 0.5rem;
+    padding-top: 5rem;
   }
 }
 
@@ -780,8 +789,8 @@ body::-webkit-scrollbar-track:hover{
 
 #menu{
   position: absolute;
-  top: 0px;
-  margin: 0.5rem;
+  top: 0.5rem;
+  left: 2.5rem;
   display: none;
   width: 2.5rem;
   cursor: pointer;
@@ -789,31 +798,31 @@ body::-webkit-scrollbar-track:hover{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-@media not all and (min-width: 850px){
+@media not all and (min-width: 1024px){
   #menu{
     display: block;
   }
 }
 
-#student_photo{
-  margin-left: 1.25rem;
-  height: 100%;
-  padding: 1rem;
-}
-
 @media not all and (min-width: 768px){
-  #student_photo{
-    margin: 0px;
-    height: auto;
-    width: 50%;
-    align-self: center;
+  #menu{
+    left: 1rem;
+    width: 3.5rem;
   }
 }
 
-@media not all and (min-width: 500px){
-  #student_photo{
-    min-height: 170px;
-    min-width: 170px;
+#menu_search{
+  position: absolute;
+  top: 0.5rem;
+  left: 5.5rem;
+  display: none;
+  width: 3.5rem;
+  cursor: pointer;
+}
+
+@media not all and (min-width: 768px){
+  #menu_search{
+    display: block;
   }
 }
 
@@ -824,6 +833,17 @@ body::-webkit-scrollbar-track:hover{
   height: 100%;
   width: 25%;
   flex-direction: column;
+}
+
+@media not all and (min-width: 768px){
+  .search_list-students{
+    display: none;
+    width: 100%;
+  }
+}
+
+.mobile-search_menu-menu{
+  display: flex;
 }
 
 .search_bar{
@@ -947,7 +967,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------- profil à droite --------------------*/
 
-#btn_edit{
+.btn_edit{
   margin-bottom: 1rem;
   width: 25%;
   border-radius: 0.75rem;
@@ -956,11 +976,33 @@ body::-webkit-scrollbar-track:hover{
   padding: 0.25rem;
 }
 
+@media not all and (min-width: 768px){
+  #edit1{
+    display: none;
+  }
+}
+
+#edit2{
+  position: absolute;
+  top: 5.5rem;
+  left: 1.5rem;
+}
+
+@media (min-width: 768px){
+  #edit2{
+    display: none;
+  }
+}
+
 .profile_student{
   margin-left: 0.5rem;
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
+}
+
+.mobile-search_menu-profile{
+  display: none;
 }
 
 .profile_top{
@@ -978,14 +1020,32 @@ body::-webkit-scrollbar-track:hover{
 }
 
 #student_photo{
+  margin-left: 1.25rem;
   height: 100%;
+  padding: 1rem;
+}
+
+@media not all and (min-width: 1280px){
+  #student_photo{
+    margin: 0px;
+    height: auto;
+    width: 33.333333%;
+    align-self: center;
+  }
+}
+
+@media not all and (min-width: 500px){
+  #student_photo{
+    min-height: 170px;
+    min-width: 170px;
+  }
 }
 
 .student_info{
   position: relative;
   margin-right: 1rem;
   display: flex;
-  height: 66.666667%;
+  height: 40%;
   flex: 1 1 0%;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1003,6 +1063,7 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 1024px){
   .student_info{
+    height: 80%;
     flex-direction: column;
     align-content: flex-start;
   }
