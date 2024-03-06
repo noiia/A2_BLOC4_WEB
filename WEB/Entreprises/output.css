@@ -613,6 +613,35 @@ body::-webkit-scrollbar-track:hover{
   cursor: default;
 }
 
+/* ------------------- SCROLLBAR AVIS ---------------------*/
+
+.review-scrollbar::-webkit-scrollbar{
+  height: 15px;
+  width: 15px;
+}
+
+.review-scrollbar::-webkit-scrollbar-thumb {
+  margin-block: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.review-scrollbar::-webkit-scrollbar-track {
+  margin-block: 10px;
+  border-radius: 10px;
+}
+
+.review-scrollbar::-webkit-scrollbar-track:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+  cursor: default;
+}
+
+/* ------------------- FIN SCROLLBAR AVIS ---------------------*/
+
 /* --------------------- FIN SCROLLBARS-------------------- */
 
 /* --------------------- HORIZONTAL SCROLL BAR ------------- */
@@ -620,7 +649,7 @@ body::-webkit-scrollbar-track:hover{
 .container-company-details-intern-second-scrollbar{
   display: flex;
   height: 270px;
-  width: 885px;
+  width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
   white-space: nowrap;
@@ -634,7 +663,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb{
-  margin-left: 65px;
+  margin-left: 6.5%;
   margin-right: 45px;
   margin-top: 0.25rem;
   --tw-bg-opacity: 1;
@@ -709,6 +738,74 @@ input[type="range"]::-webkit-slider-thumb{
 
 input[type="date"]{
   accent-color: #94C676;
+}
+
+#rangeInput2{
+  height: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rangeInput2::-webkit-slider-runnable-track{
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+}
+
+#rangeInput2::-webkit-slider-thumb{
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+#rangeInput3{
+  height: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rangeInput3::-webkit-slider-runnable-track{
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+}
+
+#rangeInput3::-webkit-slider-thumb{
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 /* -----------------------DEBUT HEADER------------------------------- */
@@ -1262,19 +1359,14 @@ input[type="date"]{
 }
 
 .filter-location,
-.filter-skills,
-.filter-company{
+.filter-skills{
   height: 116px;
   width: 100%;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
 
-.filter-start_internship,
-.filter-duration_internship,
-.filter-max_places,
-.filter-postulation,
-.filter-hourly_rate{
+.filter-student-received{
   display: flex;
   height: 100px;
   width: 100%;
@@ -1284,7 +1376,7 @@ input[type="date"]{
   padding-right: 0.25rem;
 }
 
-.filter-promotion{
+.filter-company-note{
   display: flex;
   height: 58px;
   width: 100%;
@@ -1566,21 +1658,6 @@ input[type="date"]{
   height: 103px;
 }
 
-.unselected-wishlist-logo-picture{
-  height: 43px;
-  cursor: pointer;
-}
-
-.selected-wishlist-logo-picture{
-  display: none;
-  height: 43px;
-  cursor: pointer;
-}
-
-.is-selected{
-  display: inline-block;
-}
-
 .close-tab-clicked{
   z-index: 0;
   display: none;
@@ -1624,8 +1701,7 @@ input[type="date"]{
 }
 
 .container-header-company-details h1{
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-left: 30%;
   display: inline-block;
   text-align: center;
   font-size: 2.25rem;
@@ -1666,6 +1742,8 @@ input[type="date"]{
 }
 
 .container-company-details-note{
+  display: flex;
+  justify-content: center;
   text-align: center;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1677,8 +1755,6 @@ input[type="date"]{
   margin-top: 0.75rem;
   width: 80%;
   border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   text-align: center;
 }
 
@@ -1704,13 +1780,16 @@ input[type="date"]{
 .container-company-details-sector-name li{
   margin-top: 1rem;
   margin-bottom: 1rem;
+  display: flex;
   height: auto;
-  min-height: 50px;
-  width: 91.666667%;
+  min-height: 65px;
+  width: 90%;
+  align-items: center;
   overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -1757,7 +1836,7 @@ input[type="date"]{
 }
 
 .container-company-details-container-details-button:first-child{
-  margin-left: 58px;
+  margin-left: 6.5%;
 }
 
 .container-company-details-container-details-button:last-child{
@@ -1834,12 +1913,14 @@ input[type="date"]{
 .container-intern-container-note{
   margin-left: 8%;
   margin-right: 8%;
-  width: 35%;
+  margin-top: 2.5rem;
+  display: inline-block;
+  width: 34%;
 }
 
-.container-intern-your-note h1{
-  margin-top: 2.5rem;
-  width: auto;
+.container-intern-your-note{
+  display: flex;
+  justify-content: center;
   text-align: center;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1850,9 +1931,91 @@ input[type="date"]{
   margin-bottom: 0.5rem;
   width: auto;
   border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   text-align: center;
+}
+
+.container-company-poster-button{
+  margin-left: 1%;
+  margin-right: 8%;
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
+}
+
+.button-poster{
+  margin-top: 2.5rem;
+  height: 64px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #000000;
+}
+
+.button-poster:hover{
+  outline-color: #39A325;
+}
+
+.container-company-your-review{
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 1rem;
+  height: 150px;
+  width: 84%;
+  resize: none;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
+  padding: 0.75rem;
+}
+
+.container-company-your-review::-moz-placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.container-company-your-review::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.container-company-reviews-area{
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 1.5rem;
+  height: auto;
+  width: 84%;
+}
+
+.container-company-reviews-area-name h1{
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-company-each-review-name h1{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.container-company-each-review{
+  margin-bottom: 1rem;
+  height: auto;
+  resize: none;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
+  padding: 0.75rem;
 }
 
 /* FIN ENTREPRISES * /
