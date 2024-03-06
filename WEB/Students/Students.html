@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Profile</title>
+</head>
+
+<script>
+    $(document).ready(function(){
+        var Value = "role";
+        var PHPfiles = "Students.php";
+        data = {
+            action : Value
+        };
+        $.post(PHPfiles, data, function(response){
+            $(".main_left").append(response);
+        })
+    })
+</script>
+
+<body>
+    <div class="main_left">
+        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+    </div>
+    <div class="main_right">
+        <p id="right_title">Gestion des étudiants</p>
+        <img src="../../Assets/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <div class="search_list-students">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
+            </div>
+            <div class="list-students second-scrollbar">
+                <div class="add-del">
+                    <button id="add">Ajouter</button>
+                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                </div>
+                <button class="student">élève1</button>
+                <button class="student">élève2</button>
+                <button class="student">élève3</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+                <button class="student">élève546</button>
+                <button class="student">élève4</button>
+                <button class="student">élève4</button>
+            </div>
+        </div>
+        <div class="profile_student">
+            <button id="btn_edit">Editer</button>
+            <div class="profile_block">
+                <div class="profile_top">
+                    <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
+                    <div class="student_info">
+                        <p>Albert</p>
+                        <p>Einstein</p>
+                        <p id="student_info-long_text">N°78952224476</p>
+                        <p>145 ans</p>
+                        <p>Bac+104</p>
+                        <p>Monaco</p>
+                        <p>Physique</p>
+                        <p id="student_info-long_text">AlbertE.du78@science.com</p>
+                    </div>
+                </div>
+                <div class="student_mid">
+                    <label class="label-student_description" for="student_description">Description</label>
+                    <textarea id="student_description" class="second-scrollbar" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt saepe accusamus provident numquam nostrum commodi praesentium perspiciatis, magnam aperiam autem in ad earum temporibus, sunt beatae officiis. Ullam, repellat sit.
+                    Placeat officiis ex praesentium fugiat odit tempora soluta, distinctio ratione, cupiditate harum molestias facilis esse nam ipsum fugit dicta dolorum hic adipisci, aliquid aliquam neque ea unde? Corrupti, perferendis ad!
+                    Amet, exercitationem voluptates? Impedit consequuntur dolorum, vel, nisi quam magni similique ducimus autem suscipit ea harum dignissimos praesentium rem maxime aut possimus quia cupiditate laborum error voluptates doloribus hic illo?
+                    Nemo in quaerat eum explicabo et deserunt vero porro veniam, maiores error quam facere aliquam, nobis distinctio. Saepe dignissimos, facere nulla, architecto officia quod odit ipsam, voluptatibus dolores quidem perspiciatis!
+                    Laborum, distinctio! Delectus ad ullam commodi debitis numquam, assumenda aut officia ex quia dolore pariatur ipsam dolores, iure obcaecati ab enim esse rem quos similique nobis aliquam, earum suscipit doloribus.
+                    Necessitatibus quidem praesentium eveniet, cumque illo voluptate ducimus officia commodi optio iste sint soluta dolore delectus, maiores eligendi minima voluptates, consequatur impedit iusto magni nisi quam quaerat saepe cum! Provident!
+                    Facere iure quasi harum a excepturi aut numquam laudantium inventore, reprehenderit esse temporibus soluta. Consectetur vitae incidunt iusto, nisi voluptatibus error ullam reiciendis fuga beatae totam praesentium non nesciunt suscipit.
+                    Iste saepe illum aliquid et accusamus ea quod tenetur vel! Odio repudiandae officia, dolorum aperiam animi hic omnis exercitationem, sequi fugiat, eveniet tenetur adipisci minima cum soluta saepe quis perferendis.
+                    Nostrum quibusdam amet aliquam animi atque, maiores obcaecati cupiditate suscipit aspernatur id nemo beatae doloremque? Officia harum id earum placeat quae odit consequuntur, voluptatem asperiores hic. Neque excepturi quam laudantium.
+                    Beatae quisquam illum sunt? Fuga officiis et amet mollitia explicabo aliquam hic perspiciatis autem animi debitis accusantium, laboriosam earum doloremque vero consequuntur nam tempora magnam recusandae repudiandae laborum, itaque suscipit.</textarea>
+                </div>
+                <div class="student_bot">
+                    <button id="activity">Activités</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            
+<script>
+    function toggle_menu(){
+        const leftMenu = document.querySelector(".main_left");
+        const closeMenu = document.querySelector("#close_menu");
+        leftMenu.classList.toggle('mobile-menu');
+        closeMenu.classList.toggle('display-cross');
+    }
+    
+    </script>
+    
+
