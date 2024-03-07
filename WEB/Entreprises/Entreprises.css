@@ -8,7 +8,10 @@
   @apply font-display;
 }
 body {
-  @apply inline-block overflow-x-hidden;
+  @apply max-xl:overflow-y-hidden overflow-x-hidden;
+}
+.mobile-scroll{
+  @apply max-xl:overflow-y-auto;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
@@ -34,7 +37,7 @@ body::-webkit-scrollbar-track:hover {
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
 .second-scrollbar::-webkit-scrollbar {
-  @apply w-[15px];
+  @apply w-[15px] h-[15px];
 }
 
 .second-scrollbar::-webkit-scrollbar-thumb {
@@ -55,27 +58,52 @@ body::-webkit-scrollbar-track:hover {
   cursor: default;
 }
 
+/* ------------------- SCROLLBAR AVIS ---------------------*/
+.review-scrollbar::-webkit-scrollbar {
+  @apply w-[15px] h-[15px];
+}
+
+.review-scrollbar::-webkit-scrollbar-thumb {
+  margin-block: 10px;
+  @apply bg-secondary-scroll_bar_grey;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.review-scrollbar::-webkit-scrollbar-track {
+  margin-block: 10px;
+  border-radius: 10px;
+}
+
+.review-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* ------------------- FIN SCROLLBAR AVIS ---------------------*/
+
 /* --------------------- FIN SCROLLBARS-------------------- */
 
 /* --------------------- HORIZONTAL SCROLL BAR ------------- */
 
 .container-company-details-intern-second-scrollbar {
-  @apply h-[270px] w-[865px] px-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+  @apply h-[270px] w-full px-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar {
-  @apply h-[15px] ml-2;
+  @apply h-[15px] w-[15px];
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-secondary-scroll_bar_grey mx-5 mt-1;
+  @apply bg-secondary-scroll_bar_grey ml-[6.5%] mr-[45px] mt-1;
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
   cursor: default;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
-  @apply mx-5 mt-1;
+  @apply ml-[65px] mr-[45px] mt-1;
   border-radius: 10px;
 }
 
@@ -105,7 +133,29 @@ input[type="date"] {
   @apply accent-green-header;
 }
 
+#rangeInput2 {
+  @apply w-[100%] h-[100%] appearance-none;
+}
 
+#rangeInput2::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput2::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
+}
+
+#rangeInput3 {
+  @apply w-[100%] h-[100%] appearance-none;
+}
+
+#rangeInput3::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput3::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
+}
 /* -----------------------DEBUT HEADER------------------------------- */
 .navbar{
   @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
@@ -232,18 +282,14 @@ input[type="date"] {
   @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
 }
 .filter-location,
-.filter-skills,
-.filter-company {
+.filter-skills{
   @apply h-[116px] w-full px-1;
 }
-.filter-start_internship,
-.filter-duration_internship,
-.filter-max_places,
-.filter-postulation,
-.filter-hourly_rate {
+
+.filter-student-received{
   @apply flex h-[100px] w-full px-1 flex-col justify-evenly;
 }
-.filter-promotion {
+.filter-company-note {
   @apply flex h-[58px] w-full px-1 flex-col justify-evenly;
 }
 .filter-validate {
@@ -306,7 +352,7 @@ input[type="date"] {
 }
 
 .container-intern-details {
-  @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
+  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
 }
 
 .container-div-par-intern-details {
@@ -332,18 +378,6 @@ input[type="date"] {
   @apply inline-block h-[103px];
 }
 
-.unselected-wishlist-logo-picture {
-  @apply h-[43px] cursor-pointer;
-}
-
-.selected-wishlist-logo-picture {
-  @apply h-[43px] cursor-pointer hidden;
-}
-
-.is-selected {
-  @apply inline-block;
-}
-
 .close-tab-clicked {
   @apply hidden z-0;
 }
@@ -366,7 +400,7 @@ input[type="date"] {
 }
 
 .container-header-company-details h1{
-  @apply inline-block text-center text-4xl mx-[25%];
+  @apply inline-block text-center text-4xl ml-[30%];
 }
 
 .container-company-details-left{
@@ -390,10 +424,11 @@ input[type="date"] {
 }
 
 .container-company-details-note {
-  @apply text-2xl text-center;
+  @apply text-2xl text-center flex justify-center;
 }
+
 .container-company-details-note-bar{
-  @apply bg-green-2 w-[80%] mt-3 mx-[10%] rounded-xl text-center;
+  @apply w-[80%] mt-3 mx-[10%] rounded-xl text-center;
 }
 
 .container-company-details-sector{
@@ -408,7 +443,7 @@ input[type="date"] {
   @apply w-1/2 inline-block mr-[-5px] mt-1;
 }
 .container-company-details-sector-name li {
-  @apply rounded-xl text-center bg-green-button w-11/12 my-4 h-auto min-h-[50px] overflow-hidden;
+  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] overflow-hidden flex items-center ;
 }
 
 .container-company-details-description {
@@ -428,7 +463,7 @@ input[type="date"] {
 }
 
 .container-company-details-container-details-button {
-  @apply flex-none my-5 z-40 items-stretch ml-2 mr-2;
+  @apply flex-none my-5 z-40 items-stretch first:ml-[6.5%] ml-10 last:mr-10;
 }
 
 .container-company-details-container-details {
@@ -447,6 +482,50 @@ input[type="date"] {
 }
 .container-company-intern-skills li {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+}
+
+.container-intern-container-note {
+  @apply mt-10 mx-[8%] w-[34%] inline-block;
+}
+
+.container-intern-your-note {
+  @apply text-2xl text-center flex justify-center;
+}
+
+.container-company-details-note-bar2 {
+  @apply w-auto mt-3 rounded-xl text-center mb-2;
+}
+
+.container-company-poster-button {
+  @apply inline-block w-[40%] ml-[1%] mr-[8%] align-top;
+}
+
+.button-poster {
+  @apply mt-10 cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
+}
+
+.button-poster:hover {
+  @apply outline-green-2;
+}
+
+.container-company-your-review {
+  @apply rounded-xl mt-4 bg-green-text_bg mx-[8%] w-[84%] h-[150px] resize-none p-3 placeholder:text-secondary-true_black;
+}
+
+.container-company-reviews-area {
+  @apply w-[84%] mx-[8%] mt-6 h-auto;
+}
+
+.container-company-reviews-area-name h1{
+  @apply text-2xl underline underline-offset-4 mb-2;
+}
+
+.container-company-each-review-name h1{
+  @apply text-2xl;
+}
+
+.container-company-each-review {
+  @apply rounded-xl bg-green-text_bg h-auto resize-none p-3 mb-4;
 }
 
 /* FIN ENTREPRISES * /
