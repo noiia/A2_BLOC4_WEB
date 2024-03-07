@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-display;
+}
+body{
+    @apply inline-block;
+}
+button{
+    @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
+}
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+body::-webkit-scrollbar-thumb{
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+/* ---------------------Onglet à gauche -------------------*/
+.main_left{
+    @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
+}
+#close_menu{
+    @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
+}
+#button_back{
+    @apply relative w-4/5 h-12 mt-8 mb-2;
+}
+
+.left_container{
+    @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl;
+}
+.left_container p{
+    @apply cursor-default;
+}
+.left_container ul{
+    @apply flex flex-col;
+}
+.left_container ul li a{
+    @apply relative inline left-[10%] cursor-pointer hover:text-green-true_btn;
+}
+
+.left_hide{
+    @apply hidden;
+}
+#actual_page{
+    @apply cursor-default underline hover:text-secondary-true_black;
+}
+
+.mobile-menu{
+    @apply flex z-20;
+}
+.display-cross{
+    @apply hidden;
+}
+/* ---------------------Fin onglet gauche -------------------*/
+/* --------------------- gestion des eleves -------------------*/
+.main_right{
+    @apply fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-sm:m-2;
+}
+#right_title{
+    @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
+}
+.right_top{
+    @apply h-[11%] flex justify-between items-end;
+}
+#menu{
+    @apply hidden absolute cursor-pointer w-10 top-2 left-10 max-lg:block contrast-0 max-md:w-14 max-md:left-4;
+}
+#menu_search{
+    @apply hidden absolute cursor-pointer w-14 top-2 left-[5.5rem] max-md:block;
+}
+/* ----------- list à gauche ------------------*/
+.search_list-companies{
+    @apply flex h-full w-1/4 flex-col max-md:hidden max-md:w-full;
+}
+.mobile-search_menu-menu{
+    @apply flex;
+}
+.search_bar {
+    @apply h-7 w-full mb-4 flex outline outline-2 outline-green-button rounded-xl;
+}
+ .search_bar input[type="search"] {
+    @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-none focus:text-green-button;
+}
+.search_bar button[type="button"] {
+    @apply h-full w-1/6 p-0 inline-block rounded-none rounded-r-xl shadow-none bg-secondary-white hover:outline-none;
+}
+.search_bar img {
+    @apply h-full pl-1 inline-block;
+}
+
+.list-companies{
+    @apply flex mt-2 flex-1 flex-col items-center justify-start rounded-xl overflow-y-auto overflow-x-hidden outline outline-1 outline-green-filter;
+}
+.add-del{
+    @apply sticky flex top-0 h-12 py-2 px-1 justify-evenly bg-secondary-white;
+}
+#add,#delete{
+    @apply w-[45%] p-0 font-bold;
+}
+#delete{
+    @apply flex justify-center;
+    img{
+        @apply h-full;
+    }
+}
+.company{
+    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+}
+/* --------------- fin liste à gauche --------------------*/
+/* --------------- profil à droite --------------------*/
+.btn_edit{
+    @apply mb-4 p-1 w-1/4 rounded-xl bg-green-true_btn;
+}
+#edit1{
+    @apply max-md:hidden;
+}
+#edit2{
+    @apply md:hidden absolute top-[5.5rem] left-6;
+}
+
+.profile_company{
+    @apply flex ml-2 flex-1 flex-col;
+}
+.mobile-search_menu-profile{
+    @apply hidden;
+}
+.profile{
+    @apply flex flex-col items-center;
+}
+.profile_block{
+    @apply flex bg-green-header flex-col flex-1;
+}
+
+.company_top{
+    @apply flex h-1/3 m-5 rounded-xl bg-secondary-white outline outline-green-button;
+}
+.logo_div{
+    @apply flex w-1/3 h-full justify-center;
+}
+#company_logo{
+    @apply w-full;
+}
+.top_profile{
+    @apply flex h-1/2 w-2/3 justify-around items-center;
+}
+
+.company_mid{
+    @apply flex mx-5 flex-1 flex-col bg-secondary-white rounded-xl outline outline-green-button;
+}
+.label-company_description{
+    @apply block pl-5 font-semibold;
+}
+#company_description{
+    @apply h-full w-full pl-1 resize-none bg-secondary-transparent;
+}
+
+.company_bot{
+    @apply m-5 pl-4 rounded-xl text-xl bg-secondary-white outline outline-green-button;
+    p{
+        @apply font-bold;
+    }
+    a{
+        @apply no-underline hover:underline hover:text-green-button;
+    }
+}
+
+
+/* --------------- fin profil à droite --------------------*/
+
+
+/* ----------------------- fin gestion des eleves ------------------*/

@@ -201,42 +201,6 @@ body::-webkit-scrollbar-track:hover{
     @apply py-1 px-5 bg-green-true_btn rounded-xl outline-green-button hover:outline;
 }
 
-/* 
-.right_top{
-    @apply h-2/5 flex justify-between items-end;
-}
-#menu{
-    @apply hidden absolute cursor-pointer w-10 top-0 m-2 max-ml:block contrast-0;
-}
-#student_photo{
-    @apply h-full ml-5 p-4 max-md:h-auto max-md:w-1/2 max-md:self-center max-md:m-0 max-sm:min-w-[170px] max-sm:min-h-[170px];
-}
-.student_info{
-    @apply relative overflow-hidden flex w-1/2 h-2/3 rounded-xl outline outline-green-button mr-4 px-1 flex-row flex-wrap content-around justify-evenly max-lg:flex-col max-lg:content-start;
-}
-.student_info p{
-    @apply w-1/3 h-5 text-center max-lg:w-full;
-}
-#student_info-long_text{
-    @apply w-2/3 max-lg:w-full;
-}
-
-.right_bot{
-    @apply relative p-3 h-3/5 w-full pb-10;
-}
-.label-student_description{
-    @apply block pl-5 font-semibold;
-}
-#student_description{
-    @apply h-full w-full resize-none bg-secondary-white;
-}
-
-*/
-
-
-
-
-
 /* --------------- fin profil à droite --------------------*/
 
 
