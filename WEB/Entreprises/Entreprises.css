@@ -157,81 +157,77 @@ input[type="date"] {
   @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
 }
 /* -----------------------DEBUT HEADER------------------------------- */
-
-.navbar {
-  @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-[99.2dvw] bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
+.navbar{
+  @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
 }
-.navbar-logo {
+.navbar-logo{
   @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
 }
-.mini-navbar-logo {
+.mini-navbar-logo{
   @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
-.navbar-links {
-  @apply flex items-center mt-3 max-ml:left-0 max-ml:absolute max-ml:w-screen max-ml:bg-secondary-footer_grey max-ml:bg-opacity-100 max-ml:h-[100vh] max-ml:justify-center max-ml:items-center max-ml:ml-[200%] max-ml:transition-all sm:mr-10 max-ml:flex-col;
+.navbar-links{
+  @apply flex items-center mt-3 max-lg:z-50 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
 }
-.navbar-current {
-  @apply flex flex-col items-center max-ml:items-center;
+.navbar-current{
+  @apply  flex flex-col items-center max-[850px]:items-center;
 }
-.navbar-current label {
-  @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-ml:hidden;
+.navbar-current label{
+  @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-lg:hidden;
 }
-.mobile-menu {
-  @apply max-ml:ml-0 max-ml:h-[450px] z-50;
+.mobile-menu{
+  @apply max-ml:ml-0 m-0 fixed;
 }
-.navbar-links a {
-  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-ml:mb-[40px];
+.navbar-links a{
+  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px];
 }
-.dropdown1 {
-  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] z-50;
+.dropdown1{
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] max-lg:hover:bg-secondary-pp_grey;
 }
-.dropdown2 {
-  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] z-50;
+.dropdown2{
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-lg:hover:bg-secondary-pp_grey;
 }
-.polygone-logo-1 {
-  @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
+.polygone-logo{
+  @apply h-[15px] w-[35.42px] inline-block;
 }
-.polygone-logo-2 {
-  @apply h-[15px] w-[35.42px] border border-solid border-secondary-true_black inline-block;
+.dropdown-items1{
+  @apply hidden absolute bg-green-volet min-w-6 w-full z-50 max-lg:bg-secondary-pp_grey;
 }
-.dropdown-items1 {
-  @apply hidden absolute bg-green-volet min-w-6 w-full;
+.dropdown-items2{
+  @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-ml:relative z-50 max-lg:bg-secondary-pp_grey;
 }
-.dropdown-items2 {
-  @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-ml:relative;
+.dropdown-items1 > a{
+  @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
 }
-.dropdown-items1 a {
-  @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
+.dropdown-items2 > a{
+  @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
 }
-.dropdown-items2 a {
-  @apply text-secondary-true_white no-underline text-[15px] block mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-ml:mb-3;
-}
-.dropdown-items1 a:hover {
+.dropdown-items1 a:hover{
   @apply hover:text-green-button;
 }
-.dropdown-items2 a:hover {
+.dropdown-items2 a:hover{
   @apply hover:text-green-button;
 }
-.dropdown-items1:hover {
-  @apply max-ml:hidden;
+.dropdown-items1:hover{
+  @apply max-[850px]:hidden;
 }
-.dropdown-items2:hover {
-  @apply max-ml:hidden;
+.dropdown-items2:hover{
+  @apply max-[850px]:hidden;
 }
-.dropdown-items2 span {
-  @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-ml:mb-0 max-ml:absolute;
+.dropdown-items2 span{
+  @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-[850px]:mb-0 max-[850px]:absolute;
 }
-.dropdown-btn {
+.dropdown-btn{
   @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
 }
 .dropdown1:hover .dropdown-items1 {
-  @apply block max-ml:z-50;
+  @apply block max-[850px]:z-50;
 }
 .dropdown2:hover .dropdown-items2 {
   display: block;
 }
-.navbar-hamburger {
-  @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-ml:block max-ml:z-50;
+.navbar-hamburger{
+  @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[1024px]:block max-[1024px]:z-50;
 }
 
 /* -----------------------FIN HEADER------------------------------- */
