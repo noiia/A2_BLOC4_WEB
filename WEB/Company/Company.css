@@ -93,9 +93,9 @@ body::-webkit-scrollbar-track:hover{
     @apply hidden;
 }
 /* ---------------------Fin onglet gauche -------------------*/
-/* --------------------- gestion des eleves -------------------*/
+/* --------------------- gestion des entreprises -------------------*/
 .main_right{
-    @apply fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-sm:m-2;
+    @apply fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-md:overflow-x-auto max-sm:m-2;
 }
 #right_title{
     @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
@@ -156,11 +156,11 @@ body::-webkit-scrollbar-track:hover{
     @apply max-md:hidden;
 }
 #edit2{
-    @apply md:hidden absolute top-[5.5rem] left-6;
+    @apply md:hidden absolute top-[5.25rem] left-5;
 }
 
 .profile_company{
-    @apply flex ml-2 flex-1 flex-col;
+    @apply flex ml-2 flex-1 flex-col max-md:m-0;
 }
 .mobile-search_menu-profile{
     @apply hidden;
@@ -169,24 +169,31 @@ body::-webkit-scrollbar-track:hover{
     @apply flex flex-col items-center;
 }
 .profile_block{
-    @apply flex bg-green-header flex-col flex-1;
+    @apply flex bg-green-header flex-col flex-1 max-md:bg-secondary-transparent;
 }
 
 .company_top{
-    @apply flex h-1/3 m-5 rounded-xl bg-secondary-white outline outline-green-button;
-}
-.logo_div{
-    @apply flex w-1/3 h-full justify-center;
+    @apply flex h-1/3 m-5 rounded-xl bg-secondary-white outline outline-green-button max-md:m-2 max-md:mt-0;
 }
 #company_logo{
-    @apply w-full;
+    @apply w-1/3 max-h-full self-center object-contain;
+}
+
+.right_profile{
+    @apply h-full w-2/3;
 }
 .top_profile{
-    @apply flex h-1/2 w-2/3 justify-around items-center;
+    @apply flex h-1/2 w-full justify-around items-center;
+}
+.bot_profile{
+    @apply flex h-1/2 w-full items-center overflow-x-auto;
+}
+.spot_company{
+    @apply flex h-2/3 w-[125px] min-w-[125px] mx-3 p-2 rounded-xl bg-green-button items-center justify-center shadow-xl;
 }
 
 .company_mid{
-    @apply flex mx-5 flex-1 flex-col bg-secondary-white rounded-xl outline outline-green-button;
+    @apply flex mx-5 flex-1 flex-col bg-secondary-white rounded-xl outline outline-green-button max-md:mx-2;
 }
 .label-company_description{
     @apply block pl-5 font-semibold;
@@ -196,7 +203,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .company_bot{
-    @apply m-5 pl-4 rounded-xl text-xl bg-secondary-white outline outline-green-button;
+    @apply m-5 pl-4 rounded-xl text-xl bg-secondary-white outline outline-green-button max-md:m-2;
     p{
         @apply font-bold;
     }

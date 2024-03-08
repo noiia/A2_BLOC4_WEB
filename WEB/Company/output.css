@@ -721,7 +721,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* ---------------------Fin onglet gauche -------------------*/
 
-/* --------------------- gestion des eleves -------------------*/
+/* --------------------- gestion des entreprises -------------------*/
 
 .main_right{
   position: fixed;
@@ -751,6 +751,7 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 768px){
   .main_right{
+    overflow-x: auto;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     padding-bottom: 0.5rem;
@@ -984,8 +985,8 @@ body::-webkit-scrollbar-track:hover{
 
 #edit2{
   position: absolute;
-  top: 5.5rem;
-  left: 1.5rem;
+  top: 5.25rem;
+  left: 1.25rem;
 }
 
 @media (min-width: 768px){
@@ -999,6 +1000,12 @@ body::-webkit-scrollbar-track:hover{
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
+}
+
+@media not all and (min-width: 768px){
+  .profile_company{
+    margin: 0px;
+  }
 }
 
 .mobile-search_menu-profile{
@@ -1019,6 +1026,12 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(148 198 118 / var(--tw-bg-opacity));
 }
 
+@media not all and (min-width: 768px){
+  .profile_block{
+    background-color: transparent;
+  }
+}
+
 .company_top{
   margin: 1.25rem;
   display: flex;
@@ -1030,23 +1043,58 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-.logo_div{
-  display: flex;
-  height: 100%;
-  width: 33.333333%;
-  justify-content: center;
+@media not all and (min-width: 768px){
+  .company_top{
+    margin: 0.5rem;
+    margin-top: 0px;
+  }
 }
 
 #company_logo{
-  width: 100%;
+  max-height: 100%;
+  width: 33.333333%;
+  align-self: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.right_profile{
+  height: 100%;
+  width: 66.666667%;
 }
 
 .top_profile{
   display: flex;
   height: 50%;
-  width: 66.666667%;
+  width: 100%;
   align-items: center;
   justify-content: space-around;
+}
+
+.bot_profile{
+  display: flex;
+  height: 50%;
+  width: 100%;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.spot_company{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  display: flex;
+  height: 66.666667%;
+  width: 125px;
+  min-width: 125px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .company_mid{
@@ -1060,6 +1108,13 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   outline-style: solid;
   outline-color: #39A325;
+}
+
+@media not all and (min-width: 768px){
+  .company_mid{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .label-company_description{
@@ -1086,6 +1141,15 @@ body::-webkit-scrollbar-track:hover{
   line-height: 1.75rem;
   outline-style: solid;
   outline-color: #39A325;
+}
+
+@media not all and (min-width: 768px){
+  .company_bot{
+    margin: 0.5rem;
+  }
+}
+
+.company_bot{
   p{
     font-weight: 700;
   }

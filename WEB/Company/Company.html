@@ -28,7 +28,7 @@
         <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
         <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
     </div>
-    <div class="main_right">
+    <div class="main_right second-scrollbar">
         <p id="right_title">Gestion des entreprises</p>
         <img src="../../Assets/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
         <img src="../../Assets/Icones/logo_seul.png" alt="chercher une entreprise" id="menu_search" onclick="toggle_search()">
@@ -67,22 +67,28 @@
         <div class="profile_company">
             <button class="btn_edit" id="edit1">Editer</button>
             <div class="profile_block">
+                <button class="btn_edit" id="edit2">Editer</button>
                 <div class="company_top">
-                    <div class="logo_div">
-                        <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="company_logo">
-                    </div>  
-                    <div class="top_profile">
-                        <ul>
-                            <li>Nom</li>
-                            <li>N°SIRET</li>
-                            <li>ID entreprise</li>
-                            <li>mail</li>
-                        </ul><ul>
-                            <li>Type</li>
-                            <li>Secteur d'activités</li>
-                            <li>Effectif personnel</li>
-                            <li>Date de création</li>
-                        </ul>
+                    <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="company_logo">
+                    <div class="right_profile">
+                        <div class="top_profile">
+                            <ul>
+                                <li>Nom</li>
+                                <li>N°SIRET</li>
+                                <li>ID entreprise</li>
+                                <li>mail</li>
+                            </ul><ul>
+                                <li>Type</li>
+                                <li>Secteur d'activités</li>
+                                <li>Effectif personnel</li>
+                                <li>Date de création</li>
+                            </ul>
+                        </div>
+                        <div class="bot_profile second-scrollbar">
+                            <div class="spot_company">Reims</div>
+                            <div class="spot_company">Paris</div>
+                            <div class="spot_company">Chalons-en-champagne</div>
+                        </div>
                     </div>
                 </div>
                 <div class="company_mid">
