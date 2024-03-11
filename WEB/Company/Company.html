@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="Company.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Gestion des entreprises</title>
 </head>
@@ -112,22 +114,4 @@
     </div>
 </body>
 </html>
-            
-<script>
-    function toggle_menu(){
-        const leftMenu = document.querySelector(".main_left");
-        const closeMenu = document.querySelector("#close_menu");
-        leftMenu.classList.toggle('mobile-menu');
-        closeMenu.classList.toggle('display-cross');
-    }
-    function toggle_search(){
-        const search = document.querySelector(".search_list-companies");
-        const profile = document.querySelector(".profile_company");
-        const closeMenu = document.querySelector("#close_menu");
-        search.classList.toggle('mobile-search_menu-menu');
-        profile.classList.toggle('mobile-search_menu-profile');
-    }
-    
-    </script>
-    
 
