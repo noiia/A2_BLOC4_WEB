@@ -6,25 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="Entreprises.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Accueil</title>
 </head>
 
 
 <!-- header -->
-
-<?php
-$username = $_POST['username'];
-$ProfilValue = "";
-$ProfilLink = "";
-
-if ($username != "") {
-    $ProfilValue = $username;
-} else {
-    $ProfilLink = 'href="../Login/login.php"';
-    $ProfilValue = "Profil";
-}
-?>
 
 <header>
     <nav class="navbar">
@@ -57,7 +45,7 @@ if ($username != "") {
             </div>
         </nav>
             <nav>
-        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
+        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
     </nav>
 </header>
 
@@ -67,7 +55,7 @@ if ($username != "") {
 
 <body class="body-move" id="body">
     <div class="full-runway" id="full-runway">
-        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut()">
+        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut();">
             <img src="../../Assets/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
         </button>
     <div class="runway-elements">
@@ -122,7 +110,7 @@ if ($username != "") {
                         </div>
                         <div class="filter-any_search-bot">
                             <div class="search_range">
-                                <input type="range" min="1" max="10" step="1" id="rangeInput" value="0">
+                                <input type="range" min="1" max="10" step="1" id="rangeInput" value="0" oninput="input_filter();">
                                 <span id="rangeValue">0/10</span>
                             </div>
                         </div>
@@ -152,7 +140,7 @@ if ($username != "") {
         </div>
         <div class="runway-container" id="runway-container">
             <div class="filter-mobile">
-                <button type="button" class="filter-button">Filtrer</button>
+                <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
             </div>
             <button class="container" id="container">
                 <span>
@@ -389,7 +377,7 @@ if ($username != "") {
         <div class="container-intern-details second-scrollbar" id="container-intern-details">
             <div class="container-close-tab">
                 <button class="button-close-tab" id="button-close-tab">
-                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
+                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture" onclick="toggle_bubulle();">
                 </button>
             </div>
             <div class="container-header-company-details">
@@ -702,6 +690,7 @@ if ($username != "") {
         </div>
     </div>
 </div>
+</body>
 <!-- --------------------------------------------------------FIN BUBULLE ENTREPRISES------------------------------------------------------------------------- -->
 <link href="http://e0.extreme-dm.com/s9.g?login=daoudi&jv=n&j=y&srw=1920&srb=24&l=https%3A//www.adaoudi.com/">
 <footer>
@@ -743,83 +732,4 @@ if ($username != "") {
         </ul>
     </div>
 </footer>
-
-<script>
-    var rangeInput = document.getElementById("rangeInput");
-    var rangeValue = document.getElementById("rangeValue");
-    rangeInput.addEventListener("input", function () { rangeValue.textContent = this.value + "/10"; });
-</script>
-<script>
-    const filterShutter = document.querySelector(".filter-button")
-    const filterMenu = document.querySelector(".parent-filter")
-    const container = document.querySelector(".runway-container")
-
-    filterShutter.addEventListener('click', () => { filterMenu.classList.toggle('filter-mobile_on-filter') })
-    filterShutter.addEventListener('click', () => { container.classList.toggle('filter-mobile_on-container') })
-
-    window.addEventListener("resize", () => {
-        const widthScreen = window.innerWidth;
-        if (widthScreen > 850) {
-            filterMenu.classList.remove('filter-mobile_on-filter')
-            container.classList.remove('filter-mobile_on-container')
-
-        }
-    });
-
-    const menuHamburger = document.querySelector(".navbar-hamburger")
-    const navbarLinks = document.querySelector(".navbar-links")
-
-    menuHamburger.addEventListener('click', () => { navbarLinks.classList.toggle('mobile-menu') })
-</script>
-
-<script>
-const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
-    const containerInternDetails = document.querySelector(".container-intern-details");
-    const containerIntern = document.querySelector(".container-intern");
-    const body = document.querySelector("body");
-
-    buttonCloseTab.addEventListener('click', () => {
-        containerInternDetails.classList.add('close-tab-clicked');
-        body.classList.add('mobile-scroll');
-    });
-
-    containerIntern.addEventListener('click', () => {
-        containerInternDetails.classList.remove('close-tab-clicked');
-        body.classList.remove('mobile-scroll');
-    });
-
-    window.onscroll = function() {
-    afficherOuMasquerBouton();
-    calculRunwayDist();
-};
-
-function afficherOuMasquerBouton() {
-    var boutonRetourHaut = document.getElementById("button-retour-haut");
-
-    if (document.documentElement.scrollTop > 115) {
-        boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
-    }else {
-        boutonRetourHaut.classList.add('display-none');
-        boutonRetourHaut.classList.remove('retourHaut');
-    }
-}
-
-function retournerEnHaut() {
-    document.documentElement.scrollTop = 0;
-}
-
-function calculRunwayDist(){
-    var runwayContainer = document.getElementById('runway-container');
-    var heightRunwayContainer = runwayContainer.clientHeight;
-    var element = document.getElementById('runway-container-intern-details');
-    if (heightRunwayContainer < 750){
-        runwayContainer.style.height = 750 + 'px'; 
-    }else {
-        element.style.height = heightRunwayContainer + 'px';
-    }
-}
-</script>
-
-<!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
 </html>

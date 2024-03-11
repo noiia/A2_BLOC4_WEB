@@ -740,6 +740,40 @@ input[type="date"]{
   accent-color: #94C676;
 }
 
+#rangeInput{
+  height: 100%;
+  width: 70%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rangeInput::-webkit-slider-runnable-track{
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+}
+
+#rangeInput::-webkit-slider-thumb{
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 #rangeInput2{
   height: 100%;
   width: 100%;
@@ -1355,7 +1389,7 @@ input[type="date"]{
   left: 10%;
   margin-left: 1rem;
   margin-top: 2.5rem;
-  height: 998px;
+  height: auto;
   width: 80%;
 }
 
@@ -1429,7 +1463,7 @@ input[type="date"]{
 }
 
 .filter-mobile_on-container{
-  margin-top: 1000px;
+  margin-top: 500px;
 }
 
 /* runway */
