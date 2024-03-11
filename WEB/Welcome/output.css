@@ -1936,6 +1936,7 @@ input[type="date"]{
   margin-top: 0.25rem;
   display: flex;
   height: 1.75rem;
+  cursor: default;
   align-items: center;
   justify-content: space-between;
   overflow-y: hidden;
@@ -1945,7 +1946,6 @@ input[type="date"]{
 }
 
 .postulation-docs p{
-  cursor: pointer;
   overflow: hidden;
   --tw-text-opacity: 1;
   color: rgb(0 129 249 / var(--tw-text-opacity));
@@ -1961,9 +1961,18 @@ input[type="date"]{
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
+#label_file-input{
+  cursor: pointer;
+}
+
+#file-input{
+  display: none;
+}
+
 .postulation-right button{
   position: relative;
   top: 5%;
+  margin-bottom: 0.5rem;
   align-self: center;
 }
 
