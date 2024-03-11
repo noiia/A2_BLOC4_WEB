@@ -682,10 +682,12 @@ function block_postulation() {
     const body = document.querySelector(".full-runway");
     const footer = document.querySelector("footer");
     const postulation_div = document.querySelector(".postulation-bg");
+    const true_body = document.querySelector("body");
 
     header.classList.toggle("when_postulation");
     body.classList.toggle("when_postulation");
     footer.classList.toggle("when_postulation");
+    true_body.classList.toggle("disable_scroll");
     postulation_div.classList.toggle("postulation-off");
     postulation_div.classList.toggle("postulation-on");
 }

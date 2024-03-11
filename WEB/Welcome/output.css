@@ -1721,6 +1721,10 @@ input[type="date"]{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.disable_scroll{
+  overflow: hidden;
+}
+
 .postulation-bg{
   top: 0px;
   left: 0px;

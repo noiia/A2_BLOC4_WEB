@@ -398,6 +398,9 @@ input[type="date"] {
 .when_postulation {
   @apply blur-sm;
 }
+.disable_scroll{
+  @apply overflow-hidden;
+}
 .postulation-bg {
   @apply w-full h-full top-0 left-0 z-50;
 }

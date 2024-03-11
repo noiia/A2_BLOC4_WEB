@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Gestion des pilotes</title>
+</head>
+
+<body>
+    <div class="main_left">
+        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+        <div class="left_container" id="left_array">
+            <p>Admin</p>
+            <ul>
+                <li><a href="../Profile/Profile.html">Mon profil</a></li>
+                <li><a href="../pilotes/pilotes.html">Etudiants</a></li>
+                <li><a id="actual_page">Pilotes</a></li>
+                <li><a href="../Company/Company.html">Entreprises</a></li>
+                <li><a href="../WishList/WishList.html">WishList</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_right">
+        <p id="right_title">Gestion des pilotes</p>
+        <img src="../../Assets/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="../../Assets/Icones/logo_seul.png" alt="chercher un pilote" id="menu_search" onclick="toggle_search()">
+        <div class="search_list-pilotes">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
+            </div>
+            <div class="list-pilotes second-scrollbar">
+                <div class="add-del">
+                    <button id="add">Ajouter</button>
+                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                </div>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">Daoudi Abderazack</button>
+                <button class="pilote">pilote</button>
+                <button class="pilote">pilote</button>                
+            </div>
+        </div>
+        <div class="profile_pilote">
+            <button class="btn_edit" id="edit1">Editer</button>
+            <div class="profile_block">
+                <div class="profile_top">
+                    <button class="btn_edit" id="edit2">Editer</button>
+                    <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="pilote_photo">
+                    <div class="pilote_info">
+                        <p>Albert</p>
+                        <p>Einstein</p>
+                        <p id="pilote_info-long_text">N°78952224476</p>
+                        <p>145 ans</p>
+                        <p>Bac+104</p>
+                        <p>Monaco</p>
+                        <p>Physique</p>
+                        <p id="pilote_info-long_text">AlbertE.du78@science.com</p>
+                    </div>
+                </div>
+                <div class="pilote_mid">
+                    <label class="label-pilote_description" for="pilote_description">Description</label>
+                    <textarea id="pilote_description" class="second-scrollbar" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt saepe accusamus provident numquam nostrum commodi praesentium perspiciatis, magnam aperiam autem in ad earum temporibus, sunt beatae officiis. Ullam, repellat sit.
+                    Placeat officiis ex praesentium fugiat odit tempora soluta, distinctio ratione, cupiditate harum molestias facilis esse nam ipsum fugit dicta dolorum hic adipisci, aliquid aliquam neque ea unde? Corrupti, perferendis ad!
+                    Amet, exercitationem voluptates? Impedit consequuntur dolorum, vel, nisi quam magni similique ducimus autem suscipit ea harum dignissimos praesentium rem maxime aut possimus quia cupiditate laborum error voluptates doloribus hic illo?
+                    Nemo in quaerat eum explicabo et deserunt vero porro veniam, maiores error quam facere aliquam, nobis distinctio. Saepe dignissimos, facere nulla, architecto officia quod odit ipsam, voluptatibus dolores quidem perspiciatis!
+                    Laborum, distinctio! Delectus ad ullam commodi debitis numquam, assumenda aut officia ex quia dolore pariatur ipsam dolores, iure obcaecati ab enim esse rem quos similique nobis aliquam, earum suscipit doloribus.
+                    Necessitatibus quidem praesentium eveniet, cumque illo voluptate ducimus officia commodi optio iste sint soluta dolore delectus, maiores eligendi minima voluptates, consequatur impedit iusto magni nisi quam quaerat saepe cum! Provident!
+                    Facere iure quasi harum a excepturi aut numquam laudantium inventore, reprehenderit esse temporibus soluta. Consectetur vitae incidunt iusto, nisi voluptatibus error ullam reiciendis fuga beatae totam praesentium non nesciunt suscipit.
+                    Iste saepe illum aliquid et accusamus ea quod tenetur vel! Odio repudiandae officia, dolorum aperiam animi hic omnis exercitationem, sequi fugiat, eveniet tenetur adipisci minima cum soluta saepe quis perferendis.
+                    Nostrum quibusdam amet aliquam animi atque, maiores obcaecati cupiditate suscipit aspernatur id nemo beatae doloremque? Officia harum id earum placeat quae odit consequuntur, voluptatem asperiores hic. Neque excepturi quam laudantium.
+                    Beatae quisquam illum sunt? Fuga officiis et amet mollitia explicabo aliquam hic perspiciatis autem animi debitis accusantium, laboriosam earum doloremque vero consequuntur nam tempora magnam recusandae repudiandae laborum, itaque suscipit.</textarea>
+                </div>
+                <div class="pilote_bot">
+                    Promotions en charge
+                    <div class="in_charge second-scrollbar">
+                        <div class="class_in_charge">Prom1</div>
+                        <div class="class_in_charge">Promotion 2</div>
+                        <div class="class_in_charge">Promotion 2</div>
+                        <div class="class_in_charge">Promotion 2</div>
+                        <div class="class_in_charge">Promotion 2</div>
+                        <div class="class_in_charge">Promotion 2</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            
+<script>
+    function toggle_menu(){
+        const leftMenu = document.querySelector(".main_left");
+        const closeMenu = document.querySelector("#close_menu");
+        leftMenu.classList.toggle('mobile-menu');
+        closeMenu.classList.toggle('display-cross');
+    }
+    function toggle_search(){
+        const search = document.querySelector(".search_list-pilotes");
+        const profile = document.querySelector(".profile_pilote");
+        const closeMenu = document.querySelector("#close_menu");
+        search.classList.toggle('mobile-search_menu-menu');
+        profile.classList.toggle('mobile-search_menu-profile');
+    }
+    
+    </script>
+    
+
