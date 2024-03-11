@@ -11,19 +11,6 @@
     <title>Inter'net - Profile</title>
 </head>
 
-<script>
-    $(document).ready(function(){
-        var roleValue = "role";
-        var profilePHP = "Profile.php";
-        data = {
-            action : roleValue
-        };
-        $.post(profilePHP, data, function(response){
-            $(".main_left").append(response);
-        })
-    })
-</script>
-
 <body>
     <div class="main_left">
         <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">

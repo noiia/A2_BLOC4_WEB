@@ -8,19 +8,47 @@
     @apply font-display;
 }
 body{
-    @apply flex w-screen h-screen max-[770px]:flex-col max-[770px]:flex-wrap max-[770px]:justify-center max-[770px]:items-center max-[770px]:bg-secondary-grey;
+    @apply inline-block;
+}
+button{
+    @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
+}
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
 }
 
+.second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
 
-/*Partie gauche*/
+.second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+/* ---------------------Onglet à gauche -------------------*/
 .main_left{
-    @apply fixed bg-secondary-left_bg_grey md:w-1/4 md:h-full flex flex-col flex-wrap items-center top-0 max-[770px]:w-screen max-[770px]:h-1/2 max-[770px]:hidden max-[770px]:justify-center;
+    @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
+}
+#close_menu{
+    @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
 }
 #button_back{
-    @apply relative w-4/5 h-12 bg-green-true_btn rounded-xl mt-8 mb-2 drop-shadow-xl hover:outline outline-green-button outline-2;
+    @apply relative w-4/5 h-12 mt-8 mb-2;
 }
+
 .left_container{
-    @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl max-[770px]:h-[110px];
+    @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl;
 }
 .left_container p{
     @apply cursor-default;
@@ -28,20 +56,24 @@ body{
 .left_container ul{
     @apply flex flex-col;
 }
-.left_container ul li p{
+.left_container ul li a{
     @apply relative inline left-[10%] cursor-pointer hover:text-green-true_btn;
 }
-.left_container span{
-    @apply underline;
+
+.left_hide{
+    @apply hidden;
+}
+#actual_page{
+    @apply cursor-default underline hover:text-secondary-true_black;
 }
 
-/*Hamburger*/
-.hamburger{
-    @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] w-[30px] sm:w-[60px] max-[770px]:z-50 max-[770px]:items-center max-[770px]:flex;
-}
 .mobile-menu{
-    @apply absolute flex content-center items-center max-[770px]:w-screen max-[770px]:h-screen z-50;
+    @apply flex z-20;
 }
+.display-cross{
+    @apply hidden;
+}
+/* ---------------------Fin onglet gauche -------------------*/
 
 /*Partie droite*/
 .main_right{
