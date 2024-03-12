@@ -42,29 +42,19 @@
             <div class="list-companies second-scrollbar">
                 <div class="add-del">
                     <button id="add">Ajouter</button>
-                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                    <button id="delete" onclick="toggle_delete();"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
                 </div>
-                <button class="company">entreprise1</button>
-                <button class="company">entreprise2</button>
-                <button class="company">entreprise3</button>
-                <button class="company">entreprise4</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5987</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>                
-            </div>
+                <button class="company" id="company-1" onclick="focus_container('company-1')">entreprise1</button>           
+                <button class="company" id="company-2" onclick="focus_container('company-2')">entreprise2</button>           
+                <button class="company" id="company-3" onclick="focus_container('company-3')">entreprise3</button>           
+                <button class="company" id="company-4" onclick="focus_container('company-4')">entreprise4</button>           
+                <button class="company" id="company-5" onclick="focus_container('company-5')">entreprise5</button>           
+                <button class="company" id="company-6" onclick="focus_container('company-6')">entreprise6</button>           
+                <button class="company" id="company-7" onclick="focus_container('company-7')">entreprise7</button>           
+                <button class="company" id="company-8" onclick="focus_container('company-8')">entreprise8</button>           
+                <button class="company" id="company-9" onclick="focus_container('company-9')">entreprise9</button>           
+                <button class="company" id="company-10" onclick="focus_container('company-10')">entreprise10</button>           
+              </div>
         </div>
         <div class="profile_company">
             <button class="btn_edit" id="edit1">Editer</button>
@@ -109,6 +99,17 @@
                 <div class="company_bot">
                     <p>Site Internet : <a href="https://www.reims.fr/" target="_blank">reims.fr</a></p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cette entreprise ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
             </div>
         </div>
     </div>

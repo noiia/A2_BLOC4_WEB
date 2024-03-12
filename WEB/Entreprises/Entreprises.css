@@ -345,10 +345,8 @@ input[type="date"] {
 .container-skills li {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 }
-.container:focus {
-  .container-intern {
-    @apply outline outline-green-button rounded-xl;
-  }
+.container_focus{
+  @apply outline outline-green-button;
   .container-skills li {
     @apply bg-green-button;
   }

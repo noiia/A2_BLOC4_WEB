@@ -7,6 +7,9 @@
 *{
     @apply font-display;
 }
+html, body{
+    @apply w-full h-full;
+}
 body{
     @apply inline-block;
 }
@@ -146,6 +149,31 @@ body::-webkit-scrollbar-track:hover{
 }
 .company{
     @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+}
+.container_focus{
+    @apply outline-green-button;
+}
+
+.del_bg{
+    @apply hidden fixed w-full h-full backdrop-blur-sm;
+}
+.del_block{
+    @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
+}
+.del_text{
+    @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
+}
+.del_button{
+    @apply absolute flex w-full bottom-5 justify-center;
+    button {
+        @apply w-[30%] py-3 mx-3 bg-green-true_btn;
+    }
+}
+.active-del_block{
+    @apply block;
+}
+.del_current_container{
+    @apply hidden;
 }
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/

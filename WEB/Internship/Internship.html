@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="Company.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Gestion des entreprises</title>
+</head>
+<script>
+$(document).ready(function(){
+    var Value = "role";
+    var PHPfiles = "Internship.php";
+    data = {
+        action : Value
+    };
+    $.post(PHPfiles, data, function(response){
+        $(".main_left").append(response);
+    })
+})
+</script>
+
+<body>
+    <div class="main_left">
+        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+    </div>

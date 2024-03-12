@@ -14,19 +14,6 @@
 
 
 <!-- header -->
-<script>
-    $(document).ready(function(){
-        var Value = "profile";
-        var PHPfiles = "Welcome.php";
-        data = {
-            action : Value
-        };
-        $.post(PHPfiles, data, function(response){
-            $("#navbar-profile").append(response);
-        })
-    })
-</script>
-
 
 <header>
     <nav class="navbar">
@@ -243,9 +230,9 @@
                 <div class="filter-mobile">
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-1')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-1">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -262,9 +249,9 @@
                         </div>
                     </span>
                 </button>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-2')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-2">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -281,9 +268,9 @@
                         </div>
                     </span>
                 </button>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-3')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-3">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -507,22 +494,18 @@
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">
-                    <div class="postulation-block_docs">
+                    <div class="postulation-block_docs" id="postulation-block_docs">
                         Vos documents
                         <div class="postulation-list_docs">
                             <div class="postulation-docs">
-                                <p>CV.pdf</p>
-                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
-                            </div>
-                            <div class="postulation-docs">
-                                <p>lettre_motiv.pdf</p>
+                                <p onclick="open_file('../../Assets/files/Livrable_2_Projet_FF.pdf')">CV.pdf</p>
                                 <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
                             </div>
                         </div>
                     </div>
-                    <button type="button">
-                        <label for="file-input" id="label_file-input">Ajouter un fichier</label>
-                        <input type="file" id="file-input" accept="image/*">
+                    <button type="button" onclick="do_add_file();">
+                        Ajouter un fichier (.pdf)
+                        <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
                     </button>
                     <button type="button" id="postulation-button_postulation">Postuler</button>
                 </div>

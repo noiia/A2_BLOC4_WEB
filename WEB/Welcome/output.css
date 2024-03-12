@@ -1436,15 +1436,15 @@ input[type="date"]{
 }
 
 .container:focus {
-  .container-intern{
-    border-radius: 0.75rem;
+  .container-skills li{
+    --tw-bg-opacity: 1;
+    background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   }
-  .container-intern{
-    outline-style: solid;
-  }
-  .container-intern{
-    outline-color: #39A325;
-  }
+}
+
+.container_focus{
+  outline-style: solid;
+  outline-color: #39A325;
   .container-skills li{
     --tw-bg-opacity: 1;
     background-color: rgb(57 163 37 / var(--tw-bg-opacity));
@@ -1946,6 +1946,7 @@ input[type="date"]{
 }
 
 .postulation-docs p{
+  cursor: pointer;
   overflow: hidden;
   --tw-text-opacity: 1;
   color: rgb(0 129 249 / var(--tw-text-opacity));
@@ -1980,6 +1981,15 @@ input[type="date"]{
   .postulation-right button{
     margin-right: 2rem;
   }
+}
+
+.drop_over{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 129 249 / var(--tw-bg-opacity));
+}
+
+.file-hidden{
+  display: none;
 }
 
 /*--------------------------------FIN BULLE POSTULER --------------------------*/

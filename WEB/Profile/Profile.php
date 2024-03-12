@@ -31,6 +31,7 @@ function check_role(){
                 <li><a href="../Students/Students.html">Etudiants</a></li>
                 <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
                 <li><a href="../Company/Company.html">Entreprises</a></li>
+                <li><a href="../Internship/Internship.html">Stages</a></li>
                 <li><a href="../WishList/WishList.html">WishList</a></li>
             </ul>
         </div>';

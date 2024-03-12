@@ -258,9 +258,12 @@ input[type="date"] {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 }
 .container:focus {
-  .container-intern {
-    @apply outline outline-green-button rounded-xl;
+  .container-skills li {
+    @apply bg-green-button;
   }
+}
+.container_focus{
+  @apply outline outline-green-button;
   .container-skills li {
     @apply bg-green-button;
   }
@@ -444,7 +447,7 @@ input[type="date"] {
   @apply relative flex justify-between cursor-default bg-secondary-filter_grey h-7 mx-2 mt-1 pl-1 items-center overflow-y-hidden;
 }
 .postulation-docs p {
-  @apply text-blue-links underline overflow-hidden;
+  @apply text-blue-links cursor-pointer underline overflow-hidden;
 }
 .postulation-docs img {
   @apply relative inline-block bg-green-true_btn h-full cursor-pointer;
@@ -457,6 +460,12 @@ input[type="date"] {
 }
 .postulation-right button {
   @apply relative self-center top-[5%] mb-2 ml:mr-8;
+}
+.drop_over{
+  @apply bg-blue-links;
+}
+.file-hidden{
+  @apply hidden;
 }
 
 /*--------------------------------FIN BULLE POSTULER --------------------------*/

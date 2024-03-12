@@ -29,28 +29,25 @@
             <div class="list-students second-scrollbar">
                 <div class="add-del">
                     <button id="add">Ajouter</button>
-                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                    <button id="delete" onclick="toggle_delete();"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
                 </div>
-                <button class="student">élève1</button>
-                <button class="student">élève2</button>
-                <button class="student">élève3</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève546</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
+                <button class="student" id="student-1" onclick="focus_container('student-1')">élève1</button>
+                <button class="student" id="student-2" onclick="focus_container('student-2')">élève2</button>
+                <button class="student" id="student-3" onclick="focus_container('student-3')">élève3</button>
+                <button class="student" id="student-4" onclick="focus_container('student-4')">élève4</button>
+                <button class="student" id="student-5" onclick="focus_container('student-5')">élève5</button>
+                <button class="student" id="student-6" onclick="focus_container('student-6')">élève6</button>
+                <button class="student" id="student-7" onclick="focus_container('student-7')">élève7</button>
+                <button class="student" id="student-8" onclick="focus_container('student-8')">élève8</button>
+                <button class="student" id="student-9" onclick="focus_container('student-9')">élève9</button>
+                <button class="student" id="student-10" onclick="focus_container('student-10')">élève10</button>
+                <button class="student" id="student-11" onclick="focus_container('student-11')">élève11</button>
+                <button class="student" id="student-12" onclick="focus_container('student-12')">élève12</button>
+                <button class="student" id="student-13" onclick="focus_container('student-13')">élève13</button>
+                <button class="student" id="student-14" onclick="focus_container('student-14')">élève14</button>
+                <button class="student" id="student-15" onclick="focus_container('student-15')">élève15</button>
+                <button class="student" id="student-16" onclick="focus_container('student-16')">élève16</button>
+                <button class="student" id="student-17" onclick="focus_container('student-17')">élève17</button>
             </div>
         </div>
         <div class="profile_student">
@@ -86,6 +83,17 @@
                 <div class="student_bot">
                     <button id="activity">Activités</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cet élève ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
             </div>
         </div>
     </div>

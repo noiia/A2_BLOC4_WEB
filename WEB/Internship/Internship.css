@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-display;
+}
+html, body{
+    @apply w-full h-full;
+}
+body{
+    @apply inline-block;
+}
+button{
+    @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
+}
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+body::-webkit-scrollbar-thumb{
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey;
+}
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+/* ---------------------Onglet à gauche -------------------*/
+.main_left{
+    @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
+}
+#close_menu{
+    @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
+}
+#button_back{
+    @apply relative w-4/5 h-12 mt-8 mb-2;
+}
+
+.left_container{
+    @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl;
+}
+.left_container p{
+    @apply cursor-default;
+}
+.left_container ul{
+    @apply flex flex-col;
+}
+.left_container ul li a{
+    @apply relative inline left-[10%] cursor-pointer hover:text-green-true_btn;
+}
+
+.left_hide{
+    @apply hidden;
+}
+#actual_page{
+    @apply cursor-default underline hover:text-secondary-true_black;
+}
+
+.mobile-menu{
+    @apply flex z-20;
+}
+.display-cross{
+    @apply hidden;
+}
+/* ---------------------Fin onglet gauche -------------------*/
+
+
+
+
+
+
+
+
+
