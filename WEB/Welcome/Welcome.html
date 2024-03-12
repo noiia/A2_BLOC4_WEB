@@ -507,22 +507,18 @@
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">
-                    <div class="postulation-block_docs">
+                    <div class="postulation-block_docs" id="postulation-block_docs">
                         Vos documents
                         <div class="postulation-list_docs">
                             <div class="postulation-docs">
-                                <p>CV.pdf</p>
-                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
-                            </div>
-                            <div class="postulation-docs">
-                                <p>lettre_motiv.pdf</p>
+                                <p onclick="open_file('../../Assets/files/Livrable_2_Projet_FF.pdf')">CV.pdf</p>
                                 <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
                             </div>
                         </div>
                     </div>
-                    <button type="button">
-                        <label for="file-input" id="label_file-input">Ajouter un fichier</label>
-                        <input type="file" id="file-input" accept="image/*">
+                    <button type="button" onclick="do_add_file();">
+                        Ajouter un fichier (.pdf)
+                        <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
                     </button>
                     <button type="button" id="postulation-button_postulation">Postuler</button>
                 </div>
