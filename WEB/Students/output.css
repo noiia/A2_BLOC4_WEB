@@ -597,6 +597,8 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
 .second-scrollbar::-webkit-scrollbar{
   width: 15px;
 }
@@ -621,6 +623,34 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
+/* --------------------- FIN SCROLLBARS -------------------- */
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+
+.second-scrollbar-description-internship::-webkit-scrollbar{
+  width: 15px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
+  margin-block: 0px;
+  cursor: default;
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185,185,185);
+  border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track{
+  margin-block: 0px;
+  border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track:hover{
+  cursor: default;
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
 /* --------------------- FIN SCROLLBARS-------------------- */
 
 /* ---------------------Onglet à gauche -------------------*/
@@ -636,6 +666,8 @@ body::-webkit-scrollbar-track:hover{
   align-items: center;
   --tw-bg-opacity: 1;
   background-color: rgb(217 217 217 / var(--tw-bg-opacity));
+  --tw-blur: blur(16px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 @media not all and (min-width: 1024px){
@@ -741,6 +773,8 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
   outline-width: 4px;
   outline-color: #39A325;
+  --tw-blur: blur(16px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 @media not all and (min-width: 1024px){
@@ -1139,38 +1173,266 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
 }
 
-/* 
-.right_top{
-    @apply h-2/5 flex justify-between items-end;
-}
-#menu{
-    @apply hidden absolute cursor-pointer w-10 top-0 m-2 max-ml:block contrast-0;
-}
-#student_photo{
-    @apply h-full ml-5 p-4 max-md:h-auto max-md:w-1/2 max-md:self-center max-md:m-0 max-sm:min-w-[170px] max-sm:min-h-[170px];
-}
-.student_info{
-    @apply relative overflow-hidden flex w-1/2 h-2/3 rounded-xl outline outline-green-button mr-4 px-1 flex-row flex-wrap content-around justify-evenly max-lg:flex-col max-lg:content-start;
-}
-.student_info p{
-    @apply w-1/3 h-5 text-center max-lg:w-full;
-}
-#student_info-long_text{
-    @apply w-2/3 max-lg:w-full;
-}
-
-.right_bot{
-    @apply relative p-3 h-3/5 w-full pb-10;
-}
-.label-student_description{
-    @apply block pl-5 font-semibold;
-}
-#student_description{
-    @apply h-full w-full resize-none bg-secondary-white;
-}
-
-*/
-
 /* --------------- fin profil à droite --------------------*/
+
+/* ------------------ DEBUT POP-UP AJOUTER ETUDIANT -----------------*/
+
+.container-add-student{
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  z-index: 40;
+  height: 90%;
+  width: 90%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
+.add-student-name{
+  position: absolute;
+  left: 3%;
+  top: 1.75rem;
+  border-radius: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
+.add-student-name h1{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.div-button-apply{
+  position: absolute;
+  top: 2rem;
+  right: 3%;
+  margin-bottom: 1rem;
+  min-width: 15%;
+}
+
+.div-button-cancel{
+  position: absolute;
+  right: 21%;
+  top: 2rem;
+  margin-bottom: 1rem;
+  min-width: 15%;
+}
+
+@media not all and (min-width: 850px){
+  .div-button-cancel{
+    right: 23%;
+  }
+}
+
+.button-apply{
+  width: 100%;
+}
+
+.button-cancel{
+  width: 100%;
+}
+
+.container-informations-and-description{
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 90px;
+  height: 86%;
+  width: 94%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+  padding: 0.25rem;
+}
+
+.container-students-informations{
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 15px;
+  display: flex;
+  height: 44%;
+  width: 98%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  padding: 2rem;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #000000;
+}
+
+.container-student-profile-picture{
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 20%;
+  min-width: 130px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.student-profile-picture{
+  height: auto;
+  min-height: 130px;
+  width: auto;
+  min-width: 130px;
+}
+
+.add-profile-picture-button{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 15%;
+  min-height: 35px;
+  width: 15%;
+  min-width: 33px;
+}
+
+@media not all and (min-width: 1280px){
+  .add-profile-picture-button{
+    bottom: 1.25rem;
+  }
+}
+
+@media not all and (min-width: 1024px){
+  .add-profile-picture-button{
+    bottom: 2.25rem;
+  }
+}
+
+.add-profile-picture-button>input{
+  display: none;
+}
+
+.add-profile-picture-button img:hover{
+  cursor: pointer;
+}
+
+.students-informations{
+  height: 100%;
+  width: 80%;
+}
+
+.students-each-informations ul{
+  display: inline-grid;
+  height: auto;
+  width: 32%;
+  padding-left: 0.5rem;
+}
+
+.students-each-informations li{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.students-each-informations li:first-child{
+  margin-top: 50px;
+}
+
+.students-each-informations-long{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 200%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+.students-each-informations-long:first-child{
+  margin-top: 50px;
+}
+
+.students-each-informations input{
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
+}
+
+.students-each-informations input::-moz-placeholder{
+  --tw-placeholder-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-placeholder-opacity));
+}
+
+.students-each-informations input::placeholder{
+  --tw-placeholder-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-placeholder-opacity));
+}
+
+.students-each-informations input:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.container-students-description-name h1{
+  height: auto;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.container-students-description{
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 50px;
+  height: 44%;
+  width: 98%;
+  overflow: auto;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  padding-top: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #000000;
+}
+
+.students-description textarea{
+  height: 100%;
+  width: 100%;
+  resize: none;
+  overflow: auto;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.students-description{
+  margin-top: 0.5rem;
+  height: 80%;
+  width: 100%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  padding: 1rem;
+}
+
+.students-description p{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+/* ------------------ FIN POP-UP AJOUTER ETUDIANT ----------------- */
 
 /* ----------------------- fin gestion des eleves ------------------*/

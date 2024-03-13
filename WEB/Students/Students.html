@@ -7,7 +7,7 @@
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="output.css" rel="stylesheet">
-    <title>Inter'net - Profile</title>
+    <title>Inter'net - Gestion des etudiants</title>
 </head>
 
 <script>
@@ -100,6 +100,60 @@
             </div>
         </div>
     </div>
+
+<!-- -------------------------DEBUT POP UP AJOUTER ELEVE ------------------------ -->
+
+    <div class="container-add-student">
+        <div class="add-student-name">
+            <h1>Ajouter un étudiant</h1>
+        </div>            
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+             <button class="button-cancel" id="apply">Appliquer</button>
+       </div>
+       <div class="container-informations-and-description">
+            <div class="container-students-informations">
+                <div class="container-student-profile-picture">
+                    <div class="student-profile-picture">
+                        <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
+                    </div>
+                    <div class="add-profile-picture-button">
+                        <label for="file-input">
+                            <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
+                        </label>
+                        <input id="file-input" type="file" accept="image/*" />
+                    </div>
+                </div>
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <ul>
+                            <li><input placeholder="Nom"></input></li>
+                            <li><input placeholder="Prénom"></li>
+                            <li><input placeholder="Date de naissance"></li>
+                        </ul>
+                        <ul>
+                            <li><input placeholder="Promotion"></li>
+                            <li class="students-each-informations-long"><input placeholder="Mail"></li>
+                            <li class="students-each-informations-long"><input placeholder="Campus"></li>
+                        </ul>
+                        <ul>
+                            <li><input placeholder="N° Utilisateur"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                    <textarea class="second-scrollbar-description-internship" placeholder="Tapez votre description..."></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------FIN POP UP AJOUTER ELEVE ------------------------ -->
 </body>
 </html>
             
