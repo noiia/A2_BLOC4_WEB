@@ -41,7 +41,7 @@
             </div>
             <div class="list-companies second-scrollbar">
                 <div class="add-del">
-                    <button id="add">Ajouter</button>
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
                     <button id="delete" onclick="toggle_delete();"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
                 </div>
                 <button class="company" id="company-1" onclick="focus_container('company-1')">entreprise1</button>           
@@ -57,9 +57,9 @@
               </div>
         </div>
         <div class="profile_company">
-            <button class="btn_edit" id="edit1">Editer</button>
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
             <div class="profile_block">
-                <button class="btn_edit" id="edit2">Editer</button>
+                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
                 <div class="company_top">
                     <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="company_logo">
                     <div class="right_profile">
@@ -102,6 +102,91 @@
             </div>
         </div>
     </div>
+    <!-- ------------------------- POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="container-add-student hide_container">
+        <div class="add-student-name">
+            <h1>Ajouter une entreprise</h1>
+        </div>            
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+            <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
+        </div>
+        <div class="container-informations-and-description">
+            <div class="container-students-informations">
+                <div class="container-student-profile-picture">
+                    <div class="student-profile-picture">
+                        <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
+                    </div>
+                    <div class="add-profile-picture-button">
+                        <label for="file-input">
+                            <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
+                        </label>
+                        <input id="file-input" type="file" accept="image/*" />
+                    </div>
+                </div>
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <ul>
+                            <li><input placeholder="Nom"></input></li>
+                            <li><input placeholder="N° SIRET"></input></li>
+                            <li><input placeholder="Type"></input></li>
+                            <li><input placeholder="Site Internet"></input></li>
+                        </ul>
+                        <ul>
+                            <li><input placeholder="Mail"></input></li>
+                            <li><input placeholder="Date de création"></input></li>
+                            <li><input placeholder="Effectif personnel"></input></li>
+                            <li><input placeholder="Secteur d'activité"></input></li>
+                        </ul>
+                        <ul>
+                            <li><input placeholder="ID entreprise"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description second-scrollbar">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                    <textarea class="second-scrollbar-description-internship" placeholder="Tapez votre description..."></textarea>
+                </div>        
+            </div>
+            <div class="container-pilote-promotion second-scrollbar">
+                <div class="container-pilote-promotion-header">
+                    <div class="container-pilote-promotion-header-name">
+                        <h1>Adresses</h1>
+                    </div>
+                    <div class="container-pilote-promotion-header-add-button">
+                        <button class="button-add" id="add-button">Ajouter</button>
+                    </div>
+                </div>
+                <div class="input-adresse">
+                    <input id="input-adresse" placeholder="Adresse..."></input>
+                </div>
+                <div class="input-code-postal">
+                    <input id="input-code-postal" placeholder="CP..."></input>
+                </div>
+                <div class="container-each-promotion">
+                    <div class="each-promotion">
+                        <h1>15 rue des pissenlits, 51500</h1>
+                        <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="../../Assets/Icones/poubelle-de-recyclage.png" alt="poubelle" id="bin-picture"></button>
+                    </div>
+                    <div class="each-promotion">
+                        <h1>15 rue des pissenlits des petits gentils gens, 51500</h1>
+                        <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="../../Assets/Icones/poubelle-de-recyclage.png" alt="poubelle" id="bin-picture"></button>
+                    </div>
+                    <div class="each-promotion">
+                        <h1>4879787 allée des marcassins des prés, 42869</h1>
+                        <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="../../Assets/Icones/poubelle-de-recyclage.png" alt="poubelle" id="bin-picture"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------FIN POP UP AJOUTER PILOTE ------------------------ -->
     <div class="del_bg">
         <div class="del_block">
             <div class="del_text">

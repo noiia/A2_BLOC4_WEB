@@ -228,10 +228,140 @@ body::-webkit-scrollbar-track:hover{
 .class_in_charge{
     @apply min-w-[100px] p-3 mx-4 font-normal rounded-xl bg-green-button text-center;
 }
-
-
-
 /* --------------- fin profil à droite --------------------*/
 
+/* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
+
+.container-add-student {
+    @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40;
+}
+
+
+.add-student-name {
+    @apply absolute left-[3%] top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
+}
+.hide_container{
+    @apply hidden;
+}
+.add-student-name h1 {
+    @apply text-2xl;
+}
+
+.div-button-apply {
+    @apply absolute top-8 right-[3%] mb-4 min-w-[15%];
+}
+
+.div-button-cancel {
+    @apply absolute max-ml:right-[23%] right-[21%] top-8 mb-4 min-w-[15%];
+}
+
+.button-apply {
+    @apply w-full;
+}
+
+.button-cancel {
+    @apply w-full;
+}
+
+.container-informations-and-description {
+    @apply relative bg-green-header w-[94%] h-[86%] mx-[3%] mt-[90px] p-1;
+}
+
+.container-students-informations {
+    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8;
+}
+
+.container-student-profile-picture {
+    @apply w-[20%] min-w-[130px] h-full relative flex items-center justify-start;
+}
+
+.student-profile-picture {
+    @apply w-auto h-auto min-w-[130px] min-h-[130px];
+}
+
+.add-profile-picture-button {
+    @apply min-w-[33px] min-h-[35px] w-[15%] h-[15%] absolute bottom-0 right-0 max-xl:bottom-5 max-lg:bottom-9;
+}
+
+.add-profile-picture-button>input {
+    @apply hidden;
+}
+
+.add-profile-picture-button img:hover {
+    @apply cursor-pointer;
+}
+
+.students-informations {
+    @apply h-full w-[80%];
+}
+
+.students-each-informations ul {
+    @apply inline-grid w-[49%] h-auto pl-2;
+}
+
+.students-each-informations li {
+    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl first:mt-[50px];
+}
+
+.students-each-informations input {
+    @apply  w-full bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
+}
+
+.container-students-description {
+    @apply overflow-auto inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6;
+}
+
+.container-students-description-name h1{
+    @apply text-2xl underline underline-offset-4 h-auto;
+}
+
+.students-description textarea{
+    @apply overflow-auto w-full h-full resize-none bg-secondary-filter_grey outline-none;
+}
+
+.students-description {
+    @apply mt-2 p-4 w-full h-[80%] bg-secondary-filter_grey rounded-xl;
+}
+
+.students-description p {
+    @apply text-xl;
+}
+
+.container-pilote-promotion {
+    @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%];
+}
+
+.container-pilote-promotion-header {
+    
+}
+
+.container-pilote-promotion-header-name {
+    @apply text-2xl underline underline-offset-4 flex ml-2;
+}
+
+.container-pilote-promotion-header-add-button {
+    @apply absolute top-2 right-2 w-[40%];
+}
+
+.container-each-promotion {
+    @apply p-2 mt-2 bg-secondary-filter_grey rounded-xl w-full h-auto;
+}
+
+.each-promotion {
+    @apply relative p-2 bg-secondary-true_white rounded-xl w-full text-xl first:m-0 mt-1;
+}
+
+.delete-promotion-button {
+    @apply absolute right-2 top-2 w-[30px] h-[30px] py-0 px-0 rounded-none shadow-none bg-none outline-none hover:outline-none;
+}
+
+.button-add {
+    @apply w-full;
+}
+
+.input-promotion input{
+    @apply h-[50px] p-2 mt-2 w-full text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
+}
+/* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
 /* ----------------------- fin gestion des eleves ------------------*/

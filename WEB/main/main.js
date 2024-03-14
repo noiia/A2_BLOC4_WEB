@@ -81,6 +81,10 @@ function del_current_container(){
     container_focus = null;
 }
 
+function toggle_hide_popup(){
+    document.querySelector('.container-add-student').classList.toggle('hide_container');
+}
+
 // -------------------- fin parti gestion -------------------
 
 

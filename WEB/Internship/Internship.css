@@ -257,6 +257,183 @@ body::-webkit-scrollbar-track:hover{
 }
 
 /* --------------- fin profil à droite --------------------*/
+/* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
 
+.container-add-student {
+    @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40;
+}
+.hide_container{
+    @apply hidden;
+}
+.add-student-name {
+    @apply absolute left-[3%] top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
+}
+
+.add-student-name h1 {
+    @apply text-2xl;
+}
+
+.div-button-apply {
+    @apply absolute top-8 right-[3%] mb-4 min-w-[15%];
+}
+
+.div-button-cancel {
+    @apply absolute max-ml:right-[23%] right-[21%] top-8 mb-4 min-w-[15%];
+}
+
+.button-apply {
+    @apply w-full;
+}
+
+.button-cancel {
+    @apply w-full;
+}
+
+.container-informations-and-description {
+    @apply relative bg-green-header w-[94%] h-[86%] mx-[3%] mt-[90px] p-1;
+}
+
+.container-students-informations {
+    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8;
+}
+
+.students-informations {
+    @apply h-full w-[50%];
+}
+
+.students-each-informations ul {
+    @apply inline-grid w-[48%] h-auto pl-2;
+}
+
+.students-each-informations li {
+    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl;
+}
+
+.students-each-informations input {
+    @apply  bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
+}
+
+.students-each-informations-title ul{
+    @apply inline-grid w-[97%] h-auto pl-2 text-center;
+}
+
+.students-each-informations-title li{
+    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl;
+}
+
+.students-each-informations-title input {
+    @apply  text-center bg-green-text_bg placeholder:text-center placeholder-secondary-true_black focus:outline-none;
+}
+
+.container-students-description {
+    @apply overflow-hidden inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6 pb-4;
+}
+
+.container-students-description-name h1{
+    @apply text-2xl underline underline-offset-4 h-auto;
+}
+
+.students-description {
+    @apply mt-2 p-4 w-full h-[85%] bg-secondary-filter_grey rounded-xl;
+}
+
+.students-description textarea{
+    @apply overflow-auto w-full h-full resize-none bg-secondary-filter_grey outline-none;
+}
+
+.container-pilote-promotion {
+    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%];
+}
+
+.container-pilote-promotion-header {
+    
+}
+
+.container-pilote-promotion-header-name {
+    @apply text-2xl underline underline-offset-4 flex ml-2;
+}
+
+.container-pilote-promotion-header-add-button {
+    @apply absolute top-2 right-2 w-[40%];
+}
+
+.container-each-promotion {
+    @apply p-2 mt-2 bg-secondary-filter_grey rounded-xl w-full h-[85%];
+}
+
+.container-each-promotion textarea{
+    @apply overflow-auto w-full h-full resize-none bg-secondary-filter_grey outline-none;
+}
+
+.each-promotion {
+    @apply relative p-2 bg-secondary-true_white rounded-xl w-full text-xl first:m-0 mt-1;
+}
+
+.each-promotion h1{
+    @apply w-[88%];
+}
+
+.delete-promotion-button {
+    @apply absolute right-2 top-1.5 w-[30px] h-[30px] py-0 px-0 rounded-none shadow-none bg-none outline-none hover:outline-none;
+}
+
+.button-add {
+    @apply w-full;
+}
+
+.input-adresse {
+    @apply absolute right-[200px] inline-block w-[33%];
+}
+
+.input-adresse input{
+    @apply w-full h-[30px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
+}
+
+
+.container-skills {
+    @apply relative w-[50%];
+}
+
+.id-internship {
+    @apply mt-3 ml-10 text-xl;
+}
+
+.container-skills-name {
+    @apply inline-block mt-1 ml-3 text-xl underline underline-offset-4;
+}
+
+.add-button {
+    @apply inline-block w-[20%] absolute right-3;
+}
+
+.button-add {
+    @apply w-full;
+}
+
+.container-skills-scroll {
+    @apply mt-5 h-[119px] w-full overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+}
+
+.container-skills-scroll ul {
+    @apply mr-2 last:mr-0;
+}
+
+.container-skills-scroll li {
+    @apply h-[48%];
+}
+
+.each-skill {
+    @apply text-center relative items-center justify-center p-2 pr-10 bg-green-button w-full h-auto rounded-xl;
+}
+
+.each-skill p {
+    @apply inline-block text-xl;
+}
+
+.each-skill img {
+    @apply inline-block w-[20px] h-[20px];
+}
+
+/* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
 /* ----------------------- fin gestion des stages ------------------*/
