@@ -670,75 +670,20 @@ input[type="date"]{
 
 /* -----------------------DEBUT HEADER------------------------------- */
 
-button[type="button"]{
-  height: 2rem;
-  width: 80%;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
-  font-weight: 700;
-}
-
-input[type="range"]{
-  width: 70%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-input[type="range"]::-webkit-slider-runnable-track{
-  width: 100%;
-  cursor: pointer;
-  -webkit-appearance: none;
-          appearance: none;
-  border-radius: 0.75rem;
-  border-style: none;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-}
-
-input[type="range"]::-webkit-slider-thumb{
-  height: 1rem;
-  width: 1rem;
-  cursor: pointer;
-  -webkit-appearance: none;
-          appearance: none;
-  border-radius: 9999px;
-  border-width: 2px;
-  border-style: solid;
-  --tw-border-opacity: 1;
-  border-color: rgb(57 163 37 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(202 237 167 / var(--tw-bg-opacity));
-}
-
-input[type="date"]{
-  accent-color: #94C676;
-}
-
-/* -----------------------DEBUT HEADER------------------------------- */
-
 .navbar{
-  position: relative;
   position: relative;
   box-sizing: border-box;
   display: flex;
   height: 60px;
-  width: 99.2dvw;
+  width: 100vw;
   justify-content: space-between;
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
   --tw-gradient-from: #104E07 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(16 78 7 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position);
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  --tw-gradient-from: #104E07 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(16 78 7 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position);
 }
 
-@media not all and (min-width: 850px){
 @media not all and (min-width: 850px){
   .navbar{
     padding: 0px;
@@ -784,7 +729,6 @@ input[type="date"]{
 
 .navbar-links{
   margin-top: 0.75rem;
-  margin-top: 0.75rem;
   display: flex;
   align-items: center;
 }
@@ -803,7 +747,6 @@ input[type="date"]{
     height: 100vh;
     width: 100vw;
     flex-direction: column;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(164 164 164 / var(--tw-bg-opacity));
@@ -817,35 +760,6 @@ input[type="date"]{
 @media (min-width: 500px){
   .navbar-links{
     margin-right: 2.5rem;
-  }
-}
-
-.navbar-current{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media not all and (min-width: 850px){
-  .navbar-current{
-    align-items: center;
-  }
-}
-
-.navbar-current label{
-  position: absolute;
-  bottom: 0px;
-  margin-top: 30px;
-  height: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-@media not all and (min-width: 850px){
-  .navbar-current label{
-    display: none;
   }
 }
 
@@ -886,7 +800,6 @@ input[type="date"]{
 @media not all and (min-width: 850px){
   .mobile-menu{
     margin-left: 0px;
-    height: 450px;
   }
 }
 
@@ -895,15 +808,9 @@ input[type="date"]{
   padding-left: 25px;
   padding-right: 25px;
   font-family: Inter;
-.navbar-links a{
-  display: flex;
-  padding-left: 25px;
-  padding-right: 25px;
-  font-family: Inter;
   font-size: 20px;
   font-weight: 600;
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
   color: rgb(0 0 0 / var(--tw-text-opacity));
   text-decoration-line: none;
   transition-property: all;
@@ -1134,10 +1041,6 @@ input[type="date"]{
   display: block;
 }
 
-.dropdown2:hover .dropdown-items2 {
-  display: block;
-}
-
 .navbar-hamburger{
   position: absolute;
   top: 13px;
@@ -1160,8 +1063,6 @@ input[type="date"]{
     width: 60px;
   }
 }
-
-/* -----------------------FIN HEADER------------------------------- */
 
 /* -----------------------FIN HEADER------------------------------- */
 

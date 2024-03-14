@@ -6,8 +6,6 @@
 
 * {
   @apply font-display;
-* {
-  @apply font-display;
 }
 body {
   @apply inline-block max-lg:overflow-x-hidden;
@@ -61,7 +59,6 @@ body::-webkit-scrollbar-track:hover {
 
 a {
   @apply lg:shrink-0;
-  @apply lg:shrink-0;
 }
 button[type="button"] {
   @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
@@ -83,11 +80,11 @@ input[type="date"] {
 .navbar{
     @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
 }
-.navbar-logo {
-  @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
+.navbar-logo{
+    @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
 }
-.mini-navbar-logo {
-  @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
+.mini-navbar-logo{
+    @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
 }
 .navbar-links{
     @apply flex items-center mt-3 max-lg:z-50 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
@@ -155,22 +152,14 @@ input[type="date"] {
 
 /* -----------------------FIN HEADER------------------------------- */
 
-/* -----------------------FIN HEADER------------------------------- */
-
 /* full-runway */
-.full-runway {
-  @apply xl:grid xl:grid-cols-[500px_67.4%] 2xl:grid-cols-[800px_58%] max-[500px]:w-[350px] mx-auto;
 .full-runway {
   @apply xl:grid xl:grid-cols-[500px_67.4%] 2xl:grid-cols-[800px_58%] max-[500px]:w-[350px] mx-auto;
 }
 /* filter */
 .search_bar {
   @apply h-7 w-full flex;
-.search_bar {
-  @apply h-7 w-full flex;
 }
-.search_bar input[type="search"] {
-  @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
 .search_bar input[type="search"] {
   @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
 }
@@ -265,8 +254,6 @@ input[type="date"] {
 .container-skills ul {
   @apply flex;
 }
-.container-skills li {
-  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 .container-skills li {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 }
