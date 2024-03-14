@@ -50,7 +50,7 @@ module.exports = {
     },
     extend:{
       backgroundImage:{
-        'login': "url('../../Assets/Background/login.gif')"
+        'login': "url('../Assets/Background/login.gif')"
       }
     }
   },
