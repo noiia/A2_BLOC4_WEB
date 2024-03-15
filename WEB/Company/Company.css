@@ -240,7 +240,7 @@ body::-webkit-scrollbar-track:hover{
 /* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
 
 .container-add-student {
-    @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40;
+    @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
 }
 
 .add-student-name {
@@ -248,7 +248,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .add-student-name h1 {
-    @apply text-2xl;
+    @apply text-2xl max-md:text-lg;
 }
 
 .div-button-apply {
@@ -256,7 +256,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .div-button-cancel {
-    @apply absolute max-ml:right-[23%] right-[21%] top-8 mb-4 min-w-[15%];
+    @apply absolute max-ml:right-[23%] right-[21%] top-8 mb-4 min-w-[15%] max-md:right-[26%];
 }
 
 .button-apply {
@@ -272,7 +272,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-students-informations {
-    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8;
+    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8 max-lg:flex-col max-lg:justify-evenly max-lg:items-center max-md:p-0 max-ml:h-[35%];
 }
 
 .container-student-profile-picture {
@@ -296,7 +296,20 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-informations {
-    @apply h-full w-[80%];
+    @apply relative h-full w-[80%] max-lg:w-full;
+}
+
+#id_first_ul {
+    @apply max-lg:absolute max-lg:top-[-150px] max-lg:left-0 max-md:top-[-100px];
+}
+
+#id_second_ul {
+    @apply max-lg:absolute max-lg:top-[-150px] max-lg:right-0 max-md:top-[-100px];
+}
+
+#id_third_ul {
+
+    @apply max-lg:absolute max-lg:top-[18px] max-lg:left-[34%] max-md:top-[68px];
 }
 
 .students-each-informations ul {
@@ -312,7 +325,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-students-description {
-    @apply overflow-auto inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6;
+    @apply overflow-auto inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6 max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
 }
 
 .container-students-description-name h1{
@@ -328,7 +341,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-pilote-promotion {
-    @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%];
+    @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
 }
 
 .container-pilote-promotion-header {
@@ -336,7 +349,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-pilote-promotion-header-name {
-    @apply text-2xl underline underline-offset-4 flex ml-2;
+    @apply text-2xl underline underline-offset-4 flex ml-2 max-xl:text-lg max-xl:mb-2;
 }
 
 .container-pilote-promotion-header-add-button {
@@ -364,7 +377,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .input-adresse {
-    @apply inline-block w-[70%] ml-1;
+    @apply inline-block w-[70%] ml-1 max-xl:w-[96%] max-xl:mb-1;
 }
 
 .input-adresse input{
@@ -372,7 +385,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .input-code-postal {
-    @apply inline-block w-[23%] ml-[3%];
+    @apply inline-block w-[23%] ml-1 max-xl:w-[96%];
 }
 
 .input-code-postal input{

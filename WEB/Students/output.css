@@ -1192,6 +1192,15 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
+@media not all and (min-width: 768px){
+  .container-add-student{
+    top: 1%;
+    left: 1%;
+    height: 98%;
+    width: 98%;
+  }
+}
+
 .add-student-name{
   position: absolute;
   left: 3%;
@@ -1209,6 +1218,13 @@ body::-webkit-scrollbar-track:hover{
 .add-student-name h1{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 768px){
+  .add-student-name h1{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .div-button-apply{
@@ -1230,6 +1246,12 @@ body::-webkit-scrollbar-track:hover{
 @media not all and (min-width: 850px){
   .div-button-cancel{
     right: 23%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .div-button-cancel{
+    right: 26%;
   }
 }
 
@@ -1267,6 +1289,20 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
   outline-width: 4px;
   outline-color: #000000;
+}
+
+@media not all and (min-width: 1024px){
+  .container-students-informations{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .container-students-informations{
+    padding: 0px;
+  }
 }
 
 .container-student-profile-picture{
@@ -1321,6 +1357,12 @@ body::-webkit-scrollbar-track:hover{
   width: 80%;
 }
 
+@media not all and (min-width: 1024px){
+  .students-informations{
+    width: 100%;
+  }
+}
+
 .students-each-informations ul{
   display: inline-grid;
   height: auto;
@@ -1341,6 +1383,12 @@ body::-webkit-scrollbar-track:hover{
 
 .students-each-informations li:first-child{
   margin-top: 50px;
+}
+
+@media not all and (min-width: 1024px){
+  .students-each-informations li:first-child{
+    margin-top: 0px;
+  }
 }
 
 .students-each-informations-long{

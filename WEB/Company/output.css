@@ -1210,6 +1210,15 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
+@media not all and (min-width: 768px){
+  .container-add-student{
+    top: 1%;
+    left: 1%;
+    height: 98%;
+    width: 98%;
+  }
+}
+
 .add-student-name{
   position: absolute;
   left: 3%;
@@ -1227,6 +1236,13 @@ body::-webkit-scrollbar-track:hover{
 .add-student-name h1{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 768px){
+  .add-student-name h1{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .div-button-apply{
@@ -1248,6 +1264,12 @@ body::-webkit-scrollbar-track:hover{
 @media not all and (min-width: 850px){
   .div-button-cancel{
     right: 23%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .div-button-cancel{
+    right: 26%;
   }
 }
 
@@ -1286,6 +1308,26 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
   outline-width: 4px;
   outline-color: #000000;
+}
+
+@media not all and (min-width: 1024px){
+  .container-students-informations{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+@media not all and (min-width: 850px){
+  .container-students-informations{
+    height: 35%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .container-students-informations{
+    padding: 0px;
+  }
 }
 
 .container-student-profile-picture{
@@ -1336,8 +1378,55 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-informations{
+  position: relative;
   height: 100%;
   width: 80%;
+}
+
+@media not all and (min-width: 1024px){
+  .students-informations{
+    width: 100%;
+  }
+
+  #id_first_ul{
+    position: absolute;
+    top: -150px;
+    left: 0px;
+  }
+}
+
+@media not all and (min-width: 768px){
+  #id_first_ul{
+    top: -100px;
+  }
+}
+
+@media not all and (min-width: 1024px){
+  #id_second_ul{
+    position: absolute;
+    top: -150px;
+    right: 0px;
+  }
+}
+
+@media not all and (min-width: 768px){
+  #id_second_ul{
+    top: -100px;
+  }
+}
+
+@media not all and (min-width: 1024px){
+  #id_third_ul{
+    position: absolute;
+    top: 18px;
+    left: 34%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  #id_third_ul{
+    top: 68px;
+  }
 }
 
 .students-each-informations ul{
@@ -1399,6 +1488,19 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+@media not all and (min-width: 1280px){
+  .container-students-description{
+    width: 47%;
+  }
+}
+
+@media not all and (min-width: 850px){
+  .container-students-description{
+    margin-top: 20px;
+    height: 58%;
+  }
+}
+
 .container-students-description-name h1{
   height: auto;
   font-size: 1.5rem;
@@ -1445,6 +1547,19 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+@media not all and (min-width: 1280px){
+  .container-pilote-promotion{
+    width: 47%;
+  }
+}
+
+@media not all and (min-width: 850px){
+  .container-pilote-promotion{
+    margin-top: 20px;
+    height: 58%;
+  }
+}
+
 .container-pilote-promotion-header {
 }
 
@@ -1455,6 +1570,14 @@ body::-webkit-scrollbar-track:hover{
   line-height: 2rem;
   text-decoration-line: underline;
   text-underline-offset: 4px;
+}
+
+@media not all and (min-width: 1280px){
+  .container-pilote-promotion-header-name{
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .container-pilote-promotion-header-add-button{
@@ -1528,6 +1651,13 @@ body::-webkit-scrollbar-track:hover{
   width: 70%;
 }
 
+@media not all and (min-width: 1280px){
+  .input-adresse{
+    margin-bottom: 0.25rem;
+    width: 96%;
+  }
+}
+
 .input-adresse input{
   margin-top: 0.5rem;
   height: 50px;
@@ -1545,9 +1675,15 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .input-code-postal{
-  margin-left: 3%;
+  margin-left: 0.25rem;
   display: inline-block;
   width: 23%;
+}
+
+@media not all and (min-width: 1280px){
+  .input-code-postal{
+    width: 96%;
+  }
 }
 
 .input-code-postal input{
