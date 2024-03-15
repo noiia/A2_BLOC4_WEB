@@ -269,6 +269,18 @@ input[type="date"] {
 }
 .filter-any_search-bot li {
   @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+  img{
+    @apply hidden;
+  }
+}
+.filter-any_search-bot li:hover{
+  @apply py-1 bg-secondary-red cursor-pointer;
+  p {
+    @apply hidden;
+  }
+  img {
+    @apply block h-full ml-[45%];
+  }
 }
 .search_min-max {
   @apply rounded-xl bg-secondary-white my-1 flex justify-around;

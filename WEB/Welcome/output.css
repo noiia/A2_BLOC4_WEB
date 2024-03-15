@@ -1157,6 +1157,29 @@ input[type="date"]{
   --tw-bg-opacity: 1;
   background-color: rgb(203 203 203 / var(--tw-bg-opacity));
   text-align: center;
+  img{
+    display: none;
+  }
+}
+
+.filter-any_search-bot li:hover{
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 11 11 / var(--tw-bg-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  p{
+    display: none;
+  }
+  img{
+    margin-left: 45%;
+  }
+  img{
+    display: block;
+  }
+  img{
+    height: 100%;
+  }
 }
 
 .search_min-max{
