@@ -163,15 +163,15 @@ body::-webkit-scrollbar-track:hover {
 
 /* ------------------------ DEBUT STATS ----------------------------*/
 .full-runway {
-  @apply relative w-full h-[750px] ;
+  @apply relative w-full h-[750px] max-xl:h-[1100px] max-ml:h-[1600px];
 }
 
 .top-container {
-  @apply relative flex w-full h-[60%] mt-[1.5%] mb-[1.5%];
+  @apply relative flex w-full h-[60%] mt-[30px] mb-[30px] max-xl:h-[73%] max-ml:h-[82%];
 }
 
 .container-search {
-  @apply absolute left-[10%] h-[48%] w-[20%];
+  @apply absolute left-[6%] h-[48%] w-[24%] max-xl:left-[20%] max-xl:h-[25%] max-xl:w-[30%] max-lg:w-[40%] max-lg:left-[10%] max-ml:left-[25%] max-ml:w-[50%] max-ml:h-[16%] max-md:left-[20%] max-md:w-[60%];
 }
 
 .left-container-stats {
@@ -211,11 +211,15 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .left-container-search-cities li {
-  @apply p-1 rounded-xl text-lg bg-secondary-filter_grey text-center w-full my-2 h-[30px] overflow-hidden;
+  @apply p-1 rounded-xl bg-secondary-filter_grey text-center w-full my-2 h-[30px] overflow-hidden;
+}
+
+.left-container-search-cities p {
+  @apply h-auto w-auto;
 }
 
 .container-skills-graph {
-  @apply absolute bottom-0 left-[10%] h-[48%] w-[20%] mt-[2%];
+  @apply absolute bottom-0 left-[6%] h-[48%] w-[24%] mt-[2%] max-xl:left-[51%] max-xl:h-[25%] max-xl:w-[30%] max-xl:top-0 max-xl:mt-0 max-xl:ml-[10px] max-lg:w-[40%]  max-ml:left-[25%] max-ml:w-[50%] max-ml:ml-0 max-ml:top-[17%] max-ml:h-[16%] max-md:left-[20%] max-md:w-[60%];
 }
 
 .skills-graph {
@@ -227,7 +231,7 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-internship-time-graph {
-  @apply absolute top-0 left-[32%] h-[48%] w-[30%];
+  @apply absolute top-0 left-[32%] h-[48%] w-[30%] max-xl:left-[10%] max-xl:h-[35.5%] max-xl:w-[40%] max-xl:top-[27%] max-lg:h-[25%]  max-ml:left-[25%] max-ml:w-[50%] max-ml:ml-0 max-ml:top-[34%] max-ml:h-[16%] max-md:left-[20%] max-md:w-[60%];
 }
 
 .internship-time-graph {
@@ -239,7 +243,7 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-promotions-graph {
-  @apply absolute bottom-0 left-[32%] h-[48%] w-[30%];
+  @apply absolute bottom-0 left-[32%] h-[48%] w-[30%] max-xl:left-[10%] max-xl:h-[35.5%] max-xl:w-[40%] max-xl:top-[64.5%] max-lg:left-[51%] max-lg:ml-[10px] max-lg:top-[27%] max-lg:h-[25%]  max-ml:left-[25%] max-ml:w-[50%] max-ml:ml-0 max-ml:top-[51%] max-ml:h-[16%] max-md:left-[20%] max-md:w-[60%];
 }
 
 .promotions-graph {
@@ -251,7 +255,7 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-france-graph {
-  @apply absolute top-0 left-[64%] h-[100%] w-[25%];
+  @apply absolute top-0 left-[64%] h-[100%] w-[29%] max-xl:left-[51%] max-xl:h-[73%] max-xl:w-[40%] max-xl:top-[27%] max-xl:ml-[10px] max-lg:top-[54%] max-lg:left-[25%] max-lg:w-[50%] max-lg:ml-0 max-lg:h-[48%]  max-ml:left-[25%] max-ml:w-[50%] max-ml:ml-0 max-ml:top-[68%] max-ml:h-[32%] max-md:left-[20%] max-md:w-[60%];
 }
 
 .france-graph {
