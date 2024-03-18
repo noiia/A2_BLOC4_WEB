@@ -96,17 +96,18 @@ body::-webkit-scrollbar-track:hover {
   @apply hidden;
 }
 /* ---------------------Fin onglet gauche -------------------*/
-
-
 /* ---------------------profil -------------------*/
 .main_right{
     @apply fixed ml:left-1/4 left-0 right-0 top-0 bottom-0 lg:m-10 m-4 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-hidden;
+}
+#right_title{
+  @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
 }
 .right_container{
     @apply w-full h-full flex flex-col relative;
 }
 .right_top{
-    @apply flex static w-full h-1/3 items-center justify-evenly;
+    @apply flex static w-full h-1/3 items-end justify-evenly;
 }
 #student_photo{
     @apply w-[200px] h-[200px];

@@ -760,6 +760,22 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
+#right_title{
+  position: absolute;
+  right: 1.25rem;
+  top: 1.75rem;
+  border-radius: 0.75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
 .right_container{
   position: relative;
   display: flex;
@@ -773,7 +789,7 @@ body::-webkit-scrollbar-track:hover{
   display: flex;
   height: 33.333333%;
   width: 100%;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-evenly;
 }
 
