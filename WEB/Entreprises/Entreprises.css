@@ -257,6 +257,18 @@ input[type="date"] {
 }
 .filter-any_search-bot li {
   @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+  img{
+    @apply hidden;
+  }
+}
+.filter-any_search-bot li:hover{
+  @apply py-1 bg-secondary-red cursor-pointer;
+  p {
+    @apply hidden;
+  }
+  img {
+    @apply block h-full ml-[45%];
+  }
 }
 .search_min-max {
   @apply rounded-xl bg-secondary-white my-1 flex justify-around;
@@ -272,7 +284,7 @@ input[type="date"] {
   @apply absolute top-[120px] max-[500px]:top-[65px] hidden 2xl:inline-block w-[300px] xl:ml-[-25px];
 }
 .filter {
-  @apply h-[998px] max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
+  @apply h-auto max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
 }
 #general-search_bar,
 #general-button_search {
@@ -299,7 +311,7 @@ input[type="date"] {
   @apply inline-block w-[350px] sm:w-[425px];
 }
 .filter-mobile_on-container {
-  @apply mt-[1000px];
+  @apply mt-[500px];
 }
 
 /* runway */
