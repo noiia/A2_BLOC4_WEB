@@ -63,7 +63,7 @@ button[type="button"] {
   @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
 }
 input[type="range"] {
-  @apply w-[70%] appearance-none;
+  @apply w-[70%] appearance-none bg-secondary-transparent;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;
