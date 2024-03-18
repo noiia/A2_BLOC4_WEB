@@ -10,7 +10,6 @@
 body {
   @apply inline-block max-lg:overflow-x-hidden;
 }
-
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar {
@@ -74,6 +73,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 input[type="date"] {
   @apply accent-green-header;
+}
+input[type="search"]::-webkit-search-cancel-button{
+  @apply hidden;
 }
 
 /* -----------------------DEBUT HEADER------------------------------- */

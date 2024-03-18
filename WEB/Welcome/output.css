@@ -668,6 +668,10 @@ input[type="date"]{
   accent-color: #94C676;
 }
 
+input[type="search"]::-webkit-search-cancel-button{
+  display: none;
+}
+
 /* -----------------------DEBUT HEADER------------------------------- */
 
 .navbar{
