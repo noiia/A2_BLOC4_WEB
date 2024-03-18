@@ -14,6 +14,18 @@
 
 
 <!-- header -->
+<script>
+    $(document).ready(function(){
+        var Value = "profile";
+        var PHPfiles = "Welcome.php";
+        data = {
+            action : Value
+        };
+        $.post(PHPfiles, data, function(response){
+            $("#navbar-profile").append(response);
+        })
+    })
+</script>
 
 <header>
     <nav class="navbar">

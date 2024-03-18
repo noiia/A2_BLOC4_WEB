@@ -57,7 +57,54 @@ body::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey cursor-default;
 }
 
+/* --------------------- Troisieme SCROLLBARS-------------------- */
+
+.horizontal-second-scrollbar::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    margin-left: 0.5rem;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-track{
+    margin-block: 20px;
+    margin-left: 0.5rem;
+    border-radius: 10px;
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+/* --------------------- Quatre SCROLLBARS-------------------- */
+
+.second-scrollbar-description-internship::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
+    margin-block: 0px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track{
+    margin-block: 0px;
+    border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
 /* --------------------- FIN SCROLLBARS-------------------- */
+
 /* ---------------------Onglet à gauche -------------------*/
 .main_left{
     @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
@@ -96,7 +143,6 @@ body::-webkit-scrollbar-track:hover{
     @apply hidden;
 }
 /* ---------------------Fin onglet gauche -------------------*/
-
 
 
 /* --------------------- gestion des stages -------------------*/
@@ -270,7 +316,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .add-student-name h1 {
-    @apply text-2xl;
+    @apply text-2xl max-ml:text-lg;
 }
 
 .div-button-apply {
@@ -294,15 +340,15 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-students-informations {
-    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8;
+    @apply relative overflow-y-auto flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8 max-xl:flex-col max-xl:justify-evenly max-xl:items-center max-ml:p-0;
 }
 
 .students-informations {
-    @apply h-full w-[50%];
+    @apply h-full w-[50%] max-xl:w-[90%] max-xl:mt-[200px] max-md:w-[90%] max-md:mt-[300px];
 }
 
 .students-each-informations ul {
-    @apply inline-grid w-[48%] h-auto pl-2;
+    @apply inline-grid w-[48%] h-auto pl-2 max-md:block max-md:w-[97%];
 }
 
 .students-each-informations li {
@@ -314,7 +360,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-each-informations-title ul{
-    @apply inline-grid w-[97%] h-auto pl-2 text-center;
+    @apply inline-grid w-[97%] h-auto pl-2 text-center max-md:block;
 }
 
 .students-each-informations-title li{
@@ -326,7 +372,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-students-description {
-    @apply overflow-hidden inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6 pb-4;
+    @apply overflow-hidden inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6 pb-4 max-lg:w-[55%];
 }
 
 .container-students-description-name h1{
@@ -342,11 +388,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-pilote-promotion {
-    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%];
-}
-
-.container-pilote-promotion-header {
-    
+    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-lg:w-[40%];
 }
 
 .container-pilote-promotion-header-name {
@@ -381,37 +423,36 @@ body::-webkit-scrollbar-track:hover{
     @apply w-full;
 }
 
-.input-adresse {
-    @apply absolute right-[200px] inline-block w-[33%];
-}
-
-.input-adresse input{
-    @apply w-full h-[30px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
-}
-
-
 .container-skills {
-    @apply relative w-[50%];
+    @apply relative w-[50%] max-xl:w-[80%] max-md:w-[95%];
 }
 
 .id-internship {
     @apply mt-3 ml-10 text-xl;
 }
 
+.big-container {
+    @apply relative flex w-full h-[30px] justify-between;
+}
+
 .container-skills-name {
-    @apply inline-block mt-1 ml-3 text-xl underline underline-offset-4;
+    @apply inline-grid mt-1 ml-3 text-lg underline underline-offset-4;
+}
+
+.input-adresse {
+    @apply inline-grid w-[220px] mx-3;
+}
+
+.input-adresse input{
+    @apply w-full h-[30px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
 }
 
 .add-button {
-    @apply inline-block w-[20%] absolute right-3;
-}
-
-.button-add {
-    @apply w-full;
+    @apply inline-grid w-auto;
 }
 
 .container-skills-scroll {
-    @apply mt-5 h-[119px] w-full overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+    @apply mt-7 h-[119px] w-full overflow-x-scroll overflow-y-hidden whitespace-nowrap flex max-ml:mb-4;
 }
 
 .container-skills-scroll ul {
@@ -423,7 +464,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .each-skill {
-    @apply text-center relative items-center justify-center p-2 pr-10 bg-green-button w-full h-auto rounded-xl;
+    @apply text-center relative items-center justify-center p-2 pr-10 bg-green-button w-full h-auto rounded-xl first:ml-2;
 }
 
 .each-skill p {

@@ -285,15 +285,15 @@ input[type="search"]::-webkit-search-cancel-button{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements {
-    @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
+    @apply w-[430px] xl:ml-[25px] max-xl:mx-auto max-sm:w-[350px];
   }
   
   .runway-container-intern-details {
-    @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px];
+    @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
   }
   
   .container-intern-details {
-    @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
+    @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40 max-sm:mt-4;
   }
   
   .container-div-par-intern-details {
@@ -301,7 +301,7 @@ input[type="search"]::-webkit-search-cancel-button{
   }
   
   .close-tab-logo-picture {
-    @apply inline-block h-[23px];
+    @apply inline-block h-[23px] max-ml:h-[15px];
   }
   
   .button-close-tab {
@@ -309,19 +309,19 @@ input[type="search"]::-webkit-search-cancel-button{
   }
   
   .header-intern-details {
-    @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
+    @apply mb-5 grid grid-cols-[20%_70%_10%];
   }
   
   .company-logo-picture {
-    @apply inline-block h-[103px];
+    @apply inline-block h-[103px] max-ml:h-[64px];
   }
   
   .unselected-wishlist-logo-picture {
-    @apply h-[43px] cursor-pointer;
+    @apply h-[43px] cursor-pointer max-ml:h-[33px];
   }
   
   .selected-wishlist-logo-picture {
-    @apply h-[43px] cursor-pointer hidden;
+    @apply h-[43px] cursor-pointer hidden max-ml:h-[33px];
   }
   
   .is-selected {
@@ -333,11 +333,15 @@ input[type="search"]::-webkit-search-cancel-button{
   }
   
   .container-header-intern-details {
-    @apply text-center text-5xl;
+    @apply text-center text-5xl max-ml:text-4xl;
+  }
+
+  .container-left-and-right {
+    @apply relative flex max-ml:block;
   }
   
   .container-left-informations {
-    @apply inline-block w-[50%] text-2xl;
+    @apply inline-grid w-[50%] text-2xl max-ml:block max-ml:w-[60%] max-ml:ml-[10%] max-ml:mb-4;
   }
   
   .container-left-informations h1 {
@@ -349,7 +353,7 @@ input[type="search"]::-webkit-search-cancel-button{
   }
   
   .container-right-informations {
-    @apply inline-block w-[49%] align-top;
+    @apply inline-grid w-[49%] align-top max-ml:block max-ml:w-full max-ml:text-center;
   }
   
   .container-right-informations p {

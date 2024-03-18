@@ -163,23 +163,23 @@ body::-webkit-scrollbar-track:hover {
 
 /* ------------------------ DEBUT STATS ----------------------------*/
 .full-runway {
-  @apply relative w-full h-[750px] ;
+  @apply relative w-full h-[750px] max-xl:h-[900px] max-lg:h-[1500px];
 }
 
 .both-container-stats {
-  @apply flex w-full h-[60%] mt-[1.5%] mb-[1.5%];
+  @apply relative flex w-full h-[60%] mt-[1.5%] mb-[1.5%] max-xl:h-[70%] max-lg:flex-nowrap max-lg:flex-col max-lg:h-[82%];
 }
 
 .left-container-stats {
-  @apply inline-block relative h-full w-[47%] mx-[1%] rounded-2xl bg-secondary-white outline outline-4 outline-secondary-true_black;
+  @apply inline-block relative h-full w-[47%] mx-[1%] rounded-2xl bg-secondary-white outline outline-4 outline-secondary-true_black max-lg:block max-lg:w-[80%] max-lg:left-[10%] max-lg:mb-6;
 }
 
 .left-container-actual-stats{
-  @apply absolute top-[15%] left-[2%] h-[70%] w-[50%] outline outline-2 outline-secondary-true_black;
+  @apply absolute xl:top-[15%] left-[2%] h-[70%] w-[50%] outline outline-2 outline-secondary-true_black max-xl:bottom-0 max-xl:left-[20%] max-xl:mb-4 max-xl:h-[55%] max-xl:w-[60%] max-md:left-[15%] max-md:h-[55%] max-md:w-[70%];
 }
 
 .left-container-search {
-  @apply p-4 absolute top-[25%] right-[2%] h-[50%] w-[40%] rounded-xl bg-green-filter outline outline-4 outline-secondary-true_black;
+  @apply p-4 absolute top-[25%] right-[2%] h-[50%] w-[44%] rounded-xl bg-green-filter outline outline-4 outline-secondary-true_black max-xl:top-0 max-xl:left-[20%] max-xl:h-[35%] max-xl:w-[60%] max-xl:mt-4 max-md:w-[70%] max-md:left-[15%];
 }
 
 .left-container-search-name {
@@ -211,15 +211,15 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .right-container-stats {
-  @apply inline-block relative h-full w-[47%] mx-[1%] rounded-2xl bg-secondary-white outline outline-4 outline-secondary-true_black;
+  @apply inline-block relative h-full w-[47%] mx-[1%] rounded-2xl bg-secondary-white outline outline-4 outline-secondary-true_black max-lg:block max-lg:w-[80%] max-lg:left-[10%];
 }
 
 .right-container-actual-stats{
-  @apply absolute top-[15%] right-[2%] h-[70%] w-[50%] outline outline-2 outline-secondary-true_black;
+  @apply absolute xl:top-[15%] right-[2%] h-[70%] w-[50%] outline outline-2 outline-secondary-true_black max-xl:bottom-0 max-xl:left-[20%] max-xl:mb-4 max-xl:h-[55%] max-xl:w-[60%] max-md:left-[15%] max-md:h-[55%] max-md:w-[70%];
 }
 
 .right-container-search {
-  @apply p-4 absolute top-[25%] left-[2%] h-[50%] w-[40%] rounded-xl bg-green-filter outline outline-4 outline-secondary-true_black;
+  @apply p-4 absolute top-[25%] left-[2%] h-[50%] w-[44%] rounded-xl bg-green-filter outline outline-4 outline-secondary-true_black max-xl:top-0 max-xl:left-[20%] max-xl:h-[35%] max-xl:w-[60%] max-xl:mt-4 max-md:w-[70%] max-md:left-[15%];
 }
 
 .right-container-search-name {

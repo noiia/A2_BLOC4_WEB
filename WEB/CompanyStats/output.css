@@ -1066,7 +1066,24 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
+<<<<<<< HEAD
 .both-container-stats{
+=======
+@media not all and (min-width: 1280px){
+  .full-runway{
+    height: 900px;
+  }
+}
+
+@media not all and (min-width: 1024px){
+  .full-runway{
+    height: 1500px;
+  }
+}
+
+.both-container-stats{
+  position: relative;
+>>>>>>> origin/StephMerge
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   display: flex;
@@ -1074,6 +1091,23 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 1280px){
+  .both-container-stats{
+    height: 70%;
+  }
+}
+
+@media not all and (min-width: 1024px){
+  .both-container-stats{
+    height: 82%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .left-container-stats{
   position: relative;
   margin-left: 1%;
@@ -1089,9 +1123,23 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
 .left-container-actual-stats{
   position: absolute;
   top: 15%;
+=======
+@media not all and (min-width: 1024px){
+  .left-container-stats{
+    left: 10%;
+    margin-bottom: 1.5rem;
+    display: block;
+    width: 80%;
+  }
+}
+
+.left-container-actual-stats{
+  position: absolute;
+>>>>>>> origin/StephMerge
   left: 2%;
   height: 70%;
   width: 50%;
@@ -1100,12 +1148,43 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 1280px){
+  .left-container-actual-stats{
+    bottom: 0px;
+    left: 20%;
+    margin-bottom: 1rem;
+    height: 55%;
+    width: 60%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .left-container-actual-stats{
+    left: 15%;
+    height: 55%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1280px){
+  .left-container-actual-stats{
+    top: 15%;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .left-container-search{
   position: absolute;
   top: 25%;
   right: 2%;
   height: 50%;
+<<<<<<< HEAD
   width: 40%;
+=======
+  width: 44%;
+>>>>>>> origin/StephMerge
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -1115,6 +1194,26 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 1280px){
+  .left-container-search{
+    top: 0px;
+    left: 20%;
+    margin-top: 1rem;
+    height: 35%;
+    width: 60%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .left-container-search{
+    left: 15%;
+    width: 70%;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .left-container-search-name{
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1205,9 +1304,22 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
 .right-container-actual-stats{
   position: absolute;
   top: 15%;
+=======
+@media not all and (min-width: 1024px){
+  .right-container-stats{
+    left: 10%;
+    display: block;
+    width: 80%;
+  }
+}
+
+.right-container-actual-stats{
+  position: absolute;
+>>>>>>> origin/StephMerge
   right: 2%;
   height: 70%;
   width: 50%;
@@ -1216,12 +1328,43 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 1280px){
+  .right-container-actual-stats{
+    bottom: 0px;
+    left: 20%;
+    margin-bottom: 1rem;
+    height: 55%;
+    width: 60%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .right-container-actual-stats{
+    left: 15%;
+    height: 55%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1280px){
+  .right-container-actual-stats{
+    top: 15%;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .right-container-search{
   position: absolute;
   top: 25%;
   left: 2%;
   height: 50%;
+<<<<<<< HEAD
   width: 40%;
+=======
+  width: 44%;
+>>>>>>> origin/StephMerge
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -1231,6 +1374,26 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 1280px){
+  .right-container-search{
+    top: 0px;
+    left: 20%;
+    margin-top: 1rem;
+    height: 35%;
+    width: 60%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .right-container-search{
+    left: 15%;
+    width: 70%;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .right-container-search-name{
   font-size: 1.5rem;
   line-height: 2rem;

@@ -663,8 +663,13 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb{
+<<<<<<< HEAD
   margin-left: 6.5%;
   margin-right: 45px;
+=======
+  margin-left: 3rem;
+  margin-right: 3rem;
+>>>>>>> origin/StephMerge
   margin-top: 0.25rem;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
@@ -674,8 +679,13 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track{
+<<<<<<< HEAD
   margin-left: 65px;
   margin-right: 45px;
+=======
+  margin-left: 3rem;
+  margin-right: 3rem;
+>>>>>>> origin/StephMerge
   margin-top: 0.25rem;
   border-radius: 10px;
 }
@@ -740,6 +750,7 @@ input[type="date"]{
   accent-color: #94C676;
 }
 
+<<<<<<< HEAD
 #rangeInput{
   height: 100%;
   width: 70%;
@@ -774,6 +785,8 @@ input[type="date"]{
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+=======
+>>>>>>> origin/StephMerge
 #rangeInput2{
   height: 100%;
   width: 100%;
@@ -1602,16 +1615,23 @@ input[type="date"]{
 
 .container-skills{
   position: relative;
+  margin-top: 2rem;
 }
 
-@media (min-width: 500px){
+@media not all and (min-width: 500px){
   .container-skills{
-    margin-top: 2rem;
+    margin-top: 1.25rem;
   }
 }
 
 .container-skills ul{
   display: flex;
+}
+
+@media not all and (min-width: 500px){
+  .container-skills ul{
+    margin-left: -1.25rem;
+  }
 }
 
 .container-skills li{
@@ -1628,9 +1648,29 @@ input[type="date"]{
   padding: 0.75rem;
 }
 
+<<<<<<< HEAD
 .container_focus{
   outline-style: solid;
   outline-color: #39A325;
+=======
+@media not all and (min-width: 500px){
+  .container-skills li{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.container:focus {
+  .container-intern{
+    border-radius: 0.75rem;
+  }
+  .container-intern{
+    outline-style: solid;
+  }
+  .container-intern{
+    outline-color: #39A325;
+  }
+>>>>>>> origin/StephMerge
   .container-skills li{
     --tw-bg-opacity: 1;
     background-color: rgb(57 163 37 / var(--tw-bg-opacity));
@@ -1647,6 +1687,12 @@ input[type="date"]{
   .runway-elements{
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-elements{
+    width: 350px;
   }
 }
 
@@ -1667,6 +1713,13 @@ input[type="date"]{
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-container-intern-details{
+    margin-left: -25px;
+    width: 400px;
   }
 }
 
@@ -1696,6 +1749,12 @@ input[type="date"]{
   outline-color: #39A325;
 }
 
+@media not all and (min-width: 500px){
+  .container-intern-details{
+    margin-top: 1rem;
+  }
+}
+
 .container-div-par-intern-details{
   margin-left: 8%;
   margin-right: 8%;
@@ -1712,6 +1771,12 @@ input[type="date"]{
   height: 23px;
 }
 
+@media not all and (min-width: 850px){
+  .close-tab-logo-picture{
+    height: 15px;
+  }
+}
+
 .button-close-tab{
   margin-top: 0.5rem;
   margin-left: 96%;
@@ -1721,7 +1786,6 @@ input[type="date"]{
 .header-intern-details{
   margin-bottom: 1.25rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-columns: 20% 70% 10%;
 }
 
@@ -1730,6 +1794,15 @@ input[type="date"]{
   height: 103px;
 }
 
+<<<<<<< HEAD
+=======
+@media not all and (min-width: 850px){
+  .company-logo-picture{
+    height: 85px;
+  }
+}
+
+>>>>>>> origin/StephMerge
 .close-tab-clicked{
   z-index: 0;
   display: none;
@@ -1769,25 +1842,50 @@ input[type="date"]{
 .container-header-company-details{
   margin-left: 8%;
   margin-right: 8%;
+  display: flex;
   height: auto;
+  align-items: center;
 }
 
 .container-header-company-details h1{
+<<<<<<< HEAD
   margin-left: 30%;
   display: inline-block;
+=======
+  width: 100%;
+>>>>>>> origin/StephMerge
   text-align: center;
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
 
+.container-left-and-right{
+  position: relative;
+  display: flex;
+}
+
+@media not all and (min-width: 850px){
+  .container-left-and-right{
+    display: block;
+  }
+}
+
 .container-company-details-left{
   margin-left: 8%;
   margin-top: 1rem;
-  display: inline-block;
+  display: inline-grid;
   height: auto;
   width: 41%;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-left{
+    margin-left: 10%;
+    display: block;
+    width: auto;
+  }
 }
 
 .container-company-details-sites h1{
@@ -1807,10 +1905,18 @@ input[type="date"]{
 .container-company-details-right{
   margin-right: 8%;
   margin-top: 1rem;
-  display: inline-block;
+  display: inline-grid;
   height: auto;
   width: 41%;
   vertical-align: top;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-right{
+    margin-right: 0px;
+    display: block;
+    width: 100%;
+  }
 }
 
 .container-company-details-note{
@@ -1842,11 +1948,31 @@ input[type="date"]{
   text-underline-offset: 4px;
 }
 
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .container-company-details-sector-name ul{
   margin-right: -5px;
   margin-top: 0.25rem;
   display: inline-block;
   width: 50%;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name ul{
+    margin-right: 0px;
+    display: block;
+    width: 50%;
+  }
+
+  .container-company-details-sector-name ul:last-child{
+    margin-bottom: 0px;
+  }
 }
 
 .container-company-details-sector-name li{
@@ -1863,6 +1989,17 @@ input[type="date"]{
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   padding: 0.5rem;
   text-align: center;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name li{
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-company-details-sector-name li:last-child{
+    margin-bottom: 0px;
+  }
 }
 
 .container-company-details-description{
@@ -1982,6 +2119,14 @@ input[type="date"]{
   padding: 0.75rem;
 }
 
+<<<<<<< HEAD
+=======
+.container-note-and-button{
+  display: flex;
+  width: 100%;
+}
+
+>>>>>>> origin/StephMerge
 .container-intern-container-note{
   margin-left: 8%;
   margin-right: 8%;
@@ -1992,6 +2137,10 @@ input[type="date"]{
 
 .container-intern-your-note{
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-wrap: wrap;
+>>>>>>> origin/StephMerge
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
@@ -2104,6 +2253,13 @@ input[type="date"]{
   margin-right: 2.5rem;
   height: 100px;
   width: 100px;
+}
+
+@media not all and (min-width: 500px){
+  .logo-company{
+    height: 70px;
+    width: 70px;
+  }
 }
 
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
