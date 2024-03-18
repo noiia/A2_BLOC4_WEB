@@ -363,7 +363,7 @@ input[type="date"] {
 }
 
 .close-tab-logo-picture {
-  @apply inline-block h-[23px];
+  @apply inline-block h-[23px] max-ml:h-[15px];
 }
 
 .button-close-tab {
@@ -371,11 +371,11 @@ input[type="date"] {
 }
 
 .header-intern-details {
-  @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
+  @apply mb-5 grid grid-cols-[20%_70%_10%];
 }
 
 .company-logo-picture {
-  @apply inline-block h-[103px];
+  @apply inline-block h-[103px] max-ml:h-[85px];
 }
 
 .close-tab-clicked {
@@ -396,15 +396,19 @@ input[type="date"] {
 
 /* DEBUT ENTREPRISES */
 .container-header-company-details {
-  @apply mx-[8%] h-auto;
+  @apply mx-[8%] h-auto flex items-center;
 }
 
 .container-header-company-details h1{
-  @apply inline-block text-center text-4xl ml-[30%];
+  @apply text-center text-4xl w-full;
+}
+
+.container-left-and-right {
+  @apply relative flex max-ml:block;
 }
 
 .container-company-details-left{
-  @apply inline-block ml-[8%] mt-4 h-auto text-2xl w-[41%];
+  @apply inline-grid ml-[8%] mt-4 h-auto text-2xl w-[41%] max-ml:block max-ml:ml-[10%] max-ml:w-auto;
 }
 
 .container-company-details-sites h1{
@@ -420,7 +424,7 @@ input[type="date"] {
 }
 
 .container-company-details-right {
-  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top ;
+  @apply inline-grid mr-[8%] mt-4 h-auto w-[41%] align-top max-ml:block max-ml:mr-0 max-ml:w-full;
 }
 
 .container-company-details-note {
@@ -439,11 +443,15 @@ input[type="date"] {
   @apply underline underline-offset-4 text-center;
 }
 
+.container-company-details-sector-name {
+  @apply max-ml:flex max-ml:flex-col max-ml:items-center;
+}
+
 .container-company-details-sector-name ul {
-  @apply w-1/2 inline-block mr-[-5px] mt-1;
+  @apply w-1/2 inline-block mr-[-5px] mt-1 max-ml:mr-0 max-ml:last:mb-0 max-ml:w-[50%] max-ml:block;
 }
 .container-company-details-sector-name li {
-  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] overflow-hidden flex items-center ;
+  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] max-ml:last:mb-0 overflow-hidden flex items-center max-ml:justify-around max-ml:w-full;
 }
 
 .container-company-details-description {

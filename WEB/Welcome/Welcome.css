@@ -284,7 +284,7 @@ input[type="date"] {
   }
   
   .close-tab-logo-picture {
-    @apply inline-block h-[23px];
+    @apply inline-block h-[23px] max-ml:h-[15px];
   }
   
   .button-close-tab {
@@ -292,19 +292,19 @@ input[type="date"] {
   }
   
   .header-intern-details {
-    @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
+    @apply mb-5 grid grid-cols-[20%_70%_10%];
   }
   
   .company-logo-picture {
-    @apply inline-block h-[103px];
+    @apply inline-block h-[103px] max-ml:h-[64px];
   }
   
   .unselected-wishlist-logo-picture {
-    @apply h-[43px] cursor-pointer;
+    @apply h-[43px] cursor-pointer max-ml:h-[33px];
   }
   
   .selected-wishlist-logo-picture {
-    @apply h-[43px] cursor-pointer hidden;
+    @apply h-[43px] cursor-pointer hidden max-ml:h-[33px];
   }
   
   .is-selected {
@@ -316,11 +316,15 @@ input[type="date"] {
   }
   
   .container-header-intern-details {
-    @apply text-center text-5xl;
+    @apply text-center text-5xl max-ml:text-4xl;
+  }
+
+  .container-left-and-right {
+    @apply relative flex max-ml:block;
   }
   
   .container-left-informations {
-    @apply inline-block w-[50%] text-2xl;
+    @apply inline-grid w-[50%] text-2xl max-ml:block max-ml:w-[60%] max-ml:ml-[10%] max-ml:mb-4;
   }
   
   .container-left-informations h1 {
@@ -332,7 +336,7 @@ input[type="date"] {
   }
   
   .container-right-informations {
-    @apply inline-block w-[49%] align-top;
+    @apply inline-grid w-[49%] align-top max-ml:block max-ml:w-full max-ml:text-center;
   }
   
   .container-right-informations p {

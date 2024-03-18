@@ -1662,6 +1662,12 @@ input[type="date"]{
   height: 23px;
 }
 
+@media not all and (min-width: 850px){
+  .close-tab-logo-picture{
+    height: 15px;
+  }
+}
+
 .button-close-tab{
   margin-top: 0.5rem;
   margin-left: 96%;
@@ -1671,13 +1677,18 @@ input[type="date"]{
 .header-intern-details{
   margin-bottom: 1.25rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-columns: 20% 70% 10%;
 }
 
 .company-logo-picture{
   display: inline-block;
   height: 103px;
+}
+
+@media not all and (min-width: 850px){
+  .company-logo-picture{
+    height: 85px;
+  }
 }
 
 .close-tab-clicked{
@@ -1719,25 +1730,45 @@ input[type="date"]{
 .container-header-company-details{
   margin-left: 8%;
   margin-right: 8%;
+  display: flex;
   height: auto;
+  align-items: center;
 }
 
 .container-header-company-details h1{
-  margin-left: 30%;
-  display: inline-block;
+  width: 100%;
   text-align: center;
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
 
+.container-left-and-right{
+  position: relative;
+  display: flex;
+}
+
+@media not all and (min-width: 850px){
+  .container-left-and-right{
+    display: block;
+  }
+}
+
 .container-company-details-left{
   margin-left: 8%;
   margin-top: 1rem;
-  display: inline-block;
+  display: inline-grid;
   height: auto;
   width: 41%;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-left{
+    margin-left: 10%;
+    display: block;
+    width: auto;
+  }
 }
 
 .container-company-details-sites h1{
@@ -1757,10 +1788,18 @@ input[type="date"]{
 .container-company-details-right{
   margin-right: 8%;
   margin-top: 1rem;
-  display: inline-block;
+  display: inline-grid;
   height: auto;
   width: 41%;
   vertical-align: top;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-right{
+    margin-right: 0px;
+    display: block;
+    width: 100%;
+  }
 }
 
 .container-company-details-note{
@@ -1792,11 +1831,31 @@ input[type="date"]{
   text-underline-offset: 4px;
 }
 
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .container-company-details-sector-name ul{
   margin-right: -5px;
   margin-top: 0.25rem;
   display: inline-block;
   width: 50%;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name ul{
+    margin-right: 0px;
+    display: block;
+    width: 50%;
+  }
+
+  .container-company-details-sector-name ul:last-child{
+    margin-bottom: 0px;
+  }
 }
 
 .container-company-details-sector-name li{
@@ -1813,6 +1872,17 @@ input[type="date"]{
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   padding: 0.5rem;
   text-align: center;
+}
+
+@media not all and (min-width: 850px){
+  .container-company-details-sector-name li{
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .container-company-details-sector-name li:last-child{
+    margin-bottom: 0px;
+  }
 }
 
 .container-company-details-description{

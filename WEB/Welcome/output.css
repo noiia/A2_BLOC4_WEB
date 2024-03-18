@@ -1523,6 +1523,12 @@ input[type="date"]{
   height: 23px;
 }
 
+@media not all and (min-width: 850px){
+  .close-tab-logo-picture{
+    height: 15px;
+  }
+}
+
 .button-close-tab{
   margin-top: 0.5rem;
   margin-left: 96%;
@@ -1532,7 +1538,6 @@ input[type="date"]{
 .header-intern-details{
   margin-bottom: 1.25rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-columns: 20% 70% 10%;
 }
 
@@ -1541,15 +1546,33 @@ input[type="date"]{
   height: 103px;
 }
 
+@media not all and (min-width: 850px){
+  .company-logo-picture{
+    height: 64px;
+  }
+}
+
 .unselected-wishlist-logo-picture{
   height: 43px;
   cursor: pointer;
+}
+
+@media not all and (min-width: 850px){
+  .unselected-wishlist-logo-picture{
+    height: 33px;
+  }
 }
 
 .selected-wishlist-logo-picture{
   display: none;
   height: 43px;
   cursor: pointer;
+}
+
+@media not all and (min-width: 850px){
+  .selected-wishlist-logo-picture{
+    height: 33px;
+  }
 }
 
 .is-selected{
@@ -1566,11 +1589,38 @@ input[type="date"]{
   line-height: 1;
 }
 
+@media not all and (min-width: 850px){
+  .container-header-intern-details{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.container-left-and-right{
+  position: relative;
+  display: flex;
+}
+
+@media not all and (min-width: 850px){
+  .container-left-and-right{
+    display: block;
+  }
+}
+
 .container-left-informations{
-  display: inline-block;
+  display: inline-grid;
   width: 50%;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 850px){
+  .container-left-informations{
+    margin-left: 10%;
+    margin-bottom: 1rem;
+    display: block;
+    width: 60%;
+  }
 }
 
 .container-left-informations h1{
@@ -1584,9 +1634,17 @@ input[type="date"]{
 }
 
 .container-right-informations{
-  display: inline-block;
+  display: inline-grid;
   width: 49%;
   vertical-align: top;
+}
+
+@media not all and (min-width: 850px){
+  .container-right-informations{
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .container-right-informations p{
