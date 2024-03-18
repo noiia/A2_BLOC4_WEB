@@ -655,18 +655,20 @@ if ($username != "") {
                     </span>
                 </button>
             </div>
-            <div class="container-intern-container-note">
-                <div class="container-intern-your-note">
-                    <p>Votre note:&nbsp<p id="rangeValue3">5</p>/10</p>
+            <div class="container-note-and-button">
+                <div class="container-intern-container-note">
+                    <div class="container-intern-your-note">
+                        <p>Votre note:&nbsp<p id="rangeValue3">5</p>/10</p>
+                    </div>
+                    <div class="container-company-details-note-bar2">
+                        <input type="range" min="1" max="10" step="1" id="rangeInput3" value="5" oninput="rangeValue3.innerText = this.value">
+                    </div>
                 </div>
-                <div class="container-company-details-note-bar2">
-                    <input type="range" min="1" max="10" step="1" id="rangeInput3" value="5" oninput="rangeValue3.innerText = this.value">
+                <div class="container-company-poster-button">
+                    <button class="button-poster" id="button-poster" value="Poster">
+                        Poster
+                    </button>
                 </div>
-            </div>
-            <div class="container-company-poster-button">
-                <button class="button-poster" id="button-poster" value="Poster">
-                    Poster
-                </button>
             </div>
             <textarea type="text" class="container-company-your-review review-scrollbar" placeholder="Tapez votre avis..."></textarea>
             <div class="container-company-reviews-area">

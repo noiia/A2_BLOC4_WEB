@@ -1464,6 +1464,12 @@ input[type="date"]{
   }
 }
 
+@media not all and (min-width: 500px){
+  .runway-elements{
+    width: 350px;
+  }
+}
+
 @media (min-width: 1280px){
   .runway-elements{
     margin-left: 25px;
@@ -1482,6 +1488,13 @@ input[type="date"]{
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-container-intern-details{
+    margin-left: -25px;
+    width: 400px;
   }
 }
 
@@ -1508,6 +1521,12 @@ input[type="date"]{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline-style: solid;
   outline-color: #39A325;
+}
+
+@media not all and (min-width: 500px){
+  .container-intern-details{
+    margin-top: 1rem;
+  }
 }
 
 .container-div-par-intern-details{

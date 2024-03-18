@@ -663,8 +663,8 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb{
-  margin-left: 6.5%;
-  margin-right: 45px;
+  margin-left: 3rem;
+  margin-right: 3rem;
   margin-top: 0.25rem;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
@@ -674,8 +674,8 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track{
-  margin-left: 65px;
-  margin-right: 45px;
+  margin-left: 3rem;
+  margin-right: 3rem;
   margin-top: 0.25rem;
   border-radius: 10px;
 }
@@ -1545,16 +1545,23 @@ input[type="date"]{
 
 .container-skills{
   position: relative;
+  margin-top: 2rem;
 }
 
-@media (min-width: 500px){
+@media not all and (min-width: 500px){
   .container-skills{
-    margin-top: 2rem;
+    margin-top: 1.25rem;
   }
 }
 
 .container-skills ul{
   display: flex;
+}
+
+@media not all and (min-width: 500px){
+  .container-skills ul{
+    margin-left: -1.25rem;
+  }
 }
 
 .container-skills li{
@@ -1569,6 +1576,13 @@ input[type="date"]{
   --tw-bg-opacity: 1;
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
   padding: 0.75rem;
+}
+
+@media not all and (min-width: 500px){
+  .container-skills li{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 .container:focus {
@@ -1600,6 +1614,12 @@ input[type="date"]{
   }
 }
 
+@media not all and (min-width: 500px){
+  .runway-elements{
+    width: 350px;
+  }
+}
+
 @media (min-width: 1280px){
   .runway-elements{
     margin-left: 25px;
@@ -1617,6 +1637,13 @@ input[type="date"]{
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-container-intern-details{
+    margin-left: -25px;
+    width: 400px;
   }
 }
 
@@ -1644,6 +1671,12 @@ input[type="date"]{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline-style: solid;
   outline-color: #39A325;
+}
+
+@media not all and (min-width: 500px){
+  .container-intern-details{
+    margin-top: 1rem;
+  }
 }
 
 .container-div-par-intern-details{
@@ -2002,6 +2035,11 @@ input[type="date"]{
   padding: 0.75rem;
 }
 
+.container-note-and-button{
+  display: flex;
+  width: 100%;
+}
+
 .container-intern-container-note{
   margin-left: 8%;
   margin-right: 8%;
@@ -2012,6 +2050,7 @@ input[type="date"]{
 
 .container-intern-your-note{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
@@ -2124,6 +2163,13 @@ input[type="date"]{
   margin-right: 2.5rem;
   height: 100px;
   width: 100px;
+}
+
+@media not all and (min-width: 500px){
+  .logo-company{
+    height: 70px;
+    width: 70px;
+  }
 }
 
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */

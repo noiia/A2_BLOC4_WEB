@@ -96,14 +96,14 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-secondary-scroll_bar_grey ml-[6.5%] mr-[45px] mt-1;
+  @apply bg-secondary-scroll_bar_grey mt-1 mx-[3rem];
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
   cursor: default;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
-  @apply ml-[65px] mr-[45px] mt-1;
+  @apply mt-1 mx-[3rem];
   border-radius: 10px;
 }
 
@@ -325,13 +325,13 @@ input[type="date"] {
   @apply mt-2 text-secondary-true_black text-justify;
 }
 .container-skills {
-  @apply relative sm:mt-8;
+  @apply relative mt-8 max-sm:mt-5;
 }
 .container-skills ul {
-  @apply flex;
+  @apply flex max-sm:ml-[-1.25rem];
 }
 .container-skills li {
-  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey max-sm:text-sm;
 }
 .container:focus {
   .container-intern {
@@ -344,15 +344,15 @@ input[type="date"] {
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements {
-  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
+  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto max-sm:w-[350px];
 }
 
 .runway-container-intern-details {
-  @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px];
+  @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
 }
 
 .container-intern-details {
-  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
+  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40 max-sm:mt-4;
 }
 
 .container-div-par-intern-details {
@@ -492,12 +492,16 @@ input[type="date"] {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 }
 
+.container-note-and-button {
+  @apply w-full flex;
+}
+
 .container-intern-container-note {
   @apply mt-10 mx-[8%] w-[34%] inline-block;
 }
 
 .container-intern-your-note {
-  @apply text-2xl text-center flex justify-center;
+  @apply text-2xl text-center flex justify-center flex-wrap;
 }
 
 .container-company-details-note-bar2 {
@@ -541,7 +545,7 @@ input[type="date"] {
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 /* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
 .logo-company {
-  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10;
+  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10 max-sm:h-[70px] max-sm:w-[70px];
 }
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
 
