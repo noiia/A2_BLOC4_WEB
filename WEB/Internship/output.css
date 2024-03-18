@@ -625,6 +625,36 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
+.horizontal-second-scrollbar::-webkit-scrollbar{
+  width: 15px;
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-thumb{
+  margin-block: 20px;
+  margin-left: 0.5rem;
+  cursor: default;
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
+  border: 2px solid rgb(185,185,185);
+  border-radius: 10px;
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-track{
+  margin-block: 20px;
+  margin-left: 0.5rem;
+  border-radius: 10px;
+}
+
+.horizontal-second-scrollbar::-webkit-scrollbar-track:hover{
+  cursor: default;
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+/* --------------------- FIN SCROLLBARS-------------------- */
+
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
 .second-scrollbar-description-internship::-webkit-scrollbar{
   width: 15px;
 }
@@ -1212,6 +1242,15 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
+@media not all and (min-width: 850px){
+  .container-add-student{
+    top: 1%;
+    left: 1%;
+    height: 98%;
+    width: 98%;
+  }
+}
+
 .add-student-name{
   position: absolute;
   left: 3%;
@@ -1229,6 +1268,13 @@ body::-webkit-scrollbar-track:hover{
 .add-student-name h1{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+@media not all and (min-width: 850px){
+  .add-student-name h1{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 .div-button-apply{
@@ -1281,6 +1327,7 @@ body::-webkit-scrollbar-track:hover{
   display: flex;
   height: 44%;
   width: 98%;
+  overflow-y: auto;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
@@ -1290,9 +1337,37 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+@media not all and (min-width: 1280px){
+  .container-students-informations{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+@media not all and (min-width: 850px){
+  .container-students-informations{
+    padding: 0px;
+  }
+}
+
 .students-informations{
   height: 100%;
   width: 50%;
+}
+
+@media not all and (min-width: 1280px){
+  .students-informations{
+    margin-top: 200px;
+    width: 90%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .students-informations{
+    margin-top: 300px;
+    width: 90%;
+  }
 }
 
 .students-each-informations ul{
@@ -1300,6 +1375,13 @@ body::-webkit-scrollbar-track:hover{
   height: auto;
   width: 48%;
   padding-left: 0.5rem;
+}
+
+@media not all and (min-width: 768px){
+  .students-each-informations ul{
+    display: block;
+    width: 97%;
+  }
 }
 
 .students-each-informations li{
@@ -1339,6 +1421,12 @@ body::-webkit-scrollbar-track:hover{
   width: 97%;
   padding-left: 0.5rem;
   text-align: center;
+}
+
+@media not all and (min-width: 768px){
+  .students-each-informations-title ul{
+    display: block;
+  }
 }
 
 .students-each-informations-title li{
@@ -1396,6 +1484,12 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
+@media not all and (min-width: 1024px){
+  .container-students-description{
+    width: 55%;
+  }
+}
+
 .container-students-description-name h1{
   height: auto;
   font-size: 1.5rem;
@@ -1440,6 +1534,12 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
   outline-width: 4px;
   outline-color: #000000;
+}
+
+@media not all and (min-width: 1024px){
+  .container-pilote-promotion{
+    width: 40%;
+  }
 }
 
 .container-pilote-promotion-header {
@@ -1530,11 +1630,53 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
+.container-skills{
+  position: relative;
+  width: 50%;
+}
+
+@media not all and (min-width: 1280px){
+  .container-skills{
+    width: 80%;
+  }
+}
+
+@media not all and (min-width: 768px){
+  .container-skills{
+    width: 95%;
+  }
+}
+
+.id-internship{
+  margin-top: 0.75rem;
+  margin-left: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.big-container{
+  position: relative;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.container-skills-name{
+  margin-top: 0.25rem;
+  margin-left: 0.75rem;
+  display: inline-grid;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
 .input-adresse{
-  position: absolute;
-  right: 200px;
-  display: inline-block;
-  width: 33%;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  display: inline-grid;
+  width: 220px;
 }
 
 .input-adresse input{
@@ -1553,47 +1695,25 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #15751E;
 }
 
-.container-skills{
-  position: relative;
-  width: 50%;
-}
-
-.id-internship{
-  margin-top: 0.75rem;
-  margin-left: 2.5rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.container-skills-name{
-  margin-top: 0.25rem;
-  margin-left: 0.75rem;
-  display: inline-block;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
 .add-button{
-  position: absolute;
-  right: 0.75rem;
-  display: inline-block;
-  width: 20%;
-}
-
-.button-add{
-  width: 100%;
+  display: inline-grid;
+  width: auto;
 }
 
 .container-skills-scroll{
-  margin-top: 1.25rem;
+  margin-top: 1.75rem;
   display: flex;
   height: 119px;
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
   white-space: nowrap;
+}
+
+@media not all and (min-width: 850px){
+  .container-skills-scroll{
+    margin-bottom: 1rem;
+  }
 }
 
 .container-skills-scroll ul{
@@ -1620,6 +1740,10 @@ body::-webkit-scrollbar-track:hover{
   padding: 0.5rem;
   padding-right: 2.5rem;
   text-align: center;
+}
+
+.each-skill:first-child{
+  margin-left: 0.5rem;
 }
 
 .each-skill p{
