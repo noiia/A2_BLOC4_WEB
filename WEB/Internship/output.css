@@ -550,14 +550,11 @@ video {
   font-family: Inter;
 }
 
-<<<<<<< HEAD
 html, body{
   height: 100%;
   width: 100%;
 }
 
-=======
->>>>>>> origin/StephMerge
 body{
   display: inline-block;
 }
@@ -610,11 +607,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-thumb{
-<<<<<<< HEAD
   margin-block: 5px;
-=======
-  margin-block: 20px;
->>>>>>> origin/StephMerge
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
@@ -623,11 +616,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-track{
-<<<<<<< HEAD
   margin-block: 5px;
-=======
-  margin-block: 20px;
->>>>>>> origin/StephMerge
   border-radius: 10px;
 }
 
@@ -637,11 +626,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-<<<<<<< HEAD
-=======
-/* --------------------- SECOND SCROLLBARS-------------------- */
+/* --------------------- Troisieme SCROLLBARS-------------------- */
 
 .horizontal-second-scrollbar::-webkit-scrollbar{
   width: 15px;
@@ -669,9 +654,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-/* --------------------- SECOND SCROLLBARS-------------------- */
+/* --------------------- Quatre SCROLLBARS-------------------- */
 
 .second-scrollbar-description-internship::-webkit-scrollbar{
   width: 15px;
@@ -699,7 +682,6 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------------- FIN SCROLLBARS-------------------- */
 
->>>>>>> origin/StephMerge
 /* ---------------------Onglet à gauche -------------------*/
 
 .main_left{
@@ -798,11 +780,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* ---------------------Fin onglet gauche -------------------*/
 
-<<<<<<< HEAD
 /* --------------------- gestion des stages -------------------*/
-=======
-/* --------------------- gestion des entreprises -------------------*/
->>>>>>> origin/StephMerge
 
 .main_right{
   position: fixed;
@@ -910,11 +888,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* ----------- list à gauche ------------------*/
 
-<<<<<<< HEAD
 .search_list-internships{
-=======
-.search_list-companies{
->>>>>>> origin/StephMerge
   display: flex;
   height: 100%;
   width: 25%;
@@ -922,11 +896,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-<<<<<<< HEAD
   .search_list-internships{
-=======
-  .search_list-companies{
->>>>>>> origin/StephMerge
     display: none;
     width: 100%;
   }
@@ -992,11 +962,7 @@ body::-webkit-scrollbar-track:hover{
   padding-left: 0.25rem;
 }
 
-<<<<<<< HEAD
 .list-internships{
-=======
-.list-companies{
->>>>>>> origin/StephMerge
   margin-top: 0.5rem;
   display: flex;
   flex: 1 1 0%;
@@ -1039,11 +1005,7 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-<<<<<<< HEAD
 .internship{
-=======
-.company{
->>>>>>> origin/StephMerge
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: 90%;
@@ -1053,7 +1015,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #B9B9B9;
 }
 
-<<<<<<< HEAD
 .internship:hover{
   outline-color: #66B95A;
 }
@@ -1151,16 +1112,6 @@ body::-webkit-scrollbar-track:hover{
   display: none;
 }
 
-=======
-.company:hover{
-  outline-color: #66B95A;
-}
-
-.company:focus{
-  outline-color: #39A325;
-}
-
->>>>>>> origin/StephMerge
 /* --------------- fin liste à gauche --------------------*/
 
 /* --------------- profil à droite --------------------*/
@@ -1192,11 +1143,7 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-<<<<<<< HEAD
 .profile_internship{
-=======
-.profile_company{
->>>>>>> origin/StephMerge
   margin-left: 0.5rem;
   display: flex;
   flex: 1 1 0%;
@@ -1204,11 +1151,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-<<<<<<< HEAD
   .profile_internship{
-=======
-  .profile_company{
->>>>>>> origin/StephMerge
     margin: 0px;
   }
 }
@@ -1237,7 +1180,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-<<<<<<< HEAD
 .internship_top{
   margin: 1.25rem;
   display: flex;
@@ -1248,21 +1190,6 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 768px){
   .internship_top{
-=======
-.company_top{
-  margin: 1.25rem;
-  display: flex;
-  height: 33.333333%;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  outline-style: solid;
-  outline-color: #39A325;
-}
-
-@media not all and (min-width: 768px){
-  .company_top{
->>>>>>> origin/StephMerge
     margin: 0.5rem;
     margin-top: 0px;
   }
@@ -1276,7 +1203,6 @@ body::-webkit-scrollbar-track:hover{
      object-fit: contain;
 }
 
-<<<<<<< HEAD
 .left_profile{
   display: flex;
   height: 100%;
@@ -1319,48 +1245,6 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .internship_mid{
-=======
-.right_profile{
-  height: 100%;
-  width: 66.666667%;
-}
-
-.top_profile{
-  display: flex;
-  height: 50%;
-  width: 100%;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.bot_profile{
-  display: flex;
-  height: 50%;
-  width: 100%;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.spot_company{
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  display: flex;
-  height: 66.666667%;
-  width: 125px;
-  min-width: 125px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
-  padding: 0.5rem;
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.company_mid{
->>>>>>> origin/StephMerge
   margin-left: 1.25rem;
   margin-right: 1.25rem;
   display: flex;
@@ -1374,11 +1258,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-<<<<<<< HEAD
   .internship_mid{
-=======
-  .company_mid{
->>>>>>> origin/StephMerge
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
@@ -1398,7 +1278,6 @@ body::-webkit-scrollbar-track:hover{
   padding-left: 0.25rem;
 }
 
-<<<<<<< HEAD
 .internship_bot{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1410,27 +1289,10 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 768px){
   .internship_bot{
-=======
-.company_bot{
-  margin: 1.25rem;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  outline-style: solid;
-  outline-color: #39A325;
-}
-
-@media not all and (min-width: 768px){
-  .company_bot{
->>>>>>> origin/StephMerge
     margin: 0.5rem;
   }
 }
 
-<<<<<<< HEAD
 .postulation{
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -1476,22 +1338,6 @@ body::-webkit-scrollbar-track:hover{
 .postulation img.black_check:hover{
   --tw-contrast: contrast(1);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-=======
-.company_bot{
-  p{
-    font-weight: 700;
-  }
-  a{
-    text-decoration-line: none;
-  }
-  a:hover{
-    --tw-text-opacity: 1;
-    color: rgb(57 163 37 / var(--tw-text-opacity));
-  }
-  a:hover{
-    text-decoration-line: underline;
-  }
->>>>>>> origin/StephMerge
 }
 
 /* --------------- fin profil à droite --------------------*/
@@ -1513,18 +1359,8 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-<<<<<<< HEAD
 .hide_container{
   display: none;
-=======
-@media not all and (min-width: 850px){
-  .container-add-student{
-    top: 1%;
-    left: 1%;
-    height: 98%;
-    width: 98%;
-  }
->>>>>>> origin/StephMerge
 }
 
 .add-student-name{
@@ -1546,8 +1382,6 @@ body::-webkit-scrollbar-track:hover{
   line-height: 2rem;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 850px){
   .add-student-name h1{
     font-size: 1.125rem;
@@ -1555,7 +1389,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .div-button-apply{
   position: absolute;
   top: 2rem;
@@ -1606,10 +1439,7 @@ body::-webkit-scrollbar-track:hover{
   display: flex;
   height: 44%;
   width: 98%;
-<<<<<<< HEAD
-=======
   overflow-y: auto;
->>>>>>> origin/StephMerge
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
@@ -1619,8 +1449,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .container-students-informations{
     flex-direction: column;
@@ -1635,14 +1463,11 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .students-informations{
   height: 100%;
   width: 50%;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .students-informations{
     margin-top: 200px;
@@ -1657,7 +1482,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .students-each-informations ul{
   display: inline-grid;
   height: auto;
@@ -1665,8 +1489,6 @@ body::-webkit-scrollbar-track:hover{
   padding-left: 0.5rem;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 768px){
   .students-each-informations ul{
     display: block;
@@ -1674,7 +1496,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .students-each-informations li{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1714,15 +1535,12 @@ body::-webkit-scrollbar-track:hover{
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 768px){
   .students-each-informations-title ul{
     display: block;
   }
 }
 
->>>>>>> origin/StephMerge
 .students-each-informations-title li{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1778,15 +1596,12 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1024px){
   .container-students-description{
     width: 55%;
   }
 }
 
->>>>>>> origin/StephMerge
 .container-students-description-name h1{
   height: auto;
   font-size: 1.5rem;
@@ -1833,16 +1648,10 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1024px){
   .container-pilote-promotion{
     width: 40%;
   }
-}
-
->>>>>>> origin/StephMerge
-.container-pilote-promotion-header {
 }
 
 .container-pilote-promotion-header-name{
@@ -1930,13 +1739,6 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
-<<<<<<< HEAD
-.input-adresse{
-  position: absolute;
-  right: 200px;
-  display: inline-block;
-  width: 33%;
-=======
 .container-skills{
   position: relative;
   width: 50%;
@@ -1984,7 +1786,6 @@ body::-webkit-scrollbar-track:hover{
   margin-right: 0.75rem;
   display: inline-grid;
   width: 220px;
->>>>>>> origin/StephMerge
 }
 
 .input-adresse input{
@@ -2003,43 +1804,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #15751E;
 }
 
-<<<<<<< HEAD
-.container-skills{
-  position: relative;
-  width: 50%;
-}
-
-.id-internship{
-  margin-top: 0.75rem;
-  margin-left: 2.5rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.container-skills-name{
-  margin-top: 0.25rem;
-  margin-left: 0.75rem;
-  display: inline-block;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
-.add-button{
-  position: absolute;
-  right: 0.75rem;
-  display: inline-block;
-  width: 20%;
-}
-
-.button-add{
-  width: 100%;
-}
-
-.container-skills-scroll{
-  margin-top: 1.25rem;
-=======
 .add-button{
   display: inline-grid;
   width: auto;
@@ -2047,7 +1811,6 @@ body::-webkit-scrollbar-track:hover{
 
 .container-skills-scroll{
   margin-top: 1.75rem;
->>>>>>> origin/StephMerge
   display: flex;
   height: 119px;
   width: 100%;
@@ -2056,15 +1819,12 @@ body::-webkit-scrollbar-track:hover{
   white-space: nowrap;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 850px){
   .container-skills-scroll{
     margin-bottom: 1rem;
   }
 }
 
->>>>>>> origin/StephMerge
 .container-skills-scroll ul{
   margin-right: 0.5rem;
 }
@@ -2091,13 +1851,10 @@ body::-webkit-scrollbar-track:hover{
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 .each-skill:first-child{
   margin-left: 0.5rem;
 }
 
->>>>>>> origin/StephMerge
 .each-skill p{
   display: inline-block;
   font-size: 1.25rem;
@@ -2112,8 +1869,4 @@ body::-webkit-scrollbar-track:hover{
 
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
-<<<<<<< HEAD
 /* ----------------------- fin gestion des stages ------------------*/
-=======
-/* ----------------------- fin gestion des eleves ------------------*/
->>>>>>> origin/StephMerge

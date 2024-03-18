@@ -96,22 +96,14 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
-<<<<<<< HEAD
-  @apply bg-secondary-scroll_bar_grey ml-[6.5%] mr-[45px] mt-1;
-=======
   @apply bg-secondary-scroll_bar_grey mt-1 mx-[3rem];
->>>>>>> origin/StephMerge
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
   cursor: default;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
-<<<<<<< HEAD
-  @apply ml-[65px] mr-[45px] mt-1;
-=======
   @apply mt-1 mx-[3rem];
->>>>>>> origin/StephMerge
   border-radius: 10px;
 }
 

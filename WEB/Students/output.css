@@ -597,11 +597,6 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
-<<<<<<< HEAD
-=======
-/* --------------------- SECOND SCROLLBARS-------------------- */
-
->>>>>>> origin/StephMerge
 .second-scrollbar::-webkit-scrollbar{
   width: 15px;
 }
@@ -626,11 +621,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
-<<<<<<< HEAD
-=======
-/* --------------------- FIN SCROLLBARS -------------------- */
-
-/* --------------------- FIN SCROLLBARS-------------------- */
+/* --------------------- Troisieme SCROLLBARS -------------------- */
 
 .second-scrollbar-description-internship::-webkit-scrollbar{
   width: 15px;
@@ -656,7 +647,6 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
->>>>>>> origin/StephMerge
 /* --------------------- FIN SCROLLBARS-------------------- */
 
 /* ---------------------Onglet à gauche -------------------*/
@@ -672,11 +662,8 @@ body::-webkit-scrollbar-track:hover{
   align-items: center;
   --tw-bg-opacity: 1;
   background-color: rgb(217 217 217 / var(--tw-bg-opacity));
-<<<<<<< HEAD
-=======
   --tw-blur: blur(16px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
->>>>>>> origin/StephMerge
 }
 
 @media not all and (min-width: 1024px){
@@ -782,11 +769,6 @@ body::-webkit-scrollbar-track:hover{
   outline-style: solid;
   outline-width: 4px;
   outline-color: #39A325;
-<<<<<<< HEAD
-=======
-  --tw-blur: blur(16px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
->>>>>>> origin/StephMerge
 }
 
 @media not all and (min-width: 1024px){
@@ -1005,7 +987,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #66B95A;
 }
 
-<<<<<<< HEAD
 .container_focus{
   outline-color: #39A325;
 }
@@ -1079,12 +1060,6 @@ body::-webkit-scrollbar-track:hover{
   display: none;
 }
 
-=======
-.student:focus{
-  outline-color: #39A325;
-}
-
->>>>>>> origin/StephMerge
 /* --------------- fin liste à gauche --------------------*/
 
 /* --------------- profil à droite --------------------*/
@@ -1280,10 +1255,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-<<<<<<< HEAD
-.hide_container{
-  display: none;
-=======
 @media not all and (min-width: 768px){
   .container-add-student{
     top: 1%;
@@ -1291,7 +1262,10 @@ body::-webkit-scrollbar-track:hover{
     height: 98%;
     width: 98%;
   }
->>>>>>> origin/StephMerge
+}
+
+.hide_container{
+  display: none;
 }
 
 .add-student-name{
@@ -1313,8 +1287,6 @@ body::-webkit-scrollbar-track:hover{
   line-height: 2rem;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 768px){
   .add-student-name h1{
     font-size: 1.125rem;
@@ -1322,7 +1294,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .div-button-apply{
   position: absolute;
   top: 2rem;
@@ -1345,15 +1316,12 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 768px){
   .div-button-cancel{
     right: 26%;
   }
 }
 
->>>>>>> origin/StephMerge
 .button-apply{
   width: 100%;
 }
@@ -1390,8 +1358,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1024px){
   .container-students-informations{
     flex-direction: column;
@@ -1406,7 +1372,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .container-student-profile-picture{
   position: relative;
   display: flex;
@@ -1459,15 +1424,12 @@ body::-webkit-scrollbar-track:hover{
   width: 80%;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1024px){
   .students-informations{
     width: 100%;
   }
 }
 
->>>>>>> origin/StephMerge
 .students-each-informations ul{
   display: inline-grid;
   height: auto;
@@ -1490,15 +1452,12 @@ body::-webkit-scrollbar-track:hover{
   margin-top: 50px;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1024px){
   .students-each-informations li:first-child{
     margin-top: 0px;
   }
 }
 
->>>>>>> origin/StephMerge
 .students-each-informations-long{
   margin-left: 0.5rem;
   margin-right: 0.5rem;

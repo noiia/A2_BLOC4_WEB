@@ -1066,9 +1066,6 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
-<<<<<<< HEAD
-.both-container-stats{
-=======
 @media not all and (min-width: 1280px){
   .full-runway{
     height: 900px;
@@ -1083,7 +1080,6 @@ body::-webkit-scrollbar-track:hover{
 
 .both-container-stats{
   position: relative;
->>>>>>> origin/StephMerge
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   display: flex;
@@ -1091,8 +1087,6 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .both-container-stats{
     height: 70%;
@@ -1107,7 +1101,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .left-container-stats{
   position: relative;
   margin-left: 1%;
@@ -1123,11 +1116,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-.left-container-actual-stats{
-  position: absolute;
-  top: 15%;
-=======
 @media not all and (min-width: 1024px){
   .left-container-stats{
     left: 10%;
@@ -1139,7 +1127,6 @@ body::-webkit-scrollbar-track:hover{
 
 .left-container-actual-stats{
   position: absolute;
->>>>>>> origin/StephMerge
   left: 2%;
   height: 70%;
   width: 50%;
@@ -1148,8 +1135,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .left-container-actual-stats{
     bottom: 0px;
@@ -1174,17 +1159,12 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .left-container-search{
   position: absolute;
   top: 25%;
   right: 2%;
   height: 50%;
-<<<<<<< HEAD
-  width: 40%;
-=======
   width: 44%;
->>>>>>> origin/StephMerge
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -1194,8 +1174,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .left-container-search{
     top: 0px;
@@ -1213,7 +1191,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .left-container-search-name{
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1304,11 +1281,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-.right-container-actual-stats{
-  position: absolute;
-  top: 15%;
-=======
 @media not all and (min-width: 1024px){
   .right-container-stats{
     left: 10%;
@@ -1319,7 +1291,6 @@ body::-webkit-scrollbar-track:hover{
 
 .right-container-actual-stats{
   position: absolute;
->>>>>>> origin/StephMerge
   right: 2%;
   height: 70%;
   width: 50%;
@@ -1328,8 +1299,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .right-container-actual-stats{
     bottom: 0px;
@@ -1354,17 +1323,12 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .right-container-search{
   position: absolute;
   top: 25%;
   left: 2%;
   height: 50%;
-<<<<<<< HEAD
-  width: 40%;
-=======
   width: 44%;
->>>>>>> origin/StephMerge
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(102 185 90 / var(--tw-bg-opacity));
@@ -1374,8 +1338,6 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 @media not all and (min-width: 1280px){
   .right-container-search{
     top: 0px;
@@ -1393,7 +1355,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
->>>>>>> origin/StephMerge
 .right-container-search-name{
   font-size: 1.5rem;
   line-height: 2rem;
