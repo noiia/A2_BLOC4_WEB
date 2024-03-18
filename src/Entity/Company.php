@@ -43,7 +43,7 @@ class Company
     private bool $Del;
     #[ManyToOne(targetEntity: Sector::class, inversedBy: "companies")]
     #[JoinColumn(name: "ID_sector", referencedColumnName: "ID_sector")]
-    private ?Sector $sector;
+    public ?Sector $sector;
     #[OneToMany(targetEntity: Rate::class, mappedBy:'companies')]
     private Collection $rates;
     #[JoinTable(name: "Manage_company")]
@@ -55,12 +55,11 @@ class Company
     private Collection $internships;
     #[OneToOne(targetEntity: Location::class, inversedBy: 'companies')]
     #[JoinColumn(name: 'id_location', referencedColumnName: 'ID_location')]
-    private Collection $locations;
+    public ?Location $locations;
     public function __construct()
     {
         $this->rates = new ArrayCollection();
         $this->users = new ArrayCollection();
-        $this->locations = new ArrayCollection();
         $this->internships = new ArrayCollection();
     }
 

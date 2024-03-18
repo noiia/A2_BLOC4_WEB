@@ -33,11 +33,11 @@ class Promotion
 
     #[ManyToMany(targetEntity: Users::class, mappedBy: 'promotions')]
     private Collection $users;
-    #[ManyToMany(targetEntity: Internship::class, mappedBy: 'skills')]
-    private Collection $internships;
+   // #[ManyToMany(targetEntity: Internship::class, mappedBy: 'skills')]
+    //private Collection $internships;
     public function __construct() {
         $this->users = new ArrayCollection();
-        $this->internships = new ArrayCollection();
+       // $this->internships = new ArrayCollection();
     }
 
     public function getIDPromotion(): int

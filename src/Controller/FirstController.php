@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
-use DI\Container;
+
+use UMA\DIC\Container;
 use Doctrine\ORM\EntityManager;
 use Slim\Routing\RouteCollectorProxy;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Internship;
 use App\Entity\Company;
+use App\Entity\Skills;
 
 use Slim\Views\Twig;
+use function Sodium\compare;
+
 class FirstController
 {
     private $twig;
@@ -23,26 +26,36 @@ class FirstController
     }
     public function Welcome(Request $request, Response $response, array $args, Container $container): Response
     {
+
         $entityManager = $container->get(EntityManager::class);
-        echo $entityManager->getRepository(Internship::class)->findAll();
-        $internships = [
-            [
-                'id' => '001',
-                'job' => 'Dev pigeonRTX',
-                'school_grade' => 'Bac+2',
-                'company' => 'Sfr',
-                'location' => 'Paris',
-                'begin_date' => '23/05/2024',
-                'duration' => '3 mois',
-                'competence_1' => 'js',
-                'competence_2' => 'python',
-                'competence_3' => 'js',
-            ],
-        ];
+        $internshipRepository = $entityManager->getRepository(Internship::class)->findAll();
+        $skillsRepository = $entityManager->getRepository(Skills::class)->findAll();
+
+        $internships = [];
+        if($internshipRepository){
+            foreach($internshipRepository as $forInternship)
+            {
+                $internships[] =
+                [
+                    'id' => $forInternship->getIDInternship(),
+                    'job' => $forInternship->getTitle(),
+                    'school_grade' => 'Bac+2',
+                    'company' => $forInternship->companies->getName(),
+                    'location' => $forInternship->locations->getCity(),
+                    'begin_date' => $forInternship->getStartingDate(),
+                    'duration' => '3 mois',
+                    'competence_1' => 'js',
+                    'competence_2' => 'python',
+                    'competence_3' => 'js',
+                ];
+            }
+        } else {
+            $title = "";
+        }
         $bubbles = [
             [
                 'id' => '001',
-                'job' => 'Dev pigeonRTX',
+                'job' => '',
                 'school_grade' => 'Bac+2',
                 'company' => 'Sfr',
                 'location' => 'Paris',
@@ -55,7 +68,7 @@ class FirstController
             ],
         ];
         $skills = [];
-        $skillArray = ['ae', 'aeee', 'adfsef', 'js'];
+        $skillArray = ['ae', 'aeee', 'adfsef', 'js', 'python'];
         $i = 0;
         foreach($skillArray as $forSkill)
         {

@@ -31,15 +31,14 @@ class Location
     private bool $Del;
     #[OneToMany(targetEntity: Promotion::class, mappedBy:'location')]
     private Collection $promotions;
-    #[OneToMany(targetEntity: Internship::class, mappedBy:'location')]
-    private Collection $internships;
-    #[OneToOne(targetEntity: Company::class, mappedBy: 'locations')]
-    private Collection $companies;
+    #[OneToOne(targetEntity: Company::class, mappedBy:'locations')]
+    public ?Company $companies;
+    #[OneToMany(targetEntity: Internship::class, mappedBy: 'locations')]
+    public Collection $internships;
     public function __construct()
     {
         $this->promotions = new ArrayCollection();
         $this->internships = new ArrayCollection();
-        $this->companies = new ArrayCollection();
     }
     public function getIDLocation(): int
     {

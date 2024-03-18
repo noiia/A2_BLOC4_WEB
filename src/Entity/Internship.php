@@ -43,19 +43,14 @@ class Internship
     private string $Description;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    private int $ID_Company;
-    #[ManyToOne(targetEntity: Location::class, inversedBy: "internships")]
-    #[JoinColumn(name: "ID_location", referencedColumnName: "ID_location")]
-    private ?Location $location;
+
     #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'internships')]
     private Collection $wishlists_appliement;
-
     #[JoinTable(name: "seek")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship', unique: false)]
     #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills', unique: true)]
     #[ManyToMany(targetEntity: Skills::class, inversedBy: "internships")]
     private Collection $skills;
-
     #[JoinTable(name: "Look_for")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship', unique: false)]
     #[InverseJoinColumn(name: 'id_promotion', referencedColumnName: 'ID_promotion', unique: false)]
@@ -63,7 +58,10 @@ class Internship
     private Collection $promotions;
     #[ManyToOne(targetEntity: Company::class, inversedBy: "internships")]
     #[JoinColumn(name: "ID_company", referencedColumnName: "ID_company")]
-    private ?Company $companies;
+    public ?Company $companies;
+    #[ManyToOne(targetEntity: Location::class, inversedBy: 'internships')]
+    #[JoinColumn(name: 'ID_location', referencedColumnName: 'ID_location', nullable: false)]
+    public Location $locations;
 
     public function __construct() {
         $this->wishlists_appliement = new ArrayCollection();
@@ -101,9 +99,9 @@ class Internship
         $this->Duration = $Duration;
     }
 
-    public function getStartingDate(): \DateTime
+    public function getStartingDate(): string
     {
-        return $this->Starting_date;
+        return $this->Starting_date->format('Y-m-d');
     }
 
     public function setStartingDate(\DateTime $Starting_date): void
@@ -161,7 +159,7 @@ class Internship
         $this->Description = $Description;
     }
 
-    public function isDel(): bool
+    public function getDel(): bool
     {
         return $this->Del;
     }
