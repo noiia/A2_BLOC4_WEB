@@ -546,6 +546,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+html{
+  overflow-x: hidden;
+}
+
 *{
   font-family: Inter;
 }
@@ -641,8 +645,6 @@ body::-webkit-scrollbar-track:hover{
 }
 
 /* ------------------- FIN SCROLLBAR AVIS ---------------------*/
-
-/* --------------------- FIN SCROLLBARS-------------------- */
 
 /* --------------------- HORIZONTAL SCROLL BAR ------------- */
 
@@ -999,6 +1001,13 @@ input[type="date"]{
   text-decoration-line: underline;
 }
 
+@media not all and (min-width: 1024px){
+  .navbar-links a:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
 @media (max-width: 850px){
   .navbar-links a{
     margin-bottom: 40px;
@@ -1158,9 +1167,35 @@ input[type="date"]{
   color: rgb(57 163 37 / var(--tw-text-opacity));
 }
 
+@media not all and (min-width: 1024px){
+  .dropdown-items1 a:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
 .dropdown-items2 a:hover:hover{
   --tw-text-opacity: 1;
   color: rgb(57 163 37 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 a:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
+.dropdown-items2 #button-disconnect:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 #button-disconnect:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
 }
 
 @media (max-width: 850px){
@@ -1174,6 +1209,7 @@ input[type="date"]{
 }
 
 .dropdown-items2 span{
+  margin-left: -8px;
   display: inline-block;
   width: 100%;
   --tw-bg-opacity: 1;
@@ -1184,11 +1220,26 @@ input[type="date"]{
   text-transform: uppercase;
 }
 
+.dropdown-items2 span:hover{
+  text-decoration-line: underline;
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 span{
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+}
+
 @media (max-width: 850px){
   .dropdown-items2 span{
     position: absolute;
     margin-bottom: 0px;
   }
+}
+
+.button-disconnect{
+  width: 100%;
 }
 
 .dropdown-btn{

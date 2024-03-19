@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply overflow-x-hidden;
+}
+
 * {
   @apply font-display;
 }
@@ -189,7 +193,7 @@ input[type="date"] {
   @apply max-ml:ml-0 m-0 fixed;
 }
 .navbar-links a{
-  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px];
+  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px] max-lg:hover:text-secondary-true_black;
 }
 .dropdown1{
   @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] max-lg:hover:bg-secondary-pp_grey;
@@ -213,11 +217,16 @@ input[type="date"] {
   @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
 }
 .dropdown-items1 a:hover{
-  @apply hover:text-green-button;
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
 }
 .dropdown-items2 a:hover{
-  @apply hover:text-green-button;
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
 }
+
+.dropdown-items2 #button-disconnect:hover{
+  @apply text-secondary-true_black max-lg:hover:text-secondary-true_white;
+}
+
 .dropdown-items1:hover{
   @apply max-[850px]:hidden;
 }
@@ -225,8 +234,13 @@ input[type="date"] {
   @apply max-[850px]:hidden;
 }
 .dropdown-items2 span{
-  @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-[850px]:mb-0 max-[850px]:absolute;
+  @apply bg-green-2 hover:underline bg-cover uppercase text-center w-full inline-block p-2 ml-[-8px] max-[850px]:mb-0 max-[850px]:absolute max-lg:bg-secondary-true_black;
 }
+
+.button-disconnect {
+  @apply w-full;
+}
+
 .dropdown-btn{
   @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
 }
