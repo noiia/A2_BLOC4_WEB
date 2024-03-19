@@ -583,6 +583,34 @@ input[type="date"] {
 }
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
 
+/* --------------------------------- DEBUT PAGINATION --------------------*/
+
+.container-pagination {
+  @apply w-full flex justify-center h-[35px] text-xl;
+}
+
+.button-back {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+.page-number {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey mx-1 justify-center items-center;
+}
+
+.page-number-selected {
+  @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[35px] justify-center items-center mx-1;
+}
+
+.too-much-pages {
+  @apply inline-flex justify-center items-center text-secondary-scroll_bar_grey;
+}
+
+.button-next {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+/* --------------------------------- FIN PAGINATION --------------------*/
+
 /* footer */
 footer {
   @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10;

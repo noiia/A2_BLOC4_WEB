@@ -2276,6 +2276,88 @@ input[type="date"]{
 
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
 
+/* --------------------------------- DEBUT PAGINATION --------------------*/
+
+.container-pagination{
+  display: flex;
+  height: 35px;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.button-back{
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-back:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+.page-number{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.page-number:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+.page-number-selected{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.too-much-pages{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-next{
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-next:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+/* --------------------------------- FIN PAGINATION --------------------*/
+
 /* footer */
 
 footer{
