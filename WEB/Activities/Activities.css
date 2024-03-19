@@ -98,7 +98,7 @@ body::-webkit-scrollbar-track:hover {
 /* ---------------------Fin onglet gauche -------------------*/
 /* ---------------------profil -------------------*/
 .main_right{
-    @apply fixed ml:left-1/4 left-0 right-0 top-0 bottom-0 lg:m-10 m-4 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-hidden;
+    @apply fixed lg:left-1/4 left-0 right-0 top-0 bottom-0 lg:m-10 m-4 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-hidden;
 }
 #right_title{
   @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
@@ -108,6 +108,9 @@ body::-webkit-scrollbar-track:hover {
 }
 .right_top{
     @apply flex static w-full h-1/3 items-end justify-evenly;
+}
+#menu{
+    @apply hidden absolute cursor-pointer w-10 top-2 left-10 z-[100] max-lg:block contrast-0 max-md:w-14 max-md:left-4;
 }
 #student_photo{
     @apply w-[200px] h-[200px];
@@ -155,12 +158,3 @@ p.title{
 }
 
 /* -------------------Fin containers -------------------*/
-
-/*Hamburger*/
-.hamburger{
-  @apply block ml:hidden absolute left-5 top-5 h-16 w-16 contrast-0 z-[100];
-}
-.mobile-menu{
-  @apply fixed flex content-center items-center w-full max-[850px]:h-screen z-50;
-}
-

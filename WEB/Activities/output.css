@@ -748,14 +748,9 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-@media (min-width: 850px){
-  .main_right{
-    left: 25%;
-  }
-}
-
 @media (min-width: 1024px){
   .main_right{
+    left: 25%;
     margin: 2.5rem;
   }
 }
@@ -791,6 +786,31 @@ body::-webkit-scrollbar-track:hover{
   width: 100%;
   align-items: flex-end;
   justify-content: space-evenly;
+}
+
+#menu{
+  position: absolute;
+  top: 0.5rem;
+  left: 2.5rem;
+  z-index: 100;
+  display: none;
+  width: 2.5rem;
+  cursor: pointer;
+  --tw-contrast: contrast(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+@media not all and (min-width: 1024px){
+  #menu{
+    display: block;
+  }
+}
+
+@media not all and (min-width: 768px){
+  #menu{
+    left: 1rem;
+    width: 3.5rem;
+  }
 }
 
 #student_photo{
@@ -955,39 +975,3 @@ p.title{
 }
 
 /* -------------------Fin containers -------------------*/
-
-/*Hamburger*/
-
-.hamburger{
-  position: absolute;
-  left: 1.25rem;
-  top: 1.25rem;
-  z-index: 100;
-  display: block;
-  height: 4rem;
-  width: 4rem;
-  --tw-contrast: contrast(0);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
-@media (min-width: 850px){
-  .hamburger{
-    display: none;
-  }
-}
-
-.mobile-menu{
-  position: fixed;
-  z-index: 50;
-  display: flex;
-  width: 100%;
-  align-content: center;
-  align-items: center;
-}
-
-@media (max-width: 850px){
-  .mobile-menu{
-    height: 100vh;
-  }
-}
-

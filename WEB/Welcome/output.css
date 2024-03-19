@@ -546,18 +546,17 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+html{
+  position: relative;
+}
+
 *{
   font-family: Inter;
 }
 
 body{
   display: inline-block;
-}
-
-@media not all and (min-width: 1024px){
-  body{
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
@@ -671,6 +670,40 @@ input[type="date"]{
 
 input[type="search"]::-webkit-search-cancel-button{
   display: none;
+}
+
+#rangeInput{
+  height: 100%;
+  width: 70%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rangeInput::-webkit-slider-runnable-track{
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+}
+
+#rangeInput::-webkit-slider-thumb{
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(57 163 37 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
 }
 
 /* -----------------------DEBUT HEADER------------------------------- */
@@ -1482,6 +1515,7 @@ input[type="search"]::-webkit-search-cancel-button{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements{
+  margin-bottom: 1050px;
   width: 430px;
 }
 
@@ -1495,6 +1529,12 @@ input[type="search"]::-webkit-search-cancel-button{
 @media not all and (min-width: 500px){
   .runway-elements{
     width: 350px;
+  }
+}
+
+@media (min-width: 1024px){
+  .runway-elements{
+    margin-bottom: 348px;
   }
 }
 
@@ -2102,6 +2142,8 @@ input[type="search"]::-webkit-search-cancel-button{
 /* footer */
 
 footer{
+  position: absolute;
+  bottom: 0px;
   z-index: 10;
   margin-top: 2.5rem;
   height: 1050px;
@@ -2113,7 +2155,7 @@ footer{
 @media (min-width: 1024px){
   footer{
     display: flex;
-    height: auto;
+    height: 348px;
     align-items: flex-start;
     justify-content: center;
   }

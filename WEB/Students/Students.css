@@ -80,7 +80,7 @@ body::-webkit-scrollbar-track:hover{
 /* --------------------- FIN SCROLLBARS-------------------- */
 /* ---------------------Onglet à gauche -------------------*/
 .main_left{
-    @apply blur-lg fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
+    @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
 }
 #close_menu{
     @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
@@ -252,14 +252,13 @@ body::-webkit-scrollbar-track:hover{
 /* --------------- fin profil à droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER ETUDIANT -----------------*/
-
 .container-add-student {
     @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
 }
-
 .hide_container{
     @apply hidden;
 }
+
 .add-student-name {
     @apply absolute left-[3%] top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
 }
