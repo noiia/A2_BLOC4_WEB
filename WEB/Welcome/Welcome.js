@@ -110,3 +110,30 @@ function send_file(file) {
     xhr.send(fd);
 }
 
+
+// test pour le filtre
+
+function add_filter_block(event=Event, idInput){//ids est un tableau
+    var input = document.getElementById(idInput);
+    var ids = JSON.parse(event.currentTarget.dataset.array);
+
+    if (input.value !== "" && (event.key === 'Enter' || event.type == PointerEvent)){
+        for (var id in ids){
+            var li = document.getElementById(ids[id]);
+            if (li.hidden){
+                var txt = document.querySelector('#'+ids[id]+' > p');
+                txt.textContent = input.value;
+                input.value = '';
+                li.removeAttribute("hidden");
+                console.log("recherche du filtre: '"+txt.textContent+"' dans "+idInput);
+                break;
+            }
+        }
+    }
+}
+function del_filter_block(event=Event){
+    event.currentTarget.hidden = true;
+}
+
+
+//diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
