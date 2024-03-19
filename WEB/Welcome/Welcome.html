@@ -81,65 +81,57 @@
                     </div>
                     <div class="filter-green">
                         <div class="filter-location">
-                            <div class="filter-any_search-top">
+                            <div class="filter-block_search-top">
                                 <p>Localité :</p>
                                 <div class="search_bar">
-                                    <input type="search" placeholder="Rechercher">
-                                    <button type="button"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_localite" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_localite');" data-array='["loc1", "loc2", "loc3", "loc4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_localite');" data-array='["loc1", "loc2", "loc3", "loc4"]'><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
                                 </div>
                             </div>
-                            <div class="filter-any_search-bot">
-                                <ul>
-                                    <li>
-                                        <p>Location 1</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>Loc 2</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <p>Loc 3</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>Location 4</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
+                            <div class="filter-block_search-bot">
+                                <div id="loc1" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc2" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc3" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc4" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
                             </div>
                         </div>
                         <div class="filter-skills">
                             <div class="filter-any_search-top">
                                 <p>Compétences :</p>
                                 <div class="search_bar">
-                                    <input type="search" placeholder="Rechercher">
-                                    <button type="button"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_skills" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_skills');" data-array='["skill1", "skill2", "skill3", "skill4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_skills');" data-array='["skill1", "skill2", "skill3", "skill4"]'><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
                                 </div>
                             </div>
-                            <div class="filter-any_search-bot">
-                                <ul>
-                                    <li>
-                                        <p>Competence 1</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>Comp 2</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <p>Compétences 3</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>comp 4</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
+                            <div class="filter-block_search-bot">
+                                <div id="skill1" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill2" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill3" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill4" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
                             </div>
                         </div>
                         <div class="filter-start_internship">
@@ -179,31 +171,27 @@
                             <div class="filter-any_search-top">
                                 <p>Entreprises :</p>
                                 <div class="search_bar">
-                                    <input type="search" placeholder="Rechercher">
-                                    <button type="button"><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_company" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_company');" data-array='["comp1", "comp2", "comp3", "comp4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_company');" data-array='["comp1", "comp2", "comp3", "comp4"]'><img src="../../Assets/Icones/logo_seul.png" alt="V" /></button>
                                 </div>
                             </div>
                             <div class="filter-any_search-bot">
-                                <ul>
-                                    <li>
-                                        <p>Entreprise 1</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>Entreprise 21</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <p>Entreprise 3</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                    <li>
-                                        <p>Entreprise 4</p>
-                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
-                                    </li>
-                                </ul>
+                                <div id="comp1" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp2" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp3" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp4" hidden onclick="del_filter_block(event)">
+                                    <p></p>
+                                    <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                </div>
                             </div>
                         </div>
                         <div class="filter-promotion">
