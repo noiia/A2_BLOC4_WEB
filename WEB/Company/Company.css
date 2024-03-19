@@ -7,6 +7,9 @@
 *{
     @apply font-display;
 }
+html, body{
+    @apply w-full h-full;
+}
 body{
     @apply inline-block;
 }
@@ -51,28 +54,6 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-track:hover{
-    @apply bg-secondary-grey cursor-default;
-}
-
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-.second-scrollbar-description-internship::-webkit-scrollbar{
-    @apply w-[15px];
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
-    margin-block: 0px;
-    @apply bg-secondary-scroll_bar_grey cursor-default;
-    border: 2px solid rgb(185,185,185);
-    border-radius: 10px;
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-track{
-    margin-block: 0px;
-    border-radius: 10px;
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey cursor-default;
 }
 
@@ -169,6 +150,31 @@ body::-webkit-scrollbar-track:hover{
 .company{
     @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
 }
+.container_focus{
+    @apply outline-green-button;
+}
+
+.del_bg{
+    @apply hidden fixed w-full h-full backdrop-blur-sm;
+}
+.del_block{
+    @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
+}
+.del_text{
+    @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
+}
+.del_button{
+    @apply absolute flex w-full bottom-5 justify-center;
+    button {
+        @apply w-[30%] py-3 mx-3 bg-green-true_btn;
+    }
+}
+.active-del_block{
+    @apply block;
+}
+.del_current_container{
+    @apply hidden;
+}
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/
 .btn_edit{
@@ -233,14 +239,14 @@ body::-webkit-scrollbar-track:hover{
         @apply no-underline hover:underline hover:text-green-button;
     }
 }
-
-
 /* --------------- fin profil à droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
-
 .container-add-student {
     @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
+}
+.hide_container{
+    @apply hidden;
 }
 
 .add-student-name {
@@ -342,10 +348,6 @@ body::-webkit-scrollbar-track:hover{
 
 .container-pilote-promotion {
     @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
-}
-
-.container-pilote-promotion-header {
-    
 }
 
 .container-pilote-promotion-header-name {

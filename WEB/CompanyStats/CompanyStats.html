@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="CompanyStats.js"></script>
     <link href="output.css" rel="stylesheet">
-    <title>Inter'net - Accueil</title>
+    <title>Inter'net - Statistiques des entreprises</title>
 </head>
 
 
@@ -25,23 +27,22 @@
     })
 </script>
 
-
 <header>
     <nav class="navbar">
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
         <img src="../../Assets/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
             <div class="navbar-links">
+                <a href="../Welcome/Welcome.html">Stages</a>
+                <a href="../Entreprises/Entreprises.html">Entreprises</a> 
                 <div class="navbar-current">
-                    <a href="../Welcome/Welcome.html">Stages</a>
-                    <label class="label">**********</label>
+                    <label class="label">******************</label>
                 </div>
-                <a href="../Entreprises/Entreprises.html">Entreprises</a>
                 <div class="dropdown1">
-                    <button class="dropdown-btn">Statistiques</button>
+                    <button class="dropdown-btn">Statistiques</button>    
                     <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
-                        <a href="#">Entreprise</a>
-                        <a href="#">Stages</a>
+                        <a href="../CompanyStats/CompanyStats.html">Entreprise</a>
+                        <a href="../InternshipStats/InternshipStats.html">Stages</a>
                         <br>
                     </div>
                 </div>
@@ -57,9 +58,10 @@
             </div>
         </nav>
 			<nav>
-        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
+        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
     </nav>
 </header>
+
 <!-- ! body -->
 <body>
     <div class="full-runway">

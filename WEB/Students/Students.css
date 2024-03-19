@@ -34,7 +34,6 @@ body::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey;
 }
 /* --------------------- SECOND SCROLLBARS-------------------- */
-/* --------------------- SECOND SCROLLBARS-------------------- */
 
 .second-scrollbar::-webkit-scrollbar{
     @apply w-[15px];
@@ -56,8 +55,7 @@ body::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey cursor-default;
 }
 
-/* --------------------- FIN SCROLLBARS -------------------- */
-/* --------------------- FIN SCROLLBARS-------------------- */
+/* --------------------- Troisieme SCROLLBARS -------------------- */
 
 .second-scrollbar-description-internship::-webkit-scrollbar{
     @apply w-[15px];
@@ -82,7 +80,7 @@ body::-webkit-scrollbar-track:hover{
 /* --------------------- FIN SCROLLBARS-------------------- */
 /* ---------------------Onglet à gauche -------------------*/
 .main_left{
-    @apply blur-lg fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
+    @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
 }
 #close_menu{
     @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
@@ -120,7 +118,7 @@ body::-webkit-scrollbar-track:hover{
 /* ---------------------Fin onglet gauche -------------------*/
 /* --------------------- gestion des eleves -------------------*/
 .main_right{
-    @apply blur-lg fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-sm:m-2;
+    @apply fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-sm:m-2;
 }
 #right_title{
     @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
@@ -170,7 +168,32 @@ body::-webkit-scrollbar-track:hover{
     }
 }
 .student{
-    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter;
+}
+.container_focus{
+    @apply outline-green-button;
+}
+
+.del_bg{
+    @apply hidden fixed w-full h-full backdrop-blur-sm;
+}
+.del_block{
+    @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
+}
+.del_text{
+    @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
+}
+.del_button{
+    @apply absolute flex w-full bottom-5 justify-center;
+    button {
+        @apply w-[30%] py-3 mx-3 bg-green-true_btn;
+    }
+}
+.active-del_block{
+    @apply block;
+}
+.del_current_container{
+    @apply hidden;
 }
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/
@@ -225,12 +248,15 @@ body::-webkit-scrollbar-track:hover{
 #activity{
     @apply py-1 px-5 bg-green-true_btn rounded-xl outline-green-button hover:outline;
 }
+
 /* --------------- fin profil à droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER ETUDIANT -----------------*/
-
 .container-add-student {
     @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
+}
+.hide_container{
+    @apply hidden;
 }
 
 .add-student-name {

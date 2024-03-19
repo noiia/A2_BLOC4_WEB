@@ -769,8 +769,8 @@ body::-webkit-scrollbar-track:hover{
 
 .navbar-current label{
   position: absolute;
+  right: 250px;
   bottom: 0px;
-  margin-top: 30px;
   height: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));

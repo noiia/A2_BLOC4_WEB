@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="Company.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Gestion des entreprises</title>
 </head>
@@ -39,35 +41,25 @@
             </div>
             <div class="list-companies second-scrollbar">
                 <div class="add-del">
-                    <button id="add">Ajouter</button>
-                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
                 </div>
-                <button class="company">entreprise1</button>
-                <button class="company">entreprise2</button>
-                <button class="company">entreprise3</button>
-                <button class="company">entreprise4</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5987</button>
-                <button class="company">entreprise5</button>
-                <button class="company">entreprise5</button>                
-            </div>
+                <button class="company" id="company-1" onclick="focus_container('company-1')">entreprise1</button>           
+                <button class="company" id="company-2" onclick="focus_container('company-2')">entreprise2</button>           
+                <button class="company" id="company-3" onclick="focus_container('company-3')">entreprise3</button>           
+                <button class="company" id="company-4" onclick="focus_container('company-4')">entreprise4</button>           
+                <button class="company" id="company-5" onclick="focus_container('company-5')">entreprise5</button>           
+                <button class="company" id="company-6" onclick="focus_container('company-6')">entreprise6</button>           
+                <button class="company" id="company-7" onclick="focus_container('company-7')">entreprise7</button>           
+                <button class="company" id="company-8" onclick="focus_container('company-8')">entreprise8</button>           
+                <button class="company" id="company-9" onclick="focus_container('company-9')">entreprise9</button>           
+                <button class="company" id="company-10" onclick="focus_container('company-10')">entreprise10</button>           
+              </div>
         </div>
         <div class="profile_company">
-            <button class="btn_edit" id="edit1">Editer</button>
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
             <div class="profile_block">
-                <button class="btn_edit" id="edit2">Editer</button>
+                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
                 <div class="company_top">
                     <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="company_logo">
                     <div class="right_profile">
@@ -109,19 +101,19 @@
                 </div>
             </div>
         </div>
-        <!-- -------------------------DEBUT POP UP AJOUTER PILOTE ------------------------ -->
-
-    <div class="container-add-student">
+    </div>
+    <!-- ------------------------- POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="container-add-student hide_container">
         <div class="add-student-name">
             <h1>Ajouter une entreprise</h1>
         </div>            
         <div class="div-button-apply">
-            <button class="button-apply" id="cancel">Annuler</button>
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply">Appliquer</button>
-    </div>
-    <div class="container-informations-and-description">
+            <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
+        </div>
+        <div class="container-informations-and-description">
             <div class="container-students-informations">
                 <div class="container-student-profile-picture">
                     <div class="student-profile-picture">
@@ -194,24 +186,17 @@
             </div>
         </div>
     <!-- -------------------------FIN POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cette entreprise ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
-            
-<script>
-    function toggle_menu(){
-        const leftMenu = document.querySelector(".main_left");
-        const closeMenu = document.querySelector("#close_menu");
-        leftMenu.classList.toggle('mobile-menu');
-        closeMenu.classList.toggle('display-cross');
-    }
-    function toggle_search(){
-        const search = document.querySelector(".search_list-companies");
-        const profile = document.querySelector(".profile_company");
-        const closeMenu = document.querySelector("#close_menu");
-        search.classList.toggle('mobile-search_menu-menu');
-        profile.classList.toggle('mobile-search_menu-profile');
-    }
-    
-    </script>
-    
+

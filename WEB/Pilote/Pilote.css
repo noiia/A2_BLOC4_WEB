@@ -54,8 +54,7 @@ body::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey cursor-default;
 }
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-/* --------------------- FIN SCROLLBARS-------------------- */
+/* --------------------- Troisieme SCROLLBARS-------------------- */
 
 .second-scrollbar-description-internship::-webkit-scrollbar{
     @apply w-[15px];
@@ -170,6 +169,31 @@ body::-webkit-scrollbar-track:hover{
 .pilote{
     @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
 }
+.container_focus{
+    @apply outline-green-button;
+}
+
+.del_bg{
+    @apply hidden fixed w-full h-full backdrop-blur-sm;
+}
+.del_block{
+    @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
+}
+.del_text{
+    @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
+}
+.del_button{
+    @apply absolute flex w-full bottom-5 justify-center;
+    button {
+        @apply w-[30%] py-3 mx-3 bg-green-true_btn;
+    }
+}
+.active-del_block{
+    @apply block;
+}
+.del_current_container{
+    @apply hidden;
+}
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/
 .btn_edit{
@@ -226,9 +250,6 @@ body::-webkit-scrollbar-track:hover{
 .class_in_charge{
     @apply min-w-[100px] p-3 mx-4 font-normal rounded-xl bg-green-button text-center;
 }
-
-
-
 /* --------------- fin profil à droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
@@ -240,7 +261,9 @@ body::-webkit-scrollbar-track:hover{
 .add-student-name {
     @apply absolute left-[3%] top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
 }
-
+.hide_container{
+    @apply hidden;
+}
 .add-student-name h1 {
     @apply text-2xl max-md:text-lg;
 }
@@ -324,11 +347,6 @@ body::-webkit-scrollbar-track:hover{
 .container-pilote-promotion {
     @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-xl:w-[47%] max-ml:h-[50%] max-ml:mt-[20px];
 }
-
-.container-pilote-promotion-header {
-    
-}
-
 .container-pilote-promotion-header-name {
     @apply text-2xl underline underline-offset-4 flex ml-2 max-xl:text-lg max-xl:mb-2;
 }
@@ -358,4 +376,4 @@ body::-webkit-scrollbar-track:hover{
 }
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
-/* ----------------------- fin gestion des eleves ------------------*/
+/* ----------------------- fin gestion des pilotes ------------------*/

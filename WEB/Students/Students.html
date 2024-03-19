@@ -6,22 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="Students.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Gestion des etudiants</title>
 </head>
-
-<script>
-    $(document).ready(function(){
-        var Value = "role";
-        var PHPfiles = "Students.php";
-        data = {
-            action : Value
-        };
-        $.post(PHPfiles, data, function(response){
-            $(".main_left").append(response);
-        })
-    })
-</script>
 
 <body>
     <div class="main_left">
@@ -39,36 +28,33 @@
             </div>
             <div class="list-students second-scrollbar">
                 <div class="add-del">
-                    <button id="add">Ajouter</button>
-                    <button id="delete"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img src="../../Assets/Icones/poubelle-de-recyclage.png"></button>
                 </div>
-                <button class="student">élève1</button>
-                <button class="student">élève2</button>
-                <button class="student">élève3</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
-                <button class="student">élève546</button>
-                <button class="student">élève4</button>
-                <button class="student">élève4</button>
+                <button class="student" id="student-1" onclick="focus_container('student-1')">élève1</button>
+                <button class="student" id="student-2" onclick="focus_container('student-2')">élève2</button>
+                <button class="student" id="student-3" onclick="focus_container('student-3')">élève3</button>
+                <button class="student" id="student-4" onclick="focus_container('student-4')">élève4</button>
+                <button class="student" id="student-5" onclick="focus_container('student-5')">élève5</button>
+                <button class="student" id="student-6" onclick="focus_container('student-6')">élève6</button>
+                <button class="student" id="student-7" onclick="focus_container('student-7')">élève7</button>
+                <button class="student" id="student-8" onclick="focus_container('student-8')">élève8</button>
+                <button class="student" id="student-9" onclick="focus_container('student-9')">élève9</button>
+                <button class="student" id="student-10" onclick="focus_container('student-10')">élève10</button>
+                <button class="student" id="student-11" onclick="focus_container('student-11')">élève11</button>
+                <button class="student" id="student-12" onclick="focus_container('student-12')">élève12</button>
+                <button class="student" id="student-13" onclick="focus_container('student-13')">élève13</button>
+                <button class="student" id="student-14" onclick="focus_container('student-14')">élève14</button>
+                <button class="student" id="student-15" onclick="focus_container('student-15')">élève15</button>
+                <button class="student" id="student-16" onclick="focus_container('student-16')">élève16</button>
+                <button class="student" id="student-17" onclick="focus_container('student-17')">élève17</button>
             </div>
         </div>
         <div class="profile_student">
-            <button class="btn_edit" id="edit1">Editer</button>
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
             <div class="profile_block">
                 <div class="profile_top">
-                    <button class="btn_edit" id="edit2">Editer</button>
+                    <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
                     <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
                     <div class="student_info">
                         <p>Albert</p>
@@ -95,83 +81,74 @@
                     Beatae quisquam illum sunt? Fuga officiis et amet mollitia explicabo aliquam hic perspiciatis autem animi debitis accusantium, laboriosam earum doloremque vero consequuntur nam tempora magnam recusandae repudiandae laborum, itaque suscipit.</textarea>
                 </div>
                 <div class="student_bot">
-                    <button id="activity">Activités</button>
+                    <button id="activity" onclick="window.location.href = '../Activities/Activities.html'">Activités</button>
                 </div>
             </div>
         </div>
     </div>
-
-<!-- -------------------------DEBUT POP UP AJOUTER ELEVE ------------------------ -->
-
-    <div class="container-add-student">
+    <!-- -------------------------DEBUT POP UP AJOUTER ELEVE ------------------------ -->
+    <div class="container-add-student hide_container">
         <div class="add-student-name">
             <h1>Ajouter un étudiant</h1>
         </div>            
         <div class="div-button-apply">
-            <button class="button-apply" id="cancel">Annuler</button>
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-             <button class="button-cancel" id="apply">Appliquer</button>
+             <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
        </div>
        <div class="container-informations-and-description">
-            <div class="container-students-informations">
-                <div class="container-student-profile-picture">
-                    <div class="student-profile-picture">
-                        <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
-                    </div>
-                    <div class="add-profile-picture-button">
-                        <label for="file-input">
-                            <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
-                        </label>
-                        <input id="file-input" type="file" accept="image/*" />
-                    </div>
+        <div class="container-students-informations">
+            <div class="container-student-profile-picture">
+                <div class="student-profile-picture">
+                    <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
                 </div>
-                <div class="students-informations">
-                    <div class="students-each-informations">
-                        <ul>
-                            <li><input placeholder="Nom"></input></li>
-                            <li><input placeholder="Prénom"></li>
-                            <li><input placeholder="Date de naissance"></li>
-                        </ul>
-                        <ul>
-                            <li><input placeholder="Promotion"></li>
-                            <li class="students-each-informations-long"><input placeholder="Mail"></li>
-                            <li class="students-each-informations-long"><input placeholder="Campus"></li>
-                        </ul>
-                        <ul>
-                            <li><input placeholder="N° Utilisateur"></li>
-                        </ul>
-                    </div>
+                <div class="add-profile-picture-button">
+                    <label for="file-input">
+                        <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
+                    </label>
+                    <input id="file-input" type="file" accept="image/*" />
                 </div>
             </div>
-            <div class="container-students-description">
-                <div class="container-students-description-name">
-                    <h1>Description:</h1>
-                </div>
-                <div class="students-description">
-                    <textarea class="second-scrollbar-description-internship" placeholder="Tapez votre description..."></textarea>
+            <div class="students-informations">
+                <div class="students-each-informations">
+                    <ul>
+                        <li><input placeholder="Nom"></input></li>
+                        <li><input placeholder="Prénom"></li>
+                        <li><input placeholder="Date de naissance"></li>
+                    </ul>
+                    <ul>
+                        <li><input placeholder="Promotion"></li>
+                        <li class="students-each-informations-long"><input placeholder="Mail"></li>
+                        <li class="students-each-informations-long"><input placeholder="Campus"></li>
+                    </ul>
+                    <ul>
+                        <li><input placeholder="N° Utilisateur"></li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <div class="container-students-description">
+            <div class="container-students-description-name">
+                <h1>Description:</h1>
+            </div>
+            <div class="students-description">
+                <textarea class="second-scrollbar-description-internship" placeholder="Tapez votre description..."></textarea>
+            </div>
+        </div>
+    </div>
         <!-- -------------------------FIN POP UP AJOUTER ELEVE ------------------------ -->
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cet élève ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
-            
-<script>
-    function toggle_menu(){
-        const leftMenu = document.querySelector(".main_left");
-        const closeMenu = document.querySelector("#close_menu");
-        leftMenu.classList.toggle('mobile-menu');
-        closeMenu.classList.toggle('display-cross');
-    }
-    function toggle_search(){
-        const search = document.querySelector(".search_list-students");
-        const profile = document.querySelector(".profile_student");
-        const closeMenu = document.querySelector("#close_menu");
-        search.classList.toggle('mobile-search_menu-menu');
-        profile.classList.toggle('mobile-search_menu-profile');
-    }
-    
-    </script>
-    
+</html>    
 

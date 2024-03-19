@@ -83,8 +83,6 @@ body::-webkit-scrollbar-track:hover {
 
 /* ------------------- FIN SCROLLBAR AVIS ---------------------*/
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
 /* --------------------- HORIZONTAL SCROLL BAR ------------- */
 
 .container-company-details-intern-second-scrollbar {
@@ -121,7 +119,7 @@ button[type="button"] {
   @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
 }
 input[type="range"] {
-  @apply w-[70%] appearance-none;
+  @apply w-[70%] appearance-none bg-secondary-transparent;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;
@@ -131,6 +129,18 @@ input[type="range"]::-webkit-slider-thumb {
 }
 input[type="date"] {
   @apply accent-green-header;
+}
+
+#rangeInput {
+  @apply w-[70%] h-[100%] appearance-none;
+}
+
+#rangeInput::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
 }
 
 #rangeInput2 {
@@ -345,10 +355,8 @@ input[type="date"] {
 .container-skills li {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey max-sm:text-sm;
 }
-.container:focus {
-  .container-intern {
-    @apply outline outline-green-button rounded-xl;
-  }
+.container_focus{
+  @apply outline outline-green-button;
   .container-skills li {
     @apply bg-green-button;
   }

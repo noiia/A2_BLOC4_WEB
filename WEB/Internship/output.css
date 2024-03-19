@@ -550,6 +550,11 @@ video {
   font-family: Inter;
 }
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 body{
   display: inline-block;
 }
@@ -602,7 +607,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-thumb{
-  margin-block: 20px;
+  margin-block: 5px;
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
@@ -611,7 +616,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-track{
-  margin-block: 20px;
+  margin-block: 5px;
   border-radius: 10px;
 }
 
@@ -621,9 +626,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-/* --------------------- SECOND SCROLLBARS-------------------- */
+/* --------------------- Troisieme SCROLLBARS-------------------- */
 
 .horizontal-second-scrollbar::-webkit-scrollbar{
   width: 15px;
@@ -651,9 +654,7 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
 }
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-/* --------------------- SECOND SCROLLBARS-------------------- */
+/* --------------------- Quatre SCROLLBARS-------------------- */
 
 .second-scrollbar-description-internship::-webkit-scrollbar{
   width: 15px;
@@ -779,7 +780,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* ---------------------Fin onglet gauche -------------------*/
 
-/* --------------------- gestion des entreprises -------------------*/
+/* --------------------- gestion des stages -------------------*/
 
 .main_right{
   position: fixed;
@@ -887,7 +888,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* ----------- list à gauche ------------------*/
 
-.search_list-companies{
+.search_list-internships{
   display: flex;
   height: 100%;
   width: 25%;
@@ -895,7 +896,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-  .search_list-companies{
+  .search_list-internships{
     display: none;
     width: 100%;
   }
@@ -961,7 +962,7 @@ body::-webkit-scrollbar-track:hover{
   padding-left: 0.25rem;
 }
 
-.list-companies{
+.list-internships{
   margin-top: 0.5rem;
   display: flex;
   flex: 1 1 0%;
@@ -1004,7 +1005,7 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-.company{
+.internship{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: 90%;
@@ -1014,12 +1015,101 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #B9B9B9;
 }
 
-.company:hover{
+.internship:hover{
   outline-color: #66B95A;
 }
 
-.company:focus{
+.internship:focus{
   outline-color: #39A325;
+}
+
+.container_focus{
+  outline-color: #39A325;
+}
+
+.del_bg, .valid_bg, .end_bg{
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.del_block, .valid_block, .end_block{
+  position: fixed;
+  top: 30%;
+  left: 25%;
+  display: flex;
+  min-height: 40%;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
+.del_text, .valid_text, .end_text{
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.end_text{
+  top: 5%;
+}
+
+.end_choice{
+  position: relative;
+  top: 25%;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.del_button, .valid_button, .end_button{
+  position: absolute;
+  bottom: 1.25rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  button{
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+  button{
+    width: 30%;
+  }
+  button{
+    --tw-bg-opacity: 1;
+    background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  }
+  button{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+.active-del_block{
+  display: block;
+}
+
+.del_current_container{
+  display: none;
 }
 
 /* --------------- fin liste à gauche --------------------*/
@@ -1053,7 +1143,7 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-.profile_company{
+.profile_internship{
   margin-left: 0.5rem;
   display: flex;
   flex: 1 1 0%;
@@ -1061,7 +1151,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-  .profile_company{
+  .profile_internship{
     margin: 0px;
   }
 }
@@ -1090,19 +1180,16 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-.company_top{
+.internship_top{
   margin: 1.25rem;
   display: flex;
-  height: 33.333333%;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  outline-style: solid;
-  outline-color: #39A325;
+  height: 25%;
+  min-height: 11rem;
+  justify-content: space-between;
 }
 
 @media not all and (min-width: 768px){
-  .company_top{
+  .internship_top{
     margin: 0.5rem;
     margin-top: 0px;
   }
@@ -1116,46 +1203,48 @@ body::-webkit-scrollbar-track:hover{
      object-fit: contain;
 }
 
-.right_profile{
+.left_profile{
+  display: flex;
   height: 100%;
-  width: 66.666667%;
-}
-
-.top_profile{
-  display: flex;
-  height: 50%;
-  width: 100%;
-  align-items: center;
+  width: 48%;
+  flex-direction: column;
   justify-content: space-around;
-}
-
-.bot_profile{
-  display: flex;
-  height: 50%;
-  width: 100%;
-  align-items: center;
-  overflow-x: auto;
-}
-
-.spot_company{
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  display: flex;
-  height: 66.666667%;
-  width: 125px;
-  min-width: 125px;
-  align-items: center;
-  justify-content: center;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
-  padding: 0.5rem;
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  outline-style: solid;
+  outline-color: #39A325;
 }
 
-.company_mid{
+.right_advantages{
+  height: 100%;
+  width: 48%;
+  overflow-y: auto;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  outline-style: solid;
+  outline-color: #39A325;
+}
+
+.right_advantages > p{
+  position: sticky;
+  top: 0px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.right_advantages ul{
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.internship_mid{
   margin-left: 1.25rem;
   margin-right: 1.25rem;
   display: flex;
@@ -1169,7 +1258,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 @media not all and (min-width: 768px){
-  .company_mid{
+  .internship_mid{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
@@ -1189,38 +1278,66 @@ body::-webkit-scrollbar-track:hover{
   padding-left: 0.25rem;
 }
 
-.company_bot{
-  margin: 1.25rem;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  outline-style: solid;
-  outline-color: #39A325;
+.internship_bot{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 40%;
+  overflow-y: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 @media not all and (min-width: 768px){
-  .company_bot{
+  .internship_bot{
     margin: 0.5rem;
   }
 }
 
-.company_bot{
-  p{
-    font-weight: 700;
-  }
-  a{
-    text-decoration-line: none;
-  }
-  a:hover{
-    --tw-text-opacity: 1;
-    color: rgb(57 163 37 / var(--tw-text-opacity));
-  }
-  a:hover{
-    text-decoration-line: underline;
-  }
+.postulation{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.125rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 400;
+  outline-style: solid;
+  outline-color: #000000;
+}
+
+.postulation:hover{
+  outline-color: #39A325;
+}
+
+.postulation > a:hover{
+  --tw-text-opacity: 1;
+  color: rgb(57 163 37 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.postulation img{
+  cursor: pointer;
+}
+
+.postulation img:hover{
+  --tw-contrast: contrast(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.postulation img.black_check{
+  cursor: pointer;
+  --tw-contrast: contrast(0);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.postulation img.black_check:hover{
+  --tw-contrast: contrast(1);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 /* --------------- fin profil à droite --------------------*/
@@ -1242,13 +1359,8 @@ body::-webkit-scrollbar-track:hover{
   outline-color: #39A325;
 }
 
-@media not all and (min-width: 850px){
-  .container-add-student{
-    top: 1%;
-    left: 1%;
-    height: 98%;
-    width: 98%;
-  }
+.hide_container{
+  display: none;
 }
 
 .add-student-name{
@@ -1542,9 +1654,6 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
-.container-pilote-promotion-header {
-}
-
 .container-pilote-promotion-header-name{
   margin-left: 0.5rem;
   display: flex;
@@ -1760,4 +1869,4 @@ body::-webkit-scrollbar-track:hover{
 
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
-/* ----------------------- fin gestion des eleves ------------------*/
+/* ----------------------- fin gestion des stages ------------------*/

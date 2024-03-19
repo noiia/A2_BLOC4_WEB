@@ -546,18 +546,17 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+html{
+  position: relative;
+}
+
 *{
   font-family: Inter;
 }
 
 body{
   display: inline-block;
-}
-
-@media not all and (min-width: 1024px){
-  body{
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
 }
 
 /* --------------------- DEBUT SCROLLBARS-------------------- */
@@ -636,6 +635,7 @@ input[type="range"]{
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  background-color: transparent;
 }
 
 input[type="range"]::-webkit-slider-runnable-track{
@@ -666,6 +666,44 @@ input[type="range"]::-webkit-slider-thumb{
 
 input[type="date"]{
   accent-color: #94C676;
+}
+
+input[type="search"]::-webkit-search-cancel-button{
+  display: none;
+}
+
+#rangeInput{
+  height: 100%;
+  width: 70%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+#rangeInput::-webkit-slider-runnable-track{
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 198 118 / var(--tw-bg-opacity));
+}
+
+#rangeInput::-webkit-slider-thumb{
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(57 163 37 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
 }
 
 /* -----------------------DEBUT HEADER------------------------------- */
@@ -1157,6 +1195,29 @@ input[type="date"]{
   --tw-bg-opacity: 1;
   background-color: rgb(203 203 203 / var(--tw-bg-opacity));
   text-align: center;
+  img{
+    display: none;
+  }
+}
+
+.filter-any_search-bot li:hover{
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 11 11 / var(--tw-bg-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  p{
+    display: none;
+  }
+  img{
+    margin-left: 45%;
+  }
+  img{
+    display: block;
+  }
+  img{
+    height: 100%;
+  }
 }
 
 .search_min-max{
@@ -1436,15 +1497,15 @@ input[type="date"]{
 }
 
 .container:focus {
-  .container-intern{
-    border-radius: 0.75rem;
+  .container-skills li{
+    --tw-bg-opacity: 1;
+    background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   }
-  .container-intern{
-    outline-style: solid;
-  }
-  .container-intern{
-    outline-color: #39A325;
-  }
+}
+
+.container_focus{
+  outline-style: solid;
+  outline-color: #39A325;
   .container-skills li{
     --tw-bg-opacity: 1;
     background-color: rgb(57 163 37 / var(--tw-bg-opacity));
@@ -1454,6 +1515,7 @@ input[type="date"]{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements{
+  margin-bottom: 1050px;
   width: 430px;
 }
 
@@ -1467,6 +1529,12 @@ input[type="date"]{
 @media not all and (min-width: 500px){
   .runway-elements{
     width: 350px;
+  }
+}
+
+@media (min-width: 1024px){
+  .runway-elements{
+    margin-bottom: 348px;
   }
 }
 
@@ -1798,6 +1866,10 @@ input[type="date"]{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.disable_scroll{
+  overflow: hidden;
+}
+
 .postulation-bg{
   top: 0px;
   left: 0px;
@@ -2009,6 +2081,7 @@ input[type="date"]{
   margin-top: 0.25rem;
   display: flex;
   height: 1.75rem;
+  cursor: default;
   align-items: center;
   justify-content: space-between;
   overflow-y: hidden;
@@ -2034,9 +2107,18 @@ input[type="date"]{
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
+#label_file-input{
+  cursor: pointer;
+}
+
+#file-input{
+  display: none;
+}
+
 .postulation-right button{
   position: relative;
   top: 5%;
+  margin-bottom: 0.5rem;
   align-self: center;
 }
 
@@ -2046,11 +2128,22 @@ input[type="date"]{
   }
 }
 
+.drop_over{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 129 249 / var(--tw-bg-opacity));
+}
+
+.file-hidden{
+  display: none;
+}
+
 /*--------------------------------FIN BULLE POSTULER --------------------------*/
 
 /* footer */
 
 footer{
+  position: absolute;
+  bottom: 0px;
   z-index: 10;
   margin-top: 2.5rem;
   height: 1050px;
@@ -2062,7 +2155,7 @@ footer{
 @media (min-width: 1024px){
   footer{
     display: flex;
-    height: auto;
+    height: 348px;
     align-items: flex-start;
     justify-content: center;
   }

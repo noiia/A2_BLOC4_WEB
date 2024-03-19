@@ -550,6 +550,11 @@ video {
   font-family: Inter;
 }
 
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 body{
   display: inline-block;
 }
@@ -616,32 +621,6 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-track:hover{
-  cursor: default;
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
-}
-
-/* --------------------- FIN SCROLLBARS-------------------- */
-
-.second-scrollbar-description-internship::-webkit-scrollbar{
-  width: 15px;
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
-  margin-block: 0px;
-  cursor: default;
-  --tw-bg-opacity: 1;
-  background-color: rgb(123 123 123 / var(--tw-bg-opacity));
-  border: 2px solid rgb(185,185,185);
-  border-radius: 10px;
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-track{
-  margin-block: 0px;
-  border-radius: 10px;
-}
-
-.second-scrollbar-description-internship::-webkit-scrollbar-track:hover{
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(185 185 185 / var(--tw-bg-opacity));
@@ -751,7 +730,6 @@ body::-webkit-scrollbar-track:hover{
 
 .main_right{
   position: fixed;
-  left: 25%;
   right: 0px;
   top: 0px;
   bottom: 0px;
@@ -788,6 +766,12 @@ body::-webkit-scrollbar-track:hover{
 @media not all and (min-width: 500px){
   .main_right{
     margin: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .main_right{
+    left: 25%;
   }
 }
 
@@ -988,6 +972,79 @@ body::-webkit-scrollbar-track:hover{
 
 .company:focus{
   outline-color: #39A325;
+}
+
+.container_focus{
+  outline-color: #39A325;
+}
+
+.del_bg{
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.del_block{
+  position: relative;
+  top: 30%;
+  left: 25%;
+  height: 40%;
+  width: 50%;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-color: #39A325;
+}
+
+.del_text{
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  right: 10%;
+  text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.del_button{
+  position: absolute;
+  bottom: 1.25rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  button{
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+  button{
+    width: 30%;
+  }
+  button{
+    --tw-bg-opacity: 1;
+    background-color: rgb(202 237 167 / var(--tw-bg-opacity));
+  }
+  button{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+.active-del_block{
+  display: block;
+}
+
+.del_current_container{
+  display: none;
 }
 
 /* --------------- fin liste à gauche --------------------*/
@@ -1217,6 +1274,10 @@ body::-webkit-scrollbar-track:hover{
     height: 98%;
     width: 98%;
   }
+}
+
+.hide_container{
+  display: none;
 }
 
 .add-student-name{
@@ -1558,9 +1619,6 @@ body::-webkit-scrollbar-track:hover{
     margin-top: 20px;
     height: 58%;
   }
-}
-
-.container-pilote-promotion-header {
 }
 
 .container-pilote-promotion-header-name{

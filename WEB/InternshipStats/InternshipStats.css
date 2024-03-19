@@ -102,7 +102,7 @@ body::-webkit-scrollbar-track:hover {
     @apply  flex flex-col items-center max-[850px]:items-center;
 }
 .navbar-current label{
-    @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-lg:hidden;
+    @apply right-[250px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-lg:hidden;
 }
 .mobile-menu{
     @apply max-ml:ml-0 m-0 fixed;

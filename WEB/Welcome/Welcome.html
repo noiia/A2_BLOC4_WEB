@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../main/main.js"></script>
+    <script src="Welcome.js"></script>
     <link href="output.css" rel="stylesheet">
     <title>Inter'net - Accueil</title>
 </head>
@@ -25,7 +27,6 @@
     })
 </script>
 
-
 <header>
     <nav class="navbar">
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
@@ -40,8 +41,8 @@
                     <button class="dropdown-btn">Statistiques</button>
                     <img src="../../Assets/Icones/Polygon 1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
-                        <a href="#">Entreprise</a>
-                        <a href="#">Stages</a>
+                        <a href="../CompanyStats/CompanyStats.html">Entreprise</a>
+                        <a href="../InternshipStats/InternshipStats.html">Stages</a>
                         <br>
                     </div>
                 </div>
@@ -57,7 +58,7 @@
             </div>
         </nav>
 			<nav>
-        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger">
+        <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
     </nav>
 </header>
 
@@ -67,6 +68,9 @@
 
 <body>
     <div class="full-runway">
+        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut();">
+            <img src="../../Assets/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
+        </button>
         <div class="runway-elements">
             <div class="parent-filter">
                 <div class="filter">
@@ -86,12 +90,24 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <ul>
-                                    <li>Location 1</li>
-                                    <li>Loc 2</li>
+                                    <li>
+                                        <p>Location 1</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>Loc 2</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li>Loc 3</li>
-                                    <li>Loc 4</li>
+                                    <li>
+                                        <p>Loc 3</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>Location 4</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -105,12 +121,24 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <ul>
-                                    <li>Compétence 1</li>
-                                    <li>comp 2</li>
+                                    <li>
+                                        <p>Competence 1</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>Comp 2</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li>comp 3</li>
-                                    <li>comp 4</li>
+                                    <li>
+                                        <p>Compétences 3</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>comp 4</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -157,12 +185,24 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <ul>
-                                    <li>Entreprise 1</li>
-                                    <li>Entrep 2</li>
+                                    <li>
+                                        <p>Entreprise 1</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>Entreprise 21</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                                 <ul>
-                                    <li>Entrep 3</li>
-                                    <li>Entrep 4</li>
+                                    <li>
+                                        <p>Entreprise 3</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
+                                    <li>
+                                        <p>Entreprise 4</p>
+                                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png">
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -172,7 +212,7 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <div class="search_range">
-                                    <input type="range" min="0" max="8" step="1" id="rangeInput" value="0">
+                                    <input type="range" min="0" max="8" step="1" id="rangeInput" value="0" oninput="input_filter();">
                                     <span id="rangeValue">Bac+0</span>
                                 </div>
                             </div>
@@ -236,11 +276,11 @@
             </div>
             <div class="runway-container">
                 <div class="filter-mobile">
-                    <button type="button" class="filter-button">Filtrer</button>
+                    <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-1')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-1">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -257,9 +297,9 @@
                         </div>
                     </span>
                 </button>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-2')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-2">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -276,9 +316,9 @@
                         </div>
                     </span>
                 </button>
-                <button class="container" id="container">
+                <button class="container" onclick="focus_container('container-3')">
                     <span>
-                        <div class="container-intern" id="container-intern">
+                        <div class="container-intern" id="container-3">
                             <div class="container-div-para">
                                 <h1 class="container-h1">Commercial H/F - Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
@@ -436,44 +476,43 @@
             <div class="container-intern-details second-scrollbar">
                 <div class="container-close-tab">
                     <button class="button-close-tab" id="button-close-tab">
-                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture">
+                        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture" onclick="toggle_bubulle();">
                     </button>
                 </div>
                 <div class="container-div-par-intern-details">
                     <div class="header-intern-details">
-                        <img src="../../Assets/Icones/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
+                        <img src="../../Assets/image/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
                         <h1 class="container-header-intern-details"> Commercial H/F</h1>
-                        <img src="../../Assets/Icones/contour-en-forme-de-coeur.png" alt="logo wishlist" class="unselected-wishlist-logo-picture">
-                        <img src="../../Assets/Icones/contour-en-forme-de-coeur-selected.png" alt="logo wishlist" class="selected-wishlist-logo-picture">
+                        <img src="../../Assets/Icones/contour-en-forme-de-coeur.png" alt="logo wishlist" class="unselected-wishlist-logo-picture" onclick="toggle_wishlist();">
+                        <img src="../../Assets/Icones/contour-en-forme-de-coeur-selected.png" alt="logo wishlist" class="selected-wishlist-logo-picture" onclick="toggle_wishlist();">
                     </div>
-                    <div class="container-left-and-right">
-                        <div class="container-left-informations">
-                                <h1>Entreprise :</h1>
-                                <p><a href="https://inter-net.loc/Entreprise/Orange">Orange</a></p>
-                                <h1>Emplacement :</h1>
-                                <p>51500 - Reims</p>
-                                <h1>Niveau d'étude :</h1>
-                                <p>Bac+2</p>
-                                <h1>Salaire :</h1>
-                                <p>1000€ la semaine - 12€/h</p>
-                                <h1>Date de début du stage:</h1>
-                                <p>31/01/2024</p>
-                                <h1>Durée du stage :</h1>
-                                <p>3 semaines</p>
-                        </div>
-                        <div class="container-right-informations">
-                            <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
-                                Postuler
-                            </button>
-                            <p>Compétences recherchées:</p>
-                            <div class="container-skills-details">
-                                
-                                    <div>Suite office</div>
-                                    <div>JS</div>
-                                    <div>Autonomie</div>
-                                    <div>Python</div>
-                                    <div>PHP</div>
-                            </div>
+
+                    <div class="container-left-informations">
+                            <h1>Entreprise :</h1>
+                            <p><a href="https://inter-net.loc/Entreprise/Orange">Orange</a></p>
+                            <h1>Emplacement :</h1>
+                            <p>51500 - Reims</p>
+                            <h1>Niveau d'étude :</h1>
+                            <p>Bac+2</p>
+                            <h1>Salaire :</h1>
+                            <p>1000€ la semaine - 12€/h</p>
+                            <h1>Date de début du stage :</h1>
+                            <p>31/01/2024</p>
+                            <h1>Durée du stage :</h1>
+                            <p>3 semaines</p>
+                    </div>
+                    <div class="container-right-informations">
+                        <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
+                            Postuler
+                        </button>
+                        <p>Compétences recherchées :</p>
+                        <div class="container-skills-details">
+                            
+                                <div>Suite office</div>
+                                <div>JS</div>
+                                <div>Autonomie</div>
+                                <div>Python</div>
+                                <div>PHP</div>
                         </div>
                     </div>
                     <div class="container1-bottom-informations">
@@ -503,20 +542,19 @@
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">
-                    <div class="postulation-block_docs">
+                    <div class="postulation-block_docs" id="postulation-block_docs">
                         Vos documents
                         <div class="postulation-list_docs">
                             <div class="postulation-docs">
-                                <p>CV.pdf</p>
+                                <p onclick="open_file('../../Assets/files/Livrable_2_Projet_FF.pdf')">CV.pdf</p>
                                 <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
                             </div>
-                            <div class="postulation-docs">
-                                <p>lettre_motiv.pdf</p>
-                                <img src="../../Assets/Icones/poubelle-de-recyclage.png"/>
-                            </div>
-                            
                         </div>
                     </div>
+                    <button type="button" onclick="do_add_file();">
+                        Ajouter un fichier (.pdf)
+                        <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
+                    </button>
                     <button type="button" id="postulation-button_postulation">Postuler</button>
                 </div>
             </div>
@@ -567,129 +605,4 @@
     </div>
 </footer>
 
-<script>
-    var rangeInput = document.getElementById("rangeInput");
-    var rangeValue = document.getElementById("rangeValue");
-    rangeInput.addEventListener("input", function () { rangeValue.textContent = "Bac+" + this.value; });
-</script>
-<script>
-    const filterShutter = document.querySelector(".filter-button")
-    const filterMenu = document.querySelector(".parent-filter")
-    const container = document.querySelector(".runway-container")
-
-    filterShutter.addEventListener('click', () => { filterMenu.classList.toggle('filter-mobile_on-filter') })
-    filterShutter.addEventListener('click', () => { container.classList.toggle('filter-mobile_on-container') })
-
-    window.addEventListener("resize", () => {
-        const widthScreen = window.innerWidth;
-        if (widthScreen > 850) {
-            filterMenu.classList.remove('filter-mobile_on-filter')
-            container.classList.remove('filter-mobile_on-container')
-
-        }
-    });
-
-    const menuHamburger = document.querySelector(".navbar-hamburger")
-    const navbarLinks = document.querySelector(".navbar-links")
-
-    menuHamburger.addEventListener('click', () => { navbarLinks.classList.toggle('mobile-menu') })
-</script>
-
-<!-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- -->
-
-<script>
-    const unselectedWishlist = document.querySelector(".unselected-wishlist-logo-picture");
-    const selectedWishlist = document.querySelector(".selected-wishlist-logo-picture");
-
-    unselectedWishlist.addEventListener('click', () => {
-        unselectedWishlist.classList.add('remove-wishlist-picture');
-        selectedWishlist.classList.add('is-selected');
-    });
-
-    selectedWishlist.addEventListener('click', () => {
-        selectedWishlist.classList.remove('is-selected');
-        unselectedWishlist.classList.remove('remove-wishlist-picture');
-    });
-</script>
-
-<script>
-    const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
-    const containerInternDetails = document.querySelector(".container-intern-details");
-    const containerIntern = document.querySelector(".container-intern");
-    const body = document.querySelector("body");
-
-    buttonCloseTab.addEventListener('click', () => {
-        containerInternDetails.classList.add('close-tab-clicked');
-        body.classList.add('mobile-scroll');
-    });
-
-    containerIntern.addEventListener('click', () => {
-        containerInternDetails.classList.remove('close-tab-clicked');
-        body.classList.remove('mobile-scroll');
-    });
-
-    window.onscroll = function() {
-    afficherOuMasquerBouton();
-    calculRunwayDist();
-};
-
-function afficherOuMasquerBouton() {
-    var boutonRetourHaut = document.getElementById("button-retour-haut");
-
-    if (document.documentElement.scrollTop > 115) {
-        boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
-    }else {
-        boutonRetourHaut.classList.add('display-none');
-        boutonRetourHaut.classList.remove('retourHaut');
-    }
-}
-
-function retournerEnHaut() {
-    document.documentElement.scrollTop = 0;
-}
-
-function calculRunwayDist(){
-    var runwayContainer = document.getElementById('runway-container');
-    var heightRunwayContainer = runwayContainer.clientHeight;
-    var element = document.getElementById('runway-container-intern-details');
-    if (heightRunwayContainer < 750){
-        runwayContainer.style.height = 750 + 'px'; 
-    }else {
-        element.style.height = heightRunwayContainer + 'px';
-    }
-}
-</script>
-
-<!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
-<script>
-$(document).ready(function(){
-    $("#postulation-button_postulation").click(function(){
-        console.log("postulation");
-        var postulationValue = "postulation";
-        var welcomePHP = "Welcome.php";
-        data = {
-            action : postulationValue
-        };
-        $.post(welcomePHP, data, function(response){})
-    })
-})
-</script>
-
-<!-- ---------------   JS POSTULATION ------------------------ -->
-<script>
-function block_postulation() {
-    const header = document.querySelector("header");
-    const body = document.querySelector(".full-runway");
-    const footer = document.querySelector("footer");
-    const postulation_div = document.querySelector(".postulation-bg");
-
-    header.classList.toggle("when_postulation");
-    body.classList.toggle("when_postulation");
-    footer.classList.toggle("when_postulation");
-    postulation_div.classList.toggle("postulation-off");
-    postulation_div.classList.toggle("postulation-on");
-}
-</script>
-<!-- --------------FIN JS POSTULATION ------------------------ -->
 </html>
