@@ -28,6 +28,7 @@ function end_current_student(){
         console.log(current_student+" à été enlevé d'un stage pour raison: "+radio.value);
         //ajouter dans la bdd
         //envoie du mail
+        $('input[name=end_radio]:checked').prop('checked', false);
         toggle_end(current_student);
         document.getElementById(current_student).onclick = function(){toggle_valid(current_student)};
     } else {

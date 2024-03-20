@@ -1281,7 +1281,8 @@ body::-webkit-scrollbar-track:hover{
 .internship_bot{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  height: 40%;
+  height: auto;
+  max-height: 40%;
   overflow-y: auto;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
