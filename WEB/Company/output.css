@@ -553,6 +553,7 @@ video {
 html, body{
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 body{
@@ -730,6 +731,7 @@ body::-webkit-scrollbar-track:hover{
 
 .main_right{
   position: fixed;
+  left: 25%;
   right: 0px;
   top: 0px;
   bottom: 0px;
@@ -766,12 +768,6 @@ body::-webkit-scrollbar-track:hover{
 @media not all and (min-width: 500px){
   .main_right{
     margin: 0.5rem;
-  }
-}
-
-@media (min-width: 1024px){
-  .main_right{
-    left: 25%;
   }
 }
 

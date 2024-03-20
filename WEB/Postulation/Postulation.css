@@ -8,7 +8,7 @@
     @apply font-display;
 }
 body{
-    @apply inline-block;
+    @apply inline-block overflow-hidden;
 }
 button{
     @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
