@@ -1366,18 +1366,19 @@ input[type="date"]{
   text-decoration-line: underline;
 }
 
-.filter-any_search-bot ul{
-  margin-right: -5px;
-  margin-top: 0.25rem;
-  display: inline-block;
-  width: 50%;
+.filter-block_search-bot{
+  display: flex;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.filter-any_search-bot li{
+.filter-block_search-bot div{
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   height: 1.5rem;
-  width: 91.666667%;
+  width: 48%;
   overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
@@ -1388,7 +1389,7 @@ input[type="date"]{
   }
 }
 
-.filter-any_search-bot li:hover{
+.filter-block_search-bot div:hover{
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(187 11 11 / var(--tw-bg-opacity));
@@ -1490,9 +1491,11 @@ input[type="date"]{
 }
 
 .filter-location,
-.filter-skills{
+.filter-activity{
+  display: flex;
   height: 116px;
   width: 100%;
+  flex-direction: column;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }

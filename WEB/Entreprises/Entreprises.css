@@ -276,16 +276,16 @@ input[type="date"] {
 .filter-any_search-top p {
   @apply pl-1 underline;
 }
-.filter-any_search-bot ul {
-  @apply w-1/2 inline-block mr-[-5px] mt-1;
+.filter-block_search-bot{
+  @apply flex flex-1 flex-wrap content-center justify-evenly;
 }
-.filter-any_search-bot li {
-  @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+.filter-block_search-bot div {
+  @apply rounded-xl bg-secondary-filter_grey text-center w-[48%] my-1 h-6 overflow-hidden;
   img{
     @apply hidden;
   }
 }
-.filter-any_search-bot li:hover{
+.filter-block_search-bot div:hover{
   @apply py-1 bg-secondary-red cursor-pointer;
   p {
     @apply hidden;
@@ -294,6 +294,7 @@ input[type="date"] {
     @apply block h-full ml-[45%];
   }
 }
+
 .search_min-max {
   @apply rounded-xl bg-secondary-white my-1 flex justify-around;
 }
@@ -318,8 +319,8 @@ input[type="date"] {
   @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
 }
 .filter-location,
-.filter-skills{
-  @apply h-[116px] w-full px-1;
+.filter-activity{
+  @apply h-[116px] w-full px-1 flex flex-col;
 }
 
 .filter-student-received{

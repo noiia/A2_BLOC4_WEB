@@ -52,16 +52,15 @@
                     <div class="dropdown-items2">
                         <a href="../Profile/Profile.html">Mon Profil</a>
                         <a href="../WishList/WishList.html">Wishlist</a>
-                        <a href="../Login/login.php"><span>Déconnexion</span></a>
+                        <a href="../Login/login.php" id="button-disconnect" class="button-disconnect"><span>Déconnexion</span></a>
                     </div>
                 </div>
             </div>
         </nav>
-			<nav>
+            <nav>
         <img class="navbar-hamburger" src="../../Assets/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
     </nav>
 </header>
-
 
 <!-- ! body -->
 
@@ -551,8 +550,18 @@
 </body>
 
 <!-- -------------------------------LA FIN DE LA BUBULLE FAITE PAR STEPHAN------------------------- -->
-
 <link href="http://e0.extreme-dm.com/s9.g?login=daoudi&jv=n&j=y&srw=1920&srb=24&l=https%3A//www.adaoudi.com/">
+
+<div class="container-pagination">
+    <button class="button-back" id="id-button-back"><</button>
+    <button class="page-number" id="id-page-number">1</button>
+    <button class="page-number-selected" id="id-page-number-selected">2</button>
+    <button class="page-number" id="id-page-number">3</button>
+    <div class="too-much-pages"><p>...</p></div>
+    <button class="page-number" id="id-page-number">99</button>
+    <button class="button-next" id="id-button-next">></button>
+</div>
+
 <footer>
     <div class="footer-logo">
         <img src="../../Assets/Icones/logo_blanc_entier.png" alt="logo de l'entreprise" class="footer-logo-picture">
