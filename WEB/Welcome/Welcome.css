@@ -261,7 +261,7 @@ input[type="search"]::-webkit-search-cancel-button{
 
 /* runway */
 .runway-container {
-  @apply relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto 2xl:ml-[295px] inline-block z-40;
+  @apply relative h-auto min-h-[1100px] w-[350px] sm:w-[425px] mx-auto sm:mx-auto 2xl:ml-[295px] inline-block z-40;
 }
 .filter-button {
   @apply inline-block mt-5 2xl:hidden left-[10%] relative;

@@ -25,7 +25,6 @@ window.addEventListener("resize", () => {
 
 window.onscroll = function() {
     afficherOuMasquerBouton();
-    calculRunwayDist();
 };
 function afficherOuMasquerBouton() {
     var boutonRetourHaut = document.getElementById("button-retour-haut");
@@ -40,16 +39,6 @@ function afficherOuMasquerBouton() {
 }
 function retournerEnHaut() {
     document.documentElement.scrollTop = 0;
-}
-function calculRunwayDist(){
-    var runwayContainer = document.getElementById('runway-container');
-    var heightRunwayContainer = runwayContainer.clientHeight;
-    var element = document.getElementById('runway-container-intern-details');
-    if (heightRunwayContainer < 750){
-        runwayContainer.style.height = 750 + 'px'; 
-    }else {
-        element.style.height = heightRunwayContainer + 'px';
-    }
 }
 
 function toggle_navbarMenu(){
