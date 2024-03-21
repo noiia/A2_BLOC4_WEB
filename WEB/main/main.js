@@ -59,7 +59,7 @@ function add_filter_block(event=Event, idInput){//ids est un tableau
     var input = document.getElementById(idInput);
     var ids = JSON.parse(event.currentTarget.dataset.array);
 
-    if (input.value !== "" && (event.key === 'Enter' || event.type == PointerEvent)){
+    if (input.value !== "" && (event.key === 'Enter' || event instanceof PointerEvent)){
         for (var id in ids){
             var li = document.getElementById(ids[id]);
             if (li.hidden){

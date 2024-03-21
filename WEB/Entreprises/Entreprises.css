@@ -131,6 +131,11 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  @apply hidden;
+}
+
 input[type="date"] {
   @apply accent-green-header;
 }

@@ -739,6 +739,10 @@ input[type="range"]::-webkit-slider-thumb{
   background-color: rgb(202 237 167 / var(--tw-bg-opacity));
 }
 
+input[type="search"]::-webkit-search-cancel-button{
+  display: none;
+}
+
 input[type="date"]{
   accent-color: #94C676;
 }
