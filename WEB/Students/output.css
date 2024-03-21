@@ -976,7 +976,8 @@ body::-webkit-scrollbar-track:hover{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: 90%;
-  background-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   font-weight: 400;
   outline-style: solid;
   outline-color: #B9B9B9;
@@ -987,6 +988,8 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container_focus{
+  position: sticky;
+  top: 3rem;
   outline-color: #39A325;
 }
 
