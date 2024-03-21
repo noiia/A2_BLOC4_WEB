@@ -1729,6 +1729,8 @@ input[type="date"]{
 }
 
 .runway-container-intern-details{
+  z-index: 49;
+  height: auto;
   font-weight: 500;
 }
 
@@ -1752,7 +1754,6 @@ input[type="date"]{
 @media (min-width: 1280px){
   .runway-container-intern-details{
     display: inline-block;
-    height: auto;
     width: 80%;
   }
 }

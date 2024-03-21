@@ -382,7 +382,7 @@ input[type="date"] {
 }
 
 .runway-container-intern-details {
-  @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+  @apply font-medium h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px] z-[49];
 }
 
 .container-intern-details {
