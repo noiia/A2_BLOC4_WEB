@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 //use \src\Application\Actions\User\ListUsersAction;
 //use \src\Application\Actions\User\ViewUserAction;
-use App\Controller\FirstController;
+use App\Controller\InternshipController;
+use App\Entity\Internship;
+
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -13,7 +15,7 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 use Slim\Views\Twig;
 use Twig\Loader\FilesystemLoader;
 
-require_once __DIR__ . "/../src/Controller/FirstController.php";
+require_once __DIR__ . "/../src/Controller/InternshipController.php";
 
 $loader = new FilesystemLoader(__DIR__ . '/../templates');
 $twig = new Twig($loader);
@@ -33,9 +35,48 @@ return function (App $app) {
     });
 
     $app->get('/Stage', function (Request $request, Response $response) use ($twig, $container){
-        $controller = new FirstController($twig);
+        $controller = new InternshipController($twig);
         $welcomeResponse = $controller->Welcome($request, $response,[], $container);
         return $welcomeResponse;
+    });
+
+    $app->get('/Stage/{i}', function (Request $request, Response $response, array $args) use ($container) {
+
+        $entityManager = $container->get(EntityManager::class);
+        $internship = $entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $args['i']]);
+        $i = 0;
+        $Skills = [];
+        foreach ($internship->getSkills() as $skill) {
+            $i++;
+            if ($i <= 3) {
+                $Skills[] = $skill->getName();
+            } else {
+                break;
+            }
+        }
+        if ($internship != null) {
+            $data = [
+                'id' => $internship->getIDInternship(),
+                'job' => $internship->getTitle(),
+                'school_grade' => $internship->promotions->getName(), // Utilisez les méthodes getters pour accéder aux propriétés
+                'company' => $internship->companies->getName(),
+                'location' => $internship->locations->getCity(),
+                'begin_date' => $internship->getStartingDate(),
+                'hour_payment' => $internship->getHourlyRate(),
+                'month_payment' => 1350,
+                'duration' => $internship->getDuration() . ' mois',
+                'advantages' => $internship->getAdvantages(),
+                'description' => $internship->getDescription(),
+                'skills' => $Skills,
+            ];
+
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Stage introuvable');
+        }
     });
     /*$app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);

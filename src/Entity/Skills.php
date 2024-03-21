@@ -24,10 +24,9 @@ class Skills
     private string $Name;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    //#[ManyToMany(targetEntity: Internship::class, mappedBy: 'skills')]
-    //private Collection $internships;
+   // #[ManyToMany(targetEntity: Internship::class, mappedBy: 'skills')]
+  //  private Collection $internships;
     public function __construct() {
-        //$this->internships = new ArrayCollection();
     }
 
     public function getIDSkills(): int

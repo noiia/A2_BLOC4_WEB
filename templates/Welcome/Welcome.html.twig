@@ -147,7 +147,7 @@
                             </div>
                             <div class="filter-postulation">
                                 <div class="filter-any_search-top">
-                                    <p>Nombre de-postulation :</p>
+                                    <p>Nombre de postulation :</p>
                                 </div>
                                 <div class="filter-any_search-bot">
                                     <div class="search_min-max">
@@ -214,94 +214,131 @@
                 </div>
             </div>
             <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
-            {% for bubble in bubbles %}
-            <div class="runway-container-intern-details">
-                <div class="container-intern-details second-scrollbar">
-                    <div class="container-close-tab">
-                        <button class="button-close-tab" id="button-close-tab">
-                            <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab" class="close-tab-logo-picture">
-                        </button>
-                    </div>
-                    <div class="container-div-par-intern-details">
-                        <div class="header-intern-details">
-                            <img src='images/Icones/Master_Logo_RGB.png' alt="logo company" class="company-logo-picture">
-                            <h1 class="container-header-intern-details"> {{ bubble.job }} </h1>
-                            <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist" class="unselected-wishlist-logo-picture">
-                            <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist" class="selected-wishlist-logo-picture">
-                        </div>
+            <script>
+                function loadBubbleData(id) {
+                    fetch("https://inter-net.loc/Stage/" + id, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log(data);
+                            const mainTemplate = document.getElementById("main-internship");
+                            const littleTemplate = document.getElementById("skills-template");
 
-                        <div class="container-left-informations">
-                                <h1>Entreprise :</h1>
-                                <p><a href="https://inter-net.loc/Entreprise/Orange">{{ bubble.company }}</a></p>
-                                <h1>Emplacement :</h1>
-                                <p>{{ bubble.location }}</p>
-                                <h1>Niveau d'étude :</h1>
-                                <p>{{ bubble.school_grade }}</p>
-                                <h1>Salaire :</h1>
-                                <p>{{ bubble.month_payment }}€ par mois - {{ bubble.hour_payment }}€/h</p>
-                                <h1>Date de début du stage :</h1>
-                                <p>{{ bubble.begin_date }}</p>
-                                <h1>Durée du stage :</h1>
-                                <p>{{ bubble.duration }}</p>
-                        </div>
-                        <div class="container-right-informations">
-                            <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
-                                Postuler
+                            const container = document.getElementById("bubble-place");
+
+                            const bubbleTemplate = mainTemplate.content.cloneNode(true);
+
+                            bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
+                            bubbleTemplate.getElementById("Big-bubble-company").textContent = data.company;
+                            bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
+                            bubbleTemplate.getElementById("Big-bubble-school-grade").textContent = data.school_grade;
+                            bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.month_payment + " € par mois soit " + data.hour_payment + " €/h";
+                            bubbleTemplate.getElementById("Big-bubble-begin-date").textContent = data.begin_date;
+                            bubbleTemplate.getElementById("Big-bubble-duration").textContent = data.duration;
+                            bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
+                            bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+
+                            container.append(bubbleTemplate);
+
+                            const skillsContainer = document.getElementById("container-skills");
+                            for (let skills of data.skills) {
+                                const skillsTemplate = littleTemplate.content.cloneNode(true);
+                                skillsTemplate.getElementById("skills").textContent = skills;
+                                skillsContainer.append(skillsTemplate);
+                            }
+                        });
+                    }
+            </script>
+            <template id="main-internship">
+                <div class="runway-container-intern-details" id="runway-container-intern-details">
+                    <div class="container-intern-details second-scrollbar">
+                        <div class="container-close-tab">
+                            <button class="button-close-tab" id="button-close-tab">
+                                <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab" class="close-tab-logo-picture">
                             </button>
-                            <p>Compétences recherchées :</p>
-                            <div class="container-skills-details">
-                                {% for skill in skills %}
-                                    <div>{{ skill.competence }}</div>
-                                {% endfor %}
+                        </div>
+                        <div class="container-div-par-intern-details">
+                            <div class="header-intern-details">
+                                <img src='images/Icones/Master_Logo_RGB.png' alt="logo company" class="company-logo-picture">
+                                <h1 class="container-header-intern-details" id="Big-bubble-name"></h1>
+                                <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist" class="unselected-wishlist-logo-picture">
+                                <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist" class="selected-wishlist-logo-picture">
                             </div>
-                        </div>
-                        <div class="container1-bottom-informations">
-                            <h1>Avantages :</h1>
-                            <p>{{ bubble.advantages }}</p>
-                        </div>
-                        <div class="container2-bottom-informations">
-                            <h1>Description du poste :</h1>
-                            <p>{{ bubble.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <!-- ---------------------- POSTULER ------------------- -->
-        <div class="postulation-bg postulation-off">
-            <div class="postulation-block">
-                <div class="postulation-top">
-                    Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
-                    Nous vous invitons à renseigner vos documents.
-                    <img src='images/Icones/croix-supprimer-le-signe.png' onclick="block_postulation()"/>
-                </div>
-                <div class="postulation-bottom">
-                    <div class="postulation-motivation">
-                        Ecrire sa lettre de motivation
-                        <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis intéressé par votre offre de stage"></textarea>
-                    </div>
-                    <label id="postulation-text_center">ET/OU</label>
-                    <div class="postulation-right">
-                        <div class="postulation-block_docs">
-                            Vos documents
-                            <div class="postulation-list_docs">
-                                <div class="postulation-docs">
-                                    <p>CV.pdf</p>
-                                    <img src='images/Icones/poubelle-de-recyclage.png'/>
-                                </div>
-                                <div class="postulation-docs">
-                                    <p>lettre_motiv.pdf</p>
-                                    <img src='images/Icones/poubelle-de-recyclage.png'/>
-                                </div>
 
+                            <div class="container-left-informations">
+                                    <h1>Entreprise :</h1>
+                                    <p id="Big-bubble-company"><a href="https://inter-net.loc/Entreprise/Orange"></a></p>
+                                    <h1>Emplacement :</h1>
+                                    <p id="Big-bubble-location"></p>
+                                    <h1>Niveau d'étude :</h1>
+                                    <p id="Big-bubble-school-grade"></p>
+                                    <h1>Salaire :</h1>
+                                    <p id="Big-bubble-month-payment"></p>
+                                    <h1>Date de début du stage :</h1>
+                                    <p id="Big-bubble-begin-date"></p>
+                                    <h1>Durée du stage :</h1>
+                                    <p id="Big-bubble-duration"></p>
+                            </div>
+                            <div class="container-right-informations">
+                                <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
+                                    Postuler
+                                </button>
+                                <p>Compétences recherchées :</p>
+                                    <div class="container-skills-details" id="container-skills">
+                                    </div>
+                            </div>
+                            <div class="container1-bottom-informations">
+                                <h1>Avantages :</h1>
+                                <p id="Big-bubble-advantages"></p>
+                            </div>
+                            <div class="container2-bottom-informations">
+                                <h1>Description du poste :</h1>
+                                <p id="Big-bubble-description"></p>
                             </div>
                         </div>
-                        <button type="button" id="postulation-button_postulation">Postuler</button>
+                    </div>
+        <!-- ---------------------- POSTULER ------------------- -->
+                    <div class="postulation-bg postulation-off">
+                        <div class="postulation-block">
+                            <div class="postulation-top">
+                                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                                Nous vous invitons à renseigner vos documents.
+                                <img src='images/Icones/croix-supprimer-le-signe.png' onclick="block_postulation()"/>
+                            </div>
+                            <div class="postulation-bottom">
+                                <div class="postulation-motivation">
+                                    Ecrire sa lettre de motivation
+                                    <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis intéressé par votre offre de stage"></textarea>
+                                </div>
+                                <label id="postulation-text_center">ET/OU</label>
+                                <div class="postulation-right">
+                                    <div class="postulation-block_docs">
+                                        Vos documents
+                                        <div class="postulation-list_docs">
+                                            <div class="postulation-docs">
+                                                <p>CV.pdf</p>
+                                                <img src='images/Icones/poubelle-de-recyclage.png'/>
+                                            </div>
+                                            <div class="postulation-docs">
+                                                <p>lettre_motiv.pdf</p>
+                                                <img src='images/Icones/poubelle-de-recyclage.png'/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </template>
+            <template id="skills-template"><div id="skills"></div></template>
+            <div id="bubble-place"></div>
         </div>
-    {% endfor %}
     </body>
 {% endblock %}
 
@@ -431,4 +468,20 @@
     }
     </script>
     <!-- --------------FIN JS POSTULATION ------------------------ -->
+
+    <!-----------------VERIFICATION FOCUS RUNWAY -------------------->
+    <script>
+        const runway = document.getElementById("runway-element")
+        var oldElement = 1;
+        loadBubbleData(oldElement);
+        addEventListener("click", (event) => {
+            var focusedBubble = document.activeElement.id;
+            if(oldElement != focusedBubble){
+                document.getElementById("runway-container-intern-details").remove();
+                loadBubbleData(focusedBubble);
+                oldElement = focusedBubble;
+            }
+        });
+    </script>
+    <!------------- FIN VERIFICATION FOCUS RUNWAY ------------------->
 {% endblock %}
