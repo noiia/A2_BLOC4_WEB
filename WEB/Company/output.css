@@ -553,6 +553,7 @@ video {
 html, body{
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 body{
@@ -730,6 +731,7 @@ body::-webkit-scrollbar-track:hover{
 
 .main_right{
   position: fixed;
+  left: 25%;
   right: 0px;
   top: 0px;
   bottom: 0px;
@@ -766,12 +768,6 @@ body::-webkit-scrollbar-track:hover{
 @media not all and (min-width: 500px){
   .main_right{
     margin: 0.5rem;
-  }
-}
-
-@media (min-width: 1024px){
-  .main_right{
-    left: 25%;
   }
 }
 
@@ -960,7 +956,8 @@ body::-webkit-scrollbar-track:hover{
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: 90%;
-  background-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   font-weight: 400;
   outline-style: solid;
   outline-color: #B9B9B9;
@@ -975,6 +972,8 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container_focus{
+  position: sticky;
+  top: 3rem;
   outline-color: #39A325;
 }
 

@@ -548,6 +548,7 @@ video {
 
 html{
   position: relative;
+  overflow-x: hidden;
 }
 
 *{
@@ -862,6 +863,13 @@ input[type="search"]::-webkit-search-cancel-button{
   text-decoration-line: underline;
 }
 
+@media not all and (min-width: 1024px){
+  .navbar-links a:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
 @media (max-width: 850px){
   .navbar-links a{
     margin-bottom: 40px;
@@ -1021,9 +1029,35 @@ input[type="search"]::-webkit-search-cancel-button{
   color: rgb(57 163 37 / var(--tw-text-opacity));
 }
 
+@media not all and (min-width: 1024px){
+  .dropdown-items1 a:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
 .dropdown-items2 a:hover:hover{
   --tw-text-opacity: 1;
   color: rgb(57 163 37 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 a:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+}
+
+.dropdown-items2 #button-disconnect:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 #button-disconnect:hover:hover{
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
 }
 
 @media (max-width: 850px){
@@ -1037,6 +1071,7 @@ input[type="search"]::-webkit-search-cancel-button{
 }
 
 .dropdown-items2 span{
+  margin-left: -8px;
   display: inline-block;
   width: 100%;
   --tw-bg-opacity: 1;
@@ -1047,11 +1082,26 @@ input[type="search"]::-webkit-search-cancel-button{
   text-transform: uppercase;
 }
 
+.dropdown-items2 span:hover{
+  text-decoration-line: underline;
+}
+
+@media not all and (min-width: 1024px){
+  .dropdown-items2 span{
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  }
+}
+
 @media (max-width: 850px){
   .dropdown-items2 span{
     position: absolute;
     margin-bottom: 0px;
   }
+}
+
+.button-disconnect{
+  width: 100%;
 }
 
 .dropdown-btn{
@@ -1178,18 +1228,19 @@ input[type="search"]::-webkit-search-cancel-button{
   text-decoration-line: underline;
 }
 
-.filter-any_search-bot ul{
-  margin-right: -5px;
-  margin-top: 0.25rem;
-  display: inline-block;
-  width: 50%;
+.filter-block_search-bot{
+  display: flex;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.filter-any_search-bot li{
+.filter-block_search-bot div{
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   height: 1.5rem;
-  width: 91.666667%;
+  width: 48%;
   overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
@@ -1200,7 +1251,7 @@ input[type="search"]::-webkit-search-cancel-button{
   }
 }
 
-.filter-any_search-bot li:hover{
+.filter-block_search-bot div:hover{
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(187 11 11 / var(--tw-bg-opacity));
@@ -1304,8 +1355,10 @@ input[type="search"]::-webkit-search-cancel-button{
 .filter-location,
 .filter-skills,
 .filter-company{
+  display: flex;
   height: 116px;
   width: 100%;
+  flex-direction: column;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
@@ -1343,6 +1396,14 @@ input[type="search"]::-webkit-search-cancel-button{
   padding-right: 0.25rem;
 }
 
+.filter-validate button{
+  outline-color: #39A325;
+}
+
+.filter-validate button:hover{
+  outline-style: solid;
+}
+
 .filter-mobile_on-filter{
   display: inline-block;
   width: 350px;
@@ -1367,6 +1428,7 @@ input[type="search"]::-webkit-search-cancel-button{
   margin-right: auto;
   display: inline-block;
   height: auto;
+  min-height: 1100px;
   width: 350px;
 }
 
@@ -1515,7 +1577,6 @@ input[type="search"]::-webkit-search-cancel-button{
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements{
-  margin-bottom: 1050px;
   width: 430px;
 }
 
@@ -1529,12 +1590,6 @@ input[type="search"]::-webkit-search-cancel-button{
 @media not all and (min-width: 500px){
   .runway-elements{
     width: 350px;
-  }
-}
-
-@media (min-width: 1024px){
-  .runway-elements{
-    margin-bottom: 348px;
   }
 }
 
@@ -2139,11 +2194,91 @@ input[type="search"]::-webkit-search-cancel-button{
 
 /*--------------------------------FIN BULLE POSTULER --------------------------*/
 
+/* --------------------------------- DEBUT PAGINATION --------------------*/
+
+.container-pagination{
+  display: flex;
+  height: 35px;
+  width: 100%;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.button-back{
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-back:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+.page-number{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.page-number:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+.page-number-selected{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.too-much-pages{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-next{
+  display: inline-flex;
+  width: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
+.button-next:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 185 185 / var(--tw-bg-opacity));
+}
+
+/* --------------------------------- FIN PAGINATION --------------------*/
+
 /* footer */
 
 footer{
-  position: absolute;
-  bottom: 0px;
   z-index: 10;
   margin-top: 2.5rem;
   height: 1050px;
@@ -2155,7 +2290,7 @@ footer{
 @media (min-width: 1024px){
   footer{
     display: flex;
-    height: 348px;
+    height: auto;
     align-items: flex-start;
     justify-content: center;
   }

@@ -8,7 +8,7 @@
     @apply font-display;
 }
 html, body{
-    @apply w-full h-full;
+    @apply w-full h-full overflow-hidden;
 }
 body{
     @apply inline-block;
@@ -197,10 +197,10 @@ body::-webkit-scrollbar-track:hover{
     }
 }
 .internship{
-    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+    @apply w-[90%] my-2 font-normal outline bg-secondary-white outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
 }
 .container_focus{
-    @apply outline-green-button;
+    @apply sticky top-12 outline-green-button;
 }
 
 .del_bg, .valid_bg, .end_bg{
@@ -287,7 +287,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .internship_bot{
-    @apply h-[40%] px-5 my-2 overflow-y-auto max-md:m-2;
+    @apply h-auto max-h-[40%] px-5 my-2 overflow-y-auto max-md:m-2;
 }
 .postulation{
     @apply flex h-14 px-3 my-5 justify-between items-center rounded-sm font-normal bg-secondary-white outline outline-secondary-true_black hover:outline-green-button;

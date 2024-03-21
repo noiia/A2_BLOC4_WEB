@@ -25,7 +25,6 @@ window.addEventListener("resize", () => {
 
 window.onscroll = function() {
     afficherOuMasquerBouton();
-    calculRunwayDist();
 };
 function afficherOuMasquerBouton() {
     var boutonRetourHaut = document.getElementById("button-retour-haut");
@@ -39,17 +38,11 @@ function afficherOuMasquerBouton() {
     }
 }
 function retournerEnHaut() {
-    document.documentElement.scrollTop = 0;
-}
-function calculRunwayDist(){
-    var runwayContainer = document.getElementById('runway-container');
-    var heightRunwayContainer = runwayContainer.clientHeight;
-    var element = document.getElementById('runway-container-intern-details');
-    if (heightRunwayContainer < 750){
-        runwayContainer.style.height = 750 + 'px'; 
-    }else {
-        element.style.height = heightRunwayContainer + 'px';
-    }
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"smooth"
+    })
 }
 
 function toggle_navbarMenu(){
@@ -60,7 +53,30 @@ function toggle_filterMenu(){
     document.querySelector(".runway-container").classList.toggle('filter-mobile_on-container');
 }
 
+// -------- ajouter/enlever fltre
 
+function add_filter_block(event=Event, idInput){//ids est un tableau
+    var input = document.getElementById(idInput);
+    var ids = JSON.parse(event.currentTarget.dataset.array);
+
+    if (input.value !== "" && (event.key === 'Enter' || event.type == PointerEvent)){
+        for (var id in ids){
+            var li = document.getElementById(ids[id]);
+            if (li.hidden){
+                var txt = document.querySelector('#'+ids[id]+' > p');
+                txt.textContent = input.value;
+                input.value = '';
+                li.removeAttribute("hidden");
+                console.log("recherche du filtre: '"+txt.textContent+"' dans "+idInput);
+                break;
+            }
+        }
+    }
+}
+function del_filter_block(event=Event){
+    event.currentTarget.hidden = true;
+}
+//diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
 
 // ------------------ parti gestion ---------------------
 function toggle_menu(){

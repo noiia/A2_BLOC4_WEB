@@ -8,7 +8,7 @@
     @apply font-display;
 }
 body{
-    @apply inline-block;
+    @apply inline-block overflow-hidden;
 }
 button{
     @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
@@ -167,10 +167,10 @@ body::-webkit-scrollbar-track:hover{
     }
 }
 .pilote{
-    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+    @apply w-[90%] my-2 font-normal outline bg-secondary-white outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
 }
 .container_focus{
-    @apply outline-green-button;
+    @apply sticky top-12 outline-green-button;
 }
 
 .del_bg{
