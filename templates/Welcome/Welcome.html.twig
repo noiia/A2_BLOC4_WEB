@@ -215,6 +215,18 @@
             </div>
             <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
             <script>
+                function fileExists(file){
+                    var xhr = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Msxml2.XMLHTTP'),r;
+                    if(!xhr)return false;
+                    try{
+                        xhr.open('HEAD',file,false);
+                        xhr.send(null);
+                        r = true;
+                    }catch(e){
+                        r = false;
+                    }
+                    return r;
+                }
                 function loadBubbleData(id) {
                     fetch("https://inter-net.loc/Stage/" + id, {
                         method: "GET",
@@ -234,14 +246,27 @@
 
                             bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
                             bubbleTemplate.getElementById("Big-bubble-company").textContent = data.company;
+                           // bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
                             bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
                             bubbleTemplate.getElementById("Big-bubble-school-grade").textContent = data.school_grade;
-                            bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.month_payment + " € par mois soit " + data.hour_payment + " €/h";
+                            bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.week_payment + " € par semaines soit " + data.hour_payment + " €/h";
                             bubbleTemplate.getElementById("Big-bubble-begin-date").textContent = data.begin_date;
                             bubbleTemplate.getElementById("Big-bubble-duration").textContent = data.duration;
+                            bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
                             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
                             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
-
+                            var imagePath = "public/images/CompanyLogos/logo_" + data.id;
+                            if(fileExists(imagePath + ".jpg")){
+                                imagePath = imagePath + ".jpg"
+                            } else if (fileExists(imagePath + ".jpeg")){
+                                imagePath = imagePath + ".jpeg"
+                            } else if (fileExists(imagePath + ".png")){
+                                imagePath = imagePath + ".png"
+                            } else {
+                                console.log("aucune image en mémoire")
+                            }
+                            bubbleTemplate.getElementById("Big-bubble-logo").src = imagePath;
+                            console.log("image choisie : " + imagePath);
                             container.append(bubbleTemplate);
 
                             const skillsContainer = document.getElementById("container-skills");
@@ -263,7 +288,7 @@
                         </div>
                         <div class="container-div-par-intern-details">
                             <div class="header-intern-details">
-                                <img src='images/Icones/Master_Logo_RGB.png' alt="logo company" class="company-logo-picture">
+                                <img src="images/CompanyLogos/logo_EDF" alt="logo company" class="company-logo-picture" id="Big-bubble-logo">
                                 <h1 class="container-header-intern-details" id="Big-bubble-name"></h1>
                                 <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist" class="unselected-wishlist-logo-picture">
                                 <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist" class="selected-wishlist-logo-picture">
@@ -271,7 +296,7 @@
 
                             <div class="container-left-informations">
                                     <h1>Entreprise :</h1>
-                                    <p id="Big-bubble-company"><a href="https://inter-net.loc/Entreprise/Orange"></a></p>
+                                    <p id="Big-bubble-company"><a id="Big-bubble-company-link" href=""></a></p>
                                     <h1>Emplacement :</h1>
                                     <p id="Big-bubble-location"></p>
                                     <h1>Niveau d'étude :</h1>
@@ -280,6 +305,8 @@
                                     <p id="Big-bubble-month-payment"></p>
                                     <h1>Date de début du stage :</h1>
                                     <p id="Big-bubble-begin-date"></p>
+                                    <h1>Places disponibles:</h1>
+                                    <p id="Big-bubble-place"></p>
                                     <h1>Durée du stage :</h1>
                                     <p id="Big-bubble-duration"></p>
                             </div>

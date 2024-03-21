@@ -5,6 +5,7 @@ declare(strict_types=1);
 //use \src\Application\Actions\User\ListUsersAction;
 //use \src\Application\Actions\User\ViewUserAction;
 use App\Controller\InternshipController;
+use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
 
 use Doctrine\ORM\EntityManager;
@@ -54,6 +55,14 @@ return function (App $app) {
                 break;
             }
         }
+        $j = 0;
+        if ($internship->getAppliementWishlist() != null){
+            foreach ($internship->getAppliementWishlist() as $appliement) {
+                if ($appliement->getStatus() == 2){
+                    $j++;
+                }
+            }
+        }
         if ($internship != null) {
             $data = [
                 'id' => $internship->getIDInternship(),
@@ -63,8 +72,10 @@ return function (App $app) {
                 'location' => $internship->locations->getCity(),
                 'begin_date' => $internship->getStartingDate(),
                 'hour_payment' => $internship->getHourlyRate(),
-                'month_payment' => 1350,
-                'duration' => $internship->getDuration() . ' mois',
+                'week_payment' => $internship->getHourPerWeek() * $internship->getHourlyRate(),
+                'duration' => $internship->getDuration() . ' semaines  ' . $internship->getHourPerWeek() . ' h/semaine',
+                'taken_places' => $j,
+                'max_places' => $internship->getMaxPlaces(),
                 'advantages' => $internship->getAdvantages(),
                 'description' => $internship->getDescription(),
                 'skills' => $Skills,

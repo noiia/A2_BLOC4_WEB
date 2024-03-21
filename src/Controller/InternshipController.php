@@ -34,7 +34,6 @@ class InternshipController
                 foreach ($forInternship->getSkills() as $skill) {
                     $i++;
                     if ($i <= 3) {
-                        //$sixSkills[] = ['competence' => $skill->getName()];
                         $threeSkills[] = $skill->getName();
                     } else {
                         break;
@@ -48,33 +47,16 @@ class InternshipController
                     'company' => $forInternship->companies->getName(),
                     'location' => $forInternship->locations->getCity(),
                     'begin_date' => $forInternship->getStartingDate(),
-                    'duration' => $forInternship->getDuration() . ' mois',
+                    'duration' => $forInternship->getDuration() . ' semaines',
                     'competence_1' => $threeSkills[0],
                     'competence_2' => $threeSkills[1],
                     'competence_3' => $threeSkills[2],
                 ];
-                $bigBubble = [
-                        'id' => $forInternship->getIDInternship(),
-                        'job' => $forInternship->getTitle(),
-                        'school_grade' => $forInternship->promotions->getName(),
-                        'company' => $forInternship->companies->getName(),
-                        'location' => $forInternship->locations->getCity(),
-                        'begin_date' => $forInternship->getStartingDate(),
-                        'hour_payment' => 12,
-                        'month_payment' => 1350,
-                        'duration' => $forInternship->getDuration() . ' mois',
-                        'advantages' => 'passe annuel des combats de coqs',
-                        'description' => 'blablablaaaaaaa',
-                ];
             }
         }
-
-
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
-            'bubbles' => $bigBubble,
-            'skills' => $sixSkills,
         ]);
     }
     public function Entreprise(Request $request, Response $response, array $args): Response

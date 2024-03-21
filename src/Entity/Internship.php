@@ -33,7 +33,9 @@ class Internship
     private \DateTime $Starting_date;
     #[Column(type: Types::FLOAT, precision: 4, scale: 2)]
     private float $Hourly_rate;
-    #[Column]
+    #[Column(type: Types::INTEGER)]
+    private int $Hour_per_week;
+    #[Column(type: Types::INTEGER)]
     private int $Max_places;
     #[Column(type:Types::STRING, length: 300)]
     private string $Advantages;
@@ -45,7 +47,11 @@ class Internship
     private bool $Del;
 
     #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'internships')]
-    private Collection $wishlists_appliement;
+    private Collection $appliement_wishlist;
+    public function getAppliementWishlist(): Collection
+    {
+        return $this->appliement_wishlist;
+    }
     #[JoinTable(name: "seek")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
     #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills')]
@@ -68,7 +74,7 @@ class Internship
     public Promotion $promotions;
 
     public function __construct() {
-        $this->wishlists_appliement = new ArrayCollection();
+        $this->appliement_wishlist = new ArrayCollection();
         $this->skills = new ArrayCollection();
     }
 
@@ -125,6 +131,15 @@ class Internship
     public function setHourlyRate(float $Hourly_rate): void
     {
         $this->Hourly_rate = $Hourly_rate;
+    }
+    public function getHourPerWeek(): int
+    {
+        return $this->Hour_per_week;
+    }
+
+    public function setHourPerWeek(int $Hour_per_week): void
+    {
+        $this->Hour_per_week = $Hour_per_week;
     }
 
     public function getMaxPlaces(): int
