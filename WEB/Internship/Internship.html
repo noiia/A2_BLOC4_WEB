@@ -9,7 +9,7 @@
     <script src="../main/main.js"></script>
     <script src="Internship.js"></script>
     <link href="output.css" rel="stylesheet">
-    <title>Inter'net - Gestion des entreprises</title>
+    <title>Inter'net - Gestion des stages</title>
 </head>
 
 <script>
@@ -115,27 +115,37 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="validerFormulaire()">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
-            <div class="container-students-informations">
+            <div class="container-students-informations second-scrollbar">
                 <div class="students-informations">
-                    <div class="students-each-informations-title">
-                        <ul>
-                            <li><input placeholder="TITRE..."></input></li>
-                        </ul>
-                    </div>
                     <div class="students-each-informations">
-                        <ul>
-                            <li><input placeholder="Entreprise..."></input></li>
-                            <li><input placeholder="Année d'étude..."></input></li>
-                            <li><input placeholder="Rémunération..."></input></li>
-                        </ul>
-                        <ul>
-                            <li><input placeholder="Lieu..."></input></li>
-                            <li><input placeholder="Début du stage..."></input></li>
-                            <li><input placeholder="Durée du stage..."></input></li>
-                        </ul>
+                        <form id="Internship-Form" onsubmit="return validerFormulaire()">
+                            <ul>
+                                <li><input placeholder="TITRE..." required></input></li>
+                                <li><input placeholder="Entreprise..." required></input></li>
+                                <li><input placeholder="Année d'étude..." list="student-year" id="select-student-year" name="select-student-year" required>
+                                    <datalist id="student-year">
+                                        <option value="Bac+0">
+                                        <option value="Bac+1">
+                                        <option value="Bac+2">
+                                        <option value="Bac+3">
+                                        <option value="Bac+4">
+                                        <option value="Bac+5">
+                                        <option value="Bac+6">
+                                        <option value="Bac+7">
+                                        <option value="Bac+8">
+                                    </datalist></input></input></li>
+                                <li><input type="number" placeholder="Rémunération..." required></input></li>
+                            </ul>
+                            <ul>
+                                <li><input type="number" placeholder="Nombre d'heures... (par semaines)" required></input></li>
+                                <li><input placeholder="Lieu..." required></input></li>
+                                <li><label for="id-input-starting-date">Début: </label><input type="date" id="id-input-starting-date" required></input></li>
+                                <li><input type="number" placeholder="Durée du stage... (semaines)" required></input></li>
+                            </ul>
+                        </form>
                     </div>
                 </div>
                 <div class="container-skills">

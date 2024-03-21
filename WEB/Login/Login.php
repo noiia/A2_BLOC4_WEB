@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
     <link rel="stylesheet" href="output.css">
-    <title>Login</title>
+    <title>Inter'net - Login</title>
 </head>
 
 <body>

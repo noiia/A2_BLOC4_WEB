@@ -1513,6 +1513,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-each-informations input{
+  width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(131 175 104 / var(--tw-bg-opacity));
 }
@@ -1520,11 +1521,15 @@ body::-webkit-scrollbar-track:hover{
 .students-each-informations input::-moz-placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(0 0 0 / var(--tw-placeholder-opacity));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .students-each-informations input::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(0 0 0 / var(--tw-placeholder-opacity));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .students-each-informations input:focus{
@@ -1532,50 +1537,23 @@ body::-webkit-scrollbar-track:hover{
   outline-offset: 2px;
 }
 
-.students-each-informations-title ul{
-  display: inline-grid;
-  height: auto;
-  width: 97%;
-  padding-left: 0.5rem;
-  text-align: center;
-}
-
-@media not all and (min-width: 768px){
-  .students-each-informations-title ul{
-    display: block;
-  }
-}
-
-.students-each-informations-title li{
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: 0.75rem;
+#id-input-starting-date{
+  width: 110px;
   --tw-bg-opacity: 1;
   background-color: rgb(131 175 104 / var(--tw-bg-opacity));
-  padding: 0.5rem;
 }
 
-.students-each-informations-title input{
-  --tw-bg-opacity: 1;
-  background-color: rgb(131 175 104 / var(--tw-bg-opacity));
-  text-align: center;
-}
-
-.students-each-informations-title input::-moz-placeholder{
+#id-input-starting-date::-moz-placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(0 0 0 / var(--tw-placeholder-opacity));
-  text-align: center;
 }
 
-.students-each-informations-title input::placeholder{
+#id-input-starting-date::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(0 0 0 / var(--tw-placeholder-opacity));
-  text-align: center;
 }
 
-.students-each-informations-title input:focus{
+#id-input-starting-date:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -1655,7 +1633,7 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 1024px){
   .container-pilote-promotion{
-    width: 40%;
+    width: 39%;
   }
 }
 
@@ -1757,6 +1735,7 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 768px){
   .container-skills{
+    margin-top: 100px;
     width: 95%;
   }
 }
@@ -1870,6 +1849,12 @@ body::-webkit-scrollbar-track:hover{
   display: inline-block;
   height: 20px;
   width: 20px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */

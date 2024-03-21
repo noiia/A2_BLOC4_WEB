@@ -111,7 +111,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="validerFormulaire()">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations">
@@ -123,26 +123,39 @@
                         <label for="file-input">
                             <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
                         </label>
-                        <input id="file-input" type="file" accept="image/*" />
+                        <input id="file-input" type="file" accept=".jpeg, .jpg, .png" />
                     </div>
                 </div>
                 <div class="students-informations">
                     <div class="students-each-informations">
-                        <ul id="id_first_ul">
-                            <li><input placeholder="Nom"></input></li>
-                            <li><input placeholder="N° SIRET"></input></li>
-                            <li><input placeholder="Type"></input></li>
-                            <li><input placeholder="Site Internet"></input></li>
-                        </ul>
-                        <ul id="id_second_ul">
-                            <li><input placeholder="Mail"></input></li>
-                            <li><input placeholder="Date de création"></input></li>
-                            <li><input placeholder="Effectif personnel"></input></li>
-                            <li><input placeholder="Secteur d'activité"></input></li>
-                        </ul>
-                        <ul id="id_third_ul">
-                            <li><input placeholder="ID entreprise"></li>
-                        </ul>
+                        <form id="Company-Form" onsubmit="return validerFormulaire()">
+                            <ul id="id_first_ul">
+                                <li><input placeholder="Nom" required></input></li>
+                                <li><input type="number" placeholder="N° SIRET" id="N-Siret" required></input></li>
+                                <li><input placeholder="Secteur d'activités..." list="sector" id="select-sector" name="select-sector" required>
+                                    <datalist id="sector">
+                                        <option value="Electronique">
+                                        <option value="Commerce">
+                                        <option value="Betise">
+                                    </datalist></input></li>
+                                <li><input type="url" placeholder="Site Internet" required></input></li>
+                            </ul>
+                            <ul id="id_second_ul">
+                                <li><input type="email" placeholder="Mail" required></input></li>
+                                <li><input id="id-input-creation-date" type="date" required></input></li>
+                                <li><input type="number" placeholder="Effectif personnel" required></input></li>
+                                <li><input placeholder="Type..." list="type" id="select-type" name="select-type" required>
+                                    <datalist id="type">
+                                        <option value="PME">
+                                        <option value="Start-up">
+                                        <option value="Grande entreprise">
+                                        <option value="Multinatinale">
+                                    </datalist></li>
+                            </ul>
+                            <ul id="id_third_ul">
+                                <li><input type="number" disabled placeholder="ID entreprise"></li>
+                            </ul>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -379,7 +379,7 @@ input[type="search"]::-webkit-search-cancel-button{
   }
   
   .container-left-informations h1 {
-    @apply underline underline-offset-4;
+    @apply underline underline-offset-4 mt-2;
   }
   
   .container-left-informations a {
@@ -398,7 +398,7 @@ input[type="search"]::-webkit-search-cancel-button{
     @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
   }
   .container-skills-details div {
-    @apply text-2xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
+    @apply text-xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
   }
   
   .button-postuler {

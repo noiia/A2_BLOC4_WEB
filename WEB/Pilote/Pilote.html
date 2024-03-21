@@ -111,7 +111,7 @@
         <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
     </div>
     <div class="div-button-cancel">
-        <button class="button-cancel" id="apply" onclick="toggle_hide_popup();">Appliquer</button>
+        <button class="button-cancel" id="apply" onclick="validerFormulaire()">Appliquer</button>
    </div>
    <div class="container-informations-and-description">
         <div class="container-students-informations">
@@ -123,21 +123,23 @@
                     <label for="file-input">
                         <img src="../../Assets/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp" id="add-profile-picture-button">
                     </label>
-                    <input id="file-input" type="file" accept="image/*" />
+                    <input id="file-input" type="file" accept=".jpeg, .jpg, .png" />
                 </div>
             </div>
             <div class="students-informations">
                 <div class="students-each-informations">
-                    <ul>
-                        <li><input placeholder="Nom"></li>
-                        <li><input placeholder="Prénom"></li>
-                        <li><input placeholder="Date de naissance"></li>
-                    </ul>
-                    <ul>
-                        <li><input placeholder="Poste"></li>
-                        <li><input placeholder="Mail"></li>
-                        <li><input placeholder="N° Utilisateur"></li>
-                    </ul>
+                    <form id="Students-Form" onsubmit="return validerFormulaire()">
+                        <ul>
+                            <li><input placeholder="Nom" required></li>
+                            <li><input placeholder="Prénom" required></li>
+                            <li><input type="date" required></li>
+                        </ul>
+                        <ul>
+                            <li><input placeholder="Poste" required></li>
+                            <li><input type="email" placeholder="Mail" required></li>
+                            <li><input disabled placeholder="N° Utilisateur"></li>
+                        </ul>
+                    </form>
                 </div>
             </div>
         </div>

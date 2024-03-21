@@ -393,6 +393,13 @@ body::-webkit-scrollbar-track:hover{
 .input-code-postal input{
     @apply w-full h-[50px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
 }
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
 /* ----------------------- fin gestion des eleves ------------------*/

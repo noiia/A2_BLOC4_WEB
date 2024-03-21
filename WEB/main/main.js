@@ -101,6 +101,25 @@ function toggle_hide_popup(){
     document.querySelector('.container-add-student').classList.toggle('hide_container');
 }
 
+function validerFormulaire() {
+
+    var numeroSiret = document.getElementById("N-Siret").value;
+    if (!/^\d{14}$/.test(numeroSiret)) {
+        alert("Le numéro de siret doit contenir une série de 14 chiffres uniquement.");
+        return false;
+    }
+
+    var champsObligatoires = document.querySelectorAll('[required]');
+    for (var i = 0; i < champsObligatoires.length; i++) {
+        if (!champsObligatoires[i].value.trim()) {
+            alert("Veuillez remplir tous les champs.");
+            return false;
+        }
+    }
+
+    alert("Formulaire soumis avec succès!");
+    toggle_hide_popup();
+    return true;  // Permettre la soumission du formulaire
+}
+
 // -------------------- fin parti gestion -------------------
-
-

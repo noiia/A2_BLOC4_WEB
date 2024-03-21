@@ -356,19 +356,11 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-each-informations input {
-    @apply  bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
+    @apply  bg-green-text_bg placeholder:text-sm placeholder-secondary-true_black focus:outline-none w-full;
 }
 
-.students-each-informations-title ul{
-    @apply inline-grid w-[97%] h-auto pl-2 text-center max-md:block;
-}
-
-.students-each-informations-title li{
-    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl;
-}
-
-.students-each-informations-title input {
-    @apply  text-center bg-green-text_bg placeholder:text-center placeholder-secondary-true_black focus:outline-none;
+#id-input-starting-date {
+    @apply bg-green-text_bg placeholder-secondary-true_black focus:outline-none w-[110px];
 }
 
 .container-students-description {
@@ -388,7 +380,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-pilote-promotion {
-    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-lg:w-[40%];
+    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-lg:w-[39%];
 }
 
 .container-pilote-promotion-header-name {
@@ -424,7 +416,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .container-skills {
-    @apply relative w-[50%] max-xl:w-[80%] max-md:w-[95%];
+    @apply relative w-[50%] max-xl:w-[80%] max-md:w-[95%] max-md:mt-[100px];
 }
 
 .id-internship {
@@ -473,6 +465,12 @@ body::-webkit-scrollbar-track:hover{
 
 .each-skill img {
     @apply inline-block w-[20px] h-[20px];
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */

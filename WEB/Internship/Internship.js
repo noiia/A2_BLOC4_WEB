@@ -35,4 +35,3 @@ function end_current_student(){
         alert("Veuillez sélectionné une valeur avant de valider");
     }
 }
-
