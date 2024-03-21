@@ -475,8 +475,8 @@
         var oldElement = 1;
         loadBubbleData(oldElement);
         addEventListener("click", (event) => {
-            var focusedBubble = document.activeElement.id;
-            if(oldElement != focusedBubble){
+            var focusedBubble = Number(document.activeElement.id);
+            if(oldElement !== focusedBubble && focusedBubble > 0){
                 document.getElementById("runway-container-intern-details").remove();
                 loadBubbleData(focusedBubble);
                 oldElement = focusedBubble;
