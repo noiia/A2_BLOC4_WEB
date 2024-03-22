@@ -15,6 +15,14 @@ use Doctrine\ORM\Mapping\Table;
 #[Table('Appliement_WishList')]
 class Appliement_WishList
 {
+    /*
+     * Status :
+     *  1 : Postulation
+     *  2 : engaged
+     *  3 : no engaged
+     *  4 : finished internship
+     *  5 : added to wishlist
+     */
     #[Id]
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]

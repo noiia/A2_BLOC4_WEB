@@ -58,6 +58,7 @@ class Internship
     #[ManyToMany(targetEntity: Skills::class)]
     private Collection $skills;
 
+    
     public function getSkills(): Collection
     {
         return $this->skills;
