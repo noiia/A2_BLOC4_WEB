@@ -1,0 +1,659 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply overflow-x-hidden;
+}
+
+* {
+  @apply font-display;
+}
+body {
+  @apply max-xl:overflow-y-hidden overflow-x-hidden;
+}
+.mobile-scroll{
+  @apply max-xl:overflow-y-auto;
+}
+
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar {
+  @apply w-[15px];
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-secondary-scroll_bar_grey;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+}
+
+/* --------------------- SECOND SCROLLBARS-------------------- */
+
+.second-scrollbar::-webkit-scrollbar {
+  @apply w-[15px] h-[15px];
+}
+
+.second-scrollbar::-webkit-scrollbar-thumb {
+  margin-block: 20px;
+  @apply bg-secondary-scroll_bar_grey;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.second-scrollbar::-webkit-scrollbar-track {
+  margin-block: 20px;
+  border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* ------------------- SCROLLBAR AVIS ---------------------*/
+.review-scrollbar::-webkit-scrollbar {
+  @apply w-[15px] h-[15px];
+}
+
+.review-scrollbar::-webkit-scrollbar-thumb {
+  margin-block: 10px;
+  @apply bg-secondary-scroll_bar_grey;
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.review-scrollbar::-webkit-scrollbar-track {
+  margin-block: 10px;
+  border-radius: 10px;
+}
+
+.review-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* ------------------- FIN SCROLLBAR AVIS ---------------------*/
+
+/* --------------------- HORIZONTAL SCROLL BAR ------------- */
+
+.container-company-details-intern-second-scrollbar {
+  @apply h-[270px] w-full px-3 overflow-x-scroll overflow-y-hidden whitespace-nowrap flex;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar {
+  @apply h-[15px] w-[15px];
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-secondary-scroll_bar_grey mt-1 mx-[3rem];
+  border: 2px solid rgb(185, 185, 185);
+  border-radius: 10px;
+  cursor: default;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
+  @apply mt-1 mx-[3rem];
+  border-radius: 10px;
+}
+
+.container-company-details-intern-second-scrollbar::-webkit-scrollbar-track:hover {
+  @apply bg-secondary-grey;
+  cursor: default;
+}
+
+/* --------------------- FIN HORIZONTAL SCROLL BAR ------------- */
+
+a {
+  @apply lg:shrink-0;
+}
+button[type="button"] {
+  @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
+}
+input[type="range"] {
+  @apply w-[70%] appearance-none bg-secondary-transparent;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  @apply hidden;
+}
+
+input[type="date"] {
+  @apply accent-green-header;
+}
+
+#rangeInput {
+  @apply w-[70%] h-[100%] appearance-none;
+}
+
+#rangeInput::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
+}
+
+#rangeInput2 {
+  @apply w-[100%] h-[100%] appearance-none;
+}
+
+#rangeInput2::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput2::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
+}
+
+#rangeInput3 {
+  @apply w-[100%] h-[100%] appearance-none;
+}
+
+#rangeInput3::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput3::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
+}
+/* -----------------------DEBUT HEADER------------------------------- */
+.navbar{
+  @apply flex relative justify-between box-border h-[60px] sm:h-[115px] w-screen bg-gradient-to-r from-green-linear to-secondary-true_white max-ml:p-0;
+}
+.navbar-logo{
+  @apply h-[70px] w-auto my-auto ml-5 hidden sm:inline-block;
+}
+.mini-navbar-logo{
+  @apply h-[35px] sm:h-[70px] w-auto inline-block my-auto ml-5 sm:hidden;
+}
+.navbar-links{
+  @apply flex items-center mt-3 max-lg:z-50 max-[1024px]:left-0 max-[1024px]:absolute max-[1024px]:w-screen max-[1024px]:bg-secondary-footer_grey max-[1024px]:bg-opacity-100 max-[1024px]:h-[100vh] max-[1024px]:justify-center max-[1024px]:items-center max-[1024px]:ml-[200%] max-[1024px]:transition-all sm:mr-10 max-[1024px]:flex-col;
+}
+.navbar-current{
+  @apply  flex flex-col items-center max-[850px]:items-center;
+}
+.navbar-current label{
+  @apply mt-[30px] bg-secondary-true_white text-secondary-true_white absolute bottom-0 h-3 max-lg:hidden;
+}
+.mobile-menu{
+  @apply max-ml:ml-0 m-0 fixed;
+}
+.navbar-links a{
+  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px] max-lg:hover:text-secondary-true_black;
+}
+.dropdown1{
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] max-lg:hover:bg-secondary-pp_grey;
+}
+.dropdown2{
+  @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-lg:hover:bg-secondary-pp_grey;
+}
+.polygone-logo{
+  @apply h-[15px] w-[35.42px] inline-block;
+}
+.dropdown-items1{
+  @apply hidden absolute bg-green-volet min-w-6 w-full z-50 max-lg:bg-secondary-pp_grey;
+}
+.dropdown-items2{
+  @apply hidden absolute bg-green-volet min-w-6 w-full mt-auto max-ml:relative z-50 max-lg:bg-secondary-pp_grey;
+}
+.dropdown-items1 > a{
+  @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
+}
+.dropdown-items2 > a{
+  @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
+}
+.dropdown-items1 a:hover{
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
+}
+.dropdown-items2 a:hover{
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
+}
+
+.dropdown-items2 #button-disconnect:hover{
+  @apply text-secondary-true_black max-lg:hover:text-secondary-true_white;
+}
+
+.dropdown-items1:hover{
+  @apply max-[850px]:hidden;
+}
+.dropdown-items2:hover{
+  @apply max-[850px]:hidden;
+}
+.dropdown-items2 span{
+  @apply bg-green-2 hover:underline bg-cover uppercase text-center w-full inline-block p-2 ml-[-8px] max-[850px]:mb-0 max-[850px]:absolute max-lg:bg-secondary-true_black;
+}
+
+.button-disconnect {
+  @apply w-full;
+}
+
+.dropdown-btn{
+  @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
+}
+.dropdown1:hover .dropdown-items1 {
+  @apply block max-[850px]:z-50;
+}
+.dropdown2:hover .dropdown-items2 {
+  display: block;
+}
+.navbar-hamburger{
+  @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] sm:right-[50px] w-[30px] sm:w-[60px] max-[1024px]:block max-[1024px]:z-50;
+}
+
+/* -----------------------FIN HEADER------------------------------- */
+
+/* full-runway */
+.full-runway {
+  @apply xl:grid xl:grid-cols-[500px_67.4%] 2xl:grid-cols-[800px_58%] max-[500px]:w-[350px] mx-auto;
+}
+/* filter */
+.search_bar {
+  @apply h-7 w-full flex;
+}
+.search_bar input[type="search"] {
+  @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-0 focus:text-green-button;
+}
+.search_bar button[type="button"] {
+  @apply h-full w-1/6 inline-block rounded-none rounded-r-xl bg-secondary-white;
+}
+.search_bar img {
+  @apply h-full pl-1 inline-block;
+}
+.filter-any_search-top p {
+  @apply pl-1 underline;
+}
+.filter-block_search-bot{
+  @apply flex flex-1 flex-wrap content-center justify-evenly;
+}
+.filter-block_search-bot div {
+  @apply rounded-xl bg-secondary-filter_grey text-center w-[48%] my-1 h-6 overflow-hidden;
+  img{
+    @apply hidden;
+  }
+}
+.filter-block_search-bot div:hover{
+  @apply py-1 bg-secondary-red cursor-pointer;
+  p {
+    @apply hidden;
+  }
+  img {
+    @apply block h-full ml-[45%];
+  }
+}
+
+.search_min-max {
+  @apply rounded-xl bg-secondary-white my-1 flex justify-around;
+}
+.search_min-max input {
+  @apply flex w-3/5 bg-secondary-transparent focus:outline-0 mr-1;
+}
+.search_range {
+  @apply flex justify-around;
+}
+
+.parent-filter {
+  @apply absolute top-[120px] max-[500px]:top-[65px] hidden 2xl:inline-block w-[300px] xl:ml-[-25px];
+}
+.filter {
+  @apply h-auto max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
+}
+#general-search_bar,
+#general-button_search {
+  @apply bg-secondary-filter_grey;
+}
+.filter-green {
+  @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
+}
+.filter-location,
+.filter-activity{
+  @apply h-[116px] w-full px-1 flex flex-col;
+}
+
+.filter-student-received{
+  @apply flex h-[100px] w-full px-1 flex-col justify-evenly;
+}
+.filter-company-note {
+  @apply flex h-[58px] w-full px-1 flex-col justify-evenly;
+}
+.filter-validate {
+  @apply flex justify-center h-[45px] w-full px-1;
+}
+.filter-mobile_on-filter {
+  @apply inline-block w-[350px] sm:w-[425px];
+}
+.filter-mobile_on-container {
+  @apply mt-[500px];
+}
+
+/* runway */
+.runway-container {
+  @apply relative h-auto w-[350px] sm:w-[425px] mx-auto sm:mx-auto 2xl:ml-[295px] inline-block z-40;
+}
+.filter-button {
+  @apply inline-block mt-5 2xl:hidden left-[10%] relative;
+}
+.container {
+  @apply my-5 z-40 items-stretch flex;
+}
+.container-intern {
+  @apply h-[200px] w-[350px] sm:h-[250px] sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+}
+.container-div-para {
+  @apply relative p-8;
+}
+.container-h1 {
+  @apply text-xl underline font-bold text-justify max-[500px]:leading-3;
+}
+.container-paragraph {
+  @apply mt-2 text-secondary-true_black text-justify;
+}
+.container-skills {
+  @apply relative mt-8 max-sm:mt-5;
+}
+.container-skills ul {
+  @apply flex max-sm:ml-[-1.25rem];
+}
+.container-skills li {
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey max-sm:text-sm;
+}
+.container_focus{
+  @apply outline outline-green-button;
+  .container-skills li {
+    @apply bg-green-button;
+  }
+}
+/* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
+
+.runway-elements {
+  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto max-sm:w-[350px];
+}
+
+.runway-container-intern-details {
+  @apply font-medium h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px] z-[49];
+}
+
+.container-intern-details {
+  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40 max-sm:mt-4;
+}
+
+.container-div-par-intern-details {
+  @apply w-[84%] h-auto mb-10 mx-[8%];
+}
+
+.container-close-tab {
+}
+
+.close-tab-logo-picture {
+  @apply inline-block h-[23px] max-ml:h-[15px];
+}
+
+.button-close-tab {
+  @apply mt-2 ml-[96%] inline-block;
+}
+
+.header-intern-details {
+  @apply mb-5 grid grid-cols-[20%_70%_10%];
+}
+
+.company-logo-picture {
+  @apply inline-block h-[103px] max-ml:h-[85px];
+}
+
+.close-tab-clicked {
+  @apply hidden z-0;
+}
+
+.display-none {
+  @apply hidden;
+}
+
+.retaur-haut-logo-picture {
+  @apply h-[23px];
+}
+
+.retourHaut {
+  @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
+}
+
+/* DEBUT ENTREPRISES */
+.container-header-company-details {
+  @apply mx-[8%] h-auto flex items-center;
+}
+
+.container-header-company-details h1{
+  @apply text-center text-4xl w-full;
+}
+
+.container-left-and-right {
+  @apply relative flex max-ml:block;
+}
+
+.container-company-details-left{
+  @apply inline-grid ml-[8%] mt-4 h-auto text-2xl w-[41%] max-ml:block max-ml:ml-[10%] max-ml:w-auto;
+}
+
+.container-company-details-sites h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-student-number{
+  @apply mt-4;
+}
+
+.container-company-details-student-number h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-right {
+  @apply inline-grid mr-[8%] mt-4 h-auto w-[41%] align-top max-ml:block max-ml:mr-0 max-ml:w-full;
+}
+
+.container-company-details-note {
+  @apply text-2xl text-center flex justify-center;
+}
+
+.container-company-details-note-bar{
+  @apply w-[80%] mt-3 mx-[10%] rounded-xl text-center;
+}
+
+.container-company-details-sector{
+  @apply text-2xl mt-4;
+}
+
+.container-company-details-sector h1{
+  @apply underline underline-offset-4 text-center;
+}
+
+.container-company-details-sector-name {
+  @apply max-ml:flex max-ml:flex-col max-ml:items-center;
+}
+
+.container-company-details-sector-name ul {
+  @apply w-1/2 inline-block mr-[-5px] mt-1 max-ml:mr-0 max-ml:last:mb-0 max-ml:w-[50%] max-ml:block;
+}
+.container-company-details-sector-name li {
+  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] max-ml:last:mb-0 overflow-hidden flex items-center max-ml:justify-around max-ml:w-full;
+}
+
+.container-company-details-description {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-[84%];
+}
+
+.container-company-details-description h1{
+  @apply underline underline-offset-4;
+}
+
+.container-company-details-intern {
+  @apply ml-[8%] mt-4 h-auto text-2xl w-auto flex;
+}
+
+.container-company-details-intern-name h1{
+  @apply mt-4 ml-[8%] text-2xl underline underline-offset-4;
+}
+
+.container-company-details-container-details-button {
+  @apply flex-none my-5 z-40 items-stretch first:ml-[6.5%] ml-10 last:mr-10;
+}
+
+.container-company-details-container-details {
+  @apply h-[214px] w-[290px] bg-secondary-white max-w-2xl rounded-xl 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+}
+
+.container-company-intern-div-para {
+  @apply relative p-4 text-sm;
+}
+
+.container-company-intern-skills {
+  @apply relative sm:mt-8;
+}
+.container-company-intern-skills ul {
+  @apply inline-flex;
+}
+.container-company-intern-skills li {
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+}
+
+.container-note-and-button {
+  @apply w-full flex;
+}
+
+.container-intern-container-note {
+  @apply mt-10 mx-[8%] w-[34%] inline-block;
+}
+
+.container-intern-your-note {
+  @apply text-2xl text-center flex justify-center flex-wrap;
+}
+
+.container-company-details-note-bar2 {
+  @apply w-auto mt-3 rounded-xl text-center mb-2;
+}
+
+.container-company-poster-button {
+  @apply inline-block w-[40%] ml-[1%] mr-[8%] align-top;
+}
+
+.button-poster {
+  @apply mt-10 cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
+}
+
+.button-poster:hover {
+  @apply outline-green-2;
+}
+
+.container-company-your-review {
+  @apply rounded-xl mt-4 bg-green-text_bg mx-[8%] w-[84%] h-[150px] resize-none p-3 placeholder:text-secondary-true_black;
+}
+
+.container-company-reviews-area {
+  @apply w-[84%] mx-[8%] mt-6 h-auto;
+}
+
+.container-company-reviews-area-name h1{
+  @apply text-2xl underline underline-offset-4 mb-2;
+}
+
+.container-company-each-review-name h1{
+  @apply text-2xl;
+}
+
+.container-company-each-review {
+  @apply rounded-xl bg-green-text_bg h-auto resize-none p-3 mb-4;
+}
+
+/* FIN ENTREPRISES * /
+
+/* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
+/* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
+.logo-company {
+  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10 max-sm:h-[70px] max-sm:w-[70px];
+}
+/* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
+
+/* --------------------------------- DEBUT PAGINATION --------------------*/
+
+.container-pagination {
+  @apply w-full flex justify-center h-[35px] text-xl;
+}
+
+.button-back {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+.page-number {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey mx-1 justify-center items-center;
+}
+
+.page-number-selected {
+  @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[35px] justify-center items-center mx-1;
+}
+
+.too-much-pages {
+  @apply inline-flex justify-center items-center text-secondary-scroll_bar_grey;
+}
+
+.button-next {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+/* --------------------------------- FIN PAGINATION --------------------*/
+
+/* footer */
+footer {
+  @apply bg-secondary-footer_black h-[1050px] w-[99.2dvw] lg:flex lg:justify-center lg:items-start lg:h-auto z-10 mt-10;
+}
+footer h1 {
+  @apply text-secondary-true_white text-xl;
+}
+footer li {
+  @apply text-secondary-footer_grey text-lg;
+}
+footer div {
+  @apply py-[30px] text-center lg:text-left;
+}
+.footer-logo-picture {
+  @apply inline-block h-auto lg:h-[60px] transition-all my-[20px];
+}
+.footer-society-list {
+  @apply ml-[100px] inline lg:inline-block;
+}
+.footer-society-list li {
+  @apply my-5;
+}
+.footer-help-list {
+  @apply ml-[100px] inline lg:inline-block;
+}
+.footer-help-list li {
+  @apply my-5;
+}
+.footer-image-list {
+  @apply ml-[100px] inline lg:inline-block h-[40px] w-auto text-center items-center justify-center;
+}
+.footer-image-list ul {
+  @apply lg:flex;
+}
+.footer-image-list li {
+  @apply flex justify-center mt-5 lg:mx-2;
+}
+.logo {
+  @apply h-[20px] lg:h-[40px] w-auto;
+}
