@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Welcome !{% endblock %}</title>
+        {% block pageIcon %}
+            <link rel="website icon" type="png" href='images/Icones/logo_seul_blanc.png'>
+        {% endblock %}
+      {% block stylesheet %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="js/main.js"></script>
+        {% block javascript %}{% endblock %}
+    {% endblock %}
+</head>
+<header>
+    {% block header %}
+        <nav class="navbar">
+            <img src="images/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
+            <img src="images/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
+            <div class="navbar-links">
+                <div class="navbar-current">
+                    <a href="../Welcome/Welcome.html.twig">Stages</a>
+                    <label class="label">**********</label>
+                </div>
+                <a href="">Entreprises</a>
+                <div class="dropdown1">
+                    <button class="dropdown-btn">Statistiques</button>
+                    <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
+                    <div class="dropdown-items1">
+                        <a href="">Entreprise</a>
+                        <a href="">Stages</a>
+                        <br>
+                    </div>
+                </div>
+                <div class="dropdown2">
+                    <button class="dropdown-btn">Prénom Nom</button>
+                    <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
+                    <div class="dropdown-items2">
+                        <a href="">Mon Profil</a>
+                        <a href="">Wishlist</a>
+                        <a href="" id="button-disconnect" class="button-disconnect"><span>Déconnexion</span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav>
+            <img class="navbar-hamburger" src="images/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
+        </nav>
+    {% endblock %}
+</header>
+<body>
+{% block body %}
+{% endblock %}
+</body>
+<footer>
+    {% block footer %}
+    <div class="footer-logo">
+        <img src='images/Icones/logo_blanc_entier.png' alt="logo de l'entreprise" class="footer-logo-picture">
+    </div>
+    <div class="footer-society-list">
+        <h1>Société</h1>
+        <ul>
+            <li>Condition d'utilisation</li>
+            <li>Politique de confidentialité</li>
+            <li>Politique de cookies</li>
+            <li>Carrière</li>
+            <li>A propos de nous</li>
+        </ul>
+    </div>
+    <div class="footer-help-list">
+        <h1>Aide</h1>
+        <ul>
+            <li>FAQs</li>
+            <li>Nous contacter</li>
+        </ul>
+    </div>
+    <div class="footer-image-list">
+        <h1>Suis nous</h1>
+        <ul>
+            <a href="https://www.facebook.com">
+                <li class="logo"><img src='images/Icones/logo_facebook.png' alt="logo facebook"></li>
+            </a>
+            <a href="https://www.instagram.com">
+                <li class="logo"><img src='images/Icones/logo_insta.png' alt="logo instagram"></li>
+            </a>
+            <a href="https://www.youtube.com">
+                <li class="logo"><img src='images/Icones/logo_ytb.png' alt="logo youtube"></li>
+            </a>
+            <a href="https://www.twitter.com">
+                <li class="logo"><img src='images/Icones/logo_X.png' alt="logo X"></li>
+            </a>
+        </ul>
+    </div>
+    {% endblock %}
