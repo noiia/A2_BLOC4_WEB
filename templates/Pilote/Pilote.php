@@ -9,7 +9,7 @@ function check_role(){
                 <li><a href="../Profile/Profile.html">Mon profil</a></li>
                 <li><a href="../Students/Students.html">Etudiants</a></li>
                 <li><a id="actual_page">Pilotes</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Company/Company.html">Entreprises</a></li>
+                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
                 <li><a href="../Internship/Internship.html">Stages</a></li>
                 <li><a href="../WishList/WishList.html">WishList</a></li>
             </ul>

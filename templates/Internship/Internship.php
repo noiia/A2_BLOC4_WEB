@@ -8,7 +8,7 @@ function check_role(){
             <ul>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Mon profil</a></li>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Students/Students.html">Mes étudiants</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Company/Company.html">Mes entreprises</a></li>
+                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
                 <li><a id="actual_page">Mes stages</a></li>
             </ul>
         </div>';
@@ -20,7 +20,7 @@ function check_role(){
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Mon profil</a></li>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Students/Students.html">Etudiants</a></li>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Company/Company.html">Entreprises</a></li>
+                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
                 <li><a id="actual_page">Stages</a></li>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/WishList/WishList.html">WishList</a></li>
             </ul>
