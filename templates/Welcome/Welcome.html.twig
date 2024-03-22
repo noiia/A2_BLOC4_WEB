@@ -1,88 +1,36 @@
 {% extends 'profile_base.html.twig' %}
-{% block title %}Inter'net - Fiche Etudiant{% endblock %}
-{% block stylesheet %} <link href="css/OutputFicheEtudiant.css" rel="stylesheet"/> {% endblock %}
+{% block title %}Inter'net - Postulations{% endblock %}
+{% block stylesheet %} <link href="css/OutputPostulation.css" rel="stylesheet"/> {% endblock %}
 {% block javascript %}
 <script src="main/main.js"></script>
-<script src="FicheEtudiant.js"></script>
+<script src="Postulation.js"></script>
 {% endblock %}
 
 {% block body %}
     <body>
 
     <div class="main_right">
-        <div class="right_container">
-            <div class="right_top">
-                <img src="images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
-                <div class="student_info">
-                    <div class="student_info_left1">
-                        <ul>
-                            <li><p>Nom</p></li>
-                            <li><p>Prenom</p></li>
-                            <li><p>Age</p></li>
-                        </ul>
-                    </div>
-                    <div class="student_info_left1">
-                        <ul>
-                            <li><p>Promotion</p></li>
-                            <li><p>N°utilisateur</p></li>
-                            <li><p>Centre</p></li>
-                        </ul>
-                    </div>
+        <div class="container_right">
+            <p class="right_title">Postulations</p>
+            <div class="main_container_right second-scrollbar">
+                {% for internship in internships %}
+                <div class="container_items">
+                    <p>{{ internship.job }} - {{ internship.company }}</p>
+                    <img src="images/Icones/check.png" alt="poubelle" class="poubelle-logo">
                 </div>
-            </div>
-
-            <div class="right_bottom">
-                <div class="top_container">
-                    <p class="title">Postulations</p>
-                    {% for internship in internships %}
-                    <div class="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">{{ internship.job }} - {{ internship.company }}</h1>
-                                <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
-                                <p class="container-paragraph">{{ internship.begin_date }}</p>
-                                <p class="container-paragraph">{{ internship.duration }}</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>{{ internship.competence_1 }}</li>
-                                        <li>{{ internship.competence_2 }}</li>
-                                        <li>{{ internship.competence_3 }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </div>
-                    {% endfor %}
-                </div>
-
-                <div class="bottom_container">
-                    <p class="title">Wishlist</p>
-                    {% for internship in internships %}
-                    <div class="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">{{ internship.job }} - {{ internship.company }}</h1>
-                                <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
-                                <p class="container-paragraph">{{ internship.begin_date }}</p>
-                                <p class="container-paragraph">{{ internship.duration }}</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>{{ internship.competence_1 }}</li>
-                                        <li>{{ internship.competence_2 }}</li>
-                                        <li>{{ internship.competence_3 }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                    </div>
-                    {% endfor %}
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
 
-    <script>
-        const menuHamburger = document.querySelector(".hamburger");
-        const containerLinks = document.querySelector(".main_left");
+    {% block javascript2 %}
+        <script>
+            const menuHamburger = document.querySelector(".hamburger");
+            const containerLinks = document.querySelector(".main_left");
 
-        menuHamburger.addEventListener('click', () => { containerLinks.classList.toggle('mobile-menu'); });
-    </script>
+            menuHamburger.addEventListener('click', () => { containerLinks.classList.toggle('mobile-menu'); });
+        </script>
+    {% endblock %}
 
     </body>
 {% endblock %}

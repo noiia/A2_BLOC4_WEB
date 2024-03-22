@@ -7,57 +7,35 @@
 *{
   @apply font-display;
 }
-body,html {
-  @apply inline-block overflow-x-hidden w-full h-full;
+body{
+  @apply inline-block;
 }
 button{
   @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
 }
-/* --------------------- DEBUT SCROLLBARS-------------------- */
-
-body::-webkit-scrollbar {
-  @apply w-[15px] max-xl:overflow-y-hidden;
-}
-
-body::-webkit-scrollbar-thumb {
-  @apply bg-secondary-scroll_bar_grey;
-  border: 2px solid rgb(185, 185, 185);
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-track:hover {
-  @apply bg-secondary-grey;
-}
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
-.second-scrollbar::-webkit-scrollbar {
+.second-scrollbar::-webkit-scrollbar{
   @apply w-[15px];
 }
 
-.second-scrollbar::-webkit-scrollbar-thumb {
+.second-scrollbar::-webkit-scrollbar-thumb{
   margin-block: 20px;
-  @apply bg-secondary-scroll_bar_grey;
-  border: 2px solid rgb(185, 185, 185);
-  border-radius: 10px;
-  cursor: default;
-}
-
-.second-scrollbar::-webkit-scrollbar-track {
-  margin-block: 20px;
+  @apply bg-secondary-scroll_bar_grey cursor-default;
+  border: 2px solid rgb(185,185,185);
   border-radius: 10px;
 }
 
-.second-scrollbar::-webkit-scrollbar-track:hover {
-  @apply bg-secondary-grey;
-  cursor: default;
+.second-scrollbar::-webkit-scrollbar-track{
+  margin-block: 20px;
+  border-radius: 10px;
+}
+
+.second-scrollbar::-webkit-scrollbar-track:hover{
+  @apply bg-secondary-grey cursor-default;
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
-
 /* ---------------------Onglet à gauche -------------------*/
 .main_left{
   @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
@@ -96,70 +74,32 @@ body::-webkit-scrollbar-track:hover {
   @apply hidden;
 }
 /* ---------------------Fin onglet gauche -------------------*/
-/* ---------------------profil -------------------*/
+
+/*Partie droite*/
 .main_right{
-  @apply fixed ml:left-1/4 left-0 right-0 top-0 bottom-0 lg:m-10 m-4 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-hidden;
+  @apply fixed md:left-1/4 md:right-0 md:top-0 bottom-0 m-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-y-auto max-[770px]:absolute max-[770px]:w-[70vh] max-[770px]:h-2/3 max-[770px]:bottom-0 max-[770px]:mt-2;
 }
-#right_title{
-  @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
+.right_title{
+  @apply absolute text-2xl right-5 top-7 py-1 rounded-xl outline outline-4 outline-green-button md:px-6 xl:px-10;
 }
-.right_container{
-  @apply w-full h-full flex flex-col relative;
+.container_right{
+  @apply w-auto h-auto flex justify-center bg-secondary-white overflow-y-auto max-[770px]:w-[70vh];
 }
-.right_top{
-  @apply flex static w-full h-1/3 items-end justify-evenly;
+.main_container_right {
+  @apply flex xl:w-[1100px] xl:h-[70vh] justify-center flex-col space-y-4 items-center overflow-y-auto bg-secondary-white mt-28 md:justify-normal max-[770px]:mt-4 max-[770px]:items-stretch;
 }
-#student_photo{
-  @apply w-[200px] h-[200px];
+.container_items{
+  @apply border-[4px] rounded-[11px] cursor-pointer hover:underline flex xl:p-6 xl:w-[850px] mt-[130px]  py-[15px] justify-between lg:w-[600px] md:p-4 md:w-[450px] md:mt-1;
 }
-.student_info{
-  @apply flex p-1 w-1/2 h-[175px] rounded-xl outline outline-green-button lg:flex-col flex-row max-sm:flex-col lg:flex-wrap flex-nowrap justify-evenly content-around;
+.container_items p{
+  @apply flex items-center max-[770px]:mr-4;
 }
-.student_info ul{
-  @apply relative w-full flex lg:flex-row flex-col justify-evenly;
+.container_items img{
+  @apply xl:w-8 flex md:w-[25px] max-[770px]:w-[25px];
 }
-.right_bottom{
-  @apply flex px-8 flex-col static h-[70%] w-full overflow-x-hidden;
+.container_items:hover{
+  @apply border-green-header;
 }
-.scroll_container{
-  @apply flex flex-row w-full h-1/2 overflow-x-auto overflow-y-hidden;
-}
-p.title{
-  @apply absolute font-normal xl:text-xl sm:text-lg ;
-}
-
-/* --------------------- containers -------------------*/
-.container-intern {
-  @apply h-5/6 w-[275px] rounded-xl bg-secondary-true_white outline outline-secondary-grey mt-8 mx-2 first:ml-0 last:mr-1 cursor-pointer;
-}
-.container-div-para {
-  @apply relative flex flex-col justify-evenly text-sm h-full w-full p-4;
-}
-.container-h1 {
-  @apply text-sm underline font-bold text-justify ;
-}
-.container-paragraph {
-  @apply text-secondary-true_black text-justify;
-}
-.container-div-para ul {
-  @apply flex;
-}
-.container-div-para li {
-  @apply w-[125px] h-[20px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
-}
-.container-intern:hover{
-  @apply outline-green-button;
-  .container-div-para li{
-    @apply bg-green-button;
-  }
-}
-
-/* -------------------Fin containers -------------------*/
-
-/*Hamburger*/
-.hamburger{
-  @apply block ml:hidden absolute left-5 top-5 h-16 w-16 contrast-0 z-[100];
-}
-.mobile-menu{
-  @apply fixed flex content-center items-center w-full max-[850px]:h-screen z-50;
+.container_items:focus-within{
+  @apply border-green-button;
 }
