@@ -15,14 +15,6 @@ function focus_container(id){
 
 
 // ------------------ parti Welcome/Entreprise ----------------
-window.addEventListener("resize", () => {
-    const widthScreen = window.innerWidth;
-    if (widthScreen > 850) {
-        document.querySelector(".parent-filter").classList.remove('filter-mobile_on-filter');
-        document.querySelector(".runway-container").classList.remove('filter-mobile_on-container');
-    }
-});
-
 window.onscroll = function() {
     afficherOuMasquerBouton();
 };
@@ -101,25 +93,46 @@ function toggle_hide_popup(){
     document.querySelector('.container-add-student').classList.toggle('hide_container');
 }
 
-function validerFormulaire() {
-
-    var numeroSiret = document.getElementById("N-Siret").value;
-    if (!/^\d{14}$/.test(numeroSiret)) {
-        alert("Le numéro de siret doit contenir une série de 14 chiffres uniquement.");
-        return false;
-    }
-
-    var champsObligatoires = document.querySelectorAll('[required]');
-    for (var i = 0; i < champsObligatoires.length; i++) {
-        if (!champsObligatoires[i].value.trim()) {
-            alert("Veuillez remplir tous les champs.");
+function validerFormulaire(isCompany) {
+    if (isCompany) {
+        var numeroSiret = document.getElementById('N-Siret').value;
+        if (!/^\d{14}$/.test(numeroSiret)) {
+            alert("Le numéro de siret doit contenir une série de 14 chiffres uniquement.");
             return false;
         }
     }
 
-    alert("Formulaire soumis avec succès!");
-    toggle_hide_popup();
-    return true;  // Permettre la soumission du formulaire
+        var champsObligatoires = document.querySelectorAll('[required]');
+        for (var i = 0; i < champsObligatoires.length; i++) {
+            if (!champsObligatoires[i].value.trim()) {
+                alert("Veuillez remplir tous les champs.");
+                return false;
+            }
+        }
+
+        alert("Formulaire soumis avec succès!");
+        toggle_hide_popup();
+        return true;  // Permettre la soumission du formulaire
 }
 
-// -------------------- fin parti gestion -------------------
+// ------------ vérifier promotion
+function valid_promotion(isCompany = false) {
+    // Récupérer la valeur de l'input
+    var inputValue = document.getElementById('select-student-year').value;
+
+    // Récupérer les options disponibles
+    var options = document.getElementById('student-year').options;
+
+    // Vérifier si la valeur saisie est une des options
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value === inputValue) {
+            validerFormulaire(isCompany);
+            break;
+        } else {
+            alert('Veuillez sélectionner une option de la liste.');
+            break;
+        }
+    }
+}
+
+// -------------------- fin parti gestion ------------------- //

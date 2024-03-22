@@ -110,3 +110,10 @@ function send_file(file) {
     xhr.send(fd);
 }
 
+window.addEventListener("resize", () => {
+    const widthScreen = window.innerWidth;
+    if (widthScreen > 850) {
+        document.querySelector(".parent-filter").classList.remove('filter-mobile_on-filter');
+        document.querySelector(".runway-container").classList.remove('filter-mobile_on-container');
+    }
+});

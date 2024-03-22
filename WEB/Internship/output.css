@@ -1196,6 +1196,8 @@ body::-webkit-scrollbar-track:hover{
   .internship_top{
     margin: 0.5rem;
     margin-top: 0px;
+    flex-direction: row-reverse;
+    align-items: flex-end;
   }
 }
 
@@ -1231,6 +1233,12 @@ body::-webkit-scrollbar-track:hover{
   background-color: rgb(244 242 238 / var(--tw-bg-opacity));
   outline-style: solid;
   outline-color: #39A325;
+}
+
+@media not all and (min-width: 768px){
+  .right_advantages{
+    height: 75%;
+  }
 }
 
 .right_advantages > p{
@@ -1538,7 +1546,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 #id-input-starting-date{
-  width: 110px;
+  width: 120px;
   --tw-bg-opacity: 1;
   background-color: rgb(131 175 104 / var(--tw-bg-opacity));
 }
