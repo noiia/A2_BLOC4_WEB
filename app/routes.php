@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 //use \src\Application\Actions\User\ListUsersAction;
 //use \src\Application\Actions\User\ViewUserAction;
+use App\Controller\CompanyController;
 use App\Controller\InternshipController;
 use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
@@ -88,6 +89,11 @@ return function (App $app) {
         } else {
             return $response->withStatus(404)->getBody()->write('Stage introuvable');
         }
+    });
+    $app->get('/Entreprise', function (Request $request, Response $response, array $args) use ($twig, $container) {
+        $controller = new CompanyController($twig);
+        $companyResponse = $controller->Company($request, $response,[], $container);
+        return $companyResponse;
     });
     /*$app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);

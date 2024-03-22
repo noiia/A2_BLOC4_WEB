@@ -54,7 +54,7 @@ class Users
     private Collection $promotions;
     #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'users')]
     private Collection $wishlists_appliement;
-    /*#[ManyToMany(targetEntity: Company::class, mappedBy: 'users')]
+    /*#[ManyToMany(targetEntity: CompanyManagement::class, mappedBy: 'users')]
     private Collection $companies;*/
     public function __construct()
     {

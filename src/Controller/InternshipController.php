@@ -9,7 +9,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 
 use App\Entity\Internship;
-use App\Entity\Skills;
 
 class InternshipController
 {
@@ -58,10 +57,5 @@ class InternshipController
         return $view->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
         ]);
-    }
-    public function Entreprise(Request $request, Response $response, array $args): Response
-    {
-        $view = Twig::fromRequest($request);
-        return $this->twig->render($response, 'Entreprises/Entreprises.html.twig');
     }
 }

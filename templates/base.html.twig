@@ -23,11 +23,13 @@
             <div class="navbar-links">
                 <div class="navbar-current">
                     <a href="../Welcome/Welcome.html.twig">Stages</a>
-                    <label class="label">**********</label>
+                    {% block welcome %}{% endblock %}
                 </div>
                 <a href="">Entreprises</a>
+                {% block company %}{% endblock %}
                 <div class="dropdown1">
                     <button class="dropdown-btn">Statistiques</button>
+                    {% block Statistics %}{% endblock %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
                         <a href="">Entreprise</a>
@@ -37,6 +39,7 @@
                 </div>
                 <div class="dropdown2">
                     <button class="dropdown-btn">Prénom Nom</button>
+                    {% block Profiles %}{% endblock %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
                         <a href="">Mon Profil</a>
