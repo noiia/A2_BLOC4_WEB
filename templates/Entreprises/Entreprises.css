@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply overflow-x-hidden;
+}
+
 * {
   @apply font-display;
 }
@@ -83,8 +87,6 @@ body::-webkit-scrollbar-track:hover {
 
 /* ------------------- FIN SCROLLBAR AVIS ---------------------*/
 
-/* --------------------- FIN SCROLLBARS-------------------- */
-
 /* --------------------- HORIZONTAL SCROLL BAR ------------- */
 
 .container-company-details-intern-second-scrollbar {
@@ -96,14 +98,14 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-secondary-scroll_bar_grey ml-[6.5%] mr-[45px] mt-1;
+  @apply bg-secondary-scroll_bar_grey mt-1 mx-[3rem];
   border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
   cursor: default;
 }
 
 .container-company-details-intern-second-scrollbar::-webkit-scrollbar-track {
-  @apply ml-[65px] mr-[45px] mt-1;
+  @apply mt-1 mx-[3rem];
   border-radius: 10px;
 }
 
@@ -121,7 +123,7 @@ button[type="button"] {
   @apply bg-green-true_btn rounded-xl h-8 w-4/5 font-bold;
 }
 input[type="range"] {
-  @apply w-[70%] appearance-none;
+  @apply w-[70%] appearance-none bg-secondary-transparent;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   @apply bg-secondary-white w-full cursor-pointer rounded-xl border-none appearance-none;
@@ -129,8 +131,25 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   @apply bg-green-true_btn cursor-pointer border-solid border-2 border-green-button appearance-none rounded-full h-4 w-4;
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  @apply hidden;
+}
+
 input[type="date"] {
   @apply accent-green-header;
+}
+
+#rangeInput {
+  @apply w-[70%] h-[100%] appearance-none;
+}
+
+#rangeInput::-webkit-slider-runnable-track {
+  @apply bg-green-2 w-full cursor-pointer rounded-xl border-none appearance-none;
+}
+
+#rangeInput::-webkit-slider-thumb {
+  @apply bg-secondary-true_black cursor-pointer border-solid border-2 border-secondary-true_black appearance-none rounded-full h-4 w-4;
 }
 
 #rangeInput2 {
@@ -179,7 +198,7 @@ input[type="date"] {
   @apply max-ml:ml-0 m-0 fixed;
 }
 .navbar-links a{
-  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px];
+  @apply text-secondary-true_black flex no-underline text-[20px] px-[25px] font-semibold font-display transition-all hover:text-green-button hover:underline max-[850px]:mb-[40px] max-lg:hover:text-secondary-true_black;
 }
 .dropdown1{
   @apply list-none p-0 m-0 relative inline-block hover:bg-green-volet max-ml:w-[190px] max-ml:mb-[40px] max-lg:hover:bg-secondary-pp_grey;
@@ -203,11 +222,16 @@ input[type="date"] {
   @apply text-secondary-true_white no-underline text-[15px] block ml-2 mt-4 text-left p-0 hover:underline hover:text-secondary-true_white max-[850px]:mb-3;
 }
 .dropdown-items1 a:hover{
-  @apply hover:text-green-button;
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
 }
 .dropdown-items2 a:hover{
-  @apply hover:text-green-button;
+  @apply hover:text-green-button max-lg:hover:text-secondary-true_black;
 }
+
+.dropdown-items2 #button-disconnect:hover{
+  @apply text-secondary-true_black max-lg:hover:text-secondary-true_white;
+}
+
 .dropdown-items1:hover{
   @apply max-[850px]:hidden;
 }
@@ -215,8 +239,13 @@ input[type="date"] {
   @apply max-[850px]:hidden;
 }
 .dropdown-items2 span{
-  @apply bg-green-2 bg-cover uppercase text-center w-full inline-block p-2 max-[850px]:mb-0 max-[850px]:absolute;
+  @apply bg-green-2 hover:underline bg-cover uppercase text-center w-full inline-block p-2 ml-[-8px] max-[850px]:mb-0 max-[850px]:absolute max-lg:bg-secondary-true_black;
 }
+
+.button-disconnect {
+  @apply w-full;
+}
+
 .dropdown-btn{
   @apply bg-secondary-transparent text-[20px] pl-[25px] font-semibold font-display transition-all;
 }
@@ -252,12 +281,25 @@ input[type="date"] {
 .filter-any_search-top p {
   @apply pl-1 underline;
 }
-.filter-any_search-bot ul {
-  @apply w-1/2 inline-block mr-[-5px] mt-1;
+.filter-block_search-bot{
+  @apply flex flex-1 flex-wrap content-center justify-evenly;
 }
-.filter-any_search-bot li {
-  @apply rounded-xl bg-secondary-filter_grey text-center w-11/12 my-1 h-6 overflow-hidden;
+.filter-block_search-bot div {
+  @apply rounded-xl bg-secondary-filter_grey text-center w-[48%] my-1 h-6 overflow-hidden;
+  img{
+    @apply hidden;
+  }
 }
+.filter-block_search-bot div:hover{
+  @apply py-1 bg-secondary-red cursor-pointer;
+  p {
+    @apply hidden;
+  }
+  img {
+    @apply block h-full ml-[45%];
+  }
+}
+
 .search_min-max {
   @apply rounded-xl bg-secondary-white my-1 flex justify-around;
 }
@@ -272,7 +314,7 @@ input[type="date"] {
   @apply absolute top-[120px] max-[500px]:top-[65px] hidden 2xl:inline-block w-[300px] xl:ml-[-25px];
 }
 .filter {
-  @apply h-[998px] max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
+  @apply h-auto max-2xl:mt-1 w-4/5 left-[10%] ml-4 mt-10 relative;
 }
 #general-search_bar,
 #general-button_search {
@@ -282,8 +324,8 @@ input[type="date"] {
   @apply h-[430px] w-full mt-4 bg-green-filter rounded-xl;
 }
 .filter-location,
-.filter-skills{
-  @apply h-[116px] w-full px-1;
+.filter-activity{
+  @apply h-[116px] w-full px-1 flex flex-col;
 }
 
 .filter-student-received{
@@ -299,7 +341,7 @@ input[type="date"] {
   @apply inline-block w-[350px] sm:w-[425px];
 }
 .filter-mobile_on-container {
-  @apply mt-[1000px];
+  @apply mt-[500px];
 }
 
 /* runway */
@@ -325,18 +367,16 @@ input[type="date"] {
   @apply mt-2 text-secondary-true_black text-justify;
 }
 .container-skills {
-  @apply relative sm:mt-8;
+  @apply relative mt-8 max-sm:mt-5;
 }
 .container-skills ul {
-  @apply flex;
+  @apply flex max-sm:ml-[-1.25rem];
 }
 .container-skills li {
-  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
+  @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey max-sm:text-sm;
 }
-.container:focus {
-  .container-intern {
-    @apply outline outline-green-button rounded-xl;
-  }
+.container_focus{
+  @apply outline outline-green-button;
   .container-skills li {
     @apply bg-green-button;
   }
@@ -344,15 +384,15 @@ input[type="date"] {
 /* -----------------------------LA BELLE BUBULLE FAITE PAR STEPHAN---------------------------------- */
 
 .runway-elements {
-  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto;
+  @apply w-[430px] xl:ml-[25px] max-xl:mx-auto max-sm:w-[350px];
 }
 
 .runway-container-intern-details {
-  @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px];
+  @apply font-medium h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:absolute max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px] z-[49];
 }
 
 .container-intern-details {
-  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40;
+  @apply  overflow-x-hidden sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40 max-sm:mt-4;
 }
 
 .container-div-par-intern-details {
@@ -363,7 +403,7 @@ input[type="date"] {
 }
 
 .close-tab-logo-picture {
-  @apply inline-block h-[23px];
+  @apply inline-block h-[23px] max-ml:h-[15px];
 }
 
 .button-close-tab {
@@ -371,11 +411,11 @@ input[type="date"] {
 }
 
 .header-intern-details {
-  @apply mb-5 grid grid-cols-3 grid-cols-[20%_70%_10%];
+  @apply mb-5 grid grid-cols-[20%_70%_10%];
 }
 
 .company-logo-picture {
-  @apply inline-block h-[103px];
+  @apply inline-block h-[103px] max-ml:h-[85px];
 }
 
 .close-tab-clicked {
@@ -396,15 +436,19 @@ input[type="date"] {
 
 /* DEBUT ENTREPRISES */
 .container-header-company-details {
-  @apply mx-[8%] h-auto;
+  @apply mx-[8%] h-auto flex items-center;
 }
 
 .container-header-company-details h1{
-  @apply inline-block text-center text-4xl ml-[30%];
+  @apply text-center text-4xl w-full;
+}
+
+.container-left-and-right {
+  @apply relative flex max-ml:block;
 }
 
 .container-company-details-left{
-  @apply inline-block ml-[8%] mt-4 h-auto text-2xl w-[41%];
+  @apply inline-grid ml-[8%] mt-4 h-auto text-2xl w-[41%] max-ml:block max-ml:ml-[10%] max-ml:w-auto;
 }
 
 .container-company-details-sites h1{
@@ -420,7 +464,7 @@ input[type="date"] {
 }
 
 .container-company-details-right {
-  @apply inline-block mr-[8%] mt-4 h-auto w-[41%] align-top ;
+  @apply inline-grid mr-[8%] mt-4 h-auto w-[41%] align-top max-ml:block max-ml:mr-0 max-ml:w-full;
 }
 
 .container-company-details-note {
@@ -439,11 +483,15 @@ input[type="date"] {
   @apply underline underline-offset-4 text-center;
 }
 
+.container-company-details-sector-name {
+  @apply max-ml:flex max-ml:flex-col max-ml:items-center;
+}
+
 .container-company-details-sector-name ul {
-  @apply w-1/2 inline-block mr-[-5px] mt-1;
+  @apply w-1/2 inline-block mr-[-5px] mt-1 max-ml:mr-0 max-ml:last:mb-0 max-ml:w-[50%] max-ml:block;
 }
 .container-company-details-sector-name li {
-  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] overflow-hidden flex items-center ;
+  @apply p-2 rounded-xl text-center bg-green-button w-[90%] my-4 h-auto min-h-[65px] max-ml:last:mb-0 overflow-hidden flex items-center max-ml:justify-around max-ml:w-full;
 }
 
 .container-company-details-description {
@@ -484,12 +532,16 @@ input[type="date"] {
   @apply w-[125px] h-[38px] rounded-xl p-3 mx-1 flex items-center justify-center bg-secondary-grey;
 }
 
+.container-note-and-button {
+  @apply w-full flex;
+}
+
 .container-intern-container-note {
   @apply mt-10 mx-[8%] w-[34%] inline-block;
 }
 
 .container-intern-your-note {
-  @apply text-2xl text-center flex justify-center;
+  @apply text-2xl text-center flex justify-center flex-wrap;
 }
 
 .container-company-details-note-bar2 {
@@ -533,9 +585,37 @@ input[type="date"] {
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 /* --------------------------------DEBUT RUNWAY ENTREPRISE------------------------------------------- */
 .logo-company {
-  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10;
+  @apply absolute right-0 top-0 h-[100px] w-[100px] mt-9 mr-10 max-sm:h-[70px] max-sm:w-[70px];
 }
 /* --------------------------------FIN RUNWAY ENTREPRISE------------------------------------------- */
+
+/* --------------------------------- DEBUT PAGINATION --------------------*/
+
+.container-pagination {
+  @apply w-full flex justify-center h-[35px] text-xl;
+}
+
+.button-back {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+.page-number {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey mx-1 justify-center items-center;
+}
+
+.page-number-selected {
+  @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[35px] justify-center items-center mx-1;
+}
+
+.too-much-pages {
+  @apply inline-flex justify-center items-center text-secondary-scroll_bar_grey;
+}
+
+.button-next {
+  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+}
+
+/* --------------------------------- FIN PAGINATION --------------------*/
 
 /* footer */
 footer {

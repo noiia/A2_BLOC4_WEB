@@ -11,41 +11,43 @@
         {% endblock %}
       {% block stylesheet %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="js/main.js"></script>
         {% block javascript %}{% endblock %}
     {% endblock %}
 </head>
 <header>
     {% block header %}
         <nav class="navbar">
-            <img src='images/Icones/logo_blanc_entier.png' alt="company-logo" class="navbar-logo">
-            <img src='images/Icones/logo_seul_blanc.png' alt="mini-company-logo" class="mini-navbar-logo">
+            <img src="images/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
+            <img src="images/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
             <div class="navbar-links">
-                <a href='../Welcome/Welcome.html'>Stages</a>
                 <div class="navbar-current">
-                    <a href='/Entreprises.html'>Entreprises</a>
+                    <a href="../Welcome/Welcome.html.twig">Stages</a>
+                    <label class="label">**********</label>
                 </div>
+                <a href="">Entreprises</a>
                 <div class="dropdown1">
                     <button class="dropdown-btn">Statistiques</button>
-                    <img src='images/Icones/Polygon_1.png' alt="polygone-logo" class="polygone-logo">
+                    <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
-                        <a href='template/Entreprises.html.twig'>Entreprise</a>
-                        <a href="#">Stages</a>
+                        <a href="">Entreprise</a>
+                        <a href="">Stages</a>
                         <br>
                     </div>
                 </div>
                 <div class="dropdown2">
                     <button class="dropdown-btn">Prénom Nom</button>
-                    <img src='images/Icones/Polygon_1.png' alt="polygone-logo" class="polygone-logo">
+                    <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
-                        <a href='../Profile/Profile.html'>Mon Profil</a>
-                        <a href='../WishList/WishList.html'>Wishlist</a>
-                        <a href='../Login/login.php'><span>Déconnexion</span></a>
+                        <a href="">Mon Profil</a>
+                        <a href="">Wishlist</a>
+                        <a href="" id="button-disconnect" class="button-disconnect"><span>Déconnexion</span></a>
                     </div>
                 </div>
             </div>
         </nav>
         <nav>
-            <img class="navbar-hamburger" src="images/Icones/hamburger.png" alt="hamburger">
+            <img class="navbar-hamburger" src="images/Icones/hamburger.png" alt="hamburger" onclick="toggle_navbarMenu();">
         </nav>
     {% endblock %}
 </header>
@@ -92,6 +94,4 @@
             </a>
         </ul>
     </div>
-    {% endblock %}
-    {% block javascript2 %}
     {% endblock %}

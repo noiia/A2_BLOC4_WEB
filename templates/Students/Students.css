@@ -8,11 +8,12 @@
     @apply font-display;
 }
 body{
-    @apply inline-block;
+    @apply inline-block overflow-hidden;
 }
 button{
     @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
 }
+
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
 body::-webkit-scrollbar{
@@ -51,6 +52,28 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .second-scrollbar::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+/* --------------------- Troisieme SCROLLBARS -------------------- */
+
+.second-scrollbar-description-internship::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
+    margin-block: 0px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track{
+    margin-block: 0px;
+    border-radius: 10px;
+}
+
+.second-scrollbar-description-internship::-webkit-scrollbar-track:hover{
     @apply bg-secondary-grey cursor-default;
 }
 
@@ -145,7 +168,32 @@ body::-webkit-scrollbar-track:hover{
     }
 }
 .student{
-    @apply w-[90%] my-2 font-normal outline bg-secondary-transparent outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
+    @apply w-[90%] my-2 font-normal outline bg-secondary-white outline-secondary-grey hover:outline-green-filter;
+}
+.container_focus{
+    @apply sticky top-12 outline-green-button;
+}
+
+.del_bg{
+    @apply hidden fixed w-full h-full backdrop-blur-sm;
+}
+.del_block{
+    @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
+}
+.del_text{
+    @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
+}
+.del_button{
+    @apply absolute flex w-full bottom-5 justify-center;
+    button {
+        @apply w-[30%] py-3 mx-3 bg-green-true_btn;
+    }
+}
+.active-del_block{
+    @apply block;
+}
+.del_current_container{
+    @apply hidden;
 }
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/
@@ -201,43 +249,107 @@ body::-webkit-scrollbar-track:hover{
     @apply py-1 px-5 bg-green-true_btn rounded-xl outline-green-button hover:outline;
 }
 
-/* 
-.right_top{
-    @apply h-2/5 flex justify-between items-end;
-}
-#menu{
-    @apply hidden absolute cursor-pointer w-10 top-0 m-2 max-ml:block contrast-0;
-}
-#student_photo{
-    @apply h-full ml-5 p-4 max-md:h-auto max-md:w-1/2 max-md:self-center max-md:m-0 max-sm:min-w-[170px] max-sm:min-h-[170px];
-}
-.student_info{
-    @apply relative overflow-hidden flex w-1/2 h-2/3 rounded-xl outline outline-green-button mr-4 px-1 flex-row flex-wrap content-around justify-evenly max-lg:flex-col max-lg:content-start;
-}
-.student_info p{
-    @apply w-1/3 h-5 text-center max-lg:w-full;
-}
-#student_info-long_text{
-    @apply w-2/3 max-lg:w-full;
-}
-
-.right_bot{
-    @apply relative p-3 h-3/5 w-full pb-10;
-}
-.label-student_description{
-    @apply block pl-5 font-semibold;
-}
-#student_description{
-    @apply h-full w-full resize-none bg-secondary-white;
-}
-
-*/
-
-
-
-
-
 /* --------------- fin profil à droite --------------------*/
 
+/* ------------------ DEBUT POP-UP AJOUTER ETUDIANT -----------------*/
+.container-add-student {
+    @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
+}
+.hide_container{
+    @apply hidden;
+}
+
+.add-student-name {
+    @apply absolute left-[3%] top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
+}
+
+.add-student-name h1 {
+    @apply text-2xl max-md:text-lg;
+}
+
+.div-button-apply {
+    @apply absolute top-8 right-[3%] mb-4 min-w-[15%];
+}
+
+.div-button-cancel {
+    @apply absolute max-ml:right-[23%] right-[21%] top-8 mb-4 min-w-[15%] max-md:right-[26%];
+}
+
+.button-apply {
+    @apply w-full;
+}
+
+.button-cancel {
+    @apply w-full;
+}
+
+.container-informations-and-description {
+    @apply bg-green-header w-[94%] h-[86%] mx-[3%] mt-[90px] p-1;
+}
+
+.container-students-informations {
+    @apply relative flex rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[15px] outline outline-secondary-true_black outline-4 p-8 max-lg:flex-col max-lg:justify-evenly max-lg:items-center max-md:p-0;
+}
+
+.container-student-profile-picture {
+    @apply w-[20%] min-w-[130px] h-full relative flex items-center justify-start;
+}
+
+.student-profile-picture {
+    @apply w-auto h-auto min-w-[130px] min-h-[130px];
+}
+
+.add-profile-picture-button {
+    @apply min-w-[33px] min-h-[35px] w-[15%] h-[15%] absolute bottom-0 right-0 max-xl:bottom-5 max-lg:bottom-9;
+}
+
+.add-profile-picture-button>input {
+    @apply hidden;
+}
+
+.add-profile-picture-button img:hover {
+    @apply cursor-pointer;
+}
+
+.students-informations {
+    @apply h-full w-[80%] max-lg:w-full;
+}
+
+.students-each-informations ul {
+    @apply inline-grid w-[32%] h-auto pl-2;
+}
+
+.students-each-informations li {
+    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl first:mt-[50px] max-lg:first:mt-[0px];
+}
+
+.students-each-informations-long {
+    @apply p-2 bg-green-text_bg mx-2 my-2 rounded-xl first:mt-[50px] w-[200%];
+}
+
+.students-each-informations input {
+    @apply  w-full bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
+}
+
+.container-students-description-name h1{
+    @apply text-2xl underline underline-offset-4 h-auto;
+}
+
+.container-students-description {
+    @apply overflow-auto relative rounded-xl bg-secondary-white w-[98%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6;
+}
+
+.students-description textarea{
+    @apply overflow-auto w-full h-full resize-none bg-secondary-filter_grey outline-none;
+}
+
+.students-description {
+    @apply mt-2 p-4 w-full h-[80%] bg-secondary-filter_grey rounded-xl;
+}
+
+.students-description p {
+    @apply text-xl;
+}
+/* ------------------ FIN POP-UP AJOUTER ETUDIANT ----------------- */
 
 /* ----------------------- fin gestion des eleves ------------------*/

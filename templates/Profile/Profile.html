@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="website icon" type="png" href="../../Assets/Icones/logo_seul_blanc.png">
+    <link rel="website icon" type="png" href="images/Icones/logo_seul_blanc.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link href="../../public/css/OutputProfil.css" rel="stylesheet">
-    <title>Inter'net - Profile</title>
+    <script src="js/main.js"></script>
+    <script src="js/Profile.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Mon profil</title>
 </head>
-
-<script>
-    $(document).ready(function(){
-        var roleValue = "role";
-        var profilePHP = "Profile.php";
-        data = {
-            action : roleValue
-        };
-        $.post(profilePHP, data, function(response){
-            $(".main_left").append(response);
-        })
-    })
-</script>
 
 <body>
     <div class="main_left">
-        <img src="../../Assets/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
-        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html.twig'">Retour</button>
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
     </div>
     <div class="main_right">
         <p id="right_title">Mon profil</p>
         <div class="right_top">
-            <img src="../../Assets/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
-            <img src="../../Assets/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
+            <img src="images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+            <img src="images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
             <div class="student_info">
                 <p>Albert</p>
                 <p>Einstein</p>
@@ -60,14 +49,3 @@
 </body>
 
 </html>
-
-<script>
-function toggle_menu(){
-    const leftMenu = document.querySelector(".main_left");
-    const closeMenu = document.querySelector("#close_menu");
-    leftMenu.classList.toggle('mobile-menu');
-    closeMenu.classList.toggle('display-cross');
-}
-
-</script>
-
