@@ -1490,7 +1490,7 @@ body::-webkit-scrollbar-track:hover{
 
 @media not all and (min-width: 768px){
   .students-informations{
-    margin-top: 300px;
+    margin-top: 375px;
     width: 90%;
   }
 }

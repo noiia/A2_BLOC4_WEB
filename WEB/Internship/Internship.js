@@ -35,3 +35,25 @@ function end_current_student(){
         alert("Veuillez sélectionné une valeur avant de valider");
     }
 }
+
+function valid_comboBox_internship(isCompany = false) {
+    // Récupérer la valeur de l'input
+    var inputValue1 = document.getElementById('select-option1').value;
+   // Récupérer les options disponibles
+    var options1 = document.getElementById('option1').options;
+    // Vérifier si la valeur saisie est une des options
+
+    isValid = false;
+
+    for (var i = 0; i < options1.length; i++) {
+        if (options1[i].value === inputValue1) {
+            validerFormulaire(isCompany);
+            isValid = true;
+            break;
+        }
+    }
+
+    if (!isValid) {
+        alert('Veuillez sélectionner une option de la liste.');
+    }
+}

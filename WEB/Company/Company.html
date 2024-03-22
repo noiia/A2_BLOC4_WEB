@@ -111,7 +111,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="valid_promotion(true)">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="valid_comboBox(true)">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations">
@@ -132,8 +132,8 @@
                             <ul id="id_first_ul">
                                 <li><input placeholder="Nom" required></input></li>
                                 <li><input type="number" placeholder="N° SIRET" id="N-Siret" required></input></li>
-                                <li><input placeholder="Secteur d'activités..." list="sector" id="select-sector" name="select-sector" required>
-                                    <datalist id="sector">
+                                <li><input placeholder="Secteur d'activités..." list="option1" id="select-option1" name="select-sector" required>
+                                    <datalist id="option1">
                                         <option value="Electronique">
                                         <option value="Commerce">
                                         <option value="Betise">
@@ -144,8 +144,8 @@
                                 <li><input type="email" placeholder="Mail" required></input></li>
                                 <li><input id="id-input-creation-date" type="date" required></input></li>
                                 <li><input type="number" placeholder="Effectif personnel" required></input></li>
-                                <li><input placeholder="Type..." list="type" id="select-type" name="select-type" required>
-                                    <datalist id="type">
+                                <li><input placeholder="Type..." list="option2" id="select-option2" name="select-type" required>
+                                    <datalist id="option2">
                                         <option value="PME">
                                         <option value="Start-up">
                                         <option value="Grande entreprise">

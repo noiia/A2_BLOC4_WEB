@@ -95,7 +95,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-             <button class="button-cancel" id="apply" onclick="validerFormulaire()">Appliquer</button>
+             <button class="button-cancel" id="apply" onclick="valid_comboBox()">Appliquer</button>
        </div>
        <div class="container-informations-and-description">
         <div class="container-students-informations">
@@ -119,8 +119,8 @@
                             <li><input type="date" required></li>
                         </ul>
                         <ul>
-                            <li><input placeholder="Promotion..." list="promotions" id="select-promotions" name="select-promotion" required>
-                                <datalist id="promotions">
+                            <li><input placeholder="Promotion..." list="option1" id="select-option1" name="select-promotion" required>
+                                <datalist id="option1">
                                     <option value="CPI A1">
                                     <option value="CPI A2">
                                     <option value="A3">
@@ -129,8 +129,8 @@
                                 </datalist></li>
                             <li class="students-each-informations-long"><input type="email" placeholder="Mail" required></li>
                             <li class="students-each-informations-long">
-                                <input placeholder="Campus..." list="campus" id="select-campus" name="select-campus">
-                                <datalist id="campus">
+                                <input placeholder="Campus..." list="option2" id="select-option2" name="select-campus" required>
+                                <datalist id="option2">
                                     <option value="Reims">
                                     <option value="Lille">
                                     <option value="Paris">

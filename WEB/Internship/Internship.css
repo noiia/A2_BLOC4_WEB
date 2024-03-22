@@ -344,7 +344,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-informations {
-    @apply h-full w-[50%] max-xl:w-[90%] max-xl:mt-[200px] max-md:w-[90%] max-md:mt-[300px];
+    @apply h-full w-[50%] max-xl:w-[90%] max-xl:mt-[200px] max-md:w-[90%] max-md:mt-[375px];
 }
 
 .students-each-informations ul {

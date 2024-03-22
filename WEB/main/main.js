@@ -116,22 +116,37 @@ function validerFormulaire(isCompany) {
 }
 
 // ------------ vérifier promotion
-function valid_promotion(isCompany = false) {
+function valid_comboBox(isCompany = false) {
     // Récupérer la valeur de l'input
-    var inputValue = document.getElementById('select-student-year').value;
-
+    var inputValue1 = document.getElementById('select-option1').value;
+    var inputValue2 = document.getElementById('select-option2').value;
     // Récupérer les options disponibles
-    var options = document.getElementById('student-year').options;
-
+    var options1 = document.getElementById('option1').options;
+    var options2 = document.getElementById('option2').options;
     // Vérifier si la valeur saisie est une des options
-    for (var i = 0; i < options.length; i++) {
-        if (options[i].value === inputValue) {
-            validerFormulaire(isCompany);
-            break;
-        } else {
-            alert('Veuillez sélectionner une option de la liste.');
+
+    isValid = false;
+
+    for (var i = 0; i < options1.length; i++) {
+        if (options1[i].value === inputValue1) {
+            isValid = true;
             break;
         }
+    }
+
+    if (isValid) {
+        isValid = false;
+        for (var j = 0; j < options2.length; j++) {
+            if (options2[j].value === inputValue2) {
+                validerFormulaire(isCompany);
+                isValid = true;
+                break;
+            }
+        }
+    }
+
+    if (!isValid) {
+        alert('Veuillez sélectionner une option de la liste.');
     }
 }
 

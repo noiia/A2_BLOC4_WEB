@@ -115,7 +115,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="valid_promotion();">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="valid_comboBox_internship();">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations second-scrollbar">
@@ -125,8 +125,8 @@
                             <ul>
                                 <li><input placeholder="TITRE..." required></input></li>
                                 <li><input placeholder="Entreprise..." required></input></li>
-                                <li><input placeholder="Année d'étude..." list="student-year" id="select-student-year" name="select-student-year" required>
-                                    <datalist id="student-year">
+                                <li><input placeholder="Année d'étude..." list="option1" id="select-option1" name="select-student-year" required>
+                                    <datalist id="option1">
                                         <option value="Bac+0">
                                         <option value="Bac+1">
                                         <option value="Bac+2">
@@ -136,7 +136,7 @@
                                         <option value="Bac+6">
                                         <option value="Bac+7">
                                         <option value="Bac+8">
-                                    </datalist></input></input></li>
+                                    </datalist></li>
                                 <li><input type="number" placeholder="Rémunération..." required></input></li>
                             </ul>
                             <ul>
@@ -157,7 +157,16 @@
                             <p>Compétences recherchées</p>
                         </div>
                         <div class="input-adresse">
-                            <input id="input-adresse" placeholder="Compétence..."></input>
+                            <input placeholder="Compétence..." list="input-competence" id="select-competence" name="select-competence">
+                            <datalist id="input-competence">
+                                <option value="Autonome">
+                                <option value="JS">
+                                <option value="PHP">
+                                <option value="Python">
+                                <option value="HTML">
+                                <option value="Gentil">
+                                <option value="Grand">
+                            </datalist>
                         </div>
                             <button class="add-button" id="add-button">Ajouter</button>
                     </div>
