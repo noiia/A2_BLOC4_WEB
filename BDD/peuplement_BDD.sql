@@ -92,81 +92,63 @@ INSERT INTO company (id_location, ID_company, Name, SIRET, Creation_date, Staff,
 (19,19, 'Dassault Systèmes', '78901234500190', '1981-06-24', 123, 'Grande Entreprise', 'Solutions logicielles et de conception', 0, 8),
 (20,20, 'Thales', '89012345600200', '1893-12-18', 157, 'PME', 'Technologies de l énergie et de la défense', 0, 5);
 
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement web', 3, '2024-03-15', 15.5, 5, 'Tickets restaurant', 35, 'Description du stage en développement web', 0, 1, 10);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en marketing digital', 2, '2024-04-10', 12.75, 3, 'Remboursement des frais de transport', 30, 'Description du stage en marketing digital', 0, 2, 12);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en gestion de projet', 4, '2024-05-20', 18.25, 4, 'Possibilité de télétravail', 40, 'Description du stage en gestion de projet', 0, 3, 7);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en design graphique', 3, '2024-06-05', 14.0, 2, 'Accès gratuit à la salle de sport', 35, 'Description du stage en design graphique', 0, 4, 5);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement logiciel', 6, '2024-07-12', 20.0, 6, 'Prise en charge de la mutuelle', 40, 'Description du stage en développement logiciel', 0, 5, 1);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en communication', 3, '2024-08-08', 16.5, 4, 'Tickets restaurant', 35, 'Description du stage en communication', 0, 6, 9);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en ressources humaines', 5, '2024-09-25', 19.75, 3, 'Remboursement des frais de transport', 40, 'Description du stage en ressources humaines', 0, 7, 2);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en finance', 4, '2024-10-14', 18.0, 5, 'Possibilité de télétravail', 35, 'Description du stage en finance', 0, 8, 9);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en relations publiques', 3, '2024-11-30', 15.25, 2, 'Accès gratuit à la salle de sport', 30, 'Description du stage en relations publiques', 0, 9, 15);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement mobile', 6, '2024-12-22', 21.0, 4, 'Prise en charge de la mutuelle', 40, 'Description du stage en développement mobile', 0, 10, 10);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en design d\'expérience utilisateur', 3, '2025-01-18', 17.5, 3, 'Tickets restaurant', 35, 'Description du stage en design d\'expérience utilisateur', 0, 11, 19);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en gestion des opérations', 5, '2025-02-07', 19.25, 5, 'Remboursement des frais de transport', 40, 'Description du stage en gestion des opérations', 0, 12, 20);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en marketing de contenu', 4, '2025-03-15', 18.0, 2, 'Possibilité de télétravail', 35, 'Description du stage en marketing de contenu', 0, 13, 3);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement de jeux vidéo', 6, '2025-04-10', 21.5, 6, 'Accès gratuit à la salle de sport', 40, 'Description du stage en développement de jeux vidéo', 0, 14, 14);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en relations internationales', 3, '2025-05-20', 16.75, 4, 'Prise en charge de la mutuelle', 35, 'Description du stage en relations internationales', 0, 15, 11);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en analyse de données', 5, '2025-06-05', 20.25, 3, 'Tickets restaurant', 30, 'Description du stage en analyse de données', 0, 16, 6);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en gestion de la chaîne logistique', 4, '2025-07-12', 19.0, 5, 'Remboursement des frais de transport', 35, 'Description du stage en gestion de la chaîne logistique', 0, 17, 10);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement d\'applications', 6, '2025-08-08', 22.0, 2, 'Possibilité de télétravail', 40, 'Description du stage en développement d\'applications', 0, 18, 16);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en design industriel', 3, '2025-09-25', 17.25, 4, 'Accès gratuit à la salle de sport', 35, 'Description du stage en design industriel', 0, 19, 12);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en comptabilité', 5, '2025-10-14', 20.0, 6, 'Prise en charge de la mutuelle', 40, 'Description du stage en comptabilité', 0, 20, 2);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en publicité', 4, '2025-11-30', 18.5, 3, 'Tickets restaurant', 35, 'Description du stage en publicité', 0, 1, 20);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en développement de logiciels embarqués', 6, '2025-12-22', 23.0, 5, 'Remboursement des frais de transport', 40, 'Description du stage en développement de logiciels embarqués', 0, 2, 6);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en design de mode', 3, '2026-01-18', 18.25, 2, 'Possibilité de télétravail', 35, 'Description du stage en design de mode', 0, 3, 19);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en gestion de la qualité', 5, '2026-02-07', 21.75, 4, 'Accès gratuit à la salle de sport', 30, 'Description du stage en gestion de la qualité', 0, 4, 12);
-INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location)
-VALUES ('Stage en droit des affaires', 4, '2026-03-15', 20.0, 6, 'Prise en charge de la mutuelle', 35, 'Description du stage en droit des affaires', 0, 5, 13);
+insert into promotion (Name, Del, ID_location) values ('CESI_CPIA2_Informatique', 0, 10);
+insert into promotion (Name, Del, ID_location) values ('Fac_Master1_Droit', 0, 2);
+insert into promotion (Name, Del, ID_location) values ('IUT_BUT1_robotique', 0, 20);
 
-insert into seek (ID_internship, ID_skill) values (17, 1);
-insert into seek (ID_internship, ID_skill) values (11, 2);
-insert into seek (ID_internship, ID_skill) values (5, 3);
-insert into seek (ID_internship, ID_skill) values (20, 4);
-insert into seek (ID_internship, ID_skill) values (6, 5);
-insert into seek (ID_internship, ID_skill) values (15, 6);
-insert into seek (ID_internship, ID_skill) values (23, 7);
-insert into seek (ID_internship, ID_skill) values (8, 8);
-insert into seek (ID_internship, ID_skill) values (23, 9);
-insert into seek (ID_internship, ID_skill) values (15, 10);
-insert into seek (ID_internship, ID_skill) values (13, 11);
-insert into seek (ID_internship, ID_skill) values (19, 12);
-insert into seek (ID_internship, ID_skill) values (25, 13);
-insert into seek (ID_internship, ID_skill) values (4, 14);
-insert into seek (ID_internship, ID_skill) values (20, 15);
-insert into seek (ID_internship, ID_skill) values (10, 16);
-insert into seek (ID_internship, ID_skill) values (22, 17);
-insert into seek (ID_internship, ID_skill) values (3, 18);
-insert into seek (ID_internship, ID_skill) values (19, 19);
-insert into seek (ID_internship, ID_skill) values (21, 20);
-insert into seek (ID_internship, ID_skill) values (3, 21);
-insert into seek (ID_internship, ID_skill) values (19, 22);
-insert into seek (ID_internship, ID_skill) values (12, 23);
-insert into seek (ID_internship, ID_skill) values (13, 25);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement web', 3, '2024-03-15', 15.5, 5, 'Tickets restaurant', 35, 'Description du stage en développement web', 0, 1, 10,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en marketing digital', 2, '2024-04-10', 12.75, 3, 'Remboursement des frais de transport', 30, 'Description du stage en marketing digital', 0, 2, 12,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en gestion de projet', 4, '2024-05-20', 18.25, 4, 'Possibilité de télétravail', 40, 'Description du stage en gestion de projet', 0, 3, 7,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en design graphique', 3, '2024-06-05', 14.0, 2, 'Accès gratuit à la salle de sport', 35, 'Description du stage en design graphique', 0, 4, 5,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement logiciel', 6, '2024-07-12', 20.0, 6, 'Prise en charge de la mutuelle', 40, 'Description du stage en développement logiciel', 0, 5, 1,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en communication', 3, '2024-08-08', 16.5, 4, 'Tickets restaurant', 35, 'Description du stage en communication', 0, 6, 9,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en ressources humaines', 5, '2024-09-25', 19.75, 3, 'Remboursement des frais de transport', 40, 'Description du stage en ressources humaines', 0, 7, 2,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en finance', 4, '2024-10-14', 18.0, 5, 'Possibilité de télétravail', 35, 'Description du stage en finance', 0, 8, 9,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en relations publiques', 3, '2024-11-30', 15.25, 2, 'Accès gratuit à la salle de sport', 30, 'Description du stage en relations publiques', 0, 9, 15,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement mobile', 6, '2024-12-22', 21.0, 4, 'Prise en charge de la mutuelle', 40, 'Description du stage en développement mobile', 0, 10, 10,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en design d\'expérience utilisateur', 3, '2025-01-18', 17.5, 3, 'Tickets restaurant', 35, 'Description du stage en design d\'expérience utilisateur', 0, 11, 19,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en gestion des opérations', 5, '2025-02-07', 19.25, 5, 'Remboursement des frais de transport', 40, 'Description du stage en gestion des opérations', 0, 12, 20,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en marketing de contenu', 4, '2025-03-15', 18.0, 2, 'Possibilité de télétravail', 35, 'Description du stage en marketing de contenu', 0, 13, 3,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement de jeux vidéo', 6, '2025-04-10', 21.5, 6, 'Accès gratuit à la salle de sport', 40, 'Description du stage en développement de jeux vidéo', 0, 14, 14,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en relations internationales', 3, '2025-05-20', 16.75, 4, 'Prise en charge de la mutuelle', 35, 'Description du stage en relations internationales', 0, 15, 11,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en analyse de données', 5, '2025-06-05', 20.25, 3, 'Tickets restaurant', 30, 'Description du stage en analyse de données', 0, 16, 6,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en gestion de la chaîne logistique', 4, '2025-07-12', 19.0, 5, 'Remboursement des frais de transport', 35, 'Description du stage en gestion de la chaîne logistique', 0, 17, 10,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement d\'applications', 6, '2025-08-08', 22.0, 2, 'Possibilité de télétravail', 40, 'Description du stage en développement d\'applications', 0, 18, 16,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en design industriel', 3, '2025-09-25', 17.25, 4, 'Accès gratuit à la salle de sport', 35, 'Description du stage en design industriel', 0, 19, 12,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en comptabilité', 5, '2025-10-14', 20.0, 6, 'Prise en charge de la mutuelle', 40, 'Description du stage en comptabilité', 0, 20, 2,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en publicité', 4, '2025-11-30', 18.5, 3, 'Tickets restaurant', 35, 'Description du stage en publicité', 0, 1, 20,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en développement de logiciels embarqués', 6, '2025-12-22', 23.0, 5, 'Remboursement des frais de transport', 40, 'Description du stage en développement de logiciels embarqués', 0, 2, 6,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en design de mode', 3, '2026-01-18', 18.25, 2, 'Possibilité de télétravail', 35, 'Description du stage en design de mode', 0, 3, 19,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en gestion de la qualité', 5, '2026-02-07', 21.75, 4, 'Accès gratuit à la salle de sport', 30, 'Description du stage en gestion de la qualité', 0, 4, 12,1);
+INSERT INTO internship (Title, Duration, Starting_date, Hourly_rate, Max_places, Advantages, Worktime, Description, Del, ID_company, ID_location, ID_promotion)
+VALUES ('Stage en droit des affaires', 4, '2026-03-15', 20.0, 6, 'Prise en charge de la mutuelle', 35, 'Description du stage en droit des affaires', 0, 5, 13,1);
+
+
+
 
 INSERT INTO users (Login, Password, Name, Surname, Birth_date, Profile_Description, Email, Role, Del)
 VALUES ('mmanchester0', 'gX6)v+U$5V', 'Jennine', 'Myrwyn', '2002-05-31', 'Passionné de développement web et d innovation technologique.', 'mphilpott0@eventbrite.com', 3, 0);
@@ -214,10 +196,6 @@ INSERT INTO users (Login, Password, Name, Surname, Birth_date, Profile_Descripti
 VALUES ('fblowl', 'kL3?|$Sedr|nq*', 'Harmony', 'Florry', '2004-11-16', 'Amateur de voyages et de découvertes culturelles.', 'ferrattl@symantec.com', 1, 0);
 INSERT INTO users (Login, Password, Name, Surname, Birth_date, Profile_Description, Email, Role, Del)
 VALUES ('cbodocsm', 'yE9/#akB~9', 'Sascha', 'Chas', '2002-05-23', 'Passionné par les sports et l activité physique.', 'cwissbeym@youtube.com', 1, 0);
-
-insert into promotion (Name, Del, ID_location) values ('CESI_CPIA2_Informatique', 0, 10);
-insert into promotion (Name, Del, ID_location) values ('Fac_Master1_Droit', 0, 2);
-insert into promotion (Name, Del, ID_location) values ('IUT_BUT1_robotique', 0, 20);
 
 INSERT INTO rate (ID_rate, Note, Description, Del, ID_company, ID_users) VALUES
 (1, 8, 'Stage très enrichissant', 0, 15, 7),
@@ -409,45 +387,82 @@ INSERT INTO appliement_wishlist (Status, Del, ID_users, ID_internship) VALUES
 (2,0,15, 16),
 (2,0,13, 11);
 
-INSERT INTO look_for (ID_internship, ID_promotion) VALUES
-(1, 2),
-(2, 1),
-(3, 3),
-(4, 3),
-(5, 2),
-(6, 2),
-(7, 3),
-(8, 1),
-(9, 2),
-(10, 3),
-(11, 2),
-(12, 3),
-(13, 1),
-(14, 1),
-(15, 2),
-(16, 3),
-(17, 3),
-(18, 1),
-(19, 2),
-(20, 2);
 
-insert into internship_location (id_internship, id_location) values (1,1);
-insert into internship_location (id_internship, id_location) values (2,2);
-insert into internship_location (id_internship, id_location) values (3,3);
-insert into internship_location (id_internship, id_location) values (4,4);
-insert into internship_location (id_internship, id_location) values (5,5);
-insert into internship_location (id_internship, id_location) values (6,6);
-insert into internship_location (id_internship, id_location) values (7,7);
-insert into internship_location (id_internship, id_location) values (8,8);
-insert into internship_location (id_internship, id_location) values (9,9);
-insert into internship_location (id_internship, id_location) values (10,10);
-insert into internship_location (id_internship, id_location) values (11,11);
-insert into internship_location (id_internship, id_location) values (12,12);
-insert into internship_location (id_internship, id_location) values (13,13);
-insert into internship_location (id_internship, id_location) values (14,14);
-insert into internship_location (id_internship, id_location) values (15,15);
-insert into internship_location (id_internship, id_location) values (16,16);
-insert into internship_location (id_internship, id_location) values (17,17);
-insert into internship_location (id_internship, id_location) values (18,18);
-insert into internship_location (id_internship, id_location) values (19,19);
-insert into internship_location (id_internship, id_location) values (20,20);
+insert into seek (ID_internship, ID_skill) values (1, 8);
+insert into seek (ID_internship, ID_skill) values (2, 11);
+insert into seek (ID_internship, ID_skill) values (3, 20);
+insert into seek (ID_internship, ID_skill) values (4, 17);
+insert into seek (ID_internship, ID_skill) values (5, 5);
+insert into seek (ID_internship, ID_skill) values (6, 23);
+insert into seek (ID_internship, ID_skill) values (7, 16);
+insert into seek (ID_internship, ID_skill) values (8, 2);
+insert into seek (ID_internship, ID_skill) values (9, 25);
+insert into seek (ID_internship, ID_skill) values (10, 4);
+insert into seek (ID_internship, ID_skill) values (11, 19);
+insert into seek (ID_internship, ID_skill) values (12, 12);
+insert into seek (ID_internship, ID_skill) values (13, 22);
+insert into seek (ID_internship, ID_skill) values (14, 10);
+insert into seek (ID_internship, ID_skill) values (15, 1);
+insert into seek (ID_internship, ID_skill) values (16, 9);
+insert into seek (ID_internship, ID_skill) values (17, 15);
+insert into seek (ID_internship, ID_skill) values (18, 3);
+insert into seek (ID_internship, ID_skill) values (19, 24);
+insert into seek (ID_internship, ID_skill) values (20, 18);
+insert into seek (ID_internship, ID_skill) values (21, 21);
+insert into seek (ID_internship, ID_skill) values (22, 7);
+insert into seek (ID_internship, ID_skill) values (23, 14);
+insert into seek (ID_internship, ID_skill) values (24, 6);
+insert into seek (ID_internship, ID_skill) values (25, 13);
+
+insert into seek (ID_internship, ID_skill) values (1, 20);
+insert into seek (ID_internship, ID_skill) values (2, 3);
+insert into seek (ID_internship, ID_skill) values (3, 13);
+insert into seek (ID_internship, ID_skill) values (4, 9);
+insert into seek (ID_internship, ID_skill) values (5, 18);
+insert into seek (ID_internship, ID_skill) values (6, 12);
+insert into seek (ID_internship, ID_skill) values (7, 6);
+insert into seek (ID_internship, ID_skill) values (8, 8);
+insert into seek (ID_internship, ID_skill) values (9, 22);
+insert into seek (ID_internship, ID_skill) values (10, 16);
+insert into seek (ID_internship, ID_skill) values (11, 2);
+insert into seek (ID_internship, ID_skill) values (12, 7);
+insert into seek (ID_internship, ID_skill) values (13, 17);
+insert into seek (ID_internship, ID_skill) values (14, 11);
+insert into seek (ID_internship, ID_skill) values (15, 14);
+insert into seek (ID_internship, ID_skill) values (16, 23);
+insert into seek (ID_internship, ID_skill) values (17, 21);
+insert into seek (ID_internship, ID_skill) values (18, 10);
+insert into seek (ID_internship, ID_skill) values (19, 22);
+insert into seek (ID_internship, ID_skill) values (20, 1);
+insert into seek (ID_internship, ID_skill) values (21, 19);
+insert into seek (ID_internship, ID_skill) values (22, 15);
+insert into seek (ID_internship, ID_skill) values (23, 24);
+insert into seek (ID_internship, ID_skill) values (24, 5);
+insert into seek (ID_internship, ID_skill) values (25, 4);
+
+
+insert into seek (ID_internship, ID_skill) values (1, 6);
+insert into seek (ID_internship, ID_skill) values (2, 1);
+insert into seek (ID_internship, ID_skill) values (3, 17);
+insert into seek (ID_internship, ID_skill) values (4, 12);
+insert into seek (ID_internship, ID_skill) values (5, 6);
+insert into seek (ID_internship, ID_skill) values (6, 3);
+insert into seek (ID_internship, ID_skill) values (7, 20);
+insert into seek (ID_internship, ID_skill) values (8, 11);
+insert into seek (ID_internship, ID_skill) values (9, 2);
+insert into seek (ID_internship, ID_skill) values (10, 8);
+insert into seek (ID_internship, ID_skill) values (11, 10);
+insert into seek (ID_internship, ID_skill) values (12, 25);
+insert into seek (ID_internship, ID_skill) values (13, 9);
+insert into seek (ID_internship, ID_skill) values (14, 16);
+insert into seek (ID_internship, ID_skill) values (15, 22);
+insert into seek (ID_internship, ID_skill) values (16, 25);
+insert into seek (ID_internship, ID_skill) values (17, 18);
+insert into seek (ID_internship, ID_skill) values (18, 7);
+insert into seek (ID_internship, ID_skill) values (19, 23);
+insert into seek (ID_internship, ID_skill) values (20, 16);
+insert into seek (ID_internship, ID_skill) values (21, 17);
+insert into seek (ID_internship, ID_skill) values (22, 12);
+insert into seek (ID_internship, ID_skill) values (23, 13);
+insert into seek (ID_internship, ID_skill) values (24, 14);
+insert into seek (ID_internship, ID_skill) values (25, 10);

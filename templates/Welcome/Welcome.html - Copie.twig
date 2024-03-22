@@ -1,0 +1,487 @@
+{% extends 'base.html.twig' %}
+{% block title %} Inter'net - Stages {% endblock %}
+{% block stylesheet %} <link href="css/OutputWelcome.css" rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+    <script>
+        $(document).ready(function(){
+            var Value = "profile";
+            var PHPfiles = "Welcome.php";
+            data = {
+                action : Value
+            };
+            $.post(PHPfiles, data, function(response){
+                $("#navbar-profile").append(response);
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block body %}
+    <body>
+        <div class="full-runway">
+            <div class="runway-elements">
+                <div class="parent-filter">
+                    <div class="filter">
+                        <div class="search_bar">
+                            <input type="search" placeholder="Rechercher" id="general-search_bar">
+                            <button type="button" id="general-button_search"><img src='images/Icones/logo_seul.png' alt="V" /></button>
+                        </div>
+                        <div class="filter-green">
+                            <div class="filter-location">
+                                <div class="filter-any_search-top">
+                                    <p>Localité :</p>
+                                    <div class="search_bar">
+                                        <input type="search" placeholder="Rechercher">
+                                        <button type="button"><img src='images/Icones/logo_seul.png' alt="V" /></button>
+                                    </div>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <ul>
+                                        <li>Location 1</li>
+                                        <li>Loc 2</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Loc 3</li>
+                                        <li>Loc 4</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filter-skills">
+                                <div class="filter-any_search-top">
+                                    <p>Compétences :</p>
+                                    <div class="search_bar">
+                                        <input type="search" placeholder="Rechercher">
+                                        <button type="button"><img src='images/Icones/logo_seul.png' alt="V" /></button>
+                                    </div>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <ul>
+                                        <li>Compétence 1</li>
+                                        <li>comp 2</li>
+                                    </ul>
+                                    <ul>
+                                        <li>comp 3</li>
+                                        <li>comp 4</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filter-start_internship">
+                                <div class="filter-any_search-top">
+                                    <p>Debut de l'offre :</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_min-max">
+                                        <label for="minimum_start_internship">Minimum</label>
+                                        <input type="date" id="minimum_start_internship" inputmode="numeric" />
+                                    </div>
+                                    <div class="search_min-max">
+                                        <label for="maximum_start_internship">Maximum</label>
+                                        <input type="date" id="maximum_start_internship" inputmode="numeric" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-duration_internship">
+                                <div class="filter-any_search-top">
+                                    <p>Durée du stage :</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_min-max">
+                                        <label for="minimum-duration_internship">Minimum</label>
+                                        <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
+                                            max="26" placeholder="de 0 à 26 semaines" />
+                                        <!--min à 0 et max à 26 car la loi l'impose-->
+                                    </div>
+                                    <div class="search_min-max">
+                                        <label for="maximum-duration_internship">Maximum</label>
+                                        <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
+                                            max="26" placeholder="de 0 à 26 semaines" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-company">
+                                <div class="filter-any_search-top">
+                                    <p>Entreprises :</p>
+                                    <div class="search_bar">
+                                        <input type="search" placeholder="Rechercher">
+                                        <button type="button"><img src='images/Icones/logo_seul.png' alt="V" /></button>
+                                    </div>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <ul>
+                                        <li>Entreprise 1</li>
+                                        <li>Entrep 2</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Entrep 3</li>
+                                        <li>Entrep 4</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="filter-promotion">
+                                <div class="filter-any_search-top">
+                                    <p>Niveau d'études :</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_range">
+                                        <input type="range" min="0" max="8" step="1" id="rangeInput" value="0">
+                                        <span id="rangeValue">Bac+0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-max_places">
+                                <div class="filter-any_search-top">
+                                    <p>Nombre de places :</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_min-max">
+                                        <label for="minimum-max_places">Minimum</label>
+                                        <input type="number" id="minimum-max_places" inputmode="numeric" min="0"
+                                            placeholder="nombre de place" />
+                                    </div>
+                                    <div class="search_min-max">
+                                        <label for="maximum-max_places">Maximum</label>
+                                        <input type="number" id="maximum-max_places" inputmode="numeric" min="0"
+                                            placeholder="nombre de place" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-postulation">
+                                <div class="filter-any_search-top">
+                                    <p>Nombre de postulation :</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_min-max">
+                                        <label for="minimum-postulation">Minimum</label>
+                                        <input type="number" id="minimum-postulation" inputmode="numeric" min="0"
+                                            placeholder="nombre de postulation" />
+                                    </div>
+                                    <div class="search_min-max">
+                                        <label for="maximum-postulation">Maximum</label>
+                                        <input type="number" id="maximum-postulation" inputmode="numeric" min="0"
+                                            placeholder="nombre de postulation" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-hourly_rate">
+                                <div class="filter-any_search-top">
+                                    <p>Rémuneration à l'heure:</p>
+                                </div>
+                                <div class="filter-any_search-bot">
+                                    <div class="search_min-max">
+                                        <label for="minimum-hourly_rate">Minimum</label>
+                                        <input type="number" id="minimum-hourly_rate" inputmode="numeric" min="0"
+                                            placeholder="en €" />
+                                    </div>
+                                    <div class="search_min-max">
+                                        <label for="maximum-hourly_rate">Maximum</label>
+                                        <input type="number" id="maximum-hourly_rate" inputmode="numeric" min="0"
+                                            placeholder="en €" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-validate">
+                                <button type="button">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="runway-container">
+                    <div class="filter-mobile">
+                        <button type="button" class="filter-button">Filtrer</button>
+                    </div>
+                   <!-- zone de bulles -->
+                    {% for internship in internships %}
+                        <button class="container" id={{ internship.id }}>
+                            <span>
+                                <div class="container-intern" id="container-intern">
+                                    <div class="container-div-para">
+                                        <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
+                                        <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
+                                        <p class="container-paragraph">{{ internship.begin_date }}</p>
+                                        <p class="container-paragraph">{{ internship.duration }}</p>
+                                        <div class="container-skills">
+                                            <ul>
+                                                <li>{{ internship.competence_1 }}</li>
+                                                <li>{{ internship.competence_2 }}</li>
+                                                <li>{{ internship.competence_3 }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- --------------------------------------------------------LA GROSSE BUBULLE FAITE PAR STEPHAN------------------------------------------------------------------------- -->
+            <script>
+                function loadBubbleData(id) {
+                    fetch("https://inter-net.loc/Stage/" + id, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log(data);
+                            const mainTemplate = document.getElementById("main-internship");
+                            const littleTemplate = document.getElementById("skills-template");
+
+                            const container = document.getElementById("bubble-place");
+
+                            const bubbleTemplate = mainTemplate.content.cloneNode(true);
+
+                            bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
+                            bubbleTemplate.getElementById("Big-bubble-company").textContent = data.company;
+                            bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
+                            bubbleTemplate.getElementById("Big-bubble-school-grade").textContent = data.school_grade;
+                            bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.month_payment + " € par mois soit " + data.hour_payment + " €/h";
+                            bubbleTemplate.getElementById("Big-bubble-begin-date").textContent = data.begin_date;
+                            bubbleTemplate.getElementById("Big-bubble-duration").textContent = data.duration;
+                            bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
+                            bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+
+                            container.append(bubbleTemplate);
+
+                            const skillsContainer = document.getElementById("container-skills");
+                            for (let skills of data.skills) {
+                                const skillsTemplate = littleTemplate.content.cloneNode(true);
+                                skillsTemplate.getElementById("skills").textContent = skills;
+                                skillsContainer.append(skillsTemplate);
+                            }
+                        });
+                    }
+            </script>
+            <template id="main-internship">
+                <div class="runway-container-intern-details" id="runway-container-intern-details">
+                    <div class="container-intern-details second-scrollbar">
+                        <div class="container-close-tab">
+                            <button class="button-close-tab" id="button-close-tab">
+                                <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab" class="close-tab-logo-picture">
+                            </button>
+                        </div>
+                        <div class="container-div-par-intern-details">
+                            <div class="header-intern-details">
+                                <img src='images/Icones/Master_Logo_RGB.png' alt="logo company" class="company-logo-picture">
+                                <h1 class="container-header-intern-details" id="Big-bubble-name"></h1>
+                                <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist" class="unselected-wishlist-logo-picture">
+                                <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist" class="selected-wishlist-logo-picture">
+                            </div>
+
+                            <div class="container-left-informations">
+                                    <h1>Entreprise :</h1>
+                                    <p id="Big-bubble-company"><a href="https://inter-net.loc/Entreprise/Orange"></a></p>
+                                    <h1>Emplacement :</h1>
+                                    <p id="Big-bubble-location"></p>
+                                    <h1>Niveau d'étude :</h1>
+                                    <p id="Big-bubble-school-grade"></p>
+                                    <h1>Salaire :</h1>
+                                    <p id="Big-bubble-month-payment"></p>
+                                    <h1>Date de début du stage :</h1>
+                                    <p id="Big-bubble-begin-date"></p>
+                                    <h1>Durée du stage :</h1>
+                                    <p id="Big-bubble-duration"></p>
+                            </div>
+                            <div class="container-right-informations">
+                                <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
+                                    Postuler
+                                </button>
+                                <p>Compétences recherchées :</p>
+                                    <div class="container-skills-details" id="container-skills">
+                                    </div>
+                            </div>
+                            <div class="container1-bottom-informations">
+                                <h1>Avantages :</h1>
+                                <p id="Big-bubble-advantages"></p>
+                            </div>
+                            <div class="container2-bottom-informations">
+                                <h1>Description du poste :</h1>
+                                <p id="Big-bubble-description"></p>
+                            </div>
+                        </div>
+                    </div>
+        <!-- ---------------------- POSTULER ------------------- -->
+                    <div class="postulation-bg postulation-off">
+                        <div class="postulation-block">
+                            <div class="postulation-top">
+                                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                                Nous vous invitons à renseigner vos documents.
+                                <img src='images/Icones/croix-supprimer-le-signe.png' onclick="block_postulation()"/>
+                            </div>
+                            <div class="postulation-bottom">
+                                <div class="postulation-motivation">
+                                    Ecrire sa lettre de motivation
+                                    <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis intéressé par votre offre de stage"></textarea>
+                                </div>
+                                <label id="postulation-text_center">ET/OU</label>
+                                <div class="postulation-right">
+                                    <div class="postulation-block_docs">
+                                        Vos documents
+                                        <div class="postulation-list_docs">
+                                            <div class="postulation-docs">
+                                                <p>CV.pdf</p>
+                                                <img src='images/Icones/poubelle-de-recyclage.png'/>
+                                            </div>
+                                            <div class="postulation-docs">
+                                                <p>lettre_motiv.pdf</p>
+                                                <img src='images/Icones/poubelle-de-recyclage.png'/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template id="skills-template"><div id="skills"></div></template>
+            <div id="bubble-place"></div>
+        </div>
+    </body>
+{% endblock %}
+
+{% block javascript2 %}
+    <script>
+        var rangeInput = document.getElementById("rangeInput");
+        var rangeValue = document.getElementById("rangeValue");
+        rangeInput.addEventListener("input", function () { rangeValue.textContent = "Bac+" + this.value; });
+    </script>
+    <script>
+        const filterShutter = document.querySelector(".filter-button")
+        const filterMenu = document.querySelector(".parent-filter")
+        const container = document.querySelector(".runway-container")
+
+        filterShutter.addEventListener('click', () => { filterMenu.classList.toggle('filter-mobile_on-filter') })
+        filterShutter.addEventListener('click', () => { container.classList.toggle('filter-mobile_on-container') })
+
+        window.addEventListener("resize", () => {
+            const widthScreen = window.innerWidth;
+            if (widthScreen > 850) {
+                filterMenu.classList.remove('filter-mobile_on-filter')
+                container.classList.remove('filter-mobile_on-container')
+
+            }
+        });
+
+        const menuHamburger = document.querySelector(".navbar-hamburger")
+        const navbarLinks = document.querySelector(".navbar-links")
+
+        menuHamburger.addEventListener('click', () => { navbarLinks.classList.toggle('mobile-menu') })
+    </script>
+
+    <!-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- -->
+
+    <script>
+        const unselectedWishlist = document.querySelector(".unselected-wishlist-logo-picture");
+        const selectedWishlist = document.querySelector(".selected-wishlist-logo-picture");
+
+        unselectedWishlist.addEventListener('click', () => {
+            unselectedWishlist.classList.add('remove-wishlist-picture');
+            selectedWishlist.classList.add('is-selected');
+        });
+
+        selectedWishlist.addEventListener('click', () => {
+            selectedWishlist.classList.remove('is-selected');
+            unselectedWishlist.classList.remove('remove-wishlist-picture');
+        });
+    </script>
+
+    <script>
+        const buttonCloseTab = document.querySelector(".close-tab-logo-picture");
+        const containerInternDetails = document.querySelector(".container-intern-details");
+        const containerIntern = document.querySelector(".container-intern");
+        const body = document.querySelector("body");
+
+        buttonCloseTab.addEventListener('click', () => {
+            containerInternDetails.classList.add('close-tab-clicked');
+            body.classList.add('mobile-scroll');
+        });
+
+        containerIntern.addEventListener('click', () => {
+            containerInternDetails.classList.remove('close-tab-clicked');
+            body.classList.remove('mobile-scroll');
+        });
+
+        window.onscroll = function() {
+        afficherOuMasquerBouton();
+        calculRunwayDist();
+    };
+
+    function afficherOuMasquerBouton() {
+        var boutonRetourHaut = document.getElementById("button-retour-haut");
+
+        if (document.documentElement.scrollTop > 115) {
+            boutonRetourHaut.classList.add('retourHaut');
+            boutonRetourHaut.classList.remove('display-none');
+        }else {
+            boutonRetourHaut.classList.add('display-none');
+            boutonRetourHaut.classList.remove('retourHaut');
+        }
+    }
+
+    function retournerEnHaut() {
+        document.documentElement.scrollTop = 0;
+    }
+
+    function calculRunwayDist(){
+        var runwayContainer = document.getElementById('runway-container');
+        var heightRunwayContainer = runwayContainer.clientHeight;
+        var element = document.getElementById('runway-container-intern-details');
+        if (heightRunwayContainer < 750){
+            runwayContainer.style.height = 750 + 'px';
+        }else {
+            element.style.height = heightRunwayContainer + 'px';
+        }
+    }
+    </script>
+
+    <!-- ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
+    <script>
+    $(document).ready(function(){
+        $("#postulation-button_postulation").click(function(){
+            console.log("postulation");
+            var postulationValue = "postulation";
+            var welcomePHP = "Welcome.php";
+            data = {
+                action : postulationValue
+            };
+            $.post(welcomePHP, data, function(response){})
+        })
+    })
+    </script>
+
+    <!-- ---------------   JS POSTULATION ------------------------ -->
+    <script>
+    function block_postulation() {
+        const header = document.querySelector("header");
+        const body = document.querySelector(".full-runway");
+        const footer = document.querySelector("footer");
+        const postulation_div = document.querySelector(".postulation-bg");
+
+        header.classList.toggle("when_postulation");
+        body.classList.toggle("when_postulation");
+        footer.classList.toggle("when_postulation");
+        postulation_div.classList.toggle("postulation-off");
+        postulation_div.classList.toggle("postulation-on");
+    }
+    </script>
+    <!-- --------------FIN JS POSTULATION ------------------------ -->
+
+    <!-----------------VERIFICATION FOCUS RUNWAY -------------------->
+    <script>
+        const runway = document.getElementById("runway-element")
+        var oldElement = 1;
+        loadBubbleData(oldElement);
+        addEventListener("click", (event) => {
+            var focusedBubble = document.activeElement.id;
+            if(oldElement != focusedBubble){
+                document.getElementById("runway-container-intern-details").remove();
+                loadBubbleData(focusedBubble);
+                oldElement = focusedBubble;
+            }
+        });
+    </script>
+    <!------------- FIN VERIFICATION FOCUS RUNWAY ------------------->
+{% endblock %}

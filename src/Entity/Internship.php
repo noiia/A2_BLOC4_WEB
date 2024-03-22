@@ -47,26 +47,34 @@ class Internship
     #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'internships')]
     private Collection $wishlists_appliement;
     #[JoinTable(name: "seek")]
-    #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship', unique: false)]
-    #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills', unique: true)]
-    #[ManyToMany(targetEntity: Skills::class, inversedBy: "internships")]
+    #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
+    #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills')]
+    #[ManyToMany(targetEntity: Skills::class)]
     private Collection $skills;
-    #[JoinTable(name: "Look_for")]
-    #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship', unique: false)]
-    #[InverseJoinColumn(name: 'id_promotion', referencedColumnName: 'ID_promotion', unique: false)]
-    #[ManyToMany(targetEntity: Promotion::class, inversedBy: "internships")]
-    private Collection $promotions;
+
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
     #[ManyToOne(targetEntity: Company::class, inversedBy: "internships")]
     #[JoinColumn(name: "ID_company", referencedColumnName: "ID_company")]
     public ?Company $companies;
     #[ManyToOne(targetEntity: Location::class, inversedBy: 'internships')]
     #[JoinColumn(name: 'ID_location', referencedColumnName: 'ID_location', nullable: false)]
     public Location $locations;
+    #[ManyToOne(targetEntity: Promotion::class, inversedBy: "internships")]
+    #[JoinColumn(name: "ID_promotion", referencedColumnName: "ID_promotion", unique: false)]
+    public Promotion $promotions;
 
     public function __construct() {
         $this->wishlists_appliement = new ArrayCollection();
         $this->skills = new ArrayCollection();
-        $this->promotions = new ArrayCollection();
+    }
+
+    public function toString() : string
+    {
+        return $this->Title;
     }
 
     public function getIDInternship(): int

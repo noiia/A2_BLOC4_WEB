@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-display;
+}
+body{
+    @apply flex w-screen h-screen max-[770px]:flex-col max-[770px]:flex-wrap max-[770px]:justify-center max-[770px]:items-center max-[770px]:bg-secondary-grey;
+}
+
+/* --------------------- DEBUT SCROLLBARS-------------------- */
+
+body::-webkit-scrollbar {
+    @apply w-[15px] max-xl:overflow-y-hidden;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    @apply bg-secondary-scroll_bar_grey;
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-track:hover {
+    @apply bg-secondary-grey;
+  }
+
+/*Partie gauche*/
+.main_left{
+    @apply fixed bg-secondary-left_bg_grey md:w-1/4 md:h-full flex flex-col flex-wrap items-center top-0 max-[770px]:w-screen max-[770px]:h-1/2 max-[770px]:hidden max-[770px]:justify-center;
+}
+#close_menu{
+    @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
+}
+#button_back{
+    @apply relative w-4/5 h-12 bg-green-true_btn rounded-xl mt-8 mb-2 drop-shadow-xl hover:outline outline-green-button outline-2;
+}
+.left_container{
+    @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl max-[770px]:h-[110px];
+}
+.left_container p{
+    @apply cursor-default;
+}
+.left_container ul{
+    @apply flex flex-col;
+}
+.left_container ul li p{
+    @apply relative inline left-[10%] cursor-pointer hover:text-green-true_btn;
+}
+.left_container span{
+    @apply underline;
+}
+
+/*Hamburger*/
+.hamburger{
+    @apply hidden absolute top-[13px] sm:top-[25px] right-[30px] w-[30px] sm:w-[60px] max-[770px]:z-50 max-[770px]:items-center max-[770px]:flex;
+}
+.mobile-menu{
+    @apply absolute flex content-center items-center max-[770px]:w-screen max-[770px]:h-screen z-50;
+}
+
+/*Partie droite*/
+.main_right{
+    @apply fixed md:left-1/4 md:right-0 md:top-0 bottom-0 m-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white overflow-y-auto overflow-x-hidden max-[770px]:absolute max-[770px]:w-[70vh] max-[770px]:h-2/3 max-[770px]:bottom-0 max-[770px]:mt-2 max-[450px]:w-[80%] max-[450px]:flex max-[450px]:flex-col max-[450px]:items-center; 
+}
+.right_title{
+    @apply absolute text-2xl right-5 top-7 py-1 rounded-xl outline outline-4 outline-green-button md:px-6 xl:px-10;
+}
+.container_right{
+    @apply w-auto h-auto flex justify-center bg-secondary-white overflow-y-auto max-[770px]:w-[70vh] max-[450px]:w-[80%] max-[450px]:absolute max-[450px]:top-8;
+}
+.main_container_right {
+    @apply flex xl:w-[1100px] xl:h-[70vh] justify-center flex-col space-y-4 items-center overflow-y-auto bg-secondary-white mt-28 md:justify-normal max-[770px]:mt-4 max-[770px]:items-center;
+}
+.container_items{
+    @apply border-[4px] rounded-[11px] cursor-pointer hover:underline flex xl:p-6 xl:w-[850px] mt-[130px]  py-[15px] justify-between lg:w-[600px] md:p-4 md:w-[450px] md:mt-1 sm:w-[90%];
+}
+.container_items p{
+    @apply flex items-center max-[770px]:mr-4;
+}
+.container_items img{
+    @apply xl:w-10 flex md:w-[25px] max-[770px]:w-[10%] max-[450px]:w-[15%];
+}
+.container_items img:hover{
+    @apply block invert;
+}
+
+/*Scrollbar*/
+.main_container_right::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.main_container_right::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.main_container_right::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.main_container_right::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+
+.main_right::-webkit-scrollbar{
+    @apply w-[15px];
+}
+
+.main_right::-webkit-scrollbar-thumb{
+    margin-block: 20px;
+    @apply bg-secondary-scroll_bar_grey cursor-default;
+    border: 2px solid rgb(185,185,185);
+    border-radius: 10px;
+}
+
+.main_right::-webkit-scrollbar-track{
+    margin-block: 20px;
+    border-radius: 10px;
+}
+
+.main_right::-webkit-scrollbar-track:hover{
+    @apply bg-secondary-grey cursor-default;
+}
+

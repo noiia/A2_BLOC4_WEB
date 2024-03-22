@@ -1,7 +1,7 @@
 <VirtualHost *:80>
-    DocumentRoot "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entrainement"
+    DocumentRoot "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entertainment"
     ServerName projetPoubelle.loc
-    <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entrainement">
+    <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entertainment">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -12,17 +12,17 @@
      DocumentRoot "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/inter-net-slim-2/public"
      ServerName inter-net.loc
      ServerAlias *.inter-net.loc
-     <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/inter-net-slim-2/public">
+     <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entertainement">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
  </VirtualHost>
  <VirtualHost *:443>
-     DocumentRoot "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/inter-net-slim-2/public"
+     DocumentRoot "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entertainement"
      ServerName inter-net.loc
      ServerAlias *.inter-net.loc
-     <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/inter-net-slim-2/public">
+     <Directory "C:/Users/edwin/Desktop/Desktop/CESI/Cours_A2/BLOC_4/Entertainement">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted

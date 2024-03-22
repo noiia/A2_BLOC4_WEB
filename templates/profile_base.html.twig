@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pageIcon %}
+    <link rel="website icon" type="png" href='images/Icones/logo_seul_blanc.png'>
+    {% endblock %}
+        {% block stylesheet %}{% endblock %}
+        <title>{% block title %}Inter'net - Profile{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        {% block javascript %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+{% block    body_left %}
+    <div class="main_left">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+        <div class="left_container">
+            <p>Etudiants</p>
+            <ul>
+                <li><p href="../../Profile/Profile.html">Mon profil</p></li>
+                <li><span><p id="actual_page">WishList</p></span></li>
+                <li><p href="#">Mes postulations</p></li>
+            </ul>
+        </div>
+    </div>
+    <div><img class="hamburger" src="images/Icones/hamburger.png" alt="hamburger"></div>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascript2 %}{% endblock %}
+</body>
+</html>
+

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
@@ -33,11 +34,11 @@ class Promotion
 
     #[ManyToMany(targetEntity: Users::class, mappedBy: 'promotions')]
     private Collection $users;
-   // #[ManyToMany(targetEntity: Internship::class, mappedBy: 'skills')]
-    //private Collection $internships;
+    #[OneToMany(targetEntity: Internship::class, mappedBy:'companies')]
+    private Collection $internships;
     public function __construct() {
         $this->users = new ArrayCollection();
-       // $this->internships = new ArrayCollection();
+        $this->internships = new ArrayCollection();
     }
 
     public function getIDPromotion(): int

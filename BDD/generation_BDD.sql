@@ -56,6 +56,7 @@ CREATE TABLE Company(
    Company_description TEXT,
    Del BOOL NOT NULL,
    ID_sector BOOL NOT NULL,
+   ID_location INT(255) NOT NULL,
    PRIMARY KEY(ID_company),
    FOREIGN KEY(ID_sector) REFERENCES Sector(ID_sector)
 );
