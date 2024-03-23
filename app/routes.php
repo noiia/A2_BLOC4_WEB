@@ -7,6 +7,7 @@ declare(strict_types=1);
 use App\Controller\CompanyController;
 use App\Controller\InternshipController;
 use App\Entity\Appliement_WishList;
+use App\Entity\Company;
 use App\Entity\Internship;
 
 use Doctrine\ORM\EntityManager;
@@ -80,6 +81,7 @@ return function (App $app) {
                 'advantages' => $internship->getAdvantages(),
                 'description' => $internship->getDescription(),
                 'skills' => $Skills,
+                'logo_path' => $internship->companies->getCompanyLogoPath(),
             ];
 
             $payload = json_encode($data);
@@ -94,6 +96,68 @@ return function (App $app) {
         $controller = new CompanyController($twig);
         $companyResponse = $controller->Company($request, $response,[], $container);
         return $companyResponse;
+    });
+    $app->get('/Entreprise/{i}', function (Request $request, Response $response, array $args) use ($container) {
+
+        $entityManager = $container->get(EntityManager::class);
+        $company = $entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $args['i']]);
+        $i = 0;
+        $Sectors = [];
+        foreach ($company->getSector() as $sector) {
+            $i++;
+            if ($i <= 3) {
+                $Sectors[] = $sector->getName();
+            } else {
+                break;
+            }
+        }
+        $Internships = [];
+        foreach ($company->getInternship() as $internship) {
+            $Internships[] =
+                    ['title' => $internship->getTitle(),
+                     'duration' => $internship->getDuration(),
+            ];
+        }
+        $j = 0;
+        $medium = 0;
+        $Comments = [];
+        if ($company->getRates() != null){
+            foreach ($company->getRates() as $rate) {
+                $medium = $rate->getNote();
+                $j++;
+                $Comments[] =
+                    ['note' => $rate->getNote(),
+                        'description' => $rate->getDescription(),
+                    ];
+            }
+        }
+        $imagePath = "";
+        /*if($company->companies->getCompanyLogoPath() != null){
+            $imagePath = $company->companies->getCompanyLogoPath();
+        }*/
+        $finalRate = $medium / $j;
+        if ($company != null) {
+            $data = [
+                'id' => $company->getIDCompany(),
+                'company' => $company->getName(),
+                'location' => $company->locations->getCity(),
+                'zip_code' => $company->locations->getZipCode(),
+                'medium_rate' => $finalRate,
+                'number_former_intern' => $j,
+                'description' => $company->getCompanyDescription(),
+                'sector' => $Sectors,
+                'internship' => $Internships,
+                'comment' => $Comments,
+                //'logo_path' => $imagePath,
+            ];
+
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Entreprise introuvable');
+        }
     });
     /*$app->group('/users', function (Group $group) {
         $group->get('', ListUsersAction::class);

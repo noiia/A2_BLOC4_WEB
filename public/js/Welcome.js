@@ -147,47 +147,9 @@ function loadBubbleData(id = 1) {
             bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+            bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
 
-            function checkFileExists(file, callback){
-                $.ajax({
-                    type: 'HEAD',
-                    url: file,
-                    success: function() {
-                        callback(true);
-                    },
-                    error: function() {
-                        callback(false);
-                    }
-                });
-            }
-
-            var imagePath = 'images/CompanyLogos/logo_' + data.id;
-            var finalImagePath;
-            checkFileExists(imagePath + '.jpg', function(success) {
-                if (success) {
-                    finalImagePath = imagePath + '.jpg'
-                    bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                    container.append(bubbleTemplate);
-                } else {
-                    checkFileExists(imagePath + '.jpeg', function (success) {
-                        if (success) {
-                            finalImagePath = imagePath + '.jpeg'
-                            bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                            container.append(bubbleTemplate);
-                        } else {
-                            checkFileExists(imagePath + '.png', function (success) {
-                                if (success) {
-                                    finalImagePath = imagePath + '.png'
-                                    bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                                    container.append(bubbleTemplate);
-                                } else {
-                                    console.log('aucune image en mémoire')
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+            container.append(bubbleTemplate);
 
             const skillsContainer = document.getElementById("container-skills");
             for (let skills of data.skills) {

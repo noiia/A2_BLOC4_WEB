@@ -21,19 +21,19 @@
             <img src="images/Icones/logo_blanc_entier.png" alt="company-logo" class="navbar-logo">
             <img src="images/Icones/logo_seul_blanc.png" alt="mini-company-logo" class="mini-navbar-logo">
             <div class="navbar-links">
-                <div class="navbar-current">
-                    <a href="../Welcome/Welcome.html.twig">Stages</a>
-                    {% block welcome %}{% endblock %}
-                </div>
-                <a href="">Entreprises</a>
-                {% block company %}{% endblock %}
+                {% block welcome %}
+                    <a href="../Stage">Stages</a>
+                {% endblock %}
+                {% block company %}
+                    <a href="../Entreprise">Entreprises</a>
+                {% endblock %}
                 <div class="dropdown1">
                     <button class="dropdown-btn">Statistiques</button>
                     {% block Statistics %}{% endblock %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
-                        <a href="">Entreprise</a>
-                        <a href="">Stages</a>
+                        <a href="../Statistiques/Entreprises">Entreprises</a>
+                        <a href="../Statistiques/Stages">Stages</a>
                         <br>
                     </div>
                 </div>
@@ -42,8 +42,8 @@
                     {% block Profiles %}{% endblock %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
-                        <a href="">Mon Profil</a>
-                        <a href="">Wishlist</a>
+                        <a href="../Profil/Edition">Mon Profil</a>
+                        <a href="../Profil/Wishlist">Wishlist</a>
                         <a href="" id="button-disconnect" class="button-disconnect"><span>Déconnexion</span></a>
                     </div>
                 </div>
