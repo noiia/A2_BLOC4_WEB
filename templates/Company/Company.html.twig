@@ -166,12 +166,14 @@
                             <p>Note moyenne:&nbsp<p id="rangeValue2"></p>/10</p>
                         </div>
                         <div class="container-company-details-note-bar">
-                            <input type="range" min="1" max="10" step="1" id="rangeInput2" value="4" disabled oninput="rangeValue2.innerText = this.value">
+                            <input type="range" min="1" max="10" step="0.1" id="rangeInput2" value="4" disabled oninput="rangeValue2.innerText = this.value">
                         </div>
                         <div class="container-company-details-sector">
                             <h1>Secteurs d'activités de l'entreprise:</h1>
                         </div>
                         <div class="container-company-details-sector-name">
+                            <ul id="container-company-details-sector-name-list">
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -180,7 +182,7 @@
                     <p id="Big-bubble-description"></p>
                 </div>
                 <div class="container-company-details-intern-name">
-                    <h1>4 stages disponibles:</h1>
+                    <h1 id="internship-number"></h1>
                 </div>
                 <div class="container-company-details-intern-second-scrollbar" id="mini-internship-container">
                     <!---------------------------- ici pour les mini stages ---------------------------->
@@ -214,9 +216,7 @@
         <div id="bubble-place">
         </div>
         <template id="sector-template">
-            <ul>
                 <li id="sector-ref"></li>
-            </ul>
         </template>
 
         <template id="mini-internship">
@@ -241,7 +241,10 @@
         </template>
         <template id="comment-template">
             <div class="container-company-each-review-name">
-                <h1>LAUMEL Stéphan - 0/10</h1>
+                <h1 id="comment-user"></h1>
+            </div>
+            <div class="container-company-each-review">
+                <p id="comment-description"></p>
             </div>
         </template>
     </div>

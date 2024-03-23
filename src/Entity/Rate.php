@@ -30,7 +30,7 @@ class Rate
     private ?Company $companies;
     #[ManyToOne(targetEntity: Users::class, inversedBy: "users")]
     #[JoinColumn(name: "ID_users", referencedColumnName: "ID_users")]
-    private ?Users $users;
+    public ?Users $users;
 
     public function getIDRate(): int
     {

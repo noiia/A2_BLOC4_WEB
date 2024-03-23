@@ -12,26 +12,28 @@ function loadCompanyBubbleData(id = 1){
         const bubbleContainer = document.getElementById("bubble-place");
         const bubbleTemplate = mainTemplate.content.cloneNode(true);
 
-        bubbleTemplate.getElementById("Big-bubble-name").textContent = data.Name;
+        bubbleTemplate.getElementById("Big-bubble-name").textContent = data.company;
         bubbleTemplate.getElementById("Big-bubble-location").textContent = data.zip_code + ' - ' + data.location;
         bubbleTemplate.getElementById("Big-bubble-number-student").textContent = data.number_former_intern + ' étudiants';
         bubbleTemplate.getElementById("rangeValue2").textContent = data.medium_rate;
+        bubbleTemplate.getElementById("rangeInput2").value = data.medium_rate;
         bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+        bubbleTemplate.getElementById("internship-number").textContent = data.number_of_internship + " stages disponibles:";
         //bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
         bubbleContainer.append(bubbleTemplate);
 
         const miniInternshipTemplate = document.getElementById("mini-internship");
-        //const sectorTemplate = document.getElementById("sector-template");
+        const sectorTemplate = document.getElementById("sector-template");
         const commentTemplate = document.getElementById("comment-template");
-        const sectorContainer = document.getElementById("container-company-details-sector-name");
+        const sectorContainer = document.getElementById("container-company-details-sector-name-list");
         const internshipContainer = document.getElementById("mini-internship-container");
         const commentContainer = document.getElementById("comment-container");
 
-        /*for (let sector of data.sector) {
+        for (let sector of data.sector) {
             const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
-            sectorTemplate.getElementById("sector-ref").textContent = sector;
-            sectorContainer.append(sectorTemplate);
-        }*/
+            cloneSectorTemplate.getElementById("sector-ref").textContent = sector;
+            sectorContainer.append(cloneSectorTemplate);
+        }
         for (let internship of data.internship) {
             const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
             cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
@@ -42,7 +44,8 @@ function loadCompanyBubbleData(id = 1){
         }
         for (let comment of data.comment) {
             const cloneCommentTemplate = commentTemplate.content.cloneNode(true);
-            cloneCommentTemplate.getElementById("comment-ref").textContent = comment;
+            cloneCommentTemplate.getElementById("comment-user").textContent = comment.user + " - " + comment.note + "/10";
+            cloneCommentTemplate.getElementById("comment-description").textContent = comment.description;
             commentContainer.append(cloneCommentTemplate);
         }
     });

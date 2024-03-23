@@ -101,35 +101,36 @@ return function (App $app) {
 
         $entityManager = $container->get(EntityManager::class);
         $company = $entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $args['i']]);
-        $i = 0;
+
         $Sectors = [];
         foreach ($company->getSector() as $sector) {
-            $i++;
-            if ($i <= 3) {
-                $Sectors[] = $sector->getName();
-            } else {
-                break;
-            }
+            $Sectors[] = $sector->getName();
         }
+
         $Internships = [];
+        $i = 0;
         foreach ($company->getInternship() as $internship) {
+            $i++;
             $Internships[] =
-                    [
-                        'title' => $internship->getTitle(),
-                        'location' => $internship->locations->getCity(),
-                        'starting_date' => $internship->getStartingDate(),
-                        'duration' => $internship->getDuration(),
-                    ];
+                [
+                    'title' => $internship->getTitle(),
+                    'location' => $internship->locations->getCity(),
+                    'starting_date' => $internship->getStartingDate(),
+                    'duration' => $internship->getDuration(),
+                ];
         }
+
         $j = 0;
         $medium = 0;
         $Comments = [];
         if ($company->getRates() != null){
             foreach ($company->getRates() as $rate) {
-                $medium = $rate->getNote();
+                $medium += $rate->getNote();
                 $j++;
                 $Comments[] =
-                    ['note' => $rate->getNote(),
+                    [
+                        'user' => $rate->users->getName(),
+                        'note' => $rate->getNote(),
                         'description' => $rate->getDescription(),
                     ];
             }
@@ -151,6 +152,7 @@ return function (App $app) {
                 'sector' => $Sectors,
                 'internship' => $Internships,
                 'comment' => $Comments,
+                'number_of_internship' => $i,
                 //'logo_path' => $imagePath,
             ];
 
