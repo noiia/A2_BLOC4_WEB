@@ -114,9 +114,12 @@ return function (App $app) {
         $Internships = [];
         foreach ($company->getInternship() as $internship) {
             $Internships[] =
-                    ['title' => $internship->getTitle(),
-                     'duration' => $internship->getDuration(),
-            ];
+                    [
+                        'title' => $internship->getTitle(),
+                        'location' => $internship->locations->getCity(),
+                        'starting_date' => $internship->getStartingDate(),
+                        'duration' => $internship->getDuration(),
+                    ];
         }
         $j = 0;
         $medium = 0;

@@ -21,26 +21,29 @@ function loadCompanyBubbleData(id = 1){
         bubbleContainer.append(bubbleTemplate);
 
         const miniInternshipTemplate = document.getElementById("mini-internship");
-        const sectorTemplate = document.getElementById("sector-template");
+        //const sectorTemplate = document.getElementById("sector-template");
         const commentTemplate = document.getElementById("comment-template");
         const sectorContainer = document.getElementById("container-company-details-sector-name");
         const internshipContainer = document.getElementById("mini-internship-container");
         const commentContainer = document.getElementById("comment-container");
 
-        for (let sector of data.sector) {
-            const sectorTemplate = sectorTemplate.content.cloneNode(true);
+        /*for (let sector of data.sector) {
+            const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
             sectorTemplate.getElementById("sector-ref").textContent = sector;
             sectorContainer.append(sectorTemplate);
-        }
+        }*/
         for (let internship of data.internship) {
-            const internshipTemplate = miniInternshipTemplate.content.cloneNode(true);
-            internshipTemplate.getElementById("internship").textContent = internship;
-            internshipContainer.append(internshipTemplate);
+            const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
+            cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
+            cloneInternshipTemplate.getElementById("internship-location").textContent = "site de : " + internship.location;
+            cloneInternshipTemplate.getElementById("internship-starting-date").textContent = "A partir du " + internship.starting_date;
+            cloneInternshipTemplate.getElementById("internship-duration").textContent = internship.duration + " semaines";
+            internshipContainer.append(cloneInternshipTemplate);
         }
         for (let comment of data.comment) {
-            const commentTemplate = commentTemplate.content.cloneNode(true);
-            commentTemplate.getElementById("internship").textContent = comment;
-            commentContainer.append(commentTemplate);
+            const cloneCommentTemplate = commentTemplate.content.cloneNode(true);
+            cloneCommentTemplate.getElementById("comment-ref").textContent = comment;
+            commentContainer.append(cloneCommentTemplate);
         }
     });
 }
