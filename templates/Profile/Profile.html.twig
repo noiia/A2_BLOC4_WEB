@@ -1,0 +1,51 @@
+{% block title %} Inter'net - Stages {% endblock %}
+{% block stylesheet %} <link href='css/OutputProfile.css' rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src='js/Profile.js'></script>
+<script>
+    $(document).ready(function(){
+    var Value = "profile";
+    var PHPfiles = "Profile.php";
+    data = {
+    action : Value
+};
+    $.post(PHPfiles, data, function(response){
+    $("#navbar-profile").append(response);
+});
+});
+</script>
+{% endblock %}
+
+{% block body %}
+    <body>
+    <div class="main_left">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+    </div>
+    <div class="main_right">
+        <p id="right_title">Mon profil</p>
+        <div class="right_top">
+            <img src="images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+            <img src="images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
+            <div class="student_info">
+                {% for user in users %}
+                    <p>{{ user['Surname'] }}</p>
+                    <p>{{ user['Name'] }}</p>
+                    <p id="student_info-long_text">{{ user['ID_users'] }}</p>
+                    <p>{{ user['Birth_date'] }}</p>
+                    <p>Bac+104</p>
+                    <p>Monaco</p>
+                    <p>Physique</p>
+                    <p id="student_info-long_text">{{ user['Email'] }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="right_bot">
+            <label class="label-student_description" for="student_description">Description</label>
+            {% for user in users %}
+            <textarea id="student_description" class="second-scrollbar" disabled>{{ user['Profile_Description'] }}</textarea>
+            {% endfor %}
+        </div>
+    </div>
+    </body>
+{% endblock %}

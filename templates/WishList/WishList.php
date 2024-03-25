@@ -6,7 +6,7 @@ function check_role(){
             echo '<div class="left_container" id="left_array">
             <p>Etudiants</p>
             <ul>
-                <li><a href="../Profile/Profile.html">Mon profil</a></li>
+                <li><a href="../Profile/Profile.html.twig">Mon profil</a></li>
                 <li><a id="actual_page" >WishList</a></li>
                 <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
             </ul>
@@ -16,7 +16,7 @@ function check_role(){
             echo '<div class="left_container" id="left_array">
             <p>Admin</p>
             <ul>
-                <li><a href="../Profile/Profile.html">Mon profil</a></li>
+                <li><a href="../Profile/Profile.html.twig">Mon profil</a></li>
                 <li><a href="../Students/Students.html">Etudiants</a></li>
                 <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
                 <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Company/Company.html">Entreprises</a></li>
