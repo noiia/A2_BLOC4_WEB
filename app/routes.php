@@ -6,6 +6,7 @@ declare(strict_types=1);
 //use \src\Application\Actions\User\ViewUserAction;
 use App\Controller\CompanyController;
 use App\Controller\InternshipController;
+use App\Controller\LoginController;
 use App\Entity\Appliement_WishList;
 use App\Entity\Company;
 use App\Entity\Internship;
@@ -50,6 +51,17 @@ return function (App $app) {
         return $response;
     });
     $app->addRoutingMiddleware();
+
+    $app->get('/Login', function (Request $request, Response $response) use ($twig, $container){
+        $controller = new LoginController($twig);
+        $loginResponse = $controller->Login($request, $response,[], $container);
+        return $loginResponse;
+    });
+    $app->get('/Login/Auth', function (Request $request, Response $response) use ($twig, $container){
+        $controller = new LoginController($twig);
+        $loginResponse = $controller->Login($request, $response,[], $container);
+        return $loginResponse;
+    });
 
     $app->get('/Stage', function (Request $request, Response $response) use ($twig, $container){
         $controller = new InternshipController($twig);
@@ -207,14 +219,24 @@ return function (App $app) {
     });
 
     $app->post('/Entreprise/addComment', function (Request $request, Response $response, array $args) use ($twig, $container) {
-        $controller = new CompanyController($twig);
-        $companyResponse = $controller->addComment($request, $response);
-        return $companyResponse;
+        try {
+            $controller = new CompanyController($twig);
+            $companyResponse = $controller->addComment($request, $response, $container);
+            return $companyResponse;
+        } catch (Exception $e){
+            error_log((string)$e, 3, "../debug/routes.log");
+            return $response->getBody()->write("error loged");
+        }
     });
     $app->get('/Statistique/Entreprises', function (Request $request, Response $response, array $args) use ($twig, $container) {
+        try {
         $controller = new CompanyController($twig);
         $companyResponse = $controller->Company($request, $response,[], $container);
         return $companyResponse;
+        } catch (Exception $e){
+            error_log((string)$e, 3, "../debug/routes.log");
+            return $response->getBody()->write("error loged");
+        }
     });
         /*$app->group('/users', function (Group $group) {
             $group->get('', ListUsersAction::class);

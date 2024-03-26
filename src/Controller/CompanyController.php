@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 use App\Entity\Company;
+use App\Entity\Rate;
+use Doctrine\ORM\EntityManagerInterface;
 use UMA\DIC\Container;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -64,13 +66,24 @@ class CompanyController
         ]);
     }
 
-    public function addComment($request, $response)
+    public function addComment($request, $response, $container)
     {
-        echo 'c est carré';
-/*
-        $rate = $json['rate'];
-        $comment = $json['comment'];
-*/
-        return $response->withJson(['message' => 'Commentaire ajouté avec succès']);
+        $entityManager = $container->get(EntityManager::class);
+        $json = $request->getParsedBody();
+        $jsonData = json_decode($json['json'], true);
+
+        $rate = $jsonData['rate'];
+        $comment = $jsonData['comment'];
+
+        $entity = new Rate();
+        $entity->setNote($rate);
+        $entity->setDescription($comment);
+        $entity->setDel(0);
+        //$entity->setUsers()
+        $entityManager->persist($entity);
+
+        $entityManager->flush();
+
+        return $response;
     }
 }

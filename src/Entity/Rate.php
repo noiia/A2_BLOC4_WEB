@@ -71,4 +71,15 @@ class Rate
     {
         $this->Del = $Del;
     }
+
+    public function setCompanies(?Company $companies): void
+    {
+        $this->companies = $companies;
+    }
+
+    public function setUsers(?Users $users): void
+    {
+        $this->users = $users;
+    }
+
 }

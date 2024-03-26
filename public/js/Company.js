@@ -98,17 +98,25 @@ window.addEventListener("resize", () => {
 });
 
 function post_comment() {
+    var companyId = Number(document.activeElement.id);
+    //var userId = Number();
     var rate = Number(document.getElementById("rangeValue3").textContent);
-    var comment = "bien c'était super"; //document.getElementById("comment-area").textContent;
+    var comment = document.getElementById("comment-area").textContent;
+
     var json_data = {
+        companyId : companyId,
+        userId : userId,
         rate: rate,
         comment: comment
     };
+
     $.post("../Entreprise/addComment", { json: JSON.stringify(json_data) }, function(response) {
         console.log(response);
         },
         'json')
         .fail(function(xhr, status, error) {
+            console.error(status);
             console.error(xhr.responseText);
+            console.error(error);
         });
 }
