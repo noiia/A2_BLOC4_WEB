@@ -2,12 +2,9 @@
 
 {% block title %}Inter'net - Login {% endblock %}
 {% block stylesheet %}<link href='css/OutputLogin.css' rel="stylesheet"/>{% endblock %}
-{% block javascript %}
-<script src='js/Login.js'></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256.js"></script>
-{% endblock %}
+{% block javascript %}<script src='js/Login.js'></script>{% endblock %}
 
-{% block header %} {% endblock %}
+{% block header %}{% endblock %}
 {% block body %}
 <body>
 <div class="container-login">
@@ -24,6 +21,9 @@
         <button class="connexion-btn" id="button-poster" value="Poster" onclick="login();">
             Connexion
         </button>
+        <div class="text-rouge">
+            <p id="error-zone"></p>
+        </div>
     <!-- /form -->
 </div>
 </body>

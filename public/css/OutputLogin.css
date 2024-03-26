@@ -637,3 +637,13 @@ body{
 .connexion-btn-hidden{
   display: none;
 }
+
+.text-rouge{
+  position: absolute;
+  bottom: 70px;
+  left: 60px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgb(187 11 11 / var(--tw-text-opacity));
+}

@@ -73,6 +73,26 @@ class Users
         $this->ID_users = $ID_users;
     }
 
+    public function getLogin(): string
+    {
+        return $this->Login;
+    }
+
+    public function setLogin(string $Login): void
+    {
+        $this->Login = $Login;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->Password;
+    }
+
+    public function setPassword(string $Password): void
+    {
+        $this->Password = $Password;
+    }
+
     public function getName(): string
     {
         return $this->Name;

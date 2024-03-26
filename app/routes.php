@@ -57,10 +57,15 @@ return function (App $app) {
         $loginResponse = $controller->Login($request, $response,[], $container);
         return $loginResponse;
     });
-    $app->get('/Login/Auth', function (Request $request, Response $response) use ($twig, $container){
-        $controller = new LoginController($twig);
-        $loginResponse = $controller->Login($request, $response,[], $container);
-        return $loginResponse;
+    $app->post('/Login/Auth', function (Request $request, Response $response) use ($twig, $container){
+        try {
+            $controller = new LoginController($twig);
+            $loginResponse = $controller->testLogins($request, $response, $container);
+            return $loginResponse;
+        } catch (Exception $e){
+            error_log((string)$e, 3, "../debug/routes.log");
+            return $response->getBody()->write("error logged");
+        }
     });
 
     $app->get('/Stage', function (Request $request, Response $response) use ($twig, $container){
@@ -225,7 +230,7 @@ return function (App $app) {
             return $companyResponse;
         } catch (Exception $e){
             error_log((string)$e, 3, "../debug/routes.log");
-            return $response->getBody()->write("error loged");
+            return $response->getBody()->write("error logged");
         }
     });
     $app->get('/Statistique/Entreprises', function (Request $request, Response $response, array $args) use ($twig, $container) {
@@ -235,7 +240,7 @@ return function (App $app) {
         return $companyResponse;
         } catch (Exception $e){
             error_log((string)$e, 3, "../debug/routes.log");
-            return $response->getBody()->write("error loged");
+            return $response->getBody()->write("error logged");
         }
     });
         /*$app->group('/users', function (Group $group) {
