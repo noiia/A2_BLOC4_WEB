@@ -7,7 +7,7 @@ function send_mail(){
     else {$message = "Un étudiant a postulé à votre offre de stage!!!";}
     $message = wordwrap($message,70,"\n");
     $headers = "FROM: ".$to_student."\r\n".'X-Mailer: PHP/' . phpversion();
-    
+
     $send = mail($to, $subject, $message, $headers);
 
     if ($send==true) {$message_student = "Votre candidature a bien été envoyé";}
