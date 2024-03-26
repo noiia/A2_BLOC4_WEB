@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+
 class CompanyController
 {
     private $twig;
@@ -27,14 +28,16 @@ class CompanyController
             foreach ($companies as $forCompany) {
                 $threeSectors = [];
                 $i = 0;
-               foreach ($forCompany->getSector() as $sector) {
-                    $i++;
-                    if ($i <= 3) {
-                        $threeSectors[] = $sector->getName();
-                    } else {
-                        break;
+                if($forCompany->getSector() != ("" || null)){
+                    foreach ($forCompany->getSector() as $sector) {
+                        $i++;
+                        if ($i <= 3) {
+                            $threeSectors[] = $sector->getName();
+                        } else {
+                            break;
+                        }
                     }
-               }
+                }
                $mediumStars = 0;
                $i = 0;
                foreach ($forCompany->getRates() as $rate) {
@@ -59,5 +62,15 @@ class CompanyController
         return $view->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
         ]);
+    }
+
+    public function addComment($request, $response)
+    {
+        echo 'c est carré';
+/*
+        $rate = $json['rate'];
+        $comment = $json['comment'];
+*/
+        return $response->withJson(['message' => 'Commentaire ajouté avec succès']);
     }
 }

@@ -115,7 +115,7 @@
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
                 {% for company in companies %}
-                <button class="container" onclick="focus_container('container-{{ company.id }}')">
+                <button class="container" id="{{ company.id }}" onclick="focus_container('container-{{ company.id }}')">
                     <span>
                         <div class="container-intern" id="container-{{ company.id }}">
                             <div class="container-div-para">
@@ -147,7 +147,7 @@
                     </button>
                 </div>
                 <div class="container-header-company-details">
-                    <img src='images/CompanyLogo/logo_1.jpg' alt="logo company" class="company-logo-picture">
+                    <img src='images/CompanyLogo/logo_1.jpg' alt="logo company" class="company-logo-picture" id="Big-bubble-logo">
                     <h1 id="Big-bubble-name"></h1>
                 </div>
                 <div class="container-left-and-right">
@@ -171,9 +171,8 @@
                         <div class="container-company-details-sector">
                             <h1>Secteurs d'activités de l'entreprise:</h1>
                         </div>
-                        <div class="container-company-details-sector-name">
-                            <ul id="container-company-details-sector-name-list">
-                            </ul>
+                        <div class="container-company-details-sector-name" id="container-company-details-sector-name-list">
+
                         </div>
                     </div>
                 </div>
@@ -197,12 +196,12 @@
                         </div>
                     </div>
                     <div class="container-company-poster-button">
-                        <button class="button-poster" id="button-poster" value="Poster">
+                        <button class="button-poster" id="button-poster" value="Poster" onclick="post_comment();">
                             Poster
                         </button>
                     </div>
                 </div>
-                <textarea type="text" class="container-company-your-review review-scrollbar" placeholder="Tapez votre avis..."></textarea>
+                <textarea type="text" class="container-company-your-review review-scrollbar" placeholder="Tapez votre avis..." id="comment-area"></textarea>
                 <div class="container-company-reviews-area">
                     <div class="container-company-reviews-area-name">
                         <h1>Avis:</h1>
@@ -216,7 +215,10 @@
         <div id="bubble-place">
         </div>
         <template id="sector-template">
-                <li id="sector-ref"></li>
+            <ul>
+                <li id="sector-ref-1"></li>
+                <li id="sector-ref-2"></li>
+            </ul>
         </template>
 
         <template id="mini-internship">
@@ -229,9 +231,7 @@
                             <p class="container-paragraph" id="internship-starting-date"></p>
                             <p class="container-paragraph" id="internship-duration"></p>
                             <div class="container-company-intern-skills">
-                                <ul>
-                                    <li>Informatique</li>
-                                    <li>Transport</li>
+                                <ul id="skills-container">
                                 </ul>
                             </div>
                         </div>
@@ -246,6 +246,9 @@
             <div class="container-company-each-review">
                 <p id="comment-description"></p>
             </div>
+        </template>
+        <template id="skills-template">
+            <li id="skills"></li>
         </template>
     </div>
 

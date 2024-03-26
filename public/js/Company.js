@@ -1,5 +1,5 @@
 function loadCompanyBubbleData(id = 1){
-    fetch("https://inter-net.loc/Entreprise/" + id, {
+    fetch("https://inter-net.loc/Entreprise/api/" + id, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -19,19 +19,32 @@ function loadCompanyBubbleData(id = 1){
         bubbleTemplate.getElementById("rangeInput2").value = data.medium_rate;
         bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
         bubbleTemplate.getElementById("internship-number").textContent = data.number_of_internship + " stages disponibles:";
-        //bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
+        bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
         bubbleContainer.append(bubbleTemplate);
 
         const miniInternshipTemplate = document.getElementById("mini-internship");
         const sectorTemplate = document.getElementById("sector-template");
         const commentTemplate = document.getElementById("comment-template");
+        const skillTemplate = document.getElementById("skill-template");
         const sectorContainer = document.getElementById("container-company-details-sector-name-list");
         const internshipContainer = document.getElementById("mini-internship-container");
         const commentContainer = document.getElementById("comment-container");
+        const skillContainer = document.getElementById("skill-container");
 
+        console.log(data.sector);
+        i = 0;
         for (let sector of data.sector) {
             const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
-            cloneSectorTemplate.getElementById("sector-ref").textContent = sector;
+            console.log(i++);
+            console.log(sector[0]);
+            console.log(sector[1]);
+            cloneSectorTemplate.getElementById("sector-ref-1").textContent = sector[0];
+            if (sector[1] != null){
+                cloneSectorTemplate.getElementById("sector-ref-2").textContent = sector[1];
+            } else if (document.getElementById("sector-ref-2").textContent === null) {
+                document.getElementById("sector-ref-2").remove()
+                console.log("true");
+            }
             sectorContainer.append(cloneSectorTemplate);
         }
         for (let internship of data.internship) {
@@ -48,6 +61,11 @@ function loadCompanyBubbleData(id = 1){
             cloneCommentTemplate.getElementById("comment-description").textContent = comment.description;
             commentContainer.append(cloneCommentTemplate);
         }
+        for (let skill of data.skill) {
+            const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
+            cloneSkillTemplate.getElementById("skill").textContent = skill.name;
+            skillContainer.append(cloneSkillTemplate);
+        }
     });
 }
 const runway = document.getElementById("runway-element")
@@ -55,6 +73,7 @@ var oldElement = 1;
 loadCompanyBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
+    console.log(focusedBubble);
     if(oldElement !== focusedBubble && focusedBubble > 0){
         document.getElementById("runway-container-intern-details").remove();
         loadCompanyBubbleData(focusedBubble);
@@ -78,4 +97,18 @@ window.addEventListener("resize", () => {
     }
 });
 
-// ----------------------FIN JS SCRIPT STEPHAN BUBULLE-------------------------- -->
+function post_comment() {
+    var rate = Number(document.getElementById("rangeValue3").textContent);
+    var comment = "bien c'était super"; //document.getElementById("comment-area").textContent;
+    var json_data = {
+        rate: rate,
+        comment: comment
+    };
+    $.post("../Entreprise/addComment", { json: JSON.stringify(json_data) }, function(response) {
+        console.log(response);
+        },
+        'json')
+        .fail(function(xhr, status, error) {
+            console.error(xhr.responseText);
+        });
+}
