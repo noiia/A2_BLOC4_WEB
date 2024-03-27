@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use UMA\DIC\Container;
+use DI\Container;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -21,11 +21,14 @@ class InternshipController
 
     public function Welcome(Request $request, Response $response, array $args, Container $container): Response
     {
+        //$user = $request->getAttribute("user");
+        //var_dump($user);
+
         $entityManager = $container->get(EntityManager::class);
         $internships = $entityManager->getRepository(Internship::class)->findAll();
 
         $runwayBubbles = [];
-        $sixSkills= [];
+        $sixSkills = [];
         if ($internships) {
             foreach ($internships as $forInternship) {
                 $i = 0;
@@ -39,18 +42,18 @@ class InternshipController
                     }
                 }
                 $runwayBubbles[] =
-                [
-                    'id' => $forInternship->getIDInternship(),
-                    'job' => $forInternship->getTitle(),
-                    'school_grade' => $forInternship->promotions->getName(),
-                    'company' => $forInternship->companies->getName(),
-                    'location' => $forInternship->locations->getCity(),
-                    'begin_date' => $forInternship->getStartingDate(),
-                    'duration' => $forInternship->getDuration() . ' semaines',
-                    'competence_1' => $threeSkills[0],
-                    'competence_2' => $threeSkills[1],
-                    'competence_3' => $threeSkills[2],
-                ];
+                    [
+                        'id' => $forInternship->getIDInternship(),
+                        'job' => $forInternship->getTitle(),
+                        'school_grade' => $forInternship->promotions->getName(),
+                        'company' => $forInternship->companies->getName(),
+                        'location' => $forInternship->locations->getCity(),
+                        'begin_date' => $forInternship->getStartingDate(),
+                        'duration' => $forInternship->getDuration() . ' semaines',
+                        'competence_1' => $threeSkills[0],
+                        'competence_2' => $threeSkills[1],
+                        'competence_3' => $threeSkills[2],
+                    ];
             }
         }
         $view = Twig::fromRequest($request);

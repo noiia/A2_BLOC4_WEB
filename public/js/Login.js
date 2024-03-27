@@ -8,20 +8,21 @@ function login() {
         };
 
         $.post("../Login/Auth", { json: JSON.stringify(json_data) }, function(response) {
-            console.log("Réponse du serveur : ", response);
             if (response.success) {
-                alert("Connexion réussie !");
+                console.log("succeed");
+                document.location.href = "../Stage";
             } else {
-                alert("Échec de la connexion : " + response.error);
+                console.log("raté");
+                document.location.href = "../Login";
             }
         }, 'json')
             .fail(function(xhr, status, error) {
                 console.error("Statut de la requête : ", status);
                 console.error("Réponse du serveur : ", xhr.responseText);
                 console.error("Erreur : ", error);
-                alert("Erreur lors de la connexion : " + xhr.responseText);
+                document.getElementById('error-zone').textContent = xhr.responseText;
+                debugger;
             });
-        document.getElementById('error-zone').textContent = "";
     } else {
         document.getElementById('error-zone').textContent = "Champs vide";
     }
