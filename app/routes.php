@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 //use \src\Application\Actions\User\ListUsersAction;
 //use \src\Application\Actions\User\ViewUserAction;
+use App\Controller\CompanyController;
 use App\Controller\InternshipController;
 use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
-use App\Controller\ProfileController;
-use App\Entity\Users;
 
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -91,34 +90,38 @@ return function (App $app) {
             return $response->withStatus(404)->getBody()->write('Stage introuvable');
         }
     });
+    $app->get('/Entreprise', function (Request $request, Response $response, array $args) use ($twig, $container) {
+        $controller = new CompanyController($twig);
+        $companyResponse = $controller->Company($request, $response,[], $container);
+        return $companyResponse;
+    });
+    //----------- DEBUT PROFIL --------------//
+    $app->get('/Profile', function (Request $request, Response $response) use ($twig, $container){
+        $controller = new ProfileController($twig);
+        $profileResponse = $controller->Profile($request, $response,[], $container);
+        return $profileResponse;
+    });
 
-        //----------- DEBUT PROFIL --------------//
-        $app->get('/Profile', function (Request $request, Response $response) use ($twig, $container){
-            $controller = new ProfileController($twig);
-            $profileResponse = $controller->Profile($request, $response,[], $container);
-            return $profileResponse;
-        });
+    $app->get('/Profile/{i}', function (Request $request, Response $response, array $args) use ($container) {
 
-        $app->get('/Profile/{i}', function (Request $request, Response $response, array $args) use ($container) {
+        $entityManager = $container->get(EntityManager::class);
+        $User = $entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $args['i']]);
+        if ($User != null) {
+            $data = [
+                'ID_users' => $User->getIDUsers(),
+                'Name' => $User->getName(),
+                'Surname' => $User->getSurname(),
+                'Birth_date' => $User->getBirthDate(),
+                'Profile_Description' => $User->getProfileDescription(),
+                'Email' => $User->getEmail(),
+            ];
+            $payload = json_encode($data);
 
-            $entityManager = $container->get(EntityManager::class);
-            $User = $entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $args['i']]);
-            if ($User != null) {
-                $data = [
-                    'ID_users' => $User->getIDUsers(),
-                    'Name' => $User->getName(),
-                    'Surname' => $User->getSurname(),
-                    'Birth_date' => $User->getBirthDate(),
-                    'Profile_Description' => $User->getProfileDescription(),
-                    'Email' => $User->getEmail(),
-                ];
-                $payload = json_encode($data);
-
-                $response->getBody()->write($payload);
-                return $response->withHeader('Content-Type', 'application/json');
-            } else {
-                return $response->withStatus(404)->getBody()->write('Erreur d affichage du profil');
-            }
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Erreur d affichage du profil');
+        }
 
     });
     /*$app->group('/users', function (Group $group) {

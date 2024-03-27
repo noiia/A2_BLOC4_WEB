@@ -20,13 +20,18 @@ window.onscroll = function() {
 };
 function afficherOuMasquerBouton() {
     var boutonRetourHaut = document.getElementById("button-retour-haut");
+    var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
 
-    if (document.documentElement.scrollTop > 115) {
-        boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
-    }else {
+    if (document.documentElement.scrollTop < 115) {
         boutonRetourHaut.classList.add('display-none');
         boutonRetourHaut.classList.remove('retourHaut');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details');
+        runwayContainerInternDetails.classList.remove('runway-container-intern-details-fixed');
+    }else {
+        boutonRetourHaut.classList.add('retourHaut');
+        boutonRetourHaut.classList.remove('display-none');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
+        runwayContainerInternDetails.classList.remove('runway-container-intern-details');
     }
 }
 function retournerEnHaut() {
@@ -102,51 +107,36 @@ function validerFormulaire(isCompany) {
         }
     }
 
-    var champsObligatoires = document.querySelectorAll('[required]');
-    for (var i = 0; i < champsObligatoires.length; i++) {
-        if (!champsObligatoires[i].value.trim()) {
-            alert("Veuillez remplir tous les champs.");
-            return false;
+        var champsObligatoires = document.querySelectorAll('[required]');
+        for (var i = 0; i < champsObligatoires.length; i++) {
+            if (!champsObligatoires[i].value.trim()) {
+                alert("Veuillez remplir tous les champs.");
+                return false;
+            }
         }
-    }
 
-    alert("Formulaire soumis avec succès!");
-    toggle_hide_popup();
-    return true;  // Permettre la soumission du formulaire
+        alert("Formulaire soumis avec succès!");
+        toggle_hide_popup();
+        return true;  // Permettre la soumission du formulaire
 }
 
 // ------------ vérifier promotion
-function valid_comboBox(isCompany = false) {
+function valid_promotion(isCompany = false) {
     // Récupérer la valeur de l'input
-    var inputValue1 = document.getElementById('select-option1').value;
-    var inputValue2 = document.getElementById('select-option2').value;
+    var inputValue = document.getElementById('select-student-year').value;
+
     // Récupérer les options disponibles
-    var options1 = document.getElementById('option1').options;
-    var options2 = document.getElementById('option2').options;
+    var options = document.getElementById('student-year').options;
+
     // Vérifier si la valeur saisie est une des options
-
-    isValid = false;
-
-    for (var i = 0; i < options1.length; i++) {
-        if (options1[i].value === inputValue1) {
-            isValid = true;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].value === inputValue) {
+            validerFormulaire(isCompany);
+            break;
+        } else {
+            alert('Veuillez sélectionner une option de la liste.');
             break;
         }
-    }
-
-    if (isValid) {
-        isValid = false;
-        for (var j = 0; j < options2.length; j++) {
-            if (options2[j].value === inputValue2) {
-                validerFormulaire(isCompany);
-                isValid = true;
-                break;
-            }
-        }
-    }
-
-    if (!isValid) {
-        alert('Veuillez sélectionner une option de la liste.');
     }
 }
 

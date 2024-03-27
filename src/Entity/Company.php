@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping\Table;
 
 
 #[Entity]
-#[Table('Company')]
+#[Table('company')]
 class Company
 {
     #[Id]
@@ -46,6 +46,12 @@ class Company
     public ?Sector $sector;
     #[OneToMany(targetEntity: Rate::class, mappedBy:'companies')]
     private Collection $rates;
+
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
     #[JoinTable(name: "Manage_company")]
     #[JoinColumn(name: 'id_company', referencedColumnName: 'ID_company', unique: false)]
     #[InverseJoinColumn(name: 'id_users', referencedColumnName: 'ID_users', unique: false)]

@@ -127,6 +127,4 @@ body::-webkit-scrollbar-track:hover{
 #student_description{
     @apply h-full w-full resize-none bg-secondary-white;
 }
-
-
 /* -------------------Fin profil -------------------*/

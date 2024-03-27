@@ -20,7 +20,7 @@ function check_role(){
                 <li><a href="../Profile/Profile.html.twig">Mon profil</a></li>
                 <li><a href="../Students/Students.html">Etudiants</a></li>
                 <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
-                <li><a id="actual_page">Entreprises</a></li>
+                <li><a id="actual_page">Company</a></li>
                 <li><a href="../Internship/Internship.html">Mes stages</a></li>
                 <li><a href="../WishList/WishList.html">WishList</a></li>
             </ul>
