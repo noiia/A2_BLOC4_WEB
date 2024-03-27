@@ -2,20 +2,15 @@
 
 declare(strict_types=1);
 
-//use \src\Application\Actions\User\ListUsersAction;
-//use \src\Application\Actions\User\ViewUserAction;
 use App\Controller\CompanyController;
+use App\Controller\CompanyStatsController;
 use App\Controller\InternshipController;
+use App\Controller\InternshipStatsController;
 use App\Controller\LoginController;
-use App\Entity\Appliement_WishList;
-use App\Entity\Company;
-use App\Entity\Internship;
-use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
 use Slim\App;
-use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 use Slim\Routing\RouteContext;
 use Slim\Views\Twig;
 use Twig\Loader\FilesystemLoader;
@@ -47,23 +42,24 @@ return function (App $app) {
     });
     $app->addRoutingMiddleware();
 
-    //var_dump($container);
-
     $app->get('/Login', [LoginController::class, 'Login']);
     $app->post('/Login/Auth', [LoginController::class, 'testLogins']);
-
 
     $app->group('/', function ($group) {
         $group->get('disconnect', function ($request, $response) {
             \RKA\Session::destroy();
             return $response;
         });
-        
+
         $group->get('Stage', [InternshipController::class, 'Welcome']);
         $group->get('Stage/{id}', [InternshipController::class, 'InternshipApi']);
 
         $group->get('Entreprise', [CompanyController::class, 'Company']);
         $group->get('Entreprise/api/{id}', [CompanyController::class, 'CompanyApi']);
         $group->post('Entreprise/addComment', [CompanyController::class, 'addComment']);
+
+        $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
+        $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
+
     })->add($authMiddleware);
 };

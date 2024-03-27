@@ -44,11 +44,11 @@ class LoginController
                 $response->getBody()->write(json_encode(['success' => true]));
                 return $response->withHeader('content-type', 'application-json')->withStatus(200);
             } else {
-                $response->getBody()->write("Erreur de mot de passe");
+                $response->getBody()->write("Identifiant incorrects");
                 return $response->withHeader('content-type', 'application-json')->withStatus(401);
             }
         } else {
-            $response->getBody()->write("Erreur de nom d'utilisateur");
+            $response->getBody()->write("Identifiant incorrects");
             return $response->withHeader('content-type', 'application-json')->withStatus(401);
         }
 
