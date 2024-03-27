@@ -6,7 +6,7 @@ function check_role(){
             echo '<div class="left_container" id="left_array">
             <p>Etudiants</p>
             <ul>
-                <li><a href="../Profile/Profile.html.twig">Mon profil</a></li>
+                <li><a href="../Profile/Profile.html">Mon profil</a></li>
                 <li><a href="../WishList/WishList.html">WishList</a></li>
                 <li><a id="actual_page">Mes postulations</a></li>
             </ul>

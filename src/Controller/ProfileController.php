@@ -37,7 +37,7 @@ class ProfileController
         }
 
         $view = Twig::fromRequest($request);
-        return $view->render($response, 'Profile/Profile.html.twig.twig', [
+        return $view->render($response, 'Profile/Profile.html.twig', [
             'users' => $myProfile,
         ]);
     }

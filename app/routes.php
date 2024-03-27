@@ -6,6 +6,7 @@ declare(strict_types=1);
 //use \src\Application\Actions\User\ViewUserAction;
 use App\Controller\CompanyController;
 use App\Controller\InternshipController;
+use App\Controller\ProfileController;
 use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
 
