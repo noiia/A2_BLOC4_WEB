@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="images/Icones/logo_seul_blanc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/Activities.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Fiche Etudiant</title>
+</head>
+
+<script>
+    $(document).ready(function(){
+        var roleValue = "role";
+        var profilePHP = "Activities.php";
+        data = {
+            action : roleValue
+        };
+        $.post(profilePHP, data, function(response){
+            $(".main_left").append(response);
+        })
+    })
+</script>
+
+<body>
+    <div class="main_left">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Students/Students.html'">Retour</button>
+    </div>
+    <div class="main_right">
+        <p id="right_title">Fiche de l'étudiant</p>
+        <img src="images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <div class="right_container">  
+            <div class="right_top">
+                <img src="images/Icones/profile.png"" alt="photo de l'étudiant" id="student_photo">
+                <div class="student_info">
+                    <ul>
+                        <li>Nom</li>
+                        <li>Prenom</li>
+                        <li>Age</li>
+                    </ul>
+                    <ul>
+                        <li>Promotion</li>
+                        <li>N°utilisateur</li>
+                        <li>Centre</li>
+                    </ul>
+                </div>
+            </div>    
+            <div class="right_bottom">
+                <div class="scroll_container second-scrollbar">        
+                    <p class="title">Postulations</p>
+                    <div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div><div class="container-intern">
+                        <div class="container-div-para">
+                            <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                            <p class="container-paragraph">Orange - Reims</p>
+                            <p class="container-paragraph">Début = 31/01/2024</p>
+                            <p class="container-paragraph">3 semaines</p>
+                            <ul>
+                                <li>Js</li>
+                                <li>Js</li>
+                                <li>Js</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll_container second-scrollbar">
+                <p class="title">Wishlist</p>
+                <div class="container-intern">
+                    <div class="container-div-para">
+                        <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                        <p class="container-paragraph">Orange - Reims</p>
+                        <p class="container-paragraph">Début = 31/01/2024</p>
+                        <p class="container-paragraph">3 semaines</p>
+                        <ul>
+                            <li>Js</li>
+                            <li>Js</li>
+                            <li>Js</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-intern">
+                    <div class="container-div-para">
+                        <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                        <p class="container-paragraph">Orange - Reims</p>
+                        <p class="container-paragraph">Début = 31/01/2024</p>
+                        <p class="container-paragraph">3 semaines</p>
+                        <ul>
+                            <li>Js</li>
+                            <li>Js</li>
+                            <li>Js</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-intern">
+                    <div class="container-div-para">
+                        <h1 class="container-h1">Commercial H/F - Bac+2</h1>
+                        <p class="container-paragraph">Orange - Reims</p>
+                        <p class="container-paragraph">Début = 31/01/2024</p>
+                        <p class="container-paragraph">3 semaines</p>
+                        <ul>
+                            <li>Js</li>
+                            <li>Js</li>
+                            <li>Js</li>
+                        </ul>
+                    </div>
+                </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

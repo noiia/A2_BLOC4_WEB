@@ -1,29 +1,42 @@
-# WEB Project
+# Slim Framework 4 Skeleton Application
 
-## Introduction
+[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
 
-## Responsive
+Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
 
-### Welcome
+This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
 
-For the welcome we added 4 breakpoints due to the different elements of the page. During this explanation we will begin by describing the full-size page (as 16/9 ratio 1080\*1920 res) and we will finish with the lowest (as cellphone, above 500 pixels of width).
+## Install the Application
 
-The different break points are the following one :
+Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
 
-- sm : 500px
-- md : 768px
-- ml : 850px
-- lg : 1024px
-- xl : 1280px
-- 2xl : 1536px
+```bash
+composer create-project slim/slim-skeleton [my-app-name]
+```
 
-The full page is designed in 3 parts :
+Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
 
-- the filters
-- the runway
-- the detailled container
+* Point your virtual host document root to your new application's `public/` directory.
+* Ensure `logs/` is web writable.
 
-When you reduce the page to 2xl size, the filter desappear of the left and goes to the top of the runway the page is divided as <insert ratio>.
-Next, when you reduce the size to xl size, the detailled container desappear and the runway goes in the middle of the screen. When you click on an element of the runway, it opens a page in full screen size with the details of the intern.
-Above ml size, the menu disappear to become a burger menu.
-Finally, above sm size, all the element reduce their size to be as compatible as much with cellphone screens.
+To run the application in development, you can run these commands 
+
+```bash
+cd [my-app-name]
+composer start
+```
+
+Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
+```bash
+cd [my-app-name]
+docker-compose up -d
+```
+After that, open `http://localhost:8080` in your browser.
+
+Run this command in the application directory to run the test suite
+
+```bash
+composer test
+```
+
+That's it! Now go build something cool.

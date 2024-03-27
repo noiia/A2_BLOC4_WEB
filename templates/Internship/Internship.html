@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="images/Icones/logo_seul_blanc.png">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/Internship.js"></script>
+    <link href="output.css" rel="stylesheet">
+    <title>Inter'net - Gestion des stages</title>
+</head>
+
+<script>
+    $(document).ready(function(){
+        var Value = "role";
+        var PHPfiles = "Internship.php";
+        data = {
+            action : Value
+        };
+        $.post(PHPfiles, data, function(response){
+            $(".main_left").append(response);
+        })
+    })
+</script>
+
+<body>
+    <div class="main_left">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+    </div>
+    <div class="main_right second-scrollbar">
+        <p id="right_title">Gestion des stages</p>
+        <img src="images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="images/Icones/logo_seul.png" alt="chercher un stage" id="menu_search" onclick="toggle_search()">
+        <div class="search_list-internships">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="images/Icones/logo_seul.png" alt="V" /></button>
+            </div>
+            <div class="list-internships second-scrollbar">
+                <div class="add-del">
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img src="images/Icones/poubelle-de-recyclage.png"></button>
+                </div>
+                <button class="internship" id="internship-1" onclick="focus_container('internship-1')">stage1</button>           
+                <button class="internship" id="internship-2" onclick="focus_container('internship-2')">stage2</button>           
+                <button class="internship" id="internship-3" onclick="focus_container('internship-3')">stage3</button>           
+                <button class="internship" id="internship-4" onclick="focus_container('internship-4')">stage4</button>           
+                <button class="internship" id="internship-5" onclick="focus_container('internship-5')">stage5</button>           
+                <button class="internship" id="internship-6" onclick="focus_container('internship-6')">stage6</button>           
+                <button class="internship" id="internship-7" onclick="focus_container('internship-7')">stage7</button>           
+                <button class="internship" id="internship-8" onclick="focus_container('internship-8')">stage8</button>           
+                <button class="internship" id="internship-9" onclick="focus_container('internship-9')">stage9</button>           
+                <button class="internship" id="internship-10" onclick="focus_container('internship-10')">stage10</button>           
+              </div>
+        </div>
+        <div class="profile_internship">
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
+            <div class="profile_block">
+                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
+                <div class="internship_top">
+                    <div class="left_profile">
+                        <p>Nom</p>
+                        <p>N°SIRET
+                        <p>Ouais</p>
+                        <p>Ouias ouais</p>
+                        <p>c ca ouais</p>
+                        <p>absolument</p>
+                        <p>j aurais pas dit mieux</p>
+                   </div>
+                   <div class="right_advantages second-scrollbar">
+                        <p>Avantages</p>
+                        <ul>
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                        </ul>
+                   </div>
+                </div>
+                <div class="internship_mid">
+                    <label class="label-company_description" for="company_description">Description</label>
+                    <textarea id="company_description" class="second-scrollbar" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt saepe accusamus provident numquam nostrum commodi praesentium perspiciatis, magnam aperiam autem in ad earum temporibus, sunt beatae officiis. Ullam, repellat sit.
+                    Placeat officiis ex praesentium fugiat odit tempora soluta, distinctio ratione, cupiditate harum molestias facilis esse nam ipsum fugit dicta dolorum hic adipisci, aliquid aliquam neque ea unde? Corrupti, perferendis ad!
+                    Amet, exercitationem voluptates? Impedit consequuntur dolorum, vel, nisi quam magni similique ducimus autem suscipit ea harum dignissimos praesentium rem maxime aut possimus quia cupiditate laborum error voluptates doloribus hic illo?
+                    Nemo in quaerat eum explicabo et deserunt vero porro veniam, maiores error quam facere aliquam, nobis distinctio. Saepe dignissimos, facere nulla, architecto officia quod odit ipsam, voluptatibus dolores quidem perspiciatis!
+                    Laborum, distinctio! Delectus ad ullam commodi debitis numquam, assumenda aut officia ex quia dolore pariatur ipsam dolores, iure obcaecati ab enim esse rem quos similique nobis aliquam, earum suscipit doloribus.
+                    Necessitatibus quidem praesentium eveniet, cumque illo voluptate ducimus officia commodi optio iste sint soluta dolore delectus, maiores eligendi minima voluptates, consequatur impedit iusto magni nisi quam quaerat saepe cum! Provident!
+                    Facere iure quasi harum a excepturi aut numquam laudantium inventore, reprehenderit esse temporibus soluta. Consectetur vitae incidunt iusto, nisi voluptatibus error ullam reiciendis fuga beatae totam praesentium non nesciunt suscipit.
+                    Iste saepe illum aliquid et accusamus ea quod tenetur vel! Odio repudiandae officia, dolorum aperiam animi hic omnis exercitationem, sequi fugiat, eveniet tenetur adipisci minima cum soluta saepe quis perferendis.
+                    Nostrum quibusdam amet aliquam animi atque, maiores obcaecati cupiditate suscipit aspernatur id nemo beatae doloremque? Officia harum id earum placeat quae odit consequuntur, voluptatem asperiores hic. Neque excepturi quam laudantium.
+                    Beatae quisquam illum sunt? Fuga officiis et amet mollitia explicabo aliquam hic perspiciatis autem animi debitis accusantium, laboriosam earum doloremque vero consequuntur nam tempora magnam recusandae repudiandae laborum, itaque suscipit.</textarea>
+                </div>
+                <div class="internship_bot second-scrollbar">
+                    <div class="postulation">
+                        <a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Bertrand Lechou - CESI_CPIA2_S3E</a>
+                        <img src="images/Icones/check.png" class="black_check" id=1 onclick="toggle_valid(1);">
+                    </div>
+                                     
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------DEBUT POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="container-add-student hide_container">
+        <div class="add-student-name">
+            <h1>Ajouter un stage</h1>
+        </div>            
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+            <button class="button-cancel" id="apply" onclick="valid_promotion();">Appliquer</button>
+        </div>
+        <div class="container-informations-and-description">
+            <div class="container-students-informations second-scrollbar">
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <form id="Internship-Form" onsubmit="return validerFormulaire()">
+                            <ul>
+                                <li><input placeholder="TITRE..." required></input></li>
+                                <li><input placeholder="Entreprise..." required></input></li>
+                                <li><input placeholder="Année d'étude..." list="student-year" id="select-student-year" name="select-student-year" required>
+                                    <datalist id="student-year">
+                                        <option value="Bac+0">
+                                        <option value="Bac+1">
+                                        <option value="Bac+2">
+                                        <option value="Bac+3">
+                                        <option value="Bac+4">
+                                        <option value="Bac+5">
+                                        <option value="Bac+6">
+                                        <option value="Bac+7">
+                                        <option value="Bac+8">
+                                    </datalist></input></input></li>
+                                <li><input type="number" placeholder="Rémunération..." required></input></li>
+                            </ul>
+                            <ul>
+                                <li><input type="number" placeholder="Nombre d'heures... (par semaines)" required></input></li>
+                                <li><input placeholder="Lieu..." required></input></li>
+                                <li><label for="id-input-starting-date">Début: </label><input type="date" id="id-input-starting-date" required></input></li>
+                                <li><input type="number" placeholder="Durée du stage... (semaines)" required></input></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                <div class="container-skills">
+                    <div class="id-internship">
+                        <h1>Numéro de stage</h1>
+                    </div>
+                    <div class="big-container">
+                        <div class="container-skills-name">
+                            <p>Compétences recherchées</p>
+                        </div>
+                        <div class="input-adresse">
+                            <input id="input-adresse" placeholder="Compétence..."></input>
+                        </div>
+                            <button class="add-button" id="add-button">Ajouter</button>
+                    </div>
+                    <div class="container-skills-scroll horizontal-second-scrollbar">
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>du gros caca boudin au sucre qui pue</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="each-skill">
+                                    <p>JS</p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                    <textarea class="second-scrollbar-description-internship" placeholder="Tapez votre description..."></textarea>
+                </div>
+            </div>
+            <div class="container-pilote-promotion second-scrollbar">
+                <div class="container-pilote-promotion-header">
+                    <div class="container-pilote-promotion-header-name">
+                        <h1>Avantages</h1>
+                    </div>
+                </div>
+                <div class="container-each-promotion">
+                    <textarea class="second-scrollbar-description-internship" placeholder="Tapez les avantages..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------FIN POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cette entreprise ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    <div class="valid_bg">
+        <div class="valid_block">
+            <div class="valid_text">
+                Êtes-vous sûr de vouloir recruter cet élève comme stagiaire ?
+            </div>
+            <div class="valid_button">
+                <button type="button" onclick="toggle_valid(0);">Annuler</button>
+                <button type="button" onclick="valid_current_student();">Valider</button>
+            </div>
+        </div>
+    </div>
+    <div class="end_bg">
+        <div class="end_block">
+            <div class="end_text">
+                Pourquoi voulez vous-retirez cet élève de votre stage ?
+            </div>
+            <div class="end_choice">
+                <label for="radio_error"><input type="radio" id="radio_error" value="error" name="end_radio"> C'etait une erreur</label>
+                <label for="radio_need"><input type="radio" id="radio_need" value="need" name="end_radio"> Je n'ai plus besoin de cet élève</label>
+                <label for="radio_end"><input type="radio" id="radio_end" value="end" name="end_radio"> Son stage touche à son terme</label>
+            </div>
+            <div class="end_button">
+                <button type="button" onclick="toggle_end(0);">Annuler</button>
+                <button type="button" onclick="end_current_student();">Valider</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,359 @@
+{% extends 'base.html.twig' %}
+{% block title %} Inter'net - Stages {% endblock %}
+{% block stylesheet %}
+    <link href='css/OutputWelcome.css' rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src='js/Welcome.js'></script>
+<script>
+    $(document).ready(function(){
+    var Value = "profile";
+    var PHPfiles = "Welcome.php";
+    data = {
+    action : Value
+};
+    $.post(PHPfiles, data, function(response){
+    $("#navbar-profile").append(response);
+});
+});
+</script>
+{% endblock %}
+
+{% block body %}
+    <body>
+    <div class="full-runway">
+        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut();">
+            <img src='images/Icones/fleche-retour-haut.png' alt="fleche retour haut" class="retaur-haut-logo-picture">
+        </button>
+        <div class="runway-elements">
+            <div class="parent-filter">
+                <div class="filter">
+                    <div class="search_bar">
+                        <input type="search" placeholder="Rechercher" id="general-search_bar">
+                        <button type="button" id="general-button_search" onclick="submitFilter()"><img
+                                    src='images/Icones/logo_seul.png' alt="V"/></button>
+                    </div>
+                    <div class="filter-green">
+                        <div class="filter-location">
+                            <div class="filter-block_search-top">
+                                <p>Localité :</p>
+                                <div class="search_bar">
+                                    <input type="search" id="input_localite" placeholder="Rechercher"
+                                           onkeydown="load_filter(event, 'input_localite');" data-children='loc'>
+                                    <button type="button" onclick="load_filter(event, 'input_localite');"><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
+                                </div>
+                            </div>
+                            <div class="filter-block_search-bot">
+                                <div id="loc0" hidden onclick="del_filter_block(event, 'input_localite')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc1" hidden onclick="del_filter_block(event, 'input_localite')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc2" hidden onclick="del_filter_block(event, 'input_localite')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="loc3" hidden onclick="del_filter_block(event, 'input_localite')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-skills">
+                            <div class="filter-any_search-top">
+                                <p>Compétences :</p>
+                                <div class="search_bar">
+                                    <input type="search" id="input_skills" placeholder="Rechercher"
+                                           onkeydown="load_filter(event, 'input_skills');" data-children='skill'>
+                                    <button type="button" onclick="load_filter(event, 'input_skill');"><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
+                                </div>
+                            </div>
+                            <div class="filter-block_search-bot">
+                                <div id="skill0" hidden onclick="del_filter_block(event, 'input_skill')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill1" hidden onclick="del_filter_block(event, 'input_skill')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill2" hidden onclick="del_filter_block(event, 'input_skill')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="skill3" hidden onclick="del_filter_block(event, 'input_skill')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-start_internship">
+                            <div class="filter-any_search-top">
+                                <p>Debut de l'offre :</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_min-max">
+                                    <label for="minimum_start_internship">Minimum</label>
+                                    <input type="date" id="minimum_start_internship" inputmode="numeric"/>
+                                </div>
+                                <div class="search_min-max">
+                                    <label for="maximum_start_internship">Maximum</label>
+                                    <input type="date" id="maximum_start_internship" inputmode="numeric"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-duration_internship">
+                            <div class="filter-any_search-top">
+                                <p>Durée du stage :</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_min-max">
+                                    <label for="minimum-duration_internship">Minimum</label>
+                                    <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
+                                           max="26" placeholder="de 0 à 26 semaines"/>
+                                    <!--min à 0 et max à 26 car la loi l'impose-->
+                                </div>
+                                <div class="search_min-max">
+                                    <label for="maximum-duration_internship">Maximum</label>
+                                    <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
+                                           max="26" placeholder="de 0 à 26 semaines"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-company">
+                            <div class="filter-any_search-top">
+                                <p>Entreprises :</p>
+                                <div class="search_bar">
+                                    <input type="search" id="input_company" placeholder="Rechercher"
+                                           onkeydown="load_filter(event, 'input_company');" data-children='comp'>
+                                    <button type="button" onkeydown="load_filter(event, 'input_company');"><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
+                                </div>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div id="comp0" hidden onclick="del_filter_block(event, 'input_company')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp1" hidden onclick="del_filter_block(event, 'input_company')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp2" hidden onclick="del_filter_block(event, 'input_company')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                                <div id="comp3" hidden onclick="del_filter_block(event, 'input_company')">
+                                    <p></p>
+                                    <img src="images/Icones/croix-supprimer-le-signe.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-promotion">
+                            <div class="filter-any_search-top">
+                                <p>Niveau d'études :</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_range">
+                                    <input type="range" min="0" max="8" step="1" id="rangeInput" value="0"
+                                           oninput="input_filter();">
+                                    <span id="rangeValue">Bac+0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-max_places">
+                            <div class="filter-any_search-top">
+                                <p>Nombre de places :</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_min-max">
+                                    <label for="minimum-max_places">Minimum</label>
+                                    <input type="number" id="minimum-max_places" inputmode="numeric" min="0"
+                                           placeholder="nombre de place"/>
+                                </div>
+                                <div class="search_min-max">
+                                    <label for="maximum-max_places">Maximum</label>
+                                    <input type="number" id="maximum-max_places" inputmode="numeric" min="0"
+                                           placeholder="nombre de place"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-postulation">
+                            <div class="filter-any_search-top">
+                                <p>Nombre de-postulation :</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_min-max">
+                                    <label for="minimum-postulation">Minimum</label>
+                                    <input type="number" id="minimum-postulation" inputmode="numeric" min="0"
+                                           placeholder="nombre de postulation"/>
+                                </div>
+                                <div class="search_min-max">
+                                    <label for="maximum-postulation">Maximum</label>
+                                    <input type="number" id="maximum-postulation" inputmode="numeric" min="0"
+                                           placeholder="nombre de postulation"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-hourly_rate">
+                            <div class="filter-any_search-top">
+                                <p>Rémuneration à l'heure:</p>
+                            </div>
+                            <div class="filter-any_search-bot">
+                                <div class="search_min-max">
+                                    <label for="minimum-hourly_rate">Minimum</label>
+                                    <input type="number" id="minimum-hourly_rate" inputmode="numeric" min="0"
+                                           placeholder="en €"/>
+                                </div>
+                                <div class="search_min-max">
+                                    <label for="maximum-hourly_rate">Maximum</label>
+                                    <input type="number" id="maximum-hourly_rate" inputmode="numeric" min="0"
+                                           placeholder="en €"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-validate">
+                            <button type="button" onclick="submitFilter()">Valider</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="runway-container">
+                <div class="filter-mobile">
+                    <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
+                </div>
+                <!-- zone de bulles -->
+                {% for internship in internships %}
+                    <button class="container" id="{{ internship.id }}"
+                            onclick="focus_container('container-{{ internship.id }}')">
+                            <span>
+                                <div class="container-intern" id="container-{{ internship.id }}">
+                                    <div class="container-div-para">
+                                        <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
+                                        <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
+                                        <p class="container-paragraph">{{ internship.begin_date }}</p>
+                                        <p class="container-paragraph">{{ internship.duration }}</p>
+                                        <div class="container-skills">
+                                            <ul>
+                                                <li>{{ internship.competence_1 }}</li>
+                                                <li>{{ internship.competence_2 }}</li>
+                                                <li>{{ internship.competence_3 }}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+        <template id="main-internship">
+            <div class="runway-container-intern-details" id="runway-container-intern-details">
+                <div class="container-intern-details second-scrollbar">
+                    <div class="container-close-tab">
+                        <button class="button-close-tab" id="button-close-tab">
+                            <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab"
+                                 class="close-tab-logo-picture" onclick="toggle_bubulle();">
+                        </button>
+                    </div>
+                    <div class="container-div-par-intern-details">
+                        <div class="header-intern-details">
+                            <img src="" alt="logo company" class="company-logo-picture" id="Big-bubble-logo">
+                            <h1 class="container-header-intern-details" id="Big-bubble-name"></h1>
+                            <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist"
+                                 class="unselected-wishlist-logo-picture" onclick="toggle_wishlist();">
+                            <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist"
+                                 class="selected-wishlist-logo-picture" onclick="toggle_wishlist();">
+                        </div>
+
+                        <div class="container-left-informations">
+                            <h1>Entreprise :</h1>
+                            <p id="Big-bubble-company"><a id="Big-bubble-company-link" href=""></a></p>
+                            <h1>Emplacement :</h1>
+                            <p id="Big-bubble-location"></p>
+                            <h1>Niveau d'étude :</h1>
+                            <p id="Big-bubble-school-grade"></p>
+                            <h1>Salaire :</h1>
+                            <p id="Big-bubble-month-payment"></p>
+                            <h1>Date de début du stage :</h1>
+                            <p id="Big-bubble-begin-date"></p>
+                            <h1>Places disponibles:</h1>
+                            <p id="Big-bubble-place"></p>
+                            <h1>Durée du stage :</h1>
+                            <p id="Big-bubble-duration"></p>
+                        </div>
+                        <div class="container-right-informations">
+                            <button class="button-postuler" id="button-postuler" value="Postuler"
+                                    onclick="block_postulation()">
+                                Postuler
+                            </button>
+                            <p>Compétences recherchées :</p>
+                            <div class="container-skills-details" id="container-skills">
+                            </div>
+                        </div>
+                        <div class="container1-bottom-informations">
+                            <h1>Avantages :</h1>
+                            <p id="Big-bubble-advantages"></p>
+                        </div>
+                        <div class="container2-bottom-informations">
+                            <h1>Description du poste :</h1>
+                            <p id="Big-bubble-description"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="skills-template">
+            <div id="skills"></div>
+        </template>
+        <div id="bubble-place"></div>
+    </div>
+    <!-- ---------------------- POSTULER ------------------- -->
+    <div class="postulation-bg postulation-off">
+        <div class="postulation-block">
+            <div class="postulation-top">
+                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                Nous vous invitons à renseigner vos documents.
+                <img src="images/Icones/croix-supprimer-le-signe.png" onclick="block_postulation()"/>
+            </div>
+            <div class="postulation-bottom">
+                <div class="postulation-motivation">
+                    Ecrire sa lettre de motivation
+                    <textarea type="text" class="postulation-motivation_letter"
+                              placeholder="Bonjour, je suis interresser par votre offre de stage"></textarea>
+                </div>
+                <label id="postulation-text_center">ET/OU</label>
+                <div class="postulation-right">
+                    <div class="postulation-block_docs" id="postulation-block_docs">
+                        Vos documents
+                        <div class="postulation-list_docs">
+                            <div class="postulation-docs">
+                                <p onclick="open_file('images/files/Livrable_2_Projet_FF.pdf')">CV.pdf</p>
+                                <img src="images/Icones/poubelle-de-recyclage.png"/>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="do_add_file();">
+                        Ajouter un fichier (.pdf)
+                        <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
+                    </button>
+                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-pagination">
+        <button class="button-back" id="id-button-back"><</button>
+        <button class="page-number" id="id-page-number">1</button>
+        <button class="page-number-selected" id="id-page-number-selected">2</button>
+        <button class="page-number" id="id-page-number">3</button>
+        <div class="too-much-pages"><p>...</p></div>
+        <button class="page-number" id="id-page-number">99</button>
+        <button class="button-next" id="id-button-next">></button>
+    </div>
+    </body>
+{% endblock %}
