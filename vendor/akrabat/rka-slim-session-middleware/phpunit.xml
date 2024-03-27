@@ -1,0 +1,9 @@
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    colors="true"
+    processIsolation="true"
+>
+    <testsuite name="RKA Slim Session Middleware test suite">
+        <directory>tests</directory>
+    </testsuite>
+</phpunit>
