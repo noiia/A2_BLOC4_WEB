@@ -1,0 +1,25 @@
+{% extends 'profile_base.html.twig' %}
+{% block title %}Inter'net - WishList{% endblock %}
+{% block stylesheet %} <link href="css/OutputWishList.css" rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src="main/main.js"></script>
+<script src="WishList.js"></script>
+{% endblock %}
+
+{% block body %}
+    <body>
+    <div class="main_right">
+        <div class="container_right">
+            <p class="right_title">WishList</p>
+            <div class="main_container_right">
+                {% for internship in internships %}
+                    <div class="container_items">
+                        <p>{{ internship.job }} - {{ internship.company }}</p>
+                        <img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" class="poubelle-logo">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
