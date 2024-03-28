@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5db2340b188645c318bfe316f01bbd9f",
+    "content-hash": "b00621c75101aeedbe3defa5f606de56",
     "packages": [
+        {
+            "name": "akrabat/rka-slim-session-middleware",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akrabat/rka-slim-session-middleware.git",
+                "reference": "57cb52446778055da1b7b3ee638fbccaf9b1a0f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akrabat/rka-slim-session-middleware/zipball/57cb52446778055da1b7b3ee638fbccaf9b1a0f1",
+                "reference": "57cb52446778055da1b7b3ee638fbccaf9b1a0f1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "slim/psr7": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RKA\\": "RKA"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                }
+            ],
+            "description": "Simple session middleware for Slim Framework",
+            "homepage": "http://github.com/akrabat/rka-slim-session-middleware",
+            "keywords": [
+                "middleware",
+                "session",
+                "slim"
+            ],
+            "support": {
+                "issues": "https://github.com/akrabat/rka-slim-session-middleware/issues",
+                "source": "https://github.com/akrabat/rka-slim-session-middleware/tree/3.0.0"
+            },
+            "time": "2022-07-19T11:39:01+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "2.0.1",
@@ -1497,6 +1549,47 @@
                 }
             ],
             "time": "2023-11-02T10:04:50+00:00"
+        },
+        {
+            "name": "php-di/slim-bridge",
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-DI/Slim-Bridge.git",
+                "reference": "d14c95b34b3c5ba2e8c40020dd93fdcc8f3ba875"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-DI/Slim-Bridge/zipball/d14c95b34b3c5ba2e8c40020dd93fdcc8f3ba875",
+                "reference": "d14c95b34b3c5ba2e8c40020dd93fdcc8f3ba875",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "php-di/invoker": "^2.0.0",
+                "php-di/php-di": "^6.0|^7.0",
+                "slim/slim": "^4.2.0"
+            },
+            "require-dev": {
+                "laminas/laminas-diactoros": "^2.1",
+                "phpunit/phpunit": ">= 7.0 < 10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DI\\Bridge\\Slim\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-DI integration in Slim",
+            "support": {
+                "issues": "https://github.com/PHP-DI/Slim-Bridge/issues",
+                "source": "https://github.com/PHP-DI/Slim-Bridge/tree/3.4.0"
+            },
+            "time": "2023-06-29T14:08:47+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3439,48 +3532,6 @@
                 }
             ],
             "time": "2023-11-21T18:54:41+00:00"
-        },
-        {
-            "name": "uma/dic",
-            "version": "v3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/1ma/DIC.git",
-                "reference": "f21501e8bf060de172cc96764dd7326e2982a681"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/1ma/DIC/zipball/f21501e8bf060de172cc96764dd7326e2982a681",
-                "reference": "f21501e8bf060de172cc96764dd7326e2982a681",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3.0 || ^7.4.0 || ^8.0.0 || ^8.1.0",
-                "psr/container": "^2.0"
-            },
-            "provide": {
-                "psr/container-implementation": "^1.0"
-            },
-            "require-dev": {
-                "phpmetrics/phpmetrics": "^2.7",
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "UMA\\DIC\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A minimalistic PSR-11 container",
-            "support": {
-                "issues": "https://github.com/1ma/DIC/issues",
-                "source": "https://github.com/1ma/DIC/tree/v3.0.1"
-            },
-            "time": "2022-01-15T20:30:48+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

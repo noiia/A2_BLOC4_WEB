@@ -1,0 +1,33 @@
+{% extends 'profile_base.html.twig' %}
+{% block title %}Inter'net - Postulation{% endblock %}
+{% block stylesheet %} <link href="css/OutputPostulation.css" rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src="main/main.js"></script>
+<script src="Postulation.js"></script>
+{% endblock %}
+
+{% block body %}
+<body>
+<div class="main_left">
+    <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+    <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
+</div>
+<div><img class="hamburger" src="images/Icones/hamburger.png" alt="hamburger"></div>
+
+<div class="main_right">
+    <div class="container_right">
+        <p class="right_title">Postulations</p>
+        <div class="main_container_right second-scrollbar">
+            {% for internship in internships %}
+                <div class="container_items">
+                    <p>{{ internship.job }} - {{ internship.company }}</p>
+                    <img src="images/Icones/check.png" alt="poubelle" class="poubelle-logo">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}
+

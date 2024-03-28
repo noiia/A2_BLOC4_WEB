@@ -4,30 +4,31 @@ namespace App\Controller;
 
 use App\Entity\Users;
 use Doctrine\ORM\EntityManager;
+use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
-use UMA\DIC\Container;
 
 class LoginController
 {
-    private $twig;
+    private Twig $twig;
+    private \RKA\Session $session;
+    private EntityManager $entityManager;
 
-    public function __construct(Twig $twig)
+    public function __construct(ContainerInterface $container)
     {
-        $this->twig = $twig;
+        $this->twig = $container->get('view');
+        $this->session = new \RKA\Session();
+        $this->entityManager = $container->get(EntityManager::class);
     }
 
-    public function Login(Request $request, Response $response, array $args, Container $container): Response
+    public function Login(Request $request, Response $response): Response
     {
-        $entityManager = $container->get(EntityManager::class);
-
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'Login/Login.html.twig');
+        return $this->twig->render($response, 'Login/Login.html.twig');
     }
-    public function testLogins(Request $request, Response $response, Container $container): Response
+
+    public function testLogins(Request $request, Response $response): Response
     {
-        $entityManager = $container->get(EntityManager::class);
         $json = $request->getParsedBody();
         $jsonData = json_decode($json['json'], true);
 
@@ -36,19 +37,18 @@ class LoginController
 
         //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $login = $entityManager->getRepository(Users::class)->findOneBy(['Login' => $username]);
-        if ($login != null){
-            if ($password == $login->getPassword())
-            {
-                $response->getBody()->write("Auth réussie");
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(['Login' => $username]);
+        if ($user != null) {
+            if ($password == $user->getPassword()) {
+                $this->session->set('user', $user);
+                $response->getBody()->write(json_encode(['success' => true]));
                 return $response->withHeader('content-type', 'application-json')->withStatus(200);
-            }
-            else {
-                $response->getBody()->write("erreur mot de passe");
+            } else {
+                $response->getBody()->write("Erreur de mot de passe");
                 return $response->withHeader('content-type', 'application-json')->withStatus(401);
             }
         } else {
-            $response->getBody()->write("erreur username");
+            $response->getBody()->write("Erreur de nom d'utilisateur");
             return $response->withHeader('content-type', 'application-json')->withStatus(401);
         }
 
