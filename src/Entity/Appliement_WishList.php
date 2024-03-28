@@ -38,6 +38,11 @@ class Appliement_WishList
     #[JoinColumn(name: "ID_Internship", referencedColumnName: "ID_Internship")]
     public ?Internship $internships;
 
+    public function getIDAppliementWishlist(): int
+    {
+        return $this->ID_Appliement_Wishlist;
+    }
+
     public function getIDUsers(): int
     {
         return $this->ID_Users;
