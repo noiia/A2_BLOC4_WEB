@@ -36,7 +36,7 @@ class Appliement_WishList
     private ?Users $users;
     #[ManyToOne(targetEntity: Internship::class, inversedBy: "wishlists_appliement")]
     #[JoinColumn(name: "ID_Internship", referencedColumnName: "ID_Internship")]
-    private ?Internship $internships;
+    public ?Internship $internships;
 
     public function getIDUsers(): int
     {

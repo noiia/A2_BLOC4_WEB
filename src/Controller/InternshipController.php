@@ -2,12 +2,10 @@
 
 namespace App\Controller;
 
-use DI\Container;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Views\Twig;
 
 use App\Entity\Internship;
 
@@ -24,8 +22,7 @@ class InternshipController
 
     public function Welcome(Request $request, Response $response): Response
     {
-        //$user = $request->getAttribute("user");
-        //var_dump($user);
+        $user = $request->getAttribute("user");
         $internships = $this->entityManager->getRepository(Internship::class)->findAll();
 
         $runwayBubbles = [];
@@ -57,16 +54,18 @@ class InternshipController
                     ];
             }
         }
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'Welcome/Welcome.html.twig', [
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        return $this->twig->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
+            'names' => $name,
         ]);
     }
 
     public function InternshipApi(Request $request, Response $response, int $id)
     {
-
-
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
         $i = 0;
         $Skills = [];

@@ -38,12 +38,13 @@
                     </div>
                 </div>
                 <div class="dropdown2">
-                    <button class="dropdown-btn">Prénom Nom</button>
-                    {% block Profiles %}{% endblock %}
+                    {% for name in names %}
+                        <button class="dropdown-btn">{{ name.name }} {{ name.surname }}</button>
+                    {% endfor %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
-                        <a href="../Profil/Edition">Mon Profil</a>
-                        <a href="../Profil/Wishlist">Wishlist</a>
+                        <a href="../Edition">Mon Profil</a>
+                        <a href="../Wishlist">Wishlist</a>
                         <a href="../disconnect" id="button-disconnect"
                            class="button-disconnect"><span>Déconnexion</span></a>
                     </div>
