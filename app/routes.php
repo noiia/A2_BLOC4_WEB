@@ -10,6 +10,7 @@ use App\Controller\LoginController;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
+use RKA\Session;
 use Slim\App;
 use Slim\Routing\RouteContext;
 use Slim\Views\Twig;
@@ -47,7 +48,7 @@ return function (App $app) {
 
     $app->group('/', function ($group) {
         $group->get('disconnect', function ($request, $response) {
-            \RKA\Session::destroy();
+            Session::destroy();
             return $response;
         });
 
@@ -60,6 +61,9 @@ return function (App $app) {
 
         $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
+
+        $group->get('MonProfil', [CompanyStatsController::class, 'CompanyStats']);
+        $group->get('Wishlist', [InternshipStatsController::class, 'InternshipStats']);
 
     })->add($authMiddleware);
 };
