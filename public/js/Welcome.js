@@ -174,23 +174,27 @@ function loadBubbleData(id = 1) {
 
 
 var url = window.location.href;
+var oldElement;
+if (url !== "https://inter-net.loc/Stage") {
+    if (url.split('?')[1] !== null) {
+        var queryString = url.split('?')[1];
+        var params = queryString.split('&');
+        var queryParams = {};
+        params.forEach(function (param) {
+            var keyValue = param.split('=');
+            var key = keyValue[0];
+            var value = keyValue[1];
+            key = decodeURIComponent(key);
+            value = decodeURIComponent(value);
+            queryParams[key] = value;
+        });
 
-var queryString = url.split('?')[1];
-var params = queryString.split('&');
-var queryParams = {};
-params.forEach(function (param) {
-    var keyValue = param.split('=');
-    var key = keyValue[0];
-    var value = keyValue[1];
-    key = decodeURIComponent(key);
-    value = decodeURIComponent(value);
-    queryParams[key] = value;
-});
-
-const runway = document.getElementById("runway-element")
-if (Number(queryParams["id"]) !== null) {
-    var oldElement = Number(queryParams["id"]);
-    console.log(Number(queryParams["id"]));
+        const runway = document.getElementById("runway-element")
+        if (Number(queryParams["id"]) !== null) {
+            oldElement = Number(queryParams["id"]);
+            console.log(Number(queryParams["id"]));
+        }
+    }
 } else {
     oldElement = 1;
 }

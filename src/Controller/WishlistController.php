@@ -46,7 +46,6 @@ class WishlistController
         $wishlist = $this->entityManager->getRepository(Appliement_WishList::class)->findOneBy(['Status' => 5, 'ID_Appliement_Wishlist' => $id, 'users' => $user->getIDUsers(), 'Del' => 0]);
         if ($wishlist !== null) {
             $wishlist->setDel(1);
-
             $this->entityManager->flush();
         }
         return $this->twig->render($response, 'Wishlist/Wishlist.html.twig');
