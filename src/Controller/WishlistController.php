@@ -3,18 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Appliement_WishList;
-use App\Entity\Internship;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use RKA\Session;
 
 class WishlistController
 {
     private $twig;
     private EntityManager $entityManager;
-    private Session $session;
 
     public function __construct(ContainerInterface $container)
     {
@@ -29,7 +26,7 @@ class WishlistController
         if ($wishlist != null) {
             foreach ($wishlist as $forWishlist) {
                 $data[] = [
-                    'id' => $forWishlist->internships->getIDInternship(),
+                    'internshipID' => $forWishlist->internships->getIDInternship(),
                     'job' => $forWishlist->internships->getTitle(),
                     'company' => $forWishlist->internships->companies->getName(),
                     'wishlistID' => $forWishlist->getIDAppliementWishlist(),

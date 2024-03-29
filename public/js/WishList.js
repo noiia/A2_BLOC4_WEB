@@ -1,16 +1,5 @@
-$(document).ready(function () {
-    var Value = "role";
-    var PHPfiles = "WishList.php";
-    data = {
-        action: Value
-    };
-    $.post(PHPfiles, data, function (response) {
-        $(".main_left").append(response);
-    })
-})
-
-function delInternshipFromWishlist() {
-    var focusedElementId = Number(document.activeElement.id);
+function delInternshipFromWishlist(focusedElementId) {
+    console.log('poubelle ' + focusedElementId)
 
     fetch("https://inter-net.loc/Wishlist/delete/" + focusedElementId, {
         method: "PATCH",
@@ -18,4 +7,9 @@ function delInternshipFromWishlist() {
             "Content-Type": "application/json",
         },
     });
+}
+
+function openOnInternship(focusedId) {
+    console.log(focusedId);
+    document.location.href = "../Stage?id=" + focusedId;
 }

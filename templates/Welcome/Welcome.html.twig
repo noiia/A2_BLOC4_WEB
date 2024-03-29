@@ -1,22 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %} Inter'net - Stages {% endblock %}
 {% block stylesheet %}
-    <link href='css/OutputWelcome.css' rel="stylesheet"/> {% endblock %}
-{% block javascript %}
-<script src='js/Welcome.js'></script>
-<script>
-    $(document).ready(function(){
-    var Value = "profile";
-    var PHPfiles = "Welcome.php";
-    data = {
-    action : Value
-};
-    $.post(PHPfiles, data, function(response){
-    $("#navbar-profile").append(response);
-});
-});
-</script>
-{% endblock %}
+    <link href='css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
+{% block javascript %}<script src='js/Welcome.js'></script>{% endblock %}
 {% block welcome %}
     <div class="navbar-current">
         <a href="../Stage">Stages</a>

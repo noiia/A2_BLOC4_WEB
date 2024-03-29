@@ -24,6 +24,7 @@ class CompanyController
 
     public function Company(Request $request, Response $response): Response
     {
+        $user = $request->getAttribute("user");
         $companies = $this->entityManager->getRepository(Company::class)->findAll();
 
         $runwayBubbles = [];
@@ -62,9 +63,13 @@ class CompanyController
                     ];
             }
         }
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'Company/Company.html.twig', [
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        return $this->twig->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
+            'names' => $name,
         ]);
     }
 
