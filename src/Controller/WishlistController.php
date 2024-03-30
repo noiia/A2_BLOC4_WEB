@@ -50,4 +50,24 @@ class WishlistController
         }
         return $response;
     }
+
+    public function addInternshipFromWishlist(Request $request, Response $response, int $id): Response
+    {
+        $user = $request->getAttribute("user");
+        if (0 < $id) {
+
+            $wishlist = new Appliement_WishList();
+            (int)$userID = $user->getIDUsers();
+            $wishlist->setAccepted(0);
+            $wishlist->setIDUsers($userID);
+            $wishlist->setStatus(5);
+            $wishlist->setIDInternship($id);
+            $wishlist->setDel(0);
+            $this->entityManager->persist($wishlist);
+            $this->entityManager->flush();
+            return $response->withStatus(201);
+        } else {
+            return $response->withStatus(500);
+        }
+    }
 }

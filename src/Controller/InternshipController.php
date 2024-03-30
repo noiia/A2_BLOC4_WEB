@@ -67,6 +67,7 @@ class InternshipController
     public function InternshipApi(Request $request, Response $response, int $id)
     {
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
+        $user = $request->getAttribute("user");
         $i = 0;
         $Skills = [];
         foreach ($internship->getSkills() as $skill) {
@@ -78,10 +79,14 @@ class InternshipController
             }
         }
         $j = 0;
+        $isAWish = false;
         if ($internship->getAppliementWishlist() != null) {
             foreach ($internship->getAppliementWishlist() as $appliement) {
                 if ($appliement->getStatus() == 2) {
                     $j++;
+                }
+                if ($appliement->users->getIDUsers() == $user->getIDUsers() && ($appliement->getStatus() == 1 || $appliement->getStatus() == 5)) {
+                    $isAWish = true;
                 }
             }
         }
@@ -102,6 +107,7 @@ class InternshipController
                 'description' => $internship->getDescription(),
                 'skills' => $Skills,
                 'logo_path' => $internship->companies->getCompanyLogoPath(),
+                'isAWish' => $isAWish,
             ];
 
             $payload = json_encode($data);

@@ -58,6 +58,7 @@ return function (App $app) {
 
         $group->get('Edition', [CompanyStatsController::class, 'CompanyStats']);
         $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
+        $group->patch('Wishlist/add/{id}', [WishlistController::class, 'addInternshipFromWishlist']);
         $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
 
     })->add($authMiddleware);

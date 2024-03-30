@@ -37,9 +37,50 @@ function input_filter() {
 
 //-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- 
 
-function toggle_wishlist() {
-    document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
-    document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+function add_or_del_in_wish(isAWish) {
+    var internshipID = Number(document.getElementById("Big-bubble-ID").textContent);
+    console.log(internshipID);
+    if (isAWish) {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        console.log(isAWish);
+        fetch("https://inter-net.loc/Wishlist/add/" + internshipID, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("La suppression a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la suppression :", error);
+            });
+    } else {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        console.log(isAWish);
+        fetch("https://inter-net.loc/Wishlist/delete/" + internshipID, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("La suppression a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la suppression :", error);
+            });
+    }
 }
 
 function toggle_bubulle() {
@@ -149,6 +190,7 @@ function loadBubbleData(id = 1) {
             const bubbleTemplate = mainTemplate.content.cloneNode(true);
 
             bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
+            bubbleTemplate.getElementById("Big-bubble-name").value = data.id;
             bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
             bubbleTemplate.getElementById("Big-bubble-company-link").textContent = data.company;
             bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
@@ -159,10 +201,15 @@ function loadBubbleData(id = 1) {
             bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+            bubbleTemplate.getElementById("Big-bubble-ID").textContent = data.id;
             bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
 
             container.append(bubbleTemplate);
 
+            if (data.isAWish) {
+                document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+                document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+            }
             const skillsContainer = document.getElementById("container-skills");
             for (let skills of data.skills) {
                 const skillsTemplate = littleTemplate.content.cloneNode(true);

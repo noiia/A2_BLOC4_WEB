@@ -33,7 +33,7 @@ class Appliement_WishList
     private bool $Del;
     #[ManyToOne(targetEntity: Users::class, inversedBy: "wishlists_appliement")]
     #[JoinColumn(name: "ID_users", referencedColumnName: "ID_users")]
-    private ?Users $users;
+    public ?Users $users;
     #[ManyToOne(targetEntity: Internship::class, inversedBy: "wishlists_appliement")]
     #[JoinColumn(name: "ID_Internship", referencedColumnName: "ID_Internship")]
     public ?Internship $internships;
