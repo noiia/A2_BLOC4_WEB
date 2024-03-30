@@ -1,35 +1,89 @@
-$(document).ready(function(){
-    $("#postulation-button_postulation").click(function(){
+$(document).ready(function () {
+    $("#postulation-button_postulation").click(function () {
         console.log("postulation");
         var postulationValue = "postulation";
         var welcomePHP = "Welcome.php";
         data = {
-            action : postulationValue
+            action: postulationValue
         };
-        $.post(welcomePHP, data, function(response){})
+        $.post(welcomePHP, data, function (response) {
+        })
     });
     var Value = "profile";
     var PHPfiles = "Welcome.php";
     data = {
-        action : Value
+        action: Value
     };
-    $.post(PHPfiles, data, function(response){
+    $.post(PHPfiles, data, function (response) {
         $("#navbar-profile").append(response);
     });
 })
 
 
+$(document).ready(function () {
+    var Value = "profile";
+    var PHPfiles = "Welcome.php";
+    data = {
+        action: Value
+    };
+    $.post(PHPfiles, data, function (response) {
+        $("#navbar-profile").append(response);
+    });
+});
+
 function input_filter() {
     document.getElementById("rangeValue").textContent = "Bac+" + document.getElementById("rangeInput").value;
 }
 
-//-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- 
+//-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE--------------------------
 
-function toggle_wishlist(){
-    document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
-    document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+function add_or_del_in_wish(isAWish) {
+    var internshipID = Number(document.getElementById("Big-bubble-ID").textContent);
+    console.log(internshipID);
+    if (isAWish) {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        console.log(isAWish);
+        fetch("https://inter-net.loc/Wishlist/add/" + internshipID, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("La suppression a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la suppression :", error);
+            });
+    } else {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        console.log(isAWish);
+        fetch("https://inter-net.loc/Wishlist/delete/" + internshipID, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("La suppression a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la suppression :", error);
+            });
+    }
 }
-function toggle_bubulle(){
+
+function toggle_bubulle() {
     document.querySelector(".container-intern-details").classList.toggle('close-tab-clicked');
     document.querySelector("body").classList.toggle('mobile-scroll');
 }
@@ -47,33 +101,34 @@ function block_postulation() {
     document.querySelector(".postulation-bg").classList.toggle("postulation-off");
     document.querySelector(".postulation-bg").classList.toggle("postulation-on");
 }
+
 //--------------FIN JS POSTULATION ------------------------ -->
 
 
 // input file
-function do_add_file(){
+function do_add_file() {
     document.getElementById('file-input').click();
 }
 
-function del_file(id){
+function del_file(id) {
     document.getElementById(id).classList.add('file-hidden');
     document.getElementById(id).id += "-hidden"
     //suprimer dans le serveur
 }
 
-function open_file(name){
+function open_file(name) {
     window.open(name);
 }
 
-function add_file(){
+function add_file() {
     var file = document.getElementById('file-input').files[0];
-    if (file.type === "application/pdf"){
+    if (file.type === "application/pdf") {
         const name = file.name.replace(/ /g, '_'); //regex le g signifie : cherche plusieurs fois
-        if (document.getElementById(name) == null){
+        if (document.getElementById(name) == null) {
             var txt = "\n";
-            txt += '<div class="postulation-docs" id="'+name+'">';
-            txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">'+name+'</p>';
-            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\''+name+'\');"/>';
+            txt += '<div class="postulation-docs" id="' + name + '">';
+            txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">' + name + '</p>';
+            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
             txt += '</div>';
             document.querySelector(".postulation-list_docs").innerHTML += txt;
             console.log('fichier sélectionné:', file);
@@ -83,12 +138,10 @@ function add_file(){
             console.log("Fichier deja existant");
             alert("Vous avez dejà un fichier avec ce nom.\nChanger votre fichier de nom ou supprimer l'ancien.");
         }
-    }
-    else if (file) {
+    } else if (file) {
         console.log('type de fichier non accepte:', file.type);
         alert("Seul le type de fichier .pdf est accepté");
-    }
-    else {
+    } else {
         console.log('aucun fichier sélectionner');
     }
 }
@@ -137,6 +190,7 @@ function loadBubbleData(id = 1) {
             const bubbleTemplate = mainTemplate.content.cloneNode(true);
 
             bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
+            bubbleTemplate.getElementById("Big-bubble-name").value = data.id;
             bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
             bubbleTemplate.getElementById("Big-bubble-company-link").textContent = data.company;
             bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
@@ -147,10 +201,15 @@ function loadBubbleData(id = 1) {
             bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+            bubbleTemplate.getElementById("Big-bubble-ID").textContent = data.id;
             bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
 
             container.append(bubbleTemplate);
 
+            if (data.isAWish) {
+                document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+                document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+            }
             const skillsContainer = document.getElementById("container-skills");
             for (let skills of data.skills) {
                 const skillsTemplate = littleTemplate.content.cloneNode(true);
@@ -161,12 +220,36 @@ function loadBubbleData(id = 1) {
 }
 
 
-const runway = document.getElementById("runway-element")
-var oldElement = 1;
+var url = window.location.href;
+var oldElement;
+if (url !== "https://inter-net.loc/Stage") {
+    if (url.split('?')[1] !== null) {
+        var queryString = url.split('?')[1];
+        var params = queryString.split('&');
+        var queryParams = {};
+        params.forEach(function (param) {
+            var keyValue = param.split('=');
+            var key = keyValue[0];
+            var value = keyValue[1];
+            key = decodeURIComponent(key);
+            value = decodeURIComponent(value);
+            queryParams[key] = value;
+        });
+
+        const runway = document.getElementById("runway-element")
+        if (Number(queryParams["id"]) !== null) {
+            oldElement = Number(queryParams["id"]);
+            console.log(Number(queryParams["id"]));
+        }
+    }
+} else {
+    oldElement = 1;
+}
+
 loadBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
-    if(oldElement !== focusedBubble && focusedBubble > 0){
+    if (oldElement !== focusedBubble && focusedBubble > 0) {
         document.getElementById("runway-container-intern-details").remove();
         loadBubbleData(focusedBubble);
         oldElement = focusedBubble;

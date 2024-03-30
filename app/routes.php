@@ -7,19 +7,14 @@ use App\Controller\CompanyStatsController;
 use App\Controller\InternshipController;
 use App\Controller\InternshipStatsController;
 use App\Controller\LoginController;
+use App\Controller\WishlistController;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
 use RKA\Session;
 use Slim\App;
 use Slim\Routing\RouteContext;
-use Slim\Views\Twig;
-use Twig\Loader\FilesystemLoader;
 
-require_once __DIR__ . "/../src/Controller/InternshipController.php";
-
-$loader = new FilesystemLoader(__DIR__ . '/../templates');
-$twig = new Twig($loader);
 $authMiddleware = require_once __DIR__ . '/../src/Application/Middleware/AuthMiddleware.php';
 
 return function (App $app) {
@@ -49,9 +44,8 @@ return function (App $app) {
     $app->group('/', function ($group) {
         $group->get('disconnect', function ($request, $response) {
             Session::destroy();
-            return $response;
+            return $response->withHeader('Location', '/Login')->withStatus(302);
         });
-
         $group->get('Stage', [InternshipController::class, 'Welcome']);
         $group->get('Stage/{id}', [InternshipController::class, 'InternshipApi']);
 
@@ -62,8 +56,13 @@ return function (App $app) {
         $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
 
-        $group->get('MonProfil', [CompanyStatsController::class, 'CompanyStats']);
-        $group->get('Wishlist', [InternshipStatsController::class, 'InternshipStats']);
+        $group->get('Edition', [CompanyStatsController::class, 'CompanyStats']);
+
+        $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
+        $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
+
+        $group->get('Activities', [\App\Controller\ActivitiesController::class, 'Activities']);
+        $group->get('Activities/api/{id}', [\App\Controller\ActivitiesController::class, 'ActivitiesApi']);
 
     })->add($authMiddleware);
 };

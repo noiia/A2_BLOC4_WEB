@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var Value = "role";
-    var PHPfiles = "FicheEtudiant.php";
+    var Value = 3;
+    var PHPfiles = "WishList.php";
     data = {
         action : Value
     };

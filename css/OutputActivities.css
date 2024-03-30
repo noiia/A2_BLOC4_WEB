@@ -46,7 +46,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-  tab-size: 4;
+     tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -91,7 +91,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /*
@@ -672,15 +672,6 @@ body::-webkit-scrollbar-track:hover{
   cursor: pointer;
 }
 
-#close_menu{
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  margin: 0.75rem;
-  width: 1.25rem;
-  cursor: pointer;
-}
-
 .left_container ul li p:hover{
   --tw-text-opacity: 1;
   color: rgb(202 237 167 / var(--tw-text-opacity));
@@ -739,10 +730,6 @@ body::-webkit-scrollbar-track:hover{
     right: 0px;
     top: 0px;
   }
-}
-
-.display-cross{
-  display: none;
 }
 
 .right_container{
@@ -1102,45 +1089,25 @@ p.title{
 }
 
 .container-skills{
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  right: 0px;
-  bottom: 3px;
+  position: relative;
 }
 
 .container-skills ul{
   display: flex;
-  width: 100%;
 }
 
 .container-skills li{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: flex;
-  height: 30px;
-  width: 30%;
-  font-size: 12px;
-  line-height: 16px;
+  height: 20px;
+  width: 125px;
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   padding: 0.75rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
-
-.container-skills li:hover{
-  transition-timing-function: linear;
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  white-space: normal;
-  overflow: visible;
-  height: 45px;
 }
 
 /* -------------------Fin containers -------------------*/

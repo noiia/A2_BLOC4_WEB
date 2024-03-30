@@ -1,4 +1,4 @@
-{% extends 'profile_base.html.twig' %}
+{% extends '../profileBase.html.twig' %}
 {% block title %}Inter'net - Gestion des stages{% endblock %}
 {% block stylesheet %} <link href="css/OutputInternship.css" rel="stylesheet"/> {% endblock %}
 {% block javascript %}
@@ -147,7 +147,8 @@
                     </div>
                     <div class="container-skills-scroll horizontal-second-scrollbar">
                         <ul>
-                            {% for skill in skills %}
+                            {% for skill in skills
+                            %}
                             <li>
                                 <div class="each-skill">
                                     <p>JS</p>

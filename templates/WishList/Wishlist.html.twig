@@ -1,9 +1,9 @@
-{% extends 'profile_base.html.twig' %}
+{% extends 'profileBase.html.twig' %}
 {% block title %}Inter'net - WishList{% endblock %}
-{% block stylesheet %} <link href="css/OutputWishList.css" rel="stylesheet"/> {% endblock %}
+{% block stylesheet %}
+    <link href="css/OutputWishList.css" rel="stylesheet"/> {% endblock %}
 {% block javascript %}
-<script src="main/main.js"></script>
-<script src="WishList.js"></script>
+<script src="js/WishList.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -13,9 +13,11 @@
             <p class="right_title">WishList</p>
             <div class="main_container_right">
                 {% for internship in internships %}
-                    <div class="container_items">
-                        <p>{{ internship.job }} - {{ internship.company }}</p>
-                        <img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" class="poubelle-logo">
+                    <div class="container_items" id={{ internship.internshipID }}>
+                        <p><a onclick="openOnInternship({{ internship.internshipID }})">{{ internship.job }}
+                                - {{ internship.company }}</a></p>
+                        <img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" class="poubelle-logo"
+                             onclick="delInternshipFromWishlist({{ internship.wishlistID }})">
                     </div>
                 {% endfor %}
             </div>

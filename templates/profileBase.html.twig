@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pageIcon %}
+    <link rel="website icon" type="png" href='images/Icones/logo_seul_blanc.png'>
+    {% endblock %}
+        {% block stylesheet %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        {% block javascript %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+{% block body_left %}
+    <div class="main_left" id="left_array">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross" onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html.twig'">Retour</button>
+        <div class="left_container">
+            <p>Etudiants</p>
+            <ul>
+                <li><p href="../../Profile/Profile.html">Mon profil</p></li>
+                <li><span><p id="actual_page">WishList</p></span></li>
+                <li><p href="#">Mes postulations</p></li>
+            </ul>
+        </div>
+    </div>
+    <div><img class="hamburger" src="images/Icones/hamburger.png" alt="hamburger" oneclik></div>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascript2 %}
+    <script>
+    const menuHamburger = document.querySelector(".hamburger");
+    const containerLinks = document.querySelector(".main_left");
+
+    menuHamburger.addEventListener('click', () => {
+    containerLinks.classList.toggle('mobile-menu');
+    });
+    </script>
+    {% endblock %}
+
+</body>
+</html>
+
+{#Test à faire pour affichage main_left selon le role
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pageIcon %}
+    <link rel="website icon" type="png" href='images/Icones/logo_seul_blanc.png'>
+    {% endblock %}
+        {% block stylesheet %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        {% block javascript %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+{% block body_left %}
+    <div class="main_left">
+        {% verbatim %}
+        <?php
+        function check_role(){
+            $role = 3; // Simulons ici la valeur du rôle
+            switch ($role) {
+                case 1:
+                    echo '<div class="left_container" id="left_array">
+                    <p>Etudiants</p>
+                    <ul>
+                        <li><a id="actual_page">Mon profil</a></li>
+                        <li><a href="../WishList/WishList.html">WishList</a></li>
+                        <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
+                    </ul>
+                </div>';
+                break;
+                case 2 :
+                    echo ' <div class="left_container" id="left_array">
+                    <p>Pilote</p>
+                    <ul>
+                        <li><a id="actual_page">Mon profil</a></li>
+                        <li><a href="../Students/Students.html">Mes étudiants</a></li>
+                        <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
+                        <li><a href="../Internship/Internship.html">Mes stages</a></li>
+                    </ul>
+                </div>';
+                break;
+                case 3 :
+                    echo '<div class="left_container" id="left_array">
+                    <p>Admin</p>
+                    <ul>
+                        <li><a id="actual_page">Mon profil</a></li>
+                        <li><a href="../Students/Students.html">Etudiants</a></li>
+                        <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
+                        <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
+                        <li><a href="../Internship/Internship.html">Stages</a></li>
+                        <li><a href="../WishList/WishList.html">WishList</a></li>
+                    </ul>
+                </div>';
+                break;
+                default :
+                echo '';
+            }
+        }
+
+        check_role();
+        ?>
+        {% endverbatim %}
+    </div>
+    <div><img class="hamburger" src="images/Icones/hamburger.png" alt="hamburger"></div>
+{% endblock %}
+
+{% block body %}{% endblock %}
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascript2 %}
+    <script>
+        const menuHamburger = document.querySelector(".hamburger");
+        const containerLinks = document.querySelector(".main_left");
+
+        menuHamburger.addEventListener('click', () => {
+            containerLinks.classList.toggle('mobile-menu');
+        });
+    </script>
+{% endblock %}
+
+</body>
+</html>#}

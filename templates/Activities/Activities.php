@@ -4,11 +4,12 @@ function check_role(){
     switch ($role) {
         case 1:
             echo '<div class="left_container" id="left_array">
-            <p>Etudiants</p>
+            <p>Pilote</p>
             <ul>
-                <li><a href="../Profile/Profile.html">Mon profil</a></li>
-                <li><a id="actual_page" >WishList</a></li>
-                <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
+                <li><a id="actual_page">Mon profil</a></li>
+                <li><a href="../Students/Students.html.twig">Mes étudiants</a></li>
+                <li><a href="../CompanyManagement/CompanyManagement.html.twig">Mes entreprises</a></li>
+                <li><a href="../Internship/Internship.html.twig">Mes stages</a></li>
             </ul>
         </div>';
             break;
@@ -16,11 +17,11 @@ function check_role(){
             echo '<div class="left_container" id="left_array">
             <p>Admin</p>
             <ul>
-                <li><a href="../Profile/Profile.html">Mon profil</a></li>
-                <li><a href="../Students/Students.html">Etudiants</a></li>
-                <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../Company/Company.html">Entreprises</a></li>
-                <li><a href="../Internship/Internship.html">Stages</a></li>
+                <li><a href="../Profile/Profile.html.twig">Mon profil</a></li>
+                <li><a href="../Students/Students.html.twig">Etudiants</a></li>
+                <li><a href="../Pilote/Pilote.html.twig">Pilotes</a></li>
+                <li><a href="../Company/Company.html.twig">Entreprises</a></li>
+                <li><a href="../Internship/Internship.html.twig">Stages</a></li>
                 <li><a id="actual_page">WishList</a></li>
             </ul>
         </div>';

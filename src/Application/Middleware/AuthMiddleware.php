@@ -45,3 +45,4 @@ $loggedInMiddleware = function (Request $request, $handler): ResponseInterface {
     return $handler->handle($request);
 };
 return $loggedInMiddleware;
+

@@ -33,10 +33,15 @@ class Appliement_WishList
     private bool $Del;
     #[ManyToOne(targetEntity: Users::class, inversedBy: "wishlists_appliement")]
     #[JoinColumn(name: "ID_users", referencedColumnName: "ID_users")]
-    private ?Users $users;
+    public ?Users $users;
     #[ManyToOne(targetEntity: Internship::class, inversedBy: "wishlists_appliement")]
     #[JoinColumn(name: "ID_Internship", referencedColumnName: "ID_Internship")]
-    private ?Internship $internships;
+    public ?Internship $internships;
+
+    public function getIDAppliementWishlist(): int
+    {
+        return $this->ID_Appliement_Wishlist;
+    }
 
     public function getIDUsers(): int
     {
@@ -86,5 +91,10 @@ class Appliement_WishList
     public function setDel(bool $Del): void
     {
         $this->Del = $Del;
+    }
+
+    public function getInternship(): ?Internship
+    {
+        return $this->internships;
     }
 }
