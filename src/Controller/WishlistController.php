@@ -48,6 +48,6 @@ class WishlistController
             $wishlist->setDel(1);
             $this->entityManager->flush();
         }
-        return $this->twig->render($response, 'Wishlist/Wishlist.html.twig');
+        return $response;
     }
 }
