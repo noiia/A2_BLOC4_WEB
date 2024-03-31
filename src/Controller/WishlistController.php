@@ -61,14 +61,19 @@ class WishlistController
     {
         $userSession = $request->getAttribute("user");
         $user = $this->entityManager->find(Users::class, $userSession->getIDUsers());
-        if (0 < $id) {
-            $user->setWishlist();
-            $this->entityManager->persist($wishlist);
-            $this->entityManager->flush();
-            return $response->withStatus(201);
+        if ($user) {
+            $internship = $this->entityManager->find(Internship::class, $id);
+            if ($internship) {
+                $user->getWishlist()->add($internship);
+                $this->entityManager->flush();
+                return $response->withStatus(201);
+            } else {
+                $response->getBody()->write("L'internship avec l'ID $id n'a pas été trouvé.");
+                return $response->withStatus(404);
+            }
         } else {
-            $response->getBody()->write("erreur ID_internship");
-            return $response->withStatus(500);
+            $response->getBody()->write("Utilisateur non trouvé.");
+            return $response->withStatus(404);
         }
     }
 }

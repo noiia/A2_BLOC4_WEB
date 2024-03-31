@@ -70,9 +70,9 @@ class Users
         return $this->wishlist;
     }
 
-    public function setWishlist(Collection $wishlist): void
+    public function setWishlist(array $wishlist): void
     {
-        $this->wishlist = $wishlist;
+        $this->wishlist = new ArrayCollection($wishlist);
     }
 
     #[ManyToOne(targetEntity: Workflow::class, inversedBy: 'users')]
