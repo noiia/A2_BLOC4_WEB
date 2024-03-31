@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inter'net - Login {% endblock %}
+{% block stylesheet %}
+    <link href='css/OutputLogin.css' rel="stylesheet"/>{% endblock %}
+{% block javascript %}<script src='js/Login.js'></script>{% endblock %}
+
+{% block header %}{% endblock %}
+{% block body %}
+    <body>
+    <div class="container-login">
+        <img src="images/Icones/logo_seul_blanc.png" class="logo" alt="logo">
+        <!-- form class="bottomelements" action="" method="GET" -->
+        <h1 class="title-username">Nom d'utilisateur</h1>
+        <div>
+            <input class="tb-login" type="text" class="username" name="username" value="mmanchester0"
+                   placeholder="Nom d'utilisateur" id="username">
+        </div>
+        <h1 class="title-password">Mot de passe</h1>
+        <div>
+            <input class="tb-password" type="password" class="password" name="password" value="gX6)v+U$5V"
+                   placeholder="Mot de passe" id="password">
+        </div>
+        <button class="connexion-btn" id="button-poster" value="Poster" onclick="login();">
+            Connexion
+        </button>
+        <div class="text-rouge">
+            <p id="error-zone"></p>
+        </div>
+        <!-- /form -->
+    </div>
+    </body>
+{% endblock %}
+{% block footer %}{% endblock %}

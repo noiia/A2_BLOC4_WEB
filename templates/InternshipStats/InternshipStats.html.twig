@@ -1,0 +1,396 @@
+{% extends 'base.html.twig' %}
+{% block title %} Inter'net - Statistiques des entreprises {% endblock %}
+{% block stylesheet %}
+    <link href='css/OutputInternshipStats.css' rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src='js/InternshipStats.js'></script>
+{% endblock %}
+{% block Statistics %}
+    <div class="navbar-current">
+        <a></a>
+        <label class="label">***************</label>
+    </div>
+{% endblock %}
+{% block body %}
+    <body>
+    <div class="full-runway">
+        <div class="top-container">
+            <div class="container-search">
+                <div class="left-container-search">
+                    <div class="left-container-search-name">
+                        <h1>Compétences:</h1>
+                    </div>
+                    <div class="left-container-search-bar">
+                        <input type="search" placeholder="Rechercher">
+                        <button type="button">
+                            <img src="images/Icones/logo_seul.png" alt="V">
+                        </button>
+                    </div>
+                    <div class="left-container-search-cities">
+                        <ul>
+                            <li>Comp 1</li>
+                            <li>Comp 2</li>
+                        </ul>
+                        <ul>
+                            <li>Comp 3</li>
+                            <li>Comp 4</li>
+                        </ul>
+                    </div>
+                    <p>250 stages avec ces compétences</p>
+                </div>
+            </div>
+            <div class="container-skills-graph">
+                <div class="skills-graph">
+                    <div class="skills-graph-name">
+                        <p>Répartition des compétences</p>
+                    </div>
+                    <p>Graph camembert</p>
+                </div>
+            </div>
+            <div class="container-internship-time-graph">
+                <div class="internship-time-graph">
+                    <div class="internship-time-graph-name">
+                        <p>Durée du stage</p>
+                    </div>
+                    <p>Graph durée de stage</p>
+                </div>
+            </div>
+            <div class="container-promotions-graph">
+                <div class="promotions-graph">
+                    <div class="promotions-graph-name">
+                        <p>Promotions</p>
+                    </div>
+                    <p>Graphe promotions</p>
+                </div>
+            </div>
+            <div class="container-france-graph">
+                <div class="france-graph">
+                    <div class="france-graph-name">
+                        <p>Localités</p>
+                    </div>
+                    <p>Graphe France svg</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="bottom-container-name">
+                <h1>Top des offres mises en wishlist</h1>
+            </div>
+            <div class="container-company-details-intern-second-scrollbar">
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>1</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>2</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>3</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>4</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>5</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>6</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>7</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>8</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>9</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>10</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>11</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>12</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+                <button class="container-company-details-container-details-button"
+                        id="container-company-details-container-details-button">
+                    <span>
+                        <div class="container-company-details-container-details"
+                             id="container-company-details-container-details">
+                            <div class="container-announces-number">
+                                <p>13</p>
+                            </div>
+                            <div class="container-company-intern-div-para">
+                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <p class="container-paragraph">Orange - Reims</p>
+                                <p class="container-paragraph">Début = 31/01/2024</p>
+                                <p class="container-paragraph">3 semaines</p>
+                                <div class="container-company-intern-skills">
+                                    <ul>
+                                        <li>Info</li>
+                                        <li>Transportaze</li>
+                                        <li>Trt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}

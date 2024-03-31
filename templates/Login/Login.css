@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    @apply font-display;
+}
+
+body{
+   @apply bg-gradient-to-r from-green-1 from-30% to-blue-links;
+}
+.container-login{
+    @apply mx-auto relative top-[130px] h-[550px] w-[500px] bg-secondary-grey rounded-3xl z-10;
+    
+}
+.logo{
+    @apply mx-auto relative top-[50px];
+}
+.bottom-elements{
+    @apply relative top-[-20px];
+}
+.container-login h1{
+    @apply text-2xl relative left-[50px];
+}
+.title-username{
+    @apply top-[100px];
+}
+.title-password{
+    @apply top-[135px];
+}
+.tb-login{
+    @apply relative top-[110px] left-[45px] rounded-lg h-[50px] w-[400px] px-3;
+}
+.tb-password{
+    @apply relative top-[140px] left-[45px] rounded-lg h-[50px] w-[400px] px-3;
+}
+.connexion-btn{
+    @apply relative text-lg rounded-lg top-[200px] left-[320px] bottom-5 bg-secondary-true_white p-2;
+}
+.connexion-btn-hidden{
+    @apply hidden;
+}
+.text-rouge {
+    @apply absolute text-secondary-red text-lg bottom-[70px] left-[60px];
+}
