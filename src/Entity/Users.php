@@ -54,7 +54,7 @@ class Users
     private Collection $promotions;
     #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'users')]
     private Collection $wishlists_appliement;
-    /*#[ManyToMany(targetEntity: Company::class, mappedBy: 'users')]
+    /*#[ManyToMany(targetEntity: CompanyManagement::class, mappedBy: 'users')]
     private Collection $companies;*/
     public function __construct()
     {
@@ -71,6 +71,26 @@ class Users
     public function setIDUsers(int $ID_users): void
     {
         $this->ID_users = $ID_users;
+    }
+
+    public function getLogin(): string
+    {
+        return $this->Login;
+    }
+
+    public function setLogin(string $Login): void
+    {
+        $this->Login = $Login;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->Password;
+    }
+
+    public function setPassword(string $Password): void
+    {
+        $this->Password = $Password;
     }
 
     public function getName(): string

@@ -17,7 +17,12 @@
 });
 </script>
 {% endblock %}
-
+{% block welcome %}
+    <div class="navbar-current">
+        <a href="../Stage">Stages</a>
+        <label class="label">**********</label>
+    </div>
+{% endblock %}
 {% block body %}
     <body>
     <div class="full-runway">
@@ -29,8 +34,7 @@
                 <div class="filter">
                     <div class="search_bar">
                         <input type="search" placeholder="Rechercher" id="general-search_bar">
-                        <button type="button" id="general-button_search" onclick="submitFilter()"><img
-                                    src='images/Icones/logo_seul.png' alt="V"/></button>
+                        <button type="button" id="general-button_search" onclick="submitFilter()"><img src='images/Icones/logo_seul.png' alt="V"/></button>
                     </div>
                     <div class="filter-green">
                         <div class="filter-location">

@@ -57,6 +57,8 @@ class Internship
     #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills')]
     #[ManyToMany(targetEntity: Skills::class)]
     private Collection $skills;
+
+    
     public function getSkills(): Collection
     {
         return $this->skills;

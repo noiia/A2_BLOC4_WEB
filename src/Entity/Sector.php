@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
@@ -24,12 +26,9 @@ class Sector
     private string $Name;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    #[OneToMany(targetEntity: Company::class, mappedBy:'sector')]
-    private Collection $companies;
-    public function __construct()
-    {
-        $this->companies = new ArrayCollection();
-    }
+    #[ManyToOne(targetEntity: Company::class, inversedBy: 'sector')]
+    #[JoinColumn(name: 'ID_company', referencedColumnName: 'ID_company')]
+    private ?Company $companies;
 
     public function getIDSector(): int
     {

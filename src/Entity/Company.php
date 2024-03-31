@@ -20,13 +20,13 @@ use Doctrine\ORM\Mapping\Table;
 
 
 #[Entity]
-#[Table('Company')]
+#[Table('company')]
 class Company
 {
     #[Id]
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]
-    private ?int $ID_company = null;
+    private int $ID_company;
     #[Column(type:Types::STRING, length: 50)]
     private string $Name;
     #[Column(type:Types::STRING, length: 50)]
@@ -39,13 +39,27 @@ class Company
     private string $Type;
     #[Column(type: Types::TEXT)]
     private string $Company_description;
+    #[Column(type:Types::STRING, length: 200)]
+    private string $Company_logo_path;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    #[ManyToOne(targetEntity: Sector::class, inversedBy: "companies")]
-    #[JoinColumn(name: "ID_sector", referencedColumnName: "ID_sector")]
-    public ?Sector $sector;
+    #[JoinTable]
+    #[JoinColumn(name: 'ID_company', referencedColumnName: 'ID_company')]
+    #[InverseJoinColumn(name: 'ID_sector', referencedColumnName: 'ID_sector')]
+    #[ManyToMany(targetEntity: Sector::class)]
+    private Collection $sector;
+    public function getSector(): Collection
+    {
+        return $this->sector;
+    }
     #[OneToMany(targetEntity: Rate::class, mappedBy:'companies')]
     private Collection $rates;
+
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
     #[JoinTable(name: "Manage_company")]
     #[JoinColumn(name: 'id_company', referencedColumnName: 'ID_company', unique: false)]
     #[InverseJoinColumn(name: 'id_users', referencedColumnName: 'ID_users', unique: false)]
@@ -53,6 +67,10 @@ class Company
     private Collection $users;
     #[OneToMany(targetEntity: Internship::class, mappedBy:'companies')]
     private Collection $internships;
+    public function getInternship(): Collection
+    {
+        return $this->internships;
+    }
     #[OneToOne(targetEntity: Location::class, inversedBy: 'companies')]
     #[JoinColumn(name: 'id_location', referencedColumnName: 'ID_location')]
     public ?Location $locations;
@@ -61,6 +79,7 @@ class Company
         $this->rates = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->internships = new ArrayCollection();
+        $this->sector = new ArrayCollection();
     }
 
 
@@ -132,6 +151,16 @@ class Company
     public function setCompanyDescription(string $Company_description): void
     {
         $this->Company_description = $Company_description;
+    }
+
+    public function getCompanyLogoPath(): string
+    {
+        return $this->Company_logo_path;
+    }
+
+    public function setCompanyLogoPath(string $Company_logo_path): void
+    {
+        $this->Company_logo_path = $Company_logo_path;
     }
 
     public function isDel(): bool
