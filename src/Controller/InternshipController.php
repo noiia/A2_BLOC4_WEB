@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -66,8 +67,10 @@ class InternshipController
 
     public function InternshipApi(Request $request, Response $response, int $id)
     {
+        $userSession = $request->getAttribute("user");
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
-        $user = $request->getAttribute("user");
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $wishlisted = $user->getWishlist();
         $i = 0;
         $Skills = [];
         foreach ($internship->getSkills() as $skill) {
@@ -80,16 +83,28 @@ class InternshipController
         }
         $j = 0;
         $isAWish = false;
-        if ($internship->getAppliementWishlist() != null) {
-            foreach ($internship->getAppliementWishlist() as $appliement) {
+        /*if ($internship->getWorkflow() != null) {
+            foreach ($internship->getWorkflow() as $appliement) {
                 if ($appliement->getStatus() == 2) {
                     $j++;
                 }
-                if ($appliement->users->getIDUsers() == $user->getIDUsers() && ($appliement->getStatus() == 1 || $appliement->getStatus() == 5)) {
-                    $isAWish = true;
-                }
+            }
+        }*/
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->select('u', 'wish')
+            ->from('App\Entity\Users', 'u')
+            ->join('u.wishlist', 'wish')
+            ->where('u.ID_users = :ID_users')
+            ->andWhere('wish.ID_Internship = :wishlistId') // Utilisez la propriété de l'entité Wishlist
+            ->setParameter('ID_users', $user->getIDUsers())
+            ->setParameter('wishlistId', $id);
+        if ($qb->getQuery() != null) {
+            $result = $qb->getQuery()->getResult();
+            if ($result != null) {
+                $isAWish = true;
             }
         }
+
         if ($internship != null) {
             $data = [
                 'id' => $internship->getIDInternship(),
@@ -108,6 +123,7 @@ class InternshipController
                 'skills' => $Skills,
                 'logo_path' => $internship->companies->getCompanyLogoPath(),
                 'isAWish' => $isAWish,
+                'extra' => $qb,
             ];
 
             $payload = json_encode($data);

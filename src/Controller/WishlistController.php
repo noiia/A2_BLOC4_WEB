@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Appliement_WishList;
+use App\Entity\Internship;
+use App\Entity\Users;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -21,19 +23,21 @@ class WishlistController
 
     public function Wishlist(Request $request, Response $response): Response
     {
-        $user = $request->getAttribute("user");
-        $wishlist = $this->entityManager->getRepository(Appliement_WishList::class)->findBy(['Status' => 5, 'users' => $user->getIDUsers(), 'Del' => 0]);
-        if ($wishlist != null) {
-            foreach ($wishlist as $forWishlist) {
-                $data[] = [
-                    'internshipID' => $forWishlist->internships->getIDInternship(),
-                    'job' => $forWishlist->internships->getTitle(),
-                    'company' => $forWishlist->internships->companies->getName(),
-                    'wishlistID' => $forWishlist->getIDAppliementWishlist(),
-                ];
+        $userSession = $request->getAttribute("user");
+        $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $internships = $users->getWishlist();
+        $internshipInWishlist = [];
+        if ($internships != null) {
+            foreach ($internships as $internship) {
+                $internshipInWishlist[] =
+                    [
+                        'internshipID' => $internship->getIDInternship(),
+                        'job' => $internship->getTitle(),
+                        'company' => $internship->companies->getName()
+                    ];
             }
             return $this->twig->render($response, 'Wishlist/Wishlist.html.twig', [
-                'internships' => $data,
+                'internships' => $internshipInWishlist,
             ]);
         } else {
             return $this->twig->render($response, 'Wishlist/Wishlist.html.twig');
@@ -42,31 +46,28 @@ class WishlistController
 
     public function deleteInternshipFromWishlist(Request $request, Response $response, int $id): Response
     {
-        $user = $request->getAttribute("user");
-        $wishlist = $this->entityManager->getRepository(Appliement_WishList::class)->findOneBy(['Status' => 5, 'ID_Appliement_Wishlist' => $id, 'users' => $user->getIDUsers(), 'Del' => 0]);
-        if ($wishlist !== null) {
-            $wishlist->setDel(1);
-            $this->entityManager->flush();
-        }
+        $userSession = $request->getAttribute("user");
+
+        $user = $this->entityManager->find(Users::class, $userSession->getIDUsers());
+        $internship = $this->entityManager->find(Internship::class, $id);
+
+        $user->removeWishlist($internship);
+
+        $this->entityManager->flush();
         return $response;
     }
 
-    public function addInternshipFromWishlist(Request $request, Response $response, int $id): Response
+    public function addInternshipToWishlist(Request $request, Response $response, int $id): Response
     {
-        $user = $request->getAttribute("user");
+        $userSession = $request->getAttribute("user");
+        $user = $this->entityManager->find(Users::class, $userSession->getIDUsers());
         if (0 < $id) {
-
-            $wishlist = new Appliement_WishList();
-            (int)$userID = $user->getIDUsers();
-            $wishlist->setAccepted(0);
-            $wishlist->setIDUsers($userID);
-            $wishlist->setStatus(5);
-            $wishlist->setIDInternship($id);
-            $wishlist->setDel(0);
+            $user->setWishlist();
             $this->entityManager->persist($wishlist);
             $this->entityManager->flush();
             return $response->withStatus(201);
         } else {
+            $response->getBody()->write("erreur ID_internship");
             return $response->withStatus(500);
         }
     }

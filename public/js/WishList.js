@@ -10,6 +10,7 @@ function delInternshipFromWishlist(focusedElementId) {
                 document.location.href = "../Wishlist";
             } else {
                 alert("La suppression a échoué.");
+                console.log(focusedElementId)
             }
         })
         .catch(error => {

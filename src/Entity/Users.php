@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping\InverseJoinColumn;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
+use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
@@ -58,8 +59,25 @@ class Users
         return $this->promotions;
     }
 
-    #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy: 'users')]
-    private Collection $wishlists_appliement;
+    #[JoinTable(name: "wishlist")]
+    #[JoinColumn(name: 'id_users', referencedColumnName: 'ID_users')]
+    #[InverseJoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
+    #[ManyToMany(targetEntity: Internship::class)]
+    private Collection $wishlist;
+
+    public function getWishlist(): Collection
+    {
+        return $this->wishlist;
+    }
+
+    public function setWishlist(Collection $wishlist): void
+    {
+        $this->wishlist = $wishlist;
+    }
+ 
+    #[ManyToOne(targetEntity: Workflow::class, inversedBy: 'users')]
+    #[JoinColumn(name: "ID_Workflow", referencedColumnName: "ID_Workflow")]
+    private ?Workflow $workflow;
 
     /*#[ManyToMany(targetEntity: CompanyManagement::class, mappedBy: 'users')]
     private Collection $companies;*/
@@ -67,7 +85,7 @@ class Users
     {
         $this->rates = new ArrayCollection();
         $this->promotions = new ArrayCollection();
-        $this->wishlists_appliement = new ArrayCollection();
+        $this->wishlist = new ArrayCollection();
         //$this->companies = new ArrayCollection();
     }
 
@@ -169,5 +187,10 @@ class Users
     public function setDel(bool $Del): void
     {
         $this->Del = $Del;
+    }
+
+    public function removeWishlist(Internship $internship): void
+    {
+        $this->internship->removeElement($internship);
     }
 }
