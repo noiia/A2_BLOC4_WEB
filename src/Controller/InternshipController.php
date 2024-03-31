@@ -123,7 +123,6 @@ class InternshipController
                 'skills' => $Skills,
                 'logo_path' => $internship->companies->getCompanyLogoPath(),
                 'isAWish' => $isAWish,
-                'extra' => $qb,
             ];
 
             $payload = json_encode($data);

@@ -49,9 +49,9 @@ class WishlistController
         $userSession = $request->getAttribute("user");
 
         $user = $this->entityManager->find(Users::class, $userSession->getIDUsers());
-        $internship = $this->entityManager->find(Internship::class, $id);
+        $wishlist = $this->entityManager->find(Internship::class, $id);
 
-        $user->removeWishlist($internship);
+        $user->removeWishlist($wishlist);
 
         $this->entityManager->flush();
         return $response;

@@ -74,7 +74,7 @@ class Users
     {
         $this->wishlist = $wishlist;
     }
- 
+
     #[ManyToOne(targetEntity: Workflow::class, inversedBy: 'users')]
     #[JoinColumn(name: "ID_Workflow", referencedColumnName: "ID_Workflow")]
     private ?Workflow $workflow;
@@ -189,8 +189,8 @@ class Users
         $this->Del = $Del;
     }
 
-    public function removeWishlist(Internship $internship): void
+    public function removeWishlist(Internship $wishlist): void
     {
-        $this->internship->removeElement($internship);
+        $this->wishlist->removeElement($wishlist);
     }
 }
