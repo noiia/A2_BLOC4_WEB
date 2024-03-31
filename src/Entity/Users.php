@@ -45,15 +45,22 @@ class Users
     private int $Role;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    #[OneToMany(targetEntity: Rate::class, mappedBy:'users')]
+    #[OneToMany(targetEntity: Rate::class, mappedBy: 'users')]
     private Collection $rates;
     #[JoinTable(name: "Have_proms")]
     #[JoinColumn(name: 'id_users', referencedColumnName: 'ID_users')]
     #[InverseJoinColumn(name: 'id_promotions', referencedColumnName: 'ID_promotion', unique: false)]
     #[ManyToMany(targetEntity: Promotion::class, inversedBy: "users")]
     private Collection $promotions;
-    #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'users')]
+
+    public function getPromotions(): Collection
+    {
+        return $this->promotions;
+    }
+    
+    #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy: 'users')]
     private Collection $wishlists_appliement;
+
     /*#[ManyToMany(targetEntity: CompanyManagement::class, mappedBy: 'users')]
     private Collection $companies;*/
     public function __construct()
@@ -63,6 +70,7 @@ class Users
         $this->wishlists_appliement = new ArrayCollection();
         //$this->companies = new ArrayCollection();
     }
+
     public function getIDUsers(): int
     {
         return $this->ID_users;

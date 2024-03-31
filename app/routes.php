@@ -7,9 +7,11 @@ declare(strict_types=1);
 use App\Controller\CompanyController;
 use App\Controller\InternshipController;
 use App\Controller\ProfileController;
+use App\Controller\StudentsController;
 use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
 
+use App\Entity\Users;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -37,9 +39,9 @@ return function (App $app) {
         return $response;
     });
 
-    $app->get('/Stage', function (Request $request, Response $response) use ($twig, $container){
+    $app->get('/Stage', function (Request $request, Response $response) use ($twig, $container) {
         $controller = new InternshipController($twig);
-        $welcomeResponse = $controller->Welcome($request, $response,[], $container);
+        $welcomeResponse = $controller->Welcome($request, $response, [], $container);
         return $welcomeResponse;
     });
 
@@ -58,9 +60,9 @@ return function (App $app) {
             }
         }
         $j = 0;
-        if ($internship->getAppliementWishlist() != null){
+        if ($internship->getAppliementWishlist() != null) {
             foreach ($internship->getAppliementWishlist() as $appliement) {
-                if ($appliement->getStatus() == 2){
+                if ($appliement->getStatus() == 2) {
                     $j++;
                 }
             }
@@ -93,17 +95,17 @@ return function (App $app) {
     });
     $app->get('/Entreprise', function (Request $request, Response $response, array $args) use ($twig, $container) {
         $controller = new CompanyController($twig);
-        $companyResponse = $controller->Company($request, $response,[], $container);
+        $companyResponse = $controller->Company($request, $response, [], $container);
         return $companyResponse;
     });
     //----------- DEBUT PROFIL --------------//
-    $app->get('/Profile', function (Request $request, Response $response) use ($twig, $container){
+    $app->get('/Profil', function (Request $request, Response $response) use ($twig, $container) {
         $controller = new ProfileController($twig);
-        $profileResponse = $controller->Profile($request, $response,[], $container);
+        $profileResponse = $controller->Profile($request, $response, [], $container);
         return $profileResponse;
     });
 
-    $app->get('/Profile/{i}', function (Request $request, Response $response, array $args) use ($container) {
+    $app->get('/Profil/{i}', function (Request $request, Response $response, array $args) use ($container) {
 
         $entityManager = $container->get(EntityManager::class);
         $User = $entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $args['i']]);
@@ -129,4 +131,42 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });*/
+
+
+    /* -------------------------- DEBUT STUDENTS MANAGEMENT -------------------- */
+    $app->get('/Etudiants', function (Request $request, Response $response) use ($twig, $container) {
+        $controller = new StudentsController($twig);
+        $studentResponse = $controller->Students($request, $response, [], $container);
+        return $studentResponse;
+    });
+
+    $app->get('/Etudiants/{i}', function (Request $request, Response $response, array $args) use ($container) {
+
+        $entityManager = $container->get(EntityManager::class);
+        $student = $entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $args['i']]);
+        $tempPromotion = "";
+        foreach ($student->getPromotions() as $promotions) {
+            $tempPromotion = $promotions->getName();
+        }
+        if ($student != null) {
+            $data = [
+                'ID_users' => $student->getIDUsers(),
+                'Name' => $student->getName(),
+                'Surname' => $student->getSurname(),
+                'Birth_date' => $student->getBirthDate()->format('Y-m-d'),
+                'Profile_Description' => $student->getProfileDescription(),
+                'Email' => $student->getEmail(),
+                'Role' => $student->getRole(),
+                'Promotion' => $tempPromotion,
+            ];
+
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Etudiant introuvable');
+        }
+    });
+
 };

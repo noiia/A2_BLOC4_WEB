@@ -1,19 +1,20 @@
-$(document).ready(function(){
-    $("#postulation-button_postulation").click(function(){
+$(document).ready(function () {
+    $("#postulation-button_postulation").click(function () {
         console.log("postulation");
         var postulationValue = "postulation";
         var welcomePHP = "Welcome.php";
         data = {
-            action : postulationValue
+            action: postulationValue
         };
-        $.post(welcomePHP, data, function(response){})
+        $.post(welcomePHP, data, function (response) {
+        })
     });
     var Value = "profile";
     var PHPfiles = "Welcome.php";
     data = {
-        action : Value
+        action: Value
     };
-    $.post(PHPfiles, data, function(response){
+    $.post(PHPfiles, data, function (response) {
         $("#navbar-profile").append(response);
     });
 })
@@ -25,11 +26,12 @@ function input_filter() {
 
 //-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- 
 
-function toggle_wishlist(){
+function toggle_wishlist() {
     document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
     document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
 }
-function toggle_bubulle(){
+
+function toggle_bubulle() {
     document.querySelector(".container-intern-details").classList.toggle('close-tab-clicked');
     document.querySelector("body").classList.toggle('mobile-scroll');
 }
@@ -47,33 +49,34 @@ function block_postulation() {
     document.querySelector(".postulation-bg").classList.toggle("postulation-off");
     document.querySelector(".postulation-bg").classList.toggle("postulation-on");
 }
+
 //--------------FIN JS POSTULATION ------------------------ -->
 
 
 // input file
-function do_add_file(){
+function do_add_file() {
     document.getElementById('file-input').click();
 }
 
-function del_file(id){
+function del_file(id) {
     document.getElementById(id).classList.add('file-hidden');
     document.getElementById(id).id += "-hidden"
     //suprimer dans le serveur
 }
 
-function open_file(name){
+function open_file(name) {
     window.open(name);
 }
 
-function add_file(){
+function add_file() {
     var file = document.getElementById('file-input').files[0];
-    if (file.type === "application/pdf"){
+    if (file.type === "application/pdf") {
         const name = file.name.replace(/ /g, '_'); //regex le g signifie : cherche plusieurs fois
-        if (document.getElementById(name) == null){
+        if (document.getElementById(name) == null) {
             var txt = "\n";
-            txt += '<div class="postulation-docs" id="'+name+'">';
-            txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">'+name+'</p>';
-            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\''+name+'\');"/>';
+            txt += '<div class="postulation-docs" id="' + name + '">';
+            txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">' + name + '</p>';
+            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
             txt += '</div>';
             document.querySelector(".postulation-list_docs").innerHTML += txt;
             console.log('fichier sélectionné:', file);
@@ -83,12 +86,10 @@ function add_file(){
             console.log("Fichier deja existant");
             alert("Vous avez dejà un fichier avec ce nom.\nChanger votre fichier de nom ou supprimer l'ancien.");
         }
-    }
-    else if (file) {
+    } else if (file) {
         console.log('type de fichier non accepte:', file.type);
         alert("Seul le type de fichier .pdf est accepté");
-    }
-    else {
+    } else {
         console.log('aucun fichier sélectionner');
     }
 }
@@ -148,14 +149,14 @@ function loadBubbleData(id = 1) {
             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
 
-            function checkFileExists(file, callback){
+            function checkFileExists(file, callback) {
                 $.ajax({
                     type: 'HEAD',
                     url: file,
-                    success: function() {
+                    success: function () {
                         callback(true);
                     },
-                    error: function() {
+                    error: function () {
                         callback(false);
                     }
                 });
@@ -163,7 +164,7 @@ function loadBubbleData(id = 1) {
 
             var imagePath = 'images/CompanyLogos/logo_' + data.id;
             var finalImagePath;
-            checkFileExists(imagePath + '.jpg', function(success) {
+            checkFileExists(imagePath + '.jpg', function (success) {
                 if (success) {
                     finalImagePath = imagePath + '.jpg'
                     bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
@@ -199,12 +200,12 @@ function loadBubbleData(id = 1) {
 }
 
 
-const runway = document.getElementById("runway-element")
+const runway = document.getElementById("runway-element");
 var oldElement = 1;
 loadBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
-    if(oldElement !== focusedBubble && focusedBubble > 0){
+    if (oldElement !== focusedBubble && focusedBubble > 0) {
         document.getElementById("runway-container-intern-details").remove();
         loadBubbleData(focusedBubble);
         oldElement = focusedBubble;
