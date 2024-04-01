@@ -15,6 +15,13 @@ use Doctrine\ORM\Mapping\Table;
 #[Table]
 class Workflow
 {
+    /*
+     *  Status:
+     *  1 : postulation
+     *  2 : accepted
+     *  3 : refused
+     *  4 : ended
+     */
     #[Id]
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]
@@ -26,9 +33,59 @@ class Workflow
 
     #[ManyToOne(targetEntity: Users::class, inversedBy: "workflow")]
     #[JoinColumn(name: "ID_users", referencedColumnName: "ID_users")]
-    public Users $users;
+    private Users $users;
 
     #[ManyToOne(targetEntity: Internship::class, inversedBy: "workflow")]
     #[JoinColumn(name: "ID_Internship", referencedColumnName: "ID_Internship")]
-    public Internship $internship;
+    private Internship $internship;
+
+    public function getIDWorkflow(): int
+    {
+        return $this->ID_Workflow;
+    }
+
+    public function setIDWorkflow(int $ID_Workflow): void
+    {
+        $this->ID_Workflow = $ID_Workflow;
+    }
+
+    public function getStatus(): int
+    {
+        return $this->Status;
+    }
+
+    public function setStatus(int $Status): void
+    {
+        $this->Status = $Status;
+    }
+
+    public function isDel(): bool
+    {
+        return $this->Del;
+    }
+
+    public function setDel(bool $Del): void
+    {
+        $this->Del = $Del;
+    }
+
+    public function getUsers(): Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(Users $users): void
+    {
+        $this->users = $users;
+    }
+
+    public function getInternship(): Internship
+    {
+        return $this->internship;
+    }
+
+    public function setInternship(Internship $internship): void
+    {
+        $this->internship = $internship;
+    }
 }

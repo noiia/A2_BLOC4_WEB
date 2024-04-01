@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Users;
+use App\Entity\Workflow;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -68,9 +69,11 @@ class InternshipController
     public function InternshipApi(Request $request, Response $response, int $id)
     {
         $userSession = $request->getAttribute("user");
+
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
         $user = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
-        $wishlisted = $user->getWishlist();
+        $workflow = $this->entityManager->getRepository(Workflow::class)->findBy(['internship' => $id]);
+
         $i = 0;
         $Skills = [];
         foreach ($internship->getSkills() as $skill) {
@@ -82,14 +85,15 @@ class InternshipController
             }
         }
         $j = 0;
-        $isAWish = false;
-        /*if ($internship->getWorkflow() != null) {
-            foreach ($internship->getWorkflow() as $appliement) {
+        if ($workflow !== null) {
+            foreach ($workflow as $appliement) {
                 if ($appliement->getStatus() == 2) {
                     $j++;
                 }
             }
-        }*/
+        }
+
+        $isAWish = false;
         $qb = $this->entityManager->createQueryBuilder();
         $qb->select('u', 'wish')
             ->from('App\Entity\Users', 'u')
@@ -132,5 +136,10 @@ class InternshipController
         } else {
             return $response->withStatus(404)->getBody()->write('Stage introuvable');
         }
+    }
+
+    public function test(Request $request, Response $response, int $id)
+    {
+        return $response;
     }
 }
