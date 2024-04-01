@@ -1,25 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %} Inter'net - Stages {% endblock %}
-{% block stylesheet %} <link href='css/OutputWelcome.css' rel="stylesheet"/> {% endblock %}
-{% block javascript %}
-<script src='js/Welcome.js'></script>
-<script>
-    $(document).ready(function(){
-    var Value = "profile";
-    var PHPfiles = "Welcome.php";
-    data = {
-    action : Value
-};
-    $.post(PHPfiles, data, function(response){
-    $("#navbar-profile").append(response);
-});
-});
-</script>
-{% endblock %}
+{% block stylesheet %}
+    <link href='css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
+{% block javascript %}<script src='js/Welcome.js'></script>{% endblock %}
 {% block welcome %}
     <div class="navbar-current">
-    <a href="../Stage">Stages</a>
-    <label class="label">**********</label>
+        <a href="../Stage">Stages</a>
+        <label class="label">**********</label>
     </div>
 {% endblock %}
 {% block body %}
@@ -33,15 +20,20 @@
                 <div class="filter">
                     <div class="search_bar">
                         <input type="search" placeholder="Rechercher" id="general-search_bar">
-                        <button type="button" id="general-button_search"><img src='images/Icones/logo_seul.png' alt="V" /></button>
+                        <button type="button" id="general-button_search"><img src='images/Icones/logo_seul.png'
+                                                                              alt="V"/></button>
                     </div>
                     <div class="filter-green">
                         <div class="filter-location">
                             <div class="filter-block_search-top">
                                 <p>Localité :</p>
                                 <div class="search_bar">
-                                    <input type="search" id="input_localite" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_localite');" data-array='["loc1", "loc2", "loc3", "loc4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_localite');" data-array='["loc1", "loc2", "loc3", "loc4"]'><img src="images/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_localite" placeholder="Rechercher"
+                                           onkeydown="add_filter_block(event,'input_localite');"
+                                           data-array='["loc1", "loc2", "loc3", "loc4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_localite');"
+                                            data-array='["loc1", "loc2", "loc3", "loc4"]'><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-block_search-bot">
@@ -67,8 +59,12 @@
                             <div class="filter-any_search-top">
                                 <p>Compétences :</p>
                                 <div class="search_bar">
-                                    <input type="search" id="input_skills" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_skills');" data-array='["skill1", "skill2", "skill3", "skill4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_skills');" data-array='["skill1", "skill2", "skill3", "skill4"]'><img src="images/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_skills" placeholder="Rechercher"
+                                           onkeydown="add_filter_block(event,'input_skills');"
+                                           data-array='["skill1", "skill2", "skill3", "skill4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_skills');"
+                                            data-array='["skill1", "skill2", "skill3", "skill4"]'><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-block_search-bot">
@@ -97,11 +93,11 @@
                             <div class="filter-any_search-bot">
                                 <div class="search_min-max">
                                     <label for="minimum_start_internship">Minimum</label>
-                                    <input type="date" id="minimum_start_internship" inputmode="numeric" />
+                                    <input type="date" id="minimum_start_internship" inputmode="numeric"/>
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum_start_internship">Maximum</label>
-                                    <input type="date" id="maximum_start_internship" inputmode="numeric" />
+                                    <input type="date" id="maximum_start_internship" inputmode="numeric"/>
                                 </div>
                             </div>
                         </div>
@@ -113,13 +109,13 @@
                                 <div class="search_min-max">
                                     <label for="minimum-duration_internship">Minimum</label>
                                     <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
-                                           max="26" placeholder="de 0 à 26 semaines" />
+                                           max="26" placeholder="de 0 à 26 semaines"/>
                                     <!--min à 0 et max à 26 car la loi l'impose-->
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum-duration_internship">Maximum</label>
                                     <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
-                                           max="26" placeholder="de 0 à 26 semaines" />
+                                           max="26" placeholder="de 0 à 26 semaines"/>
                                 </div>
                             </div>
                         </div>
@@ -127,8 +123,12 @@
                             <div class="filter-any_search-top">
                                 <p>Entreprises :</p>
                                 <div class="search_bar">
-                                    <input type="search" id="input_company" placeholder="Rechercher" onkeydown="add_filter_block(event,'input_company');" data-array='["comp1", "comp2", "comp3", "comp4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_company');" data-array='["comp1", "comp2", "comp3", "comp4"]'><img src="images/Icones/logo_seul.png" alt="V" /></button>
+                                    <input type="search" id="input_company" placeholder="Rechercher"
+                                           onkeydown="add_filter_block(event,'input_company');"
+                                           data-array='["comp1", "comp2", "comp3", "comp4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_company');"
+                                            data-array='["comp1", "comp2", "comp3", "comp4"]'><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-any_search-bot">
@@ -156,7 +156,8 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <div class="search_range">
-                                    <input type="range" min="0" max="8" step="1" id="rangeInput" value="0" oninput="input_filter();">
+                                    <input type="range" min="0" max="8" step="1" id="rangeInput" value="0"
+                                           oninput="input_filter();">
                                     <span id="rangeValue">Bac+0</span>
                                 </div>
                             </div>
@@ -169,12 +170,12 @@
                                 <div class="search_min-max">
                                     <label for="minimum-max_places">Minimum</label>
                                     <input type="number" id="minimum-max_places" inputmode="numeric" min="0"
-                                           placeholder="nombre de place" />
+                                           placeholder="nombre de place"/>
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum-max_places">Maximum</label>
                                     <input type="number" id="maximum-max_places" inputmode="numeric" min="0"
-                                           placeholder="nombre de place" />
+                                           placeholder="nombre de place"/>
                                 </div>
                             </div>
                         </div>
@@ -186,12 +187,12 @@
                                 <div class="search_min-max">
                                     <label for="minimum-postulation">Minimum</label>
                                     <input type="number" id="minimum-postulation" inputmode="numeric" min="0"
-                                           placeholder="nombre de postulation" />
+                                           placeholder="nombre de postulation"/>
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum-postulation">Maximum</label>
                                     <input type="number" id="maximum-postulation" inputmode="numeric" min="0"
-                                           placeholder="nombre de postulation" />
+                                           placeholder="nombre de postulation"/>
                                 </div>
                             </div>
                         </div>
@@ -203,12 +204,12 @@
                                 <div class="search_min-max">
                                     <label for="minimum-hourly_rate">Minimum</label>
                                     <input type="number" id="minimum-hourly_rate" inputmode="numeric" min="0"
-                                           placeholder="en €" />
+                                           placeholder="en €"/>
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum-hourly_rate">Maximum</label>
                                     <input type="number" id="maximum-hourly_rate" inputmode="numeric" min="0"
-                                           placeholder="en €" />
+                                           placeholder="en €"/>
                                 </div>
                             </div>
                         </div>
@@ -224,7 +225,8 @@
                 </div>
                 <!-- zone de bulles -->
                 {% for internship in internships %}
-                    <button class="container" id="{{ internship.id }}" onclick="focus_container('container-{{ internship.id }}')">
+                    <button class="container" id="{{ internship.id }}"
+                            onclick="focus_container('container-{{ internship.id }}')">
                             <span>
                                 <div class="container-intern" id="container-{{ internship.id }}">
                                     <div class="container-div-para">
@@ -251,15 +253,18 @@
                 <div class="container-intern-details second-scrollbar">
                     <div class="container-close-tab">
                         <button class="button-close-tab" id="button-close-tab">
-                            <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab" class="close-tab-logo-picture" onclick="toggle_bubulle();">
+                            <img src='images/Icones/croix-supprimer-le-signe.png' alt="logo close tab"
+                                 class="close-tab-logo-picture" onclick="toggle_bubulle();">
                         </button>
                     </div>
                     <div class="container-div-par-intern-details">
                         <div class="header-intern-details">
                             <img src="" alt="logo company" class="company-logo-picture" id="Big-bubble-logo">
                             <h1 class="container-header-intern-details" id="Big-bubble-name"></h1>
-                            <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist" class="unselected-wishlist-logo-picture" onclick="toggle_wishlist();">
-                            <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist" class="selected-wishlist-logo-picture" onclick="toggle_wishlist();">
+                            <img src='images/Icones/contour-en-forme-de-coeur.png' alt="logo wishlist"
+                                 class="unselected-wishlist-logo-picture" onclick="add_or_del_in_wish(true);">
+                            <img src='images/Icones/contour-en-forme-de-coeur-selected.png' alt="logo wishlist"
+                                 class="selected-wishlist-logo-picture" onclick="add_or_del_in_wish(false);">
                         </div>
 
                         <div class="container-left-informations">
@@ -279,7 +284,8 @@
                             <p id="Big-bubble-duration"></p>
                         </div>
                         <div class="container-right-informations">
-                            <button class="button-postuler" id="button-postuler" value="Postuler" onclick="block_postulation()">
+                            <button class="button-postuler" id="button-postuler" value="Postuler"
+                                    onclick="block_postulation()">
                                 Postuler
                             </button>
                             <p>Compétences recherchées :</p>
@@ -294,11 +300,17 @@
                             <h1>Description du poste :</h1>
                             <p id="Big-bubble-description"></p>
                         </div>
+                        <div class="container2-bottom-informations">
+                            <h1>ID du poste :</h1>
+                            <p id="Big-bubble-ID"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </template>
-        <template id="skills-template"><div id="skills"></div></template>
+        <template id="skills-template">
+            <div id="skills"></div>
+        </template>
         <div id="bubble-place"></div>
     </div>
     <!-- ---------------------- POSTULER ------------------- -->
@@ -312,7 +324,8 @@
             <div class="postulation-bottom">
                 <div class="postulation-motivation">
                     Ecrire sa lettre de motivation
-                    <textarea type="text" class="postulation-motivation_letter" placeholder="Bonjour, je suis interresser par votre offre de stage"></textarea>
+                    <textarea type="text" class="postulation-motivation_letter"
+                              placeholder="Bonjour, je suis interresser par votre offre de stage"></textarea>
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">

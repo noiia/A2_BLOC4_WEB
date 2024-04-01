@@ -35,6 +35,50 @@ function end_current_student(){
     }
 }
 
+function loadBubbleStudent(id = 1) {
+    fetch("https://inter-net.loc/InternshipManagement/" + id, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            const mainTemplate = document.getElementById("id-template-internship-m");
+
+            const bubbleTemplate = mainTemplate.content.cloneNode(true);
+
+            // Mise à jour des données dans le modèle Twig
+            bubbleTemplate.querySelector("#Bubble-left-name").textContent = data.job;
+            bubbleTemplate.querySelector("#Bubble-left-siret").textContent = "N°SIRET: " + data.siret;
+            bubbleTemplate.querySelector("#Bubble-left-location").textContent = data.location;
+            bubbleTemplate.querySelector("#Bubble-left-school-grade").textContent = data.school_grade;
+            bubbleTemplate.querySelector("#Bubble-left-begin-date").textContent = data.begin_date;
+            bubbleTemplate.querySelector("#Bubble-left-duration").textContent = data.duration;
+            bubbleTemplate.querySelector("#Bubble-left-company").textContent = data.company;
+            bubbleTemplate.querySelector("#Bubble-right-advantages-1").textContent = data.advantages;
+            bubbleTemplate.querySelector("#Bubble-description").textContent = data.description;
+            bubbleTemplate.querySelector("#Bubble-left-ID").textContent = data.id;
+
+            const bubblePlace = document.getElementById("bubble-place");
+            bubblePlace.innerHTML = ""; // Effacer le contenu précédent
+            bubblePlace.appendChild(bubbleTemplate);
+        });
+}
+
+// Ajout de l'écouteur d'événements après le chargement des boutons
+document.addEventListener("DOMContentLoaded", function() {
+    const internships = document.querySelectorAll(".internship");
+    internships.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var id = this.id.split("-")[1]; // Récupérer l'ID du bouton
+            loadBubbleStudent(id);
+        });
+    });
+});
+
+
 $(document).ready(function(){
     var Value = "role";
     var PHPfiles = "InternshipManagement.php";

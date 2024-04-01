@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Appliement_InternshipManagement;
+use App\Entity\Appliement_WishList;
 use DI\Container;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
@@ -26,25 +27,26 @@ class InternshipManagementController
     public function InternshipManagement(Request $request, Response $response): Response
     {
         $user = $request->getAttribute("user");
-        $internshipManag = $this->entityManager->getRepository(Internship::class)->findAll();
-        if ($internshipManag != null) {
+        $internshipManag = $this->entityManager->getRepository(Appliement_WishList::class)->findAll();
+        $data = [];
+        if ($internshipManag) {
             foreach ($internshipManag as $forInternshipManag) {
                 $data[] = [
                     'id' => $forInternshipManag->getIDInternship(),
-                    'job' => $forInternshipManag->getTitle(),
-                    'school_grade' => $forInternshipManag->promotions->getName(), // Utilisez les méthodes getters pour accéder aux propriétés
-                    'company' => $forInternshipManag->companies->getName(),
-                    'location' => $forInternshipManag->locations->getCity(),
-                    'begin_date' => $forInternshipManag->getStartingDate(),
-                    'duration' => $forInternshipManag->getDuration() . ' semaines  ' . $forInternshipManag->getHourPerWeek() . ' h/semaine',
-                    'advantages' => $forInternshipManag->getAdvantages(),
-                    'description' => $forInternshipManag->getDescription(),
+                    'job' => $forInternshipManag->internships->getTitle(),
+                    'school_grade' => $forInternshipManag->internships->promotions->getName(),
+                    'siret' => $forInternshipManag->internships->companies->getSIRET(),
+                    'company' => $forInternshipManag->internships->companies->getName(),
+                    'location' => $forInternshipManag->internships->locations->getCity(),
+                    'begin_date' => $forInternshipManag->internships->getStartingDate(),
+                    'duration' => $forInternshipManag->internships->getDuration() . ' semaines  ' . $forInternshipManag->internships->getHourPerWeek() . ' h/semaine',
+                    'advantages' => $forInternshipManag->internships->getAdvantages(),
+                    'description' => $forInternshipManag->internships->getDescription(),
                 ];
             }
-            return $this->twig->render($response, 'InternshipManagement/InternshipManagement.html.twig', [
-                'internships' => $data,
-            ]);
-        } else {
-            return $this->twig->render($response, 'InternshipManagement/InternshipManagement.html.twig');
         }
-    }}
+        return $this->twig->render($response, 'InternshipManagement/InternshipManagement.html.twig', [
+            'internships' => $data,
+        ]);
+    }
+}

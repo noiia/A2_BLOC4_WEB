@@ -55,7 +55,7 @@ class Appliement_WishList
 
     public function getIDInternship(): int
     {
-        return $this->ID_Internship;
+        return $this->ID_Internship ?? 0;
     }
 
     public function setIDInternship(int $ID_Internship): void

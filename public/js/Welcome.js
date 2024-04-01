@@ -40,12 +40,12 @@ function input_filter() {
 function add_or_del_in_wish(isAWish) {
     var internshipID = Number(document.getElementById("Big-bubble-ID").textContent);
     console.log(internshipID);
-    if (isAWish) {
+    if (isAWish === true) {
         document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
         document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
         console.log(isAWish);
         fetch("https://inter-net.loc/Wishlist/add/" + internshipID, {
-            method: "PATCH",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -54,16 +54,15 @@ function add_or_del_in_wish(isAWish) {
                 if (response.ok) {
                     document.location.href = "../Stage?id=" + internshipID;
                 } else {
-                    alert("La suppression a échoué.");
+                    alert("L'ajout a échoué.");
                 }
             })
             .catch(error => {
-                alert("Une erreur s'est produite lors de la suppression :", error);
+                alert("Une erreur s'est produite lors de la création :", error);
             });
     } else {
         document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
         document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
-        console.log(isAWish);
         fetch("https://inter-net.loc/Wishlist/delete/" + internshipID, {
             method: "PATCH",
             headers: {
@@ -255,3 +254,4 @@ addEventListener("click", (event) => {
         oldElement = focusedBubble;
     }
 });
+

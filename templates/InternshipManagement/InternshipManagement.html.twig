@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block body %}
-    <body>
 
     <div class="main_right second-scrollbar">
         <p id="right_title">Gestion des stages</p>
@@ -24,60 +23,54 @@
                     <button id="delete" onclick="toggle_delete();"><img src="images/Icones/poubelle-de-recyclage.png"></button>
                 </div>
                 {% for internship in internships %}
-                    <button class="internship" id="internship-{{ internship.id }}" onclick="focus_container('internship-{{ internship.id }}')">{{ internship.job }}</button>
+                    <button class="internship" id="internship-{{ internship.id }}" onclick="focus_container('{{ internship.id }}')">{{ internship.job }}</button>
                 {% endfor %}
             </div>
         </div>
-        <div class="profile_internship">
-            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
-            <div class="profile_block">
-                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
-                <div class="internship_top">
-                    <div class="left_profile">
-                        <p>Nom</p>
-                        <p>N°SIRET</p>
-                        <p>Ouais</p>
-                        <p>Ouias ouais</p>
-                        <p>c ca ouais</p>
-                        <p>absolument</p>
-                        <p>j aurais pas dit mieux</p>
+        <template id="id-template-internship-m">
+            <div class="profile_internship" id="profile_internship">
+                <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
+                <div class="profile_block">
+                    <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
+                    <div class="internship_top">
+                        <div class="left_profile">
+                            <p id="Bubble-left-name"></p>
+                            <p id="Bubble-left-siret"></p>
+                            <p id="Bubble-left-ID"></p>
+                            <p id="Bubble-left-begin-date"></p>
+                            <p id="Bubble-left-duration"></p>
+                            <p id="Bubble-left-company"></p>
+                            <p id="Bubble-left-school-grade"></p>
+                        </div>
+                        <div class="right_advantages second-scrollbar">
+                            <p>Avantages</p>
+                            <ul>
+                                <li id="Bubble-right-advantages-1"></li>
+                                <li id="Bubble-right-advantages-2"></li>
+                                <li id="Bubble-right-advantages-3"></li>
+                                <li id="Bubble-right-advantages-4"></li>
+                                <li id="Bubble-right-advantages-5"></li>
+                                <li id="Bubble-right-advantages-6"></li>
+                                <li id="Bubble-right-advantages-7"></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="right_advantages second-scrollbar">
-                        <p>Avantages</p>
-                        <ul>
-                            <li>A</li>
-                            <li>B</li>
-                            <li>C</li>
-                            <li>D</li>
-                            <li>E</li>
-                            <li>F</li>
-                            <li>G</li>
-                        </ul>
+                    <div class="internship_mid">
+                        <label class="label-company_description" for="company_description">Description</label>
+                        <textarea id="Bubble-description" class="second-scrollbar" disabled></textarea>
                     </div>
-                </div>
-                <div class="internship_mid">
-                    <label class="label-company_description" for="company_description">Description</label>
-                    <textarea id="company_description" class="second-scrollbar" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt saepe accusamus provident numquam nostrum commodi praesentium perspiciatis, magnam aperiam autem in ad earum temporibus, sunt beatae officiis. Ullam, repellat sit.
-                    Placeat officiis ex praesentium fugiat odit tempora soluta, distinctio ratione, cupiditate harum molestias facilis esse nam ipsum fugit dicta dolorum hic adipisci, aliquid aliquam neque ea unde? Corrupti, perferendis ad!
-                    Amet, exercitationem voluptates? Impedit consequuntur dolorum, vel, nisi quam magni similique ducimus autem suscipit ea harum dignissimos praesentium rem maxime aut possimus quia cupiditate laborum error voluptates doloribus hic illo?
-                    Nemo in quaerat eum explicabo et deserunt vero porro veniam, maiores error quam facere aliquam, nobis distinctio. Saepe dignissimos, facere nulla, architecto officia quod odit ipsam, voluptatibus dolores quidem perspiciatis!
-                    Laborum, distinctio! Delectus ad ullam commodi debitis numquam, assumenda aut officia ex quia dolore pariatur ipsam dolores, iure obcaecati ab enim esse rem quos similique nobis aliquam, earum suscipit doloribus.
-                    Necessitatibus quidem praesentium eveniet, cumque illo voluptate ducimus officia commodi optio iste sint soluta dolore delectus, maiores eligendi minima voluptates, consequatur impedit iusto magni nisi quam quaerat saepe cum! Provident!
-                    Facere iure quasi harum a excepturi aut numquam laudantium inventore, reprehenderit esse temporibus soluta. Consectetur vitae incidunt iusto, nisi voluptatibus error ullam reiciendis fuga beatae totam praesentium non nesciunt suscipit.
-                    Iste saepe illum aliquid et accusamus ea quod tenetur vel! Odio repudiandae officia, dolorum aperiam animi hic omnis exercitationem, sequi fugiat, eveniet tenetur adipisci minima cum soluta saepe quis perferendis.
-                    Nostrum quibusdam amet aliquam animi atque, maiores obcaecati cupiditate suscipit aspernatur id nemo beatae doloremque? Officia harum id earum placeat quae odit consequuntur, voluptatem asperiores hic. Neque excepturi quam laudantium.
-                    Beatae quisquam illum sunt? Fuga officiis et amet mollitia explicabo aliquam hic perspiciatis autem animi debitis accusantium, laboriosam earum doloremque vero consequuntur nam tempora magnam recusandae repudiandae laborum, itaque suscipit.</textarea>
-                </div>
-                <div class="internship_bot second-scrollbar">
-                    <div class="postulation">
-                        <a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Bertrand Lechou - CESI_CPIA2_S3E</a>
-                        <img src="images/Icones/check.png" class="black_check" id=1 onclick="toggle_valid(1);">
+                    <div class="internship_bot second-scrollbar">
+                        <div class="postulation">
+                            <a href="templates/Profile/Profile.html.twig">{{ postulation.name }} + {{ postulation.surname }}</a>
+                            <img src="images/Icones/check.png" class="black_check" id="1" onclick="toggle_valid(1);">
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
+        </template>
+        <div id="bubble-place"></div>
     </div>
+
     <!-- -------------------------DEBUT POP UP AJOUTER PILOTE ------------------------ -->
     <div class="container-add-student hide_container">
         <div class="add-student-name">
