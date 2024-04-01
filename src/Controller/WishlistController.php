@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Appliement_WishList;
 use App\Entity\Internship;
 use App\Entity\Users;
 use Doctrine\ORM\EntityManager;
@@ -36,7 +35,9 @@ class WishlistController
                         'company' => $internship->companies->getName()
                     ];
             }
+            $role = $users->getRole();
             return $this->twig->render($response, 'Wishlist/Wishlist.html.twig', [
+                'role' => $role,
                 'internships' => $internshipInWishlist,
             ]);
         } else {

@@ -57,6 +57,11 @@ return function (App $app) {
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
 
         $group->get('Edition', [CompanyStatsController::class, 'CompanyStats']);
+        $group->get('Edition/Etudiants', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Entreprises', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Stages', [WishlistController::class, 'Wishlist']);
+
         $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
         $group->post('Wishlist/add/{id}', [WishlistController::class, 'addInternshipToWishlist']);
         $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
