@@ -7,6 +7,11 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+require_once("../pChart2.1.4/class/pData.class.php");
+require_once("../pChart2.1.4/class/pDraw.class.php");
+require_once("../pChart2.1.4/class/pPie.class.php");
+require_once("../pChart2.1.4/class/pImage.class.php");
+
 class InternshipStatsController
 {
     private $twig;
