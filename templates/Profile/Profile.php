@@ -7,8 +7,8 @@ function check_role(){
             <p>Etudiants</p>
             <ul>
                 <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../WishList/WishList.html">WishList</a></li>
-                <li><a href="../Postulation/Postulation.html">Mes postulations</a></li>
+                <li><a href="../Wishlist/Wishlist.html.twig">WishList</a></li>
+                <li><a href="../Postulation/Postulation.html.twig">Mes postulations</a></li>
             </ul>
         </div>';
         break;
@@ -17,9 +17,9 @@ function check_role(){
             <p>Pilote</p>
             <ul>
                 <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../Students/Students.html">Mes étudiants</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
-                <li><a href="../Internship/Internship.html">Mes stages</a></li>
+                <li><a href="../Students/Students.html.twig">Mes étudiants</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html.twig">Mes entreprises</a></li>
+                <li><a href="../Internship/Internship.html.twig">Mes stages</a></li>
             </ul>
         </div>';
         break;
@@ -28,11 +28,11 @@ function check_role(){
             <p>Admin</p>
             <ul>
                 <li><a id="actual_page">Mon profil</a></li>
-                <li><a href="../Students/Students.html">Etudiants</a></li>
-                <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
-                <li><a href="../Internship/Internship.html">Stages</a></li>
-                <li><a href="../WishList/WishList.html">WishList</a></li>
+                <li><a href="../Students/Students.html.twig">Etudiants</a></li>
+                <li><a href="../Pilote/Pilote.html.twig">Pilotes</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html.twig">Company</a></li>
+                <li><a href="../Internship/Internship.html.twig">Stages</a></li>
+                <li><a href="../Wishlist/Wishlist.html.twig">WishList</a></li>
             </ul>
         </div>';
         break;

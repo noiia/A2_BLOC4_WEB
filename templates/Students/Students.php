@@ -8,7 +8,7 @@ function check_role(){
             <ul>
                 <li><a href="../Profile/Profile.html">Mon profil</a></li>
                 <li><a id="actual_page">Mes étudiants</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
                 <li><a href="../Internship/Internship.html">Mes stages</a></li>
             </ul>
         </div>';
@@ -20,9 +20,9 @@ function check_role(){
                 <li><a href="../Profile/Profile.html">Mon profil</a></li>
                 <li><a id="actual_page">Etudiants</a></li>
                 <li><a href="../Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html">Company</a></li>
                 <li><a href="../Internship/Internship.html">Stages</a></li>
-                <li><a href="../WishList/WishList.html">WishList</a></li>
+                <li><a href="../Wishlist/Wishlist.html">WishList</a></li>
             </ul>
         </div>';
         break;

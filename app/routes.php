@@ -62,7 +62,10 @@ return function (App $app) {
         $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
 
         $group->get('Activities', [\App\Controller\ActivitiesController::class, 'Activities']);
-        $group->get('Activities/api/{id}', [\App\Controller\ActivitiesController::class, 'ActivitiesApi']);
+
+        $group->get('Postulation', [\App\Controller\PostulationController::class, 'Postulation']);
+
+        $group->get('InternshipManagement', [\App\Controller\InternshipManagementController::class, 'InternshipManagement']);
 
     })->add($authMiddleware);
 };

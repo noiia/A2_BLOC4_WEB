@@ -50,9 +50,9 @@ class ActivitiesController
                         'location' => $forActivities->locations->getCity(),
                         'begin_date' => $forActivities->getStartingDate(),
                         'duration' => $forActivities->getDuration() . ' semaines',
-                        'competence_1' => $threeSkills[0], 
-                        'competence_2' => $threeSkills[1], 
-                        'competence_3' => $threeSkills[2], 
+                        'competence_1' => $threeSkills[0],
+                        'competence_2' => $threeSkills[1],
+                        'competence_3' => $threeSkills[2],
                     ];
             }
         }
@@ -60,42 +60,5 @@ class ActivitiesController
         return $view->render($response, 'Activities/Activities.html.twig', [
             'internships' => $data,
         ]);
-    }
-
-public function ActivitiesApi(Request $request, Response $response, int $id)
-    {
-
-
-        $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
-        $i = 0;
-        $Skills = [];
-        foreach ($internship->getSkills() as $skill) {
-            $i++;
-            if ($i <= 3) {
-                $Skills[] = $skill->getName();
-            } else {
-                break;
-            }
-        }
-        $j = 0;
-        if ($internship != null) {
-            $data = [
-                'id' => $internship->getIDInternship(),
-                'job' => $internship->getTitle(),
-                'school_grade' => $internship->promotions->getName(), // Utilisez les méthodes getters pour accéder aux propriétés
-                'company' => $internship->companies->getName(),
-                'location' => $internship->locations->getCity(),
-                'begin_date' => $internship->getStartingDate(),
-                'duration' => $internship->getDuration() . ' semaines  ' . $internship->getHourPerWeek() . ' h/semaine',
-                'skills' => $Skills,
-            ];
-
-            $payload = json_encode($data);
-
-            $response->getBody()->write($payload);
-            return $response->withHeader('Content-Type', 'application/json');
-        } else {
-            return $response->withStatus(404)->getBody()->write('Stage introuvable');
-        }
     }
 }

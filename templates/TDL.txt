@@ -1,0 +1,5 @@
+To Do List:
+
+- Test à faire pour affichage main_left selon le role (profileBase.html.twig)
+
+- Ajout colonne Status à la table internship -> filtrage stages selon utilisateur et statut dans les rubriques Wishlist/Postulation/Activities (Appliement_WishList.php - Controller)

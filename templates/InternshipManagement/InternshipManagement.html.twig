@@ -1,21 +1,9 @@
-{% extends '../profileBase.html.twig' %}
+{% extends 'profileBase.html.twig' %}
 {% block title %}Inter'net - Gestion des stages{% endblock %}
-{% block stylesheet %} <link href="css/OutputInternship.css" rel="stylesheet"/> {% endblock %}
+{% block stylesheet %} <link href="css/OutputInternshipManagement.css" rel="stylesheet"/> {% endblock %}
 {% block javascript %}
-<script src="main/main.js"></script>
-<script src="Internship.js"></script>
-<script>
-    $(document).ready(function(){
-    var Value = "role";
-    var PHPfiles = "Internship.php";
-    data = {
-    action : Value
-};
-    $.post(PHPfiles, data, function(response){
-    $(".main_left").append(response);
-})
-})
-</script>
+<script src="js/main.js"></script>
+<script src="js/InternshipManagement.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -147,8 +135,7 @@
                     </div>
                     <div class="container-skills-scroll horizontal-second-scrollbar">
                         <ul>
-                            {% for skill in skills
-                            %}
+                            {% for skill in skills %}
                             <li>
                                 <div class="each-skill">
                                     <p>JS</p>
@@ -161,6 +148,7 @@
                                     <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img src="images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="picture-delete-skill"></button>
                                 </div>
                             </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

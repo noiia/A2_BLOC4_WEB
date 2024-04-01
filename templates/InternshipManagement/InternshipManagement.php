@@ -6,9 +6,9 @@ function check_role(){
             echo ' <div class="left_container" id="left_array">
             <p>Pilote</p>
             <ul>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Mon profil</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Students/Students.html">Mes étudiants</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Mes entreprises</a></li>
+                <li><a href="templates/Profile/Profile.html.twig">Mon profil</a></li>
+                <li><a href="templates/Students/Students.html.twig">Mes étudiants</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html.twig">Mes entreprises</a></li>
                 <li><a id="actual_page">Mes stages</a></li>
             </ul>
         </div>';
@@ -17,12 +17,12 @@ function check_role(){
             echo '<div class="left_container" id="left_array">
             <p>Admin</p>
             <ul>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Profile/Profile.html">Mon profil</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Students/Students.html">Etudiants</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/Pilote/Pilote.html">Pilotes</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/CompanyManagement/CompanyManagement.html">Company</a></li>
+                <li><a href="templates/Profile/Profile.html.twig">Mon profil</a></li>
+                <li><a href="templates/Students/Students.html.twig">Etudiants</a></li>
+                <li><a href="templates/Pilote/Pilote.html.twig">Pilotes</a></li>
+                <li><a href="templates/CompanyManagement/CompanyManagement.html.twig">Company</a></li>
                 <li><a id="actual_page">Stages</a></li>
-                <li><a href="../../../inter-net-slim/inter-net-slim-2/templates/WishList/WishList.html">WishList</a></li>
+                <li><a href="templates/Wishlist/Wishlist.html.twig">WishList</a></li>
             </ul>
         </div>';
             break;

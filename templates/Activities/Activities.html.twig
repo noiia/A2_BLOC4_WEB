@@ -74,27 +74,5 @@
                     {% endfor %}
                 </div>
 
-                {% block javascript2 %}
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                    const elements = document.querySelectorAll('.container-skills li');
-
-                    elements.forEach(element => {
-                    if (element.offsetWidth < element.scrollWidth) {
-                    element.classList.add('has-overflow');
-
-                    element.addEventListener('mouseenter', () => {
-                    element.classList.add('hover-effect');
-                });
-
-                    element.addEventListener('mouseleave', () => {
-                    element.classList.remove('hover-effect');
-                });
-                }
-                });
-                });
-                </script>
-                {% endblock %}
-
     </body>
 {% endblock %}

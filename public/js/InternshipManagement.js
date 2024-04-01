@@ -35,3 +35,13 @@ function end_current_student(){
     }
 }
 
+$(document).ready(function(){
+    var Value = "role";
+    var PHPfiles = "InternshipManagement.php";
+    data = {
+        action : Value
+    };
+    $.post(PHPfiles, data, function(response){
+        $(".main_left").append(response);
+    })
+})
