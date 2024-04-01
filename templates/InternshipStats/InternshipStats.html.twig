@@ -3,7 +3,7 @@
 {% block stylesheet %}
     <link href='css/OutputInternshipStats.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
-<script src='js/InternshipStats.js'></script>
+<script src='../../public/js/InternshipStats.js'></script>
 {% endblock %}
 {% block Statistics %}
     <div class="navbar-current">
@@ -52,7 +52,7 @@
                     <div class="internship-time-graph-name">
                         <p>Durée du stage</p>
                     </div>
-                    <p>Graph durée de stage</p>
+                    <canvas id="chart1"></canvas>
                 </div>
             </div>
             <div class="container-promotions-graph">

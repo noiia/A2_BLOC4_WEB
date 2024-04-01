@@ -8,6 +8,11 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+require_once("../pChart2.1.4/class/pData.class.php");
+require_once("../pChart2.1.4/class/pDraw.class.php");
+require_once("../pChart2.1.4/class/pPie.class.php");
+require_once("../pChart2.1.4/class/pImage.class.php");
+
 class InternshipStatsController
 {
     private $twig;
@@ -32,8 +37,8 @@ class InternshipStatsController
         $svg = simplexml_load_file('../public/images/svg/Carte_vierge_départements_français.svg');
         foreach ($depToNbInternship as $dep => $nb) {
             $mapDep = $svg->xpath('//*[@id="dep' . $dep . '"]')[0];
-            $mapDep['fill'] = "#ffff00";
-            $mapDep['fill-opacity'] = ($nb / $total) * 5;
+            $mapDep['fill'] = "#104E07";
+            $mapDep['fill-opacity'] = ($nb / $total) * 5; //2% de stage = 100% opaque
         }
         $svg->asXML('../public/images/svg/Carte_remplie_départements_français.svg');
 
