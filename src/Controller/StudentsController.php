@@ -16,7 +16,6 @@ use App\Entity\Users;
 class StudentsController
 {
     private $twig;
-    private $entityManager;
 
     public function __construct(Twig $twig)
     {
