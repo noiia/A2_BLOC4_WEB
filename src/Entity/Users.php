@@ -59,6 +59,11 @@ class Users
         return $this->promotions;
     }
 
+    public function setPromotions(Collection $Promotion)
+    {
+        $this->promotions = $Promotion;
+    }
+
     #[JoinTable(name: "wishlist")]
     #[JoinColumn(name: 'id_users', referencedColumnName: 'ID_users')]
     #[InverseJoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
