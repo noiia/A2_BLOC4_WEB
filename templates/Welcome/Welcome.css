@@ -280,14 +280,21 @@ input[type="search"]::-webkit-search-cancel-button{
   @apply my-5 z-40 items-stretch flex;
 }
 .container-intern {
-  @apply min-h-[200px] w-[350px] sm:h-auto sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-110 transition-transform outline outline-secondary-grey;
+  @apply min-h-[200px] w-[350px] sm:h-auto sm:w-[425px] bg-secondary-white max-w-2xl rounded-xl overflow-hidden 2xl:max-w-2xl hover:ease-linear sm:hover:scale-105 transition-transform outline outline-secondary-grey;
 }
 .container-div-para {
   @apply p-8;
 }
 .container-h1 {
-  @apply text-xl underline font-bold text-justify;
+  @apply text-xl font-bold;
 }
+
+.container:hover {
+  .container-h1 {
+    @apply underline;
+  }
+}
+
 .container-paragraph {
   @apply mt-2 text-secondary-true_black text-justify;
 }
@@ -321,51 +328,55 @@ input[type="search"]::-webkit-search-cancel-button{
 .runway-elements {
   @apply w-[430px] xl:ml-[25px] max-xl:mx-auto max-sm:w-[350px];
 }
-  
-  .runway-container-intern-details {
-    @apply font-medium xl:h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
-  }
-  
+
+.runway-container-intern-details {
+  @apply relative font-medium h-auto xl:w-[80%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+}
+
+.runway-container-intern-details-fixed {
+  @apply xl:fixed xl:mt-[-115px] xl:ml-[-0.6%] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+}
+
   .container-intern-details {
     @apply sticky top-7 mt-5 overflow-y-auto h-[79.6vh] bg-secondary-white rounded-3xl outline outline-green-button shadow-2xl z-40 max-sm:mt-4;
   }
-  
+
   .container-div-par-intern-details {
     @apply w-[84%] h-auto mb-10 mx-[8%];
   }
-  
+
   .close-tab-logo-picture {
     @apply inline-block h-[23px] max-ml:h-[15px];
   }
-  
+
   .button-close-tab {
     @apply mt-2 ml-[96%] inline-block;
   }
-  
+
   .header-intern-details {
     @apply mb-5 grid grid-cols-[20%_70%_10%];
   }
-  
+
   .company-logo-picture {
     @apply inline-block h-[103px] max-ml:h-[64px];
   }
-  
+
   .unselected-wishlist-logo-picture {
     @apply h-[43px] cursor-pointer max-ml:h-[33px];
   }
-  
+
   .selected-wishlist-logo-picture {
     @apply h-[43px] cursor-pointer hidden max-ml:h-[33px];
   }
-  
+
   .is-selected {
     @apply inline-block;
   }
-  
+
   .remove-wishlist-picture {
     @apply hidden;
   }
-  
+
   .container-header-intern-details {
     @apply text-center text-5xl max-ml:text-4xl;
   }
@@ -373,70 +384,70 @@ input[type="search"]::-webkit-search-cancel-button{
   .container-left-and-right {
     @apply relative flex max-ml:block;
   }
-  
+
   .container-left-informations {
     @apply inline-grid w-[50%] text-2xl max-ml:block max-ml:w-[60%] max-ml:ml-[10%] max-ml:mb-4;
   }
-  
+
   .container-left-informations h1 {
     @apply underline underline-offset-4 mt-2;
   }
-  
+
   .container-left-informations a {
     @apply underline font-bold;
   }
-  
+
   .container-right-informations {
     @apply inline-grid w-[49%] align-top max-ml:block max-ml:w-full max-ml:text-center;
   }
-  
+
   .container-right-informations p {
     @apply text-2xl underline underline-offset-4 mt-[46px];
   }
-  
+
   .container-skills-details {
     @apply relative mt-8 grid grid-rows-3 grid-flow-col gap-4;
   }
   .container-skills-details div {
     @apply text-xl w-[100%] h-[100%] rounded-xl p-3 mx-1 flex items-center justify-center bg-green-2 shadow-2xl;
   }
-  
+
   .button-postuler {
     @apply cursor-pointer bg-green-true_btn w-[100%] h-[64px] text-3xl rounded-2xl outline outline-secondary-true_black outline-4 shadow-2xl;
   }
-  
+
   .button-postuler:hover {
     @apply outline-green-2;
   }
-  
+
   .container1-bottom-informations {
     @apply my-10 text-2xl;
   }
-  
+
   .container1-bottom-informations h1 {
     @apply underline underline-offset-4;
   }
-  
+
   .container2-bottom-informations {
     @apply text-2xl;
   }
-  
+
   .container2-bottom-informations h1 {
     @apply underline underline-offset-4;
   }
-  
+
   .close-tab-clicked {
     @apply hidden z-0;
   }
-  
+
   .display-none {
     @apply hidden;
   }
-  
+
   .retaur-haut-logo-picture {
     @apply h-[23px];
   }
-  
+
   .retourHaut {
     @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
   }
@@ -447,7 +458,7 @@ input[type="search"]::-webkit-search-cancel-button{
   .mobile-scroll{
     @apply max-xl:overflow-y-auto;
   }
-  
+
   /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
 /* -------------------------------BULLE POSTULER -----------------------------*/
 .when_postulation {

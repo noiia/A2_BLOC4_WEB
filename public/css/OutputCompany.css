@@ -1736,6 +1736,7 @@ input[type="date"]{
 }
 
 .runway-container-intern-details{
+  position: relative;
   z-index: 49;
   height: auto;
   font-weight: 500;
@@ -1743,7 +1744,7 @@ input[type="date"]{
 
 @media not all and (min-width: 1280px){
   .runway-container-intern-details{
-    position: absolute;
+    position: fixed;
     top: 115px;
     margin-left: 10%;
     margin-right: 10%;
@@ -1762,6 +1763,45 @@ input[type="date"]{
   .runway-container-intern-details{
     display: inline-block;
     width: 80%;
+  }
+}
+
+.runway-container-intern-details-fixed{
+  z-index: 49;
+  height: auto;
+  font-weight: 500;
+}
+
+@media not all and (min-width: 1280px){
+  .runway-container-intern-details-fixed{
+    position: fixed;
+    top: 115px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-container-intern-details-fixed{
+    margin-left: -25px;
+    width: 400px;
+  }
+}
+
+@media (min-width: 1280px){
+  .runway-container-intern-details-fixed{
+    position: fixed;
+    margin-top: -115px;
+    margin-left: -0.6%;
+    display: inline-block;
+    width: 55%;
+  }
+}
+
+@media (min-width: 1536px){
+  .runway-container-intern-details-fixed{
+    width: 47%;
   }
 }
 

@@ -8,6 +8,7 @@ use App\Controller\InternshipController;
 use App\Controller\InternshipStatsController;
 use App\Controller\LoginController;
 use App\Controller\ProfileController;
+use App\Controller\StudentsController;
 use App\Controller\WishlistController;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -58,8 +59,10 @@ return function (App $app) {
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
 
         $group->get('Edition/MonProfil', [ProfileController::class, 'Profil']);
-        $group->get('Edition/MonProfil/{i}', [ProfileController::class, 'ProfilApi']);
-        $group->get('Edition/Etudiants', [WishlistController::class, 'Wishlist']);
+
+        $group->get('Edition/Etudiants', [StudentsController::class, 'Students']);
+        $group->get('Edition/Etudiants/{id}', [StudentsController::class, 'StudentsApi']);
+
         $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
         $group->get('Edition/Entreprises', [WishlistController::class, 'Wishlist']);
         $group->get('Edition/Stages', [WishlistController::class, 'Wishlist']);

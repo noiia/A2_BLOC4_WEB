@@ -41,25 +41,26 @@ class ProfileController
             'role' => $role,
         ]);
     }
+    /*
+        public function ProfilApi(Request $request, Response $response, int $id)
+        {
+            $User = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $id]);
+            if ($User != null) {
+                $data = [
+                    'ID_users' => $User->getIDUsers(),
+                    'Name' => $User->getName(),
+                    'Surname' => $User->getSurname(),
+                    'Birth_date' => $User->getBirthDate(),
+                    'Profile_Description' => $User->getProfileDescription(),
+                    'Email' => $User->getEmail(),
+                ];
+                $payload = json_encode($data);
 
-    public function ProfilApi(Request $request, Response $response, int $id)
-    {
-        $User = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $id]);
-        if ($User != null) {
-            $data = [
-                'ID_users' => $User->getIDUsers(),
-                'Name' => $User->getName(),
-                'Surname' => $User->getSurname(),
-                'Birth_date' => $User->getBirthDate(),
-                'Profile_Description' => $User->getProfileDescription(),
-                'Email' => $User->getEmail(),
-            ];
-            $payload = json_encode($data);
-
-            $response->getBody()->write($payload);
-            return $response->withHeader('Content-Type', 'application/json');
-        } else {
-            return $response->withStatus(404)->getBody()->write('Erreur d affichage du profil');
+                $response->getBody()->write($payload);
+                return $response->withHeader('Content-Type', 'application/json');
+            } else {
+                return $response->withStatus(404)->getBody()->write('Erreur d affichage du profil');
+            }
         }
-    }
+    */
 }
