@@ -44,7 +44,15 @@
                     {% endfor %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
-                        <a href="../Edition">Mon Profil</a>
+                        <a href="../Edition/MonProfil">Mon Profil</a>
+                        {% if role > 1 %}
+                            <a href="../Edition/Etudiants">Etudiants</a>
+                            <a href="../Edition/Entreprises">Company</a>
+                            <a href="../Edition/Stages">Stages</a>
+                        {% endif %}
+                        {% if role > 2 %}
+                            <a href="../Edition/Pilotes">Pilotes</a>
+                        {% endif %}
                         <a href="../Wishlist">Wishlist</a>
                         <a href="../disconnect" id="button-disconnect"
                            class="button-disconnect"><span>Déconnexion</span></a>

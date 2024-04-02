@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Internship;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -20,13 +21,24 @@ class InternshipStatsController
 
     public function InternshipStats(Request $request, Response $response): Response
     {
-        $user = $request->getAttribute("user");
-        $name[] = [
-            'name' => $user->getName(),
-            'surname' => $user->getSurname()
-        ];
-        return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig', [
-            'names' => $name,
-        ]);
+        $GREEN = "#104E07";
+        // debut svg
+        $depToNbInternship = array_count_values(array_map(
+            function ($element) {
+                return $element->locations->getDepartement();
+            },
+            $this->entityManager->getRepository(Internship::class)->findAll()
+        ));
+        $total = array_sum($depToNbInternship);
+        $svg = simplexml_load_file('../public/images/svg/Carte_vierge_départements_français.svg');
+        foreach ($depToNbInternship as $dep => $nb) {
+            $mapDep = $svg->xpath('//*[@id="dep' . $dep . '"]')[0];
+            $mapDep['fill'] = $GREEN;
+            $mapDep['fill-opacity'] = ($nb / $total) * 5;
+        }
+        $svg->asXML('../public/images/svg/Carte_remplie_départements_français.svg');
+
+        // fin svg
+        return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig');
     }
 }

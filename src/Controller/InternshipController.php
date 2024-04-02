@@ -60,9 +60,12 @@ class InternshipController
             'name' => $user->getName(),
             'surname' => $user->getSurname()
         ];
+        $role = $user->getRole();
+
         return $this->twig->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
             'names' => $name,
+            'role' => $role
         ]);
     }
 

@@ -67,9 +67,11 @@ class CompanyController
             'name' => $user->getName(),
             'surname' => $user->getSurname()
         ];
+        $role = $user->getRole();
         return $this->twig->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
             'names' => $name,
+            'role' => $role,
         ]);
     }
 
