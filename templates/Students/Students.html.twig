@@ -51,7 +51,7 @@
                             <p id="students-profile-id_user"></p>
                             <p id="students-profile-birth_date"></p>
                             <p id="students-profile-promotion"></p>
-                            <p id="students-profile-campus"></p>
+                            <p id="students-profile-campus">Campus</p>
                             <p id="students-profile-mail"></p>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="valid_promotion()">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="valid_promotion(); applyChanges()">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations">
@@ -139,7 +139,7 @@
                     <h1>Description:</h1>
                 </div>
                 <div class="students-description">
-                    <textarea class="second-scrollbar-description-internship"
+                    <textarea id="editDescription" class="second-scrollbar-description-internship"
                               placeholder="Tapez votre description..."></textarea>
                 </div>
             </div>

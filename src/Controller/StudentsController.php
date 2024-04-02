@@ -16,6 +16,7 @@ use App\Entity\Users;
 class StudentsController
 {
     private $twig;
+    private $entityManager;
 
     public function __construct(Twig $twig)
     {
@@ -39,6 +40,7 @@ class StudentsController
                 'Profile_Description' => $forStudent->getProfileDescription(),
                 'Email' => $forStudent->getEmail(),
                 'Role' => $forStudent->getRole(),
+                'Del'=>$forStudent-> isDel(),
             ];
         }
         $view = Twig::fromRequest($request);
@@ -48,4 +50,6 @@ class StudentsController
             'locations' => $locations,
         ]);
     }
+
+
 }

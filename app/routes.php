@@ -29,10 +29,7 @@ $container = require_once __DIR__ . '/../bootstrap.php';
 return function (App $app) {
     global $twig;
     global $container;
-    $app->options('/{routes:.*}', function (Request $request, Response $response) {
-        // CORS Pre-Flight OPTIONS Request Handler
-        return $response;
-    });
+
 
     $app->get('/', function (Request $request, Response $response) {
         $response->getBody()->write('Hello world!');
@@ -158,6 +155,7 @@ return function (App $app) {
                 'Email' => $student->getEmail(),
                 'Role' => $student->getRole(),
                 'Promotion' => $tempPromotion,
+                'Del'=>$student->isDel(),
             ];
 
             $payload = json_encode($data);

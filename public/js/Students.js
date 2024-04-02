@@ -31,9 +31,15 @@ function toggle_hide_popup() {
 
 function addProfile(studentsLength) {
     document.querySelector('.container-add-student').classList.toggle('hide_container');
-
     // Insérer la valeur dans l'élément input
     document.getElementById("editID").value = studentsLength + 1;
+    document.getElementById("editName").value = "";
+    document.getElementById("editSurname").value = "";
+    document.getElementById("editDate").value = "";
+    document.getElementById("select-promotions").value = "";
+    document.getElementById("editEmail").value = "";
+    document.getElementById("select-campus").value = "";
+    document.getElementById("editDescription").value = "";
 }
 
 
@@ -55,6 +61,7 @@ function editProfile() {
             document.getElementById("select-campus").value = data.Campus;
             document.getElementById("editEmail").value = data.Email;
             document.getElementById("editID").value = data.ID_users;
+            document.getElementById("editDescription").value = data.Profile_Description;
         });
 }
 
@@ -97,3 +104,4 @@ addEventListener("click", (event) => {
         oldElement = focusedBubble;
     }
 });
+

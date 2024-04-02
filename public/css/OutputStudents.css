@@ -1096,6 +1096,7 @@ body::-webkit-scrollbar-track:hover{
 .profile_student{
   margin-left: 0.5rem;
   display: flex;
+  height: 100%;
   flex: 1 1 0%;
   flex-direction: column;
 }

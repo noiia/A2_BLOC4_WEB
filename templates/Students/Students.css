@@ -244,7 +244,7 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .profile_student {
-    @apply flex ml-2 flex-1 flex-col;
+    @apply flex ml-2 flex-1 flex-col h-full;
 }
 
 .mobile-search_menu-profile {
