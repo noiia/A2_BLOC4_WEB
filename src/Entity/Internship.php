@@ -45,10 +45,6 @@ class Internship
     private string $Description;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    
-    #[ManyToOne(targetEntity: Workflow::class, inversedBy: 'internships')]
-    #[JoinColumn(name: "ID_Workflow", referencedColumnName: "ID_Workflow")]
-    private ?Workflow $workflow;
 
     #[JoinTable(name: "seek")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
@@ -74,6 +70,7 @@ class Internship
 
     public function __construct()
     {
+        $this->workflow = new ArrayCollection();
         $this->skills = new ArrayCollection();
     }
 

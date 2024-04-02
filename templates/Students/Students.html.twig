@@ -1,0 +1,164 @@
+<title>{% block title %} Inter'net - Étudiants {% endblock %}</title>
+{% block stylesheet %}
+    <link href='../css/OutputStudents.css' rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src='../js/Students.js'></script>
+<script src='../js/main.js'></script>
+
+{% endblock %}
+{% block body %}
+    <body>
+    <div class="main_left">
+        <img src="../images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu"
+             class="display-cross"
+             onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Stage'">Retour</button>
+    </div>
+    <div class="main_right">
+        <p id="right_title">Gestion des étudiants</p>
+        <img src="../images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="../images/Icones/logo_seul.png" alt="chercher un étudiant" id="menu_search" onclick="toggle_search()">
+        <div class="search_list-students">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="../images/Icones/logo_seul.png" alt="V"/>
+                </button>
+            </div>
+            <div class="list-students second-scrollbar">
+                <div class="add-del">
+                    <button id="add" onclick="addProfile({{ students|length }});">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img
+                                src="../images/Icones/poubelle-de-recyclage.png">
+                    </button>
+                </div>
+                {% for student in students %}
+                    {% if student['Role']==3 and student['del']==0 %}
+                        <button class="student" id="{{ student['ID_users'] }}"
+                                onclick="focus_container('{{ student['ID_users'] }}')">{{ student['Surname'] }} {{ student['Name'] }}
+                        </button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <template id="id-template-students">
+            <div class="profile_student" id="profile_student">
+                <button class="btn_edit" id="edit1" onclick="editProfile();">Editer</button>
+                <div class="profile_block">
+                    <div class="profile_top">
+                        <button class="btn_edit" id="edit2" onclick="editProfile();">Editer</button>
+                        <img src="../images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
+                        <div class="student_info">
+                            <p id="students-profile-surname"></p>
+                            <p id="students-profile-name"></p>
+                            <p id="students-profile-id_user"></p>
+                            <p id="students-profile-birth_date"></p>
+                            <p id="students-profile-promotion"></p>
+                            <p id="students-profile-campus">Campus</p>
+                            <p id="students-profile-mail"></p>
+                        </div>
+                    </div>
+                    <div class="student_mid">
+                        <label class="label-student_description" for="student_description">Description</label>
+                        <textarea id="students-profile-description" class="second-scrollbar"
+                                  disabled></textarea>
+                    </div>
+                    <div class="student_bot">
+                        <button id="activity"
+                                onclick="window.location.href = '../../../inter-net-slim/inter-net-slim-2/templates/Activities/Activities.html'">
+                            Activités
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div id="bubble-place"></div>
+    </div>
+    <!-- -------------------------DEBUT POP UP AJOUTER ELEVE ------------------------ -->
+    <div class="container-add-student hide_container">
+        <div class="add-student-name">
+            <h1>Ajouter un étudiant</h1>
+        </div>
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+            <button class="button-cancel" id="apply" onclick="valid_promotion(); applyChanges()">Appliquer</button>
+        </div>
+        <div class="container-informations-and-description">
+            <div class="container-students-informations">
+                <div class="container-student-profile-picture">
+                    <div class="student-profile-picture">
+                        <img src="../images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
+                    </div>
+                    <div class="add-profile-picture-button">
+                        <label for="file-input">
+                            <img src="../images/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp"
+                                 id="add-profile-picture-button">
+                        </label>
+                        <input id="file-input" type="file" accept=".jpeg, .jpg, .png"/>
+                    </div>
+                </div>
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <form id="Students-Form" onsubmit="return validerFormulaire()">
+                            <ul>
+                                <li><input id="editName" placeholder="Nom" required value=""></li>
+                                <li><input id="editSurname" placeholder="Prénom" required value=""></li>
+                                <li><input id="editDate" type="date" required value=""></li>
+                            </ul>
+                            <ul>
+                                <li><input placeholder="Promotion..." list="promotions"
+                                           id="select-promotions"
+                                           name="select-promotion" required>
+                                    <datalist id="promotions">
+                                        {% for promotion in promotions %}
+                                            <option value="{{ promotion.name }}">{{ promotion.name }}</option>
+                                        {% endfor %}
+                                    </datalist>
+                                </li>
+                                <li class="students-each-informations-long"><input id="editEmail" type="email"
+                                                                                   placeholder="Mail"
+                                                                                   required></li>
+                                <li class="students-each-informations-long">
+                                    <input placeholder="Campus..." list="campus" id="select-campus"
+                                           name="select-campus" required>
+                                    <datalist id="campus">
+                                        {% for location in locations %}
+                                            <option value="{{ location.city }}">{{ location.city }}</option>
+                                        {% endfor %}
+                                    </datalist>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><input disabled id="editID"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                    <textarea id="editDescription" class="second-scrollbar-description-internship"
+                              placeholder="Tapez votre description..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------FIN POP UP AJOUTER ELEVE ------------------------ -->
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cet élève ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
+

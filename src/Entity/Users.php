@@ -75,9 +75,13 @@ class Users
         $this->wishlist = new ArrayCollection($wishlist);
     }
 
-    #[ManyToOne(targetEntity: Workflow::class, inversedBy: 'users')]
-    #[JoinColumn(name: "ID_Workflow", referencedColumnName: "ID_Workflow")]
-    private ?Workflow $workflow;
+    #[OneToMany(targetEntity: Workflow::class, mappedBy: 'users')]
+    private Collection $workflow;
+
+    public function getWorkflow()
+    {
+        return $this->workflow;
+    }
 
     /*#[ManyToMany(targetEntity: CompanyManagement::class, mappedBy: 'users')]
     private Collection $companies;*/
@@ -86,6 +90,7 @@ class Users
         $this->rates = new ArrayCollection();
         $this->promotions = new ArrayCollection();
         $this->wishlist = new ArrayCollection();
+        $this->workflow = new ArrayCollection();
         //$this->companies = new ArrayCollection();
     }
 

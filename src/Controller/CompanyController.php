@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Company;
 use App\Entity\Rate;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Users;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -67,9 +67,11 @@ class CompanyController
             'name' => $user->getName(),
             'surname' => $user->getSurname()
         ];
+        $role = $user->getRole();
         return $this->twig->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
             'names' => $name,
+            'role' => $role,
         ]);
     }
 
@@ -173,16 +175,23 @@ class CompanyController
 
         $rate = $jsonData['rate'];
         $comment = $jsonData['comment'];
+        $idCompany = $jsonData['companyId'];
+
+        $userSession = $request->getAttribute("user");
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $company = $this->entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $idCompany]);
 
         $entity = new Rate();
         $entity->setNote($rate);
         $entity->setDescription($comment);
         $entity->setDel(0);
-        //$entity->setUsers()
+        $entity->setUsers($user);
+        $entity->setCompanies($company);
         $this->entityManager->persist($entity);
 
         $this->entityManager->flush();
 
-        return $response;
+        $response->getBody()->write(json_encode(['success' => true]));
+        return $response->withHeader('content-type', 'application-json')->withStatus(200);
     }
 }

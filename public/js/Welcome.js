@@ -92,17 +92,39 @@ function toggle_bubulle() {
 
 //- ---------------   JS POSTULATION ------------------------ -->
 
-function block_postulation() {
+function block_postulation(active = false) {
     document.querySelector("header").classList.toggle("when_postulation");
     document.querySelector(".full-runway").classList.toggle("when_postulation");
     document.querySelector("footer").classList.toggle("when_postulation");
     document.querySelector("body").classList.toggle("disable_scroll");
     document.querySelector(".postulation-bg").classList.toggle("postulation-off");
     document.querySelector(".postulation-bg").classList.toggle("postulation-on");
+
+    id = document.getElementById("Big-bubble-ID").textContent;
+
+    fetch("https://inter-net.loc/Stage/" + id, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            const postulationTemplate = document.getElementById("postulation-block");
+            const container = document.getElementById("postulation-place");
+
+            const postulationClone = postulationTemplate.content.cloneNode(true);
+
+            postulationClone.getElementById("postulation-job").textContent = data.job;
+            postulationClone.getElementById("postulation-company").textContent = data.company;
+            postulationClone.getElementById("postulation-location").textContent = data.location;
+
+            container.append(postulationClone);
+        });
 }
 
 //--------------FIN JS POSTULATION ------------------------ -->
-
 
 // input file
 function do_add_file() {
@@ -127,7 +149,7 @@ function add_file() {
             var txt = "\n";
             txt += '<div class="postulation-docs" id="' + name + '">';
             txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">' + name + '</p>';
-            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
+            txt += '<img src="images/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
             txt += '</div>';
             document.querySelector(".postulation-list_docs").innerHTML += txt;
             console.log('fichier sélectionné:', file);
@@ -147,7 +169,7 @@ function add_file() {
 
 function send_file(file) {
     //const uri = "C:/Program Files/XAMPP/htdocs/imgs"; // Remplacez "http://example.com/upload" par l'URL de votre point d'extrémité de téléversement sur le serveur Apache
-    const uri = "../../Assets/files/";
+    const uri = "./files";
     const xhr = new XMLHttpRequest(); // Création d'une nouvelle requête XMLHttpRequest
     const fd = new FormData(); // Création d'un objet FormData pour contenir les données à envoyer
 
@@ -160,6 +182,23 @@ function send_file(file) {
     fd.append('file', file); // Ajout du fichier à envoyer à l'objet FormData sous la clé 'file'
     // Envoi de l'objet FormData contenant le fichier
     xhr.send(fd);
+}
+
+function createPostulationPDF(username) {
+    var doc = new jsPDF();
+    motivationLetter = document.getElementById("postulation-motivation_letter").textContent;
+    doc.text(motivationLetter, 10, 10);
+    fileName = 'Lettre-de-motivation-' + username + '.pdf';
+    return doc.save(fileName);
+}
+
+function postulation() {
+    customPostulation = document.getElementById("postulation-motivation_letter").textContent;
+    if (customPostulation !== null) {
+        username = document.getElementById("user-name-session").textContent;
+        createPostulationPDF(username);
+    }
+
 }
 
 window.addEventListener("resize", () => {
@@ -189,7 +228,6 @@ function loadBubbleData(id = 1) {
             const bubbleTemplate = mainTemplate.content.cloneNode(true);
 
             bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
-            bubbleTemplate.getElementById("Big-bubble-name").value = data.id;
             bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
             bubbleTemplate.getElementById("Big-bubble-company-link").textContent = data.company;
             bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;

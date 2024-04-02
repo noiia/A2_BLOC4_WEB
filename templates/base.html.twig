@@ -11,6 +11,7 @@
     {% endblock %}
         {% block stylesheet %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
         <script src="js/main.js"></script>
         {% block javascript %}{% endblock %}
     {% endblock %}
@@ -39,11 +40,19 @@
                 </div>
                 <div class="dropdown2">
                     {% for name in names %}
-                        <button class="dropdown-btn">{{ name.name }} {{ name.surname }}</button>
+                        <button class="dropdown-btn" id="user-name-session">{{ name.name }} {{ name.surname }}</button>
                     {% endfor %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items2">
-                        <a href="../Edition">Mon Profil</a>
+                        <a href="../Edition/MonProfil">Mon Profil</a>
+                        {% if role > 1 %}
+                            <a href="../Edition/Etudiants">Etudiants</a>
+                            <a href="../Edition/Entreprises">Company</a>
+                            <a href="../Edition/Stages">Stages</a>
+                        {% endif %}
+                        {% if role > 2 %}
+                            <a href="../Edition/Pilotes">Pilotes</a>
+                        {% endif %}
                         <a href="../Wishlist">Wishlist</a>
                         <a href="../disconnect" id="button-disconnect"
                            class="button-disconnect"><span>Déconnexion</span></a>

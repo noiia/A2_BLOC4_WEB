@@ -314,18 +314,21 @@
         <div id="bubble-place"></div>
     </div>
     <!-- ---------------------- POSTULER ------------------- -->
-    <div class="postulation-bg postulation-off">
-        <div class="postulation-block">
+    <template id="postulation-block">
+        <div class="postulation-block" id="postulation-block-in">
             <div class="postulation-top">
-                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                Vous êtes sur le point de postuler à <em id="postulation-job"></em> - <em
+                        id="postulation-company"></em> - <em id="postulation-location"></em><br>
                 Nous vous invitons à renseigner vos documents.
-                <img src="images/Icones/croix-supprimer-le-signe.png" onclick="block_postulation()"/>
+                <img src="images/Icones/croix-supprimer-le-signe.png"
+                     onclick="block_postulation()"/>
             </div>
             <div class="postulation-bottom">
                 <div class="postulation-motivation">
                     Ecrire sa lettre de motivation
                     <textarea type="text" class="postulation-motivation_letter"
-                              placeholder="Bonjour, je suis interresser par votre offre de stage"></textarea>
+                              placeholder="Bonjour, je suis interresser par votre offre de stage"
+                              id="postulation-motivation_letter"></textarea>
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">
@@ -342,10 +345,12 @@
                         Ajouter un fichier (.pdf)
                         <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
                     </button>
-                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                    <button type="button" id="postulation-button_postulation" onclick="postulation();">Postuler</button>
                 </div>
             </div>
         </div>
+    </template>
+    <div class="postulation-bg postulation-off" id="postulation-place">
     </div>
     <div class="container-pagination">
         <button class="button-back" id="id-button-back"><</button>
