@@ -302,7 +302,7 @@ input[type="search"]::-webkit-search-cancel-button{
   @apply relative sm:mt-8 text-sm;
 }
 .container-skills ul {
-  @apply flex w-[361px];
+  @apply flex w-[285px] sm:w-[361px];
 }
 .container-skills li {
   @apply overflow-x-hidden w-[125px] h-auto rounded-xl p-3 mx-1 flex items-center bg-secondary-grey justify-center;
@@ -334,7 +334,10 @@ input[type="search"]::-webkit-search-cancel-button{
 }
 
 .runway-container-intern-details-fixed {
-  @apply xl:fixed xl:mt-[-115px] xl:ml-[-0.6%] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+  @apply xl:fixed xl:mt-[-115px] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+}
+.runway-container-intern-details-bot {
+  @apply xl:fixed bottom-[440px] xl:mt-[-115px] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
 }
 
   .container-intern-details {
@@ -452,6 +455,10 @@ input[type="search"]::-webkit-search-cancel-button{
     @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
   }
 
+.retourHaut-bot {
+  @apply fixed bottom-[360px] right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
+}
+
   body {
     @apply max-xl:overflow-y-hidden;
   }
@@ -539,7 +546,7 @@ input[type="search"]::-webkit-search-cancel-button{
 }
 
 .button-back {
-  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+  @apply inline-flex rounded-lg hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
 }
 
 .page-number {
@@ -555,7 +562,7 @@ input[type="search"]::-webkit-search-cancel-button{
 }
 
 .button-next {
-  @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+  @apply inline-flex rounded-lg hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
 }
 
 /* --------------------------------- FIN PAGINATION --------------------*/

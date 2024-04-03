@@ -1596,7 +1596,7 @@ input[type="date"]{
 }
 
 .container-intern{
-  height: 200px;
+  height: auto;
   width: 350px;
   max-width: 42rem;
   overflow: hidden;
@@ -1616,13 +1616,13 @@ input[type="date"]{
 
 @media (min-width: 500px){
   .container-intern{
-    height: 250px;
+    height: auto;
     width: 425px;
   }
 
   .container-intern:hover{
-    --tw-scale-x: 1.1;
-    --tw-scale-y: 1.1;
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
@@ -1684,7 +1684,7 @@ input[type="date"]{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: flex;
-  height: 38px;
+  height: auto;
   width: 125px;
   align-items: center;
   justify-content: center;
@@ -1942,6 +1942,7 @@ input[type="date"]{
   display: inline-grid;
   height: auto;
   width: 41%;
+  align-content: center;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -1969,7 +1970,8 @@ input[type="date"]{
 }
 
 .container-company-details-right{
-  margin-right: 8%;
+  margin-left: 1%;
+  margin-right: 7%;
   margin-top: 1rem;
   display: inline-grid;
   height: auto;
@@ -2025,8 +2027,7 @@ input[type="date"]{
 .container-company-details-sector-name ul{
   margin-right: -5px;
   margin-top: 0.25rem;
-  display: inline-block;
-  width: 50%;
+  width: 100%;
 }
 
 @media not all and (min-width: 850px){
@@ -2047,14 +2048,17 @@ input[type="date"]{
   display: flex;
   height: auto;
   min-height: 65px;
-  width: 90%;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   padding: 0.5rem;
   text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 @media not all and (min-width: 850px){
@@ -2152,6 +2156,7 @@ input[type="date"]{
 
 .container-company-intern-div-para{
   position: relative;
+  height: 100%;
   padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2299,6 +2304,11 @@ input[type="date"]{
   padding: 0.75rem;
 }
 
+#id-company{
+  --tw-text-opacity: 1;
+  color: rgb(244 242 238 / var(--tw-text-opacity));
+}
+
 /* FIN ENTREPRISES * /
 
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
@@ -2311,14 +2321,14 @@ input[type="date"]{
   top: 0px;
   margin-top: 2.25rem;
   margin-right: 2.5rem;
-  height: 100px;
-  width: 100px;
+  max-height: 100px;
+  max-width: 200px;
 }
 
 @media not all and (min-width: 500px){
   .logo-company{
-    height: 70px;
-    width: 70px;
+    max-height: 70px;
+    max-width: 170px;
   }
 }
 

@@ -2,7 +2,9 @@
 {% block title %} Inter'net - Entreprises {% endblock %}
 {% block stylesheet %}
     <link href='css/OutputCompany.css' rel="stylesheet"/> {% endblock %}
-{% block javascript %}<script src='js/Company.js'></script>{% endblock %}
+{% block javascript %}<script src='js/Company.js'></script>
+<script src='js/pagination.js'></script>
+{% endblock %}
 {% block company %}
     <div class="navbar-current">
         <a href="../Entreprise">Entreprises</a>
@@ -190,7 +192,6 @@
                             </div>
                             <div class="container-company-details-sector-name"
                                  id="container-company-details-sector-name-list">
-
                             </div>
                         </div>
                     </div>
@@ -237,8 +238,7 @@
         </div>
         <template id="sector-template">
             <ul>
-                <li id="sector-ref-1"></li>
-                <li id="sector-ref-2"></li>
+                <li id="sector-ref"></li>
             </ul>
         </template>
 
@@ -253,9 +253,7 @@
                             <p class="container-paragraph" id="internship-location"></p>
                             <p class="container-paragraph" id="internship-starting-date"></p>
                             <p class="container-paragraph" id="internship-duration"></p>
-                            <div class="container-company-intern-skills">
-                                <ul id="skills-container">
-                                </ul>
+                            <div class="container-company-intern-skills" id="skills-container">
                             </div>
                         </div>
                     </div>
@@ -271,12 +269,15 @@
             </div>
         </template>
         <template id="skills-template">
-            <li id="skills"></li>
+            <ul>
+                <li id="skills"></li>
+            </ul>
         </template>
     </div>
 
 
     </body>
+    <!--
     <div class="container-pagination">
         <button class="button-back" id="id-button-back"><</button>
         <button class="page-number" id="id-page-number">1</button>
@@ -285,5 +286,10 @@
         <div class="too-much-pages"><p>...</p></div>
         <button class="page-number" id="id-page-number">99</button>
         <button class="button-next" id="id-button-next">></button>
-    </div>
+    </div>-->
+
+    <div id="companies"></div>
+
+    <div id="pagination"></div>
+    <script src="js/test.js"></script>
 {% endblock %}

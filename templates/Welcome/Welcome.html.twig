@@ -224,28 +224,37 @@
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
                 <!-- zone de bulles -->
-                {% for internship in internships %}
-                    <button class="container" id="{{ internship.id }}"
-                            onclick="focus_container('container-{{ internship.id }}')">
-                            <span>
-                                <div class="container-intern" id="container-{{ internship.id }}">
-                                    <div class="container-div-para">
-                                        <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
-                                        <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
-                                        <p class="container-paragraph">{{ internship.begin_date }}</p>
-                                        <p class="container-paragraph">{{ internship.duration }}</p>
-                                        <div class="container-skills">
-                                            <ul>
-                                                <li>{{ internship.competence_1 }}</li>
-                                                <li>{{ internship.competence_2 }}</li>
-                                                <li>{{ internship.competence_3 }}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                    </button>
+
+                {% set internshipsPerPage = 10 %}
+                {% set currentPage = 1 %}
+                {% set totalPages = (internships|length / internshipsPerPage)|round %}
+
+                {% for page in range(1, (internships|length / internshipsPerPage)|round) %}
+                    {% set start = (page - 1) * internshipsPerPage %}
+                    {% set end = start + internshipsPerPage %}
+                    {% for internship in internships|slice(start, end) %}
+                        <button class="container" id="{{ internship.id }}" onclick="focus_container('container-{{ internship.id }}')">
+            <span>
+                <div class="container-intern" id="container-{{ internship.id }}">
+                    <div class="container-div-para">
+                        <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
+                        <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
+                        <p class="container-paragraph">{{ internship.begin_date }}</p>
+                        <p class="container-paragraph">{{ internship.duration }}</p>
+                        <div class="container-skills">
+                            <ul>
+                                <li>{{ internship.competence_1 }}</li>
+                                <li>{{ internship.competence_2 }}</li>
+                                <li>{{ internship.competence_3 }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </span>
+                        </button>
+                    {% endfor %}
                 {% endfor %}
+
             </div>
         </div>
         <template id="main-internship">
@@ -353,13 +362,9 @@
     <div class="postulation-bg postulation-off" id="postulation-place">
     </div>
     <div class="container-pagination">
-        <button class="button-back" id="id-button-back"><</button>
-        <button class="page-number" id="id-page-number">1</button>
-        <button class="page-number-selected" id="id-page-number-selected">2</button>
-        <button class="page-number" id="id-page-number">3</button>
-        <div class="too-much-pages"><p>...</p></div>
-        <button class="page-number" id="id-page-number">99</button>
-        <button class="button-next" id="id-button-next">></button>
+        <button class="button-back" id="id-button-back">Page précédente</button>
+        <div class="page-number-selected" id="pagination-buttons" data-internships-per-page="{{ internshipsPerPage }}" data-total-pages="{{ totalPages }}"></div>
+        <button class="button-next" id="id-button-next">Page suivante</button>
     </div>
     </body>
 {% endblock %}

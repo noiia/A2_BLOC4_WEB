@@ -25,16 +25,40 @@ function afficherOuMasquerBouton() {
     var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
 
     if (document.documentElement.scrollTop < 115) {
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
         boutonRetourHaut.classList.add('display-none');
-        boutonRetourHaut.classList.remove('retourHaut');
         runwayContainerInternDetails.classList.add('runway-container-intern-details');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details-fixed');
-    } else {
-        boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
-        runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details');
     }
+    else if (115<document.documentElement.scrollTop && document.documentElement.scrollTop<2700){
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+        boutonRetourHaut.classList.add('retourHaut');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
+    }
+
+    else if (document.documentElement.scrollTop>2700) {
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
+        boutonRetourHaut.classList.add('retourHaut-bot');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
+        }
 }
 
 function retournerEnHaut() {

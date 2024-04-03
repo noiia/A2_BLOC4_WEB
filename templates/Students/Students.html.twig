@@ -26,13 +26,13 @@
             </div>
             <div class="list-students second-scrollbar">
                 <div class="add-del">
-                    <button id="add" onclick="addProfile({{ students|length }});">Ajouter</button>
+                    <button id="add" onclick="addProfile();">Ajouter</button>
                     <button id="delete" onclick="toggle_delete();"><img
                                 src="../images/Icones/poubelle-de-recyclage.png">
                     </button>
                 </div>
                 {% for student in students %}
-                    {% if student['Role']==3 and student['del']==0 %}
+                    {% if student['Role']==1 and student['del']==0 %}
                         <button class="student" id="{{ student['ID_users'] }}"
                                 onclick="focus_container('{{ student['ID_users'] }}')">{{ student['Surname'] }} {{ student['Name'] }}
                         </button>
@@ -53,7 +53,7 @@
                             <p id="students-profile-id_user"></p>
                             <p id="students-profile-birth_date"></p>
                             <p id="students-profile-promotion"></p>
-                            <p id="students-profile-campus">Campus</p>
+                            <p id="students-profile-campus"></p>
                             <p id="students-profile-mail"></p>
                         </div>
                     </div>
@@ -112,7 +112,8 @@
                                            name="select-promotion" required>
                                     <datalist id="promotions">
                                         {% for promotion in promotions %}
-                                            <option value="{{ promotion.name }}">{{ promotion.name }}</option>
+                                            <option value="{{ promotion.Name }}"
+                                                    data-id="{{ promotion.ID_promotion }}">{{ promotion.Name }}</option>
                                         {% endfor %}
                                     </datalist>
                                 </li>

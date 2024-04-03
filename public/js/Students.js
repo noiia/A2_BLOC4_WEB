@@ -7,7 +7,7 @@ function toggle_hide_popup() {
     document.querySelector('.container-add-student').classList.toggle('hide_container');
 }
 
-function addProfile(studentsLength) {
+function addProfile() {
     document.querySelector('.container-add-student').classList.toggle('hide_container');
     // Insérer la valeur dans l'élément input
     document.getElementById("editID").value = studentsLength + 1;
@@ -20,6 +20,72 @@ function addProfile(studentsLength) {
     document.getElementById("editDescription").value = "";
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById("select-promotions");
+    addEventListener('click', function () {
+        if (document.getElementById('select-promotions').value !== "") {
+            console.log(document.getElementById('select-promotions').value);
+            var input = document.getElementById('select-promotions');
+            var selectedValue = input.value;
+            var options = document.getElementById('promotions').querySelectorAll('option');
+            var selectedId = null;
+            options.forEach(function (option) {
+                if (option.value === selectedValue) {
+                    selectedId = option.getAttribute('data-id');
+                }
+            });
+            console.log(selectedId);
+
+            fetch("https://inter-net.loc/Edition/Etudiants/location/" + selectedId, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((response) => response.json())
+                .then((campus) => {
+                    console.log(campus);
+                    document.getElementById("select-campus").value = ""
+                    document.getElementById("select-campus").value = campus;
+                });
+        }
+
+    });
+});
+
+function newProfileToBdd() {
+    var id = document.getElementById("editID").value = studentsLength + 1;
+    var Name = document.getElementById("editName").value = "";
+    var Surname = document.getElementById("editSurname").value = "";
+    var Date = document.getElementById("editDate").value = "";
+    var Promotion = document.getElementById("select-promotions").value = "";
+    var email = document.getElementById("editEmail").value = "";
+    var CampusLocation = document.getElementById("select-campus").value = "";
+    var Description = document.getElementById("editDescription").value = "";
+
+    var newProfile = {
+        'id': id,
+        'Name': Name,
+        'Surname': Surname,
+        'Date': Date,
+        'Promotion': Promotion,
+        'Email': email,
+        'CampusLocation': CampusLocation,
+        'Description': Description
+    }
+
+    var jsonTable = JSON.stringify(newProfile);
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", "../Students/add", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send(jsonTable);
+}
 
 function editProfile() {
     document.querySelector('.container-add-student').classList.toggle('hide_container');
@@ -44,7 +110,7 @@ function editProfile() {
 }
 
 function loadBubbleStudent(id = 1) {
-    fetch("https://inter-net.loc/Edition/Etudiants/" + id, {
+    fetch("https://inter-net.loc/Edition/Etudiants/api/" + id, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -64,7 +130,7 @@ function loadBubbleStudent(id = 1) {
             bubbleTemplate.getElementById("students-profile-mail").textContent = data.Email;
             bubbleTemplate.getElementById("students-profile-description").textContent = data.Profile_Description;
             bubbleTemplate.getElementById("students-profile-promotion").textContent = data.Promotion;
-            bubbleTemplate.getElementById("students-profile-campus").textContent = data.Campus;
+            bubbleTemplate.getElementById("students-profile-campus").textContent = data.location;
             const bubblePlace = document.getElementById("bubble-place");
             bubblePlace.innerHTML = ""; // Effacer le contenu précédent
             bubblePlace.appendChild(bubbleTemplate);

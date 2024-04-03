@@ -82,22 +82,13 @@ class CompanyController
 
         $m = 0;
         $Sectors = [];
-        $second = null;
         foreach ($company->getSector() as $sector) {
+            $m++;
             if ($m <= 6) {
-                $m++;
-                if ($m % 2 != 0) {
-                    $second = $sector->getName();
-                } else if ($m % 2 == 0 && $second != null) {
-                    $Sectors[] = [$sector->getName(), $second];
-                    $second = null;
-                }
+                $Sectors[] = $sector->getName();
             } else {
                 break;
             }
-        }
-        if ($second != null) {
-            $Sectors[] = [$second];
         }
         $Internships = [];
         $i = 0;

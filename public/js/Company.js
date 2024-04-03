@@ -25,28 +25,18 @@ function loadCompanyBubbleData(id = 1) {
             const miniInternshipTemplate = document.getElementById("mini-internship");
             const sectorTemplate = document.getElementById("sector-template");
             const commentTemplate = document.getElementById("comment-template");
-            const skillTemplate = document.getElementById("skill-template");
+            const skillTemplate = document.getElementById("skills-template");
             const sectorContainer = document.getElementById("container-company-details-sector-name-list");
             const internshipContainer = document.getElementById("mini-internship-container");
             const commentContainer = document.getElementById("comment-container");
-            const skillContainer = document.getElementById("skill-container");
+            const skillContainer = document.getElementById("skills-container");
 
-            console.log(data.sector);
-            i = 0;
             for (let sector of data.sector) {
                 const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
-                console.log(i++);
-                console.log(sector[0]);
-                console.log(sector[1]);
-                cloneSectorTemplate.getElementById("sector-ref-1").textContent = sector[0];
-                if (sector[1] != null) {
-                    cloneSectorTemplate.getElementById("sector-ref-2").textContent = sector[1];
-                } else if (document.getElementById("sector-ref-2").textContent === null) {
-                    document.getElementById("sector-ref-2").remove()
-                    console.log("true");
-                }
+                cloneSectorTemplate.getElementById("sector-ref").textContent = sector;
                 sectorContainer.append(cloneSectorTemplate);
             }
+
             for (let internship of data.internship) {
                 const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
                 cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
@@ -63,7 +53,7 @@ function loadCompanyBubbleData(id = 1) {
             }
             for (let skill of data.skill) {
                 const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
-                cloneSkillTemplate.getElementById("skill").textContent = skill.name;
+                cloneSkillTemplate.getElementById("skills").textContent = skill;
                 skillContainer.append(cloneSkillTemplate);
             }
         });

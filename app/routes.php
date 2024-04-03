@@ -61,7 +61,11 @@ return function (App $app) {
         $group->get('Edition/MonProfil', [ProfileController::class, 'Profil']);
 
         $group->get('Edition/Etudiants', [StudentsController::class, 'Students']);
-        $group->get('Edition/Etudiants/{id}', [StudentsController::class, 'StudentsApi']);
+        $group->get('Edition/Etudiants/api/{id}', [StudentsController::class, 'StudentsApi']);
+        $group->get('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
+        $group->get('Edition/Etudiants/update', [StudentsController::class, 'updateStudents']);
+        $group->get('Edition/Etudiants/delete', [StudentsController::class, 'delStudents']);
+        $group->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
 
         $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
         $group->get('Edition/Entreprises', [WishlistController::class, 'Wishlist']);

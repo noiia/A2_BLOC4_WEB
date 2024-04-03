@@ -28,16 +28,17 @@
                 {% block company %}
                     <a href="../Entreprise">Entreprises</a>
                 {% endblock %}
+
                 <div class="dropdown1">
                     <button class="dropdown-btn">Statistiques</button>
-                    {% block Statistics %}{% endblock %}
                     <img src="images/Icones/Polygon_1.png" alt="polygone-logo" class="polygone-logo">
                     <div class="dropdown-items1">
-                        <a href="../StatistiquesEntreprises">Entreprises</a>
                         <a href="../StatistiquesStages">Stages</a>
+                        <a href="../StatistiquesEntreprises">Entreprises</a>
                         <br>
                     </div>
                 </div>
+
                 <div class="dropdown2">
                     {% for name in names %}
                         <button class="dropdown-btn" id="user-name-session">{{ name.name }} {{ name.surname }}</button>
