@@ -27,7 +27,7 @@ class Promotion
     private string $Name;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    
+
     #[ManyToOne(targetEntity: Location::class, inversedBy: "promotions")]
     #[JoinColumn(name: "ID_location", referencedColumnName: "ID_location")]
     public Location $location;

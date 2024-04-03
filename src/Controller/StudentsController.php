@@ -5,12 +5,17 @@ namespace App\Controller;
 
 use App\Entity\Location;
 use App\Entity\Promotion;
+use DateTimeZone;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 
 use App\Entity\Users;
 
@@ -93,34 +98,126 @@ class StudentsController
         }
     }
 
+    function generatePassword()
+    {
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789()[]#@/.';
+        $password = '';
+        $charsLength = strlen($chars);
+        for ($i = 0; $i < 10; $i++) {
+            $password .= $chars[rand(0, $charsLength - 1)];
+        }
+        return $password;
+    }
+
+    function sendLoginsMail($to, $login, $password)
+    {
+        $mail = new PHPMailer(true);
+        try {
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->isSMTP();
+            $mail->SMTPAuth = true;
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Username = 'projetweb658@gmail.com';
+            $mail->Password = 'quip gpmh zeha lnoh';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            $mail->setFrom('projetweb658@gmail.com', 'noreplyInternet');
+            $mail->addAddress($to, 'Destinataire');
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Logins';
+            $mail->Body = 'Bonjour,<br>Voici vos nouveaux identifiants pour le site Inter-net.<br>Login : ' . $login . '<br>Password : ' . $password . '<br><br><br>Gardez-les et ne les partagez pas.<br>Bien cordialement,<br><br>L\'équipe de développement.';
+
+            $mail->send();
+            echo 'L\'e-mail a été envoyé avec succès.';
+        } catch (Exception $e) {
+            echo 'Erreur lors de l\'envoi de l\'e-mail : ', $mail->ErrorInfo;
+        }
+    }
+
     function addStudents(Request $request, Response $response)
     {
-        $jsonTable = $_POST['jsonTable'];
+        $jsonTable = $request->getBody();
 
         $table = json_decode($jsonTable, true);
 
         $user = new Users();
-        $user->setName($jsonTable['Name']);
-        $user->setSurname($jsonTable['Surname']);
-        $user->setBirthDate($jsonTable['Date']);
-        $user->setProfileDescription($jsonTable['Description']);
-        $user->setEmail($jsonTable['Email']);
+
+        $user->setName($table['Name']);
+        $user->setSurname($table['Surname']);
+
+        $login = $table['Name'] . "." . $table['Surname'];
+        $user->setLogin($login);
+
+        $password = $this->generatePassword();
+        $user->setPassword(hash('sha512', $password));
+
+        $date = date_create($table['Date'], new DateTimeZone('UTC'));
+        $user->setBirthDate($date);
+        
+        $user->setProfileDescription($table['Description']);
+        $user->setEmail($table['Email']);
         $user->setRole(1);
         $user->setDel(0);
 
-        $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy($jsonTable['idPromotion']);
-        //if()
-        //$user->setPromotions();
+        $idPromotion = $table['idPromotion'];
+
+        $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => $idPromotion]);
+        if ($promotion !== null) {
+            $user->getPromotions()->add($promotion);
+        } else {
+            $response->getBody()->write("Promotion not found");
+            return $response->withStatus(404);
+        }
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+
+        //$this->sendLoginsMail($table['Email'], $login, $password);
+
+        $response->getBody()->write("Login: " . $login . " Password: " . $password);
+        return $response->withStatus(200);
     }
 
-    function updateStudents(Request $request, Response $response, int $id)
+    function updateStudents(Request $request, Response $response)
     {
+        $jsonTable = $request->getBody();
 
+        $table = json_decode($jsonTable, true);
+
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(["ID_users" => $table["ID_users"]]);
+        $user->setName($table['Name']);
+        $user->setSurname($table['Surname']);
+        $login = $table['Name'] . "." . $table['Surname'];
+        $user->setLogin($login);
+        $password = $this->generatePassword();
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        $date = date_create($table['Date'], new DateTimeZone('UTC'));
+        $user->setBirthDate($date);
+        $user->setProfileDescription($table['Description']);
+        $user->setEmail($table['Email']);
+        $user->setRole(1);
+        $user->setDel(0);
+
+        $idPromotion = $table['idPromotion'];
+
+        $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => $idPromotion]);
+        if ($promotion !== null) {
+            $user->getPromotions()->add($promotion);
+        } else {
+            $response->getBody()->write("Promotion not found");
+            return $response->withStatus(404);
+        }
     }
 
     function delStudents(Request $request, Response $response, int $id)
     {
-
+        $student = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $id]);
+        $student->setDel(1);
+        $this->entityManager->persist($student);
+        $this->entityManager->flush();
+        $response->getBody()->write("student deleted successfully");
+        return $response;
     }
 
     function locatePromotion(Request $request, Response $response, int $id)

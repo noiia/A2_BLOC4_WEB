@@ -62,9 +62,9 @@ return function (App $app) {
 
         $group->get('Edition/Etudiants', [StudentsController::class, 'Students']);
         $group->get('Edition/Etudiants/api/{id}', [StudentsController::class, 'StudentsApi']);
-        $group->get('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
-        $group->get('Edition/Etudiants/update', [StudentsController::class, 'updateStudents']);
-        $group->get('Edition/Etudiants/delete', [StudentsController::class, 'delStudents']);
+        $group->post('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
+        $group->patch('Edition/Etudiants/update/{id}', [StudentsController::class, 'updateStudents']);
+        $group->patch('Edition/Etudiants/delete/{id}', [StudentsController::class, 'delStudents']);
         $group->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
 
         $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);

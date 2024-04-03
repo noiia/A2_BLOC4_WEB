@@ -20,6 +20,8 @@ function addProfile() {
     document.getElementById("editDescription").value = "";
 }
 
+
+var selectedId = null;
 document.addEventListener('DOMContentLoaded', function () {
     var button = document.getElementById("select-promotions");
     addEventListener('click', function () {
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var input = document.getElementById('select-promotions');
             var selectedValue = input.value;
             var options = document.getElementById('promotions').querySelectorAll('option');
-            var selectedId = null;
+
             options.forEach(function (option) {
                 if (option.value === selectedValue) {
                     selectedId = option.getAttribute('data-id');
@@ -53,38 +55,37 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function newProfileToBdd() {
-    var id = document.getElementById("editID").value = studentsLength + 1;
-    var Name = document.getElementById("editName").value = "";
-    var Surname = document.getElementById("editSurname").value = "";
-    var Date = document.getElementById("editDate").value = "";
-    var Promotion = document.getElementById("select-promotions").value = "";
-    var email = document.getElementById("editEmail").value = "";
-    var CampusLocation = document.getElementById("select-campus").value = "";
-    var Description = document.getElementById("editDescription").value = "";
+    var Name = document.getElementById("editName").value;
+    var Surname = document.getElementById("editSurname").value;
+    var date = document.getElementById("editDate").value;
+    var idPromotion = Number(selectedId);
+    var email = document.getElementById("editEmail").value;
+    var Description = document.getElementById("editDescription").value;
+
+    var dateString = new Date(Date.parse(date));
 
     var newProfile = {
-        'id': id,
         'Name': Name,
         'Surname': Surname,
-        'Date': Date,
-        'Promotion': Promotion,
+        'Date': dateString,
+        'idPromotion': idPromotion,
         'Email': email,
-        'CampusLocation': CampusLocation,
         'Description': Description
     }
-
-    var jsonTable = JSON.stringify(newProfile);
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("POST", "../Students/add", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
+    console.log(newProfile);
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(newProfile),
+        headers: {
+            'Content-Type': 'application/json'
         }
-    };
-    xhr.send(jsonTable);
+    }
+    fetch('../Edition/Etudiants/add', options)
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => console.error('Erreur:', error));
 }
 
 function editProfile() {

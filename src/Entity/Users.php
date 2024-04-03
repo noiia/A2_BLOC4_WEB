@@ -30,7 +30,7 @@ class Users
     private int $ID_users;
     #[Column(type: Types::STRING, length: 50)]
     private string $Login;
-    #[Column(type: Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 512)]
     private string $Password;
     #[Column(type: Types::STRING, length: 50)]
     private string $Name;
