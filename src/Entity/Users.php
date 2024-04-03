@@ -44,6 +44,8 @@ class Users
     private string $Email;
     #[Column(type: Types::SMALLINT)]
     private int $Role;
+    #[Column(type: Types::STRING, length: 200)]
+    private string $Profile_picture_path;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
     #[OneToMany(targetEntity: Rate::class, mappedBy: 'users')]
@@ -187,6 +189,16 @@ class Users
     public function setRole(int $Role): void
     {
         $this->Role = $Role;
+    }
+
+    public function getProfilePicturePath(): string
+    {
+        return $this->Profile_picture_path;
+    }
+
+    public function setProfilePicturePath(string $Profile_picture_path): void
+    {
+        $this->Profile_picture_path = $Profile_picture_path;
     }
 
     public function isDel(): bool

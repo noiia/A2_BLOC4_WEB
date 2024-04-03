@@ -86,6 +86,7 @@ class StudentsController
                 'Role' => $student->getRole(),
                 'location' => $tempPromotion['promotionLocation'],
                 'Promotion' => $tempPromotion['promotionName'],
+                'ProfilePicture' => $student->getProfilePicturePath(),
                 'Del' => $student->isDel(),
             ];
 
@@ -142,7 +143,14 @@ class StudentsController
 
         $table = json_decode($jsonTable, true);
 
-        $user = new Users();
+        if ($this->entityManager->getRepository(Users::class)->findOneBy(["Email" => $table['Email']]) == null) {
+            $user = new Users();
+
+            $password = $this->generatePassword();
+            $user->setPassword(hash('sha512', $password));
+        } else {
+            $user = $this->entityManager->getRepository(Users::class)->findOneBy(["ID_users" => $table['editedUser']]);
+        }
 
         $user->setName($table['Name']);
         $user->setSurname($table['Surname']);
@@ -150,65 +158,36 @@ class StudentsController
         $login = $table['Name'] . "." . $table['Surname'];
         $user->setLogin($login);
 
-        $password = $this->generatePassword();
-        $user->setPassword(hash('sha512', $password));
-
         $date = date_create($table['Date'], new DateTimeZone('UTC'));
         $user->setBirthDate($date);
 
         $user->setProfileDescription($table['Description']);
         $user->setEmail($table['Email']);
         $user->setRole(1);
+        $user->setProfilePicturePath($table['picturePath']);
         $user->setDel(0);
-
         $idPromotion = $table['idPromotion'];
 
-        $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => $idPromotion]);
-        if ($promotion !== null) {
-            $user->getPromotions()->add($promotion);
-        } else {
-            $response->getBody()->write("Promotion not found");
-            return $response->withStatus(404);
+        if ($this->entityManager->getRepository(Users::class)->findOneBy(["Email" => $table['Email']]) == null) {
+            $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => $idPromotion]);
+            if ($promotion !== null || $user->getPromotions() == null) {
+                $user->getPromotions()->add($promotion);
+            } else {
+                $response->getBody()->write("Promotion not found");
+                return $response->withStatus(404);
+            }
+
+            $response->getBody()->write("Login: " . $login . " Password: " . $password);
         }
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
         //$this->sendLoginsMail($table['Email'], $login, $password);
 
-        $response->getBody()->write("Login: " . $login . " Password: " . $password);
         return $response->withStatus(200);
+
     }
 
-    function updateStudents(Request $request, Response $response)
-    {
-        $jsonTable = $request->getBody();
-
-        $table = json_decode($jsonTable, true);
-
-        $user = $this->entityManager->getRepository(Users::class)->findOneBy(["ID_users" => $table["ID_users"]]);
-        $user->setName($table['Name']);
-        $user->setSurname($table['Surname']);
-        $login = $table['Name'] . "." . $table['Surname'];
-        $user->setLogin($login);
-        $password = $this->generatePassword();
-        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        $date = date_create($table['Date'], new DateTimeZone('UTC'));
-        $user->setBirthDate($date);
-        $user->setProfileDescription($table['Description']);
-        $user->setEmail($table['Email']);
-        $user->setRole(1);
-        $user->setDel(0);
-
-        $idPromotion = $table['idPromotion'];
-
-        $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => $idPromotion]);
-        if ($promotion !== null) {
-            $user->getPromotions()->add($promotion);
-        } else {
-            $response->getBody()->write("Promotion not found");
-            return $response->withStatus(404);
-        }
-    }
 
     function delStudents(Request $request, Response $response, int $id)
     {
@@ -232,6 +211,23 @@ class StudentsController
             return $response->withHeader('Content-Type', 'application/json');
         } else {
             return $response->withStatus(404)->getBody()->write('Promotion introuvable');
+        }
+    }
+
+    function uploadPicture(Request $request, Response $response): Response
+    {
+        $file = $_FILES['file'];
+        $file_name = $file['name'];
+        $file_tmp = $file['tmp_name'];
+
+        $upload_directory = $_SERVER['DOCUMENT_ROOT'] . '/images/profilesPictures/';
+
+        if (move_uploaded_file($file_tmp, $upload_directory . $file_name)) {
+            $response->getBody()->write('Fichier téléchargé avec succès.');
+            return $response->withStatus(200);
+        } else {
+            $response->getBody()->write('Une erreur est survenue lors du téléchargement du fichier.');
+            return $response;
         }
     }
 }
