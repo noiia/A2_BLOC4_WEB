@@ -63,6 +63,7 @@ return function (App $app) {
 
         $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
+        $group->get('StatistiquesStages/api/{arg}', [InternshipStatsController::class, 'InternshipStatsApi']);
 
         $group->get('MonProfil', [CompanyStatsController::class, 'CompanyStats']);
         $group->get('Wishlist', [InternshipStatsController::class, 'InternshipStats']);

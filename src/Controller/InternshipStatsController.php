@@ -2,15 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Internship;
+use App\Entity\Skills;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-
-require_once("../pChart2.1.4/class/pData.class.php");
-require_once("../pChart2.1.4/class/pDraw.class.php");
-require_once("../pChart2.1.4/class/pPie.class.php");
-require_once("../pChart2.1.4/class/pImage.class.php");
 
 class InternshipStatsController
 {
@@ -25,6 +22,7 @@ class InternshipStatsController
 
     public function InternshipStats(Request $request, Response $response): Response
     {
+        /*
         // debut svg
         $depToNbInternship = array_count_values(array_map(
             function ($element) {
@@ -42,7 +40,62 @@ class InternshipStatsController
         $svg->asXML('../public/images/svg/Carte_remplie_départements_français.svg');
 
         // fin svg
+        */
 
         return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig');
+    }
+
+    public function InternshipStatsApi(Request $request, Response $response, string $arg)
+    {
+        $search = explode(';', $arg);
+        $internships = $this->entityManager->getRepository(Internship::class)->findAll();
+        $allInternships = [];
+        //les skills
+        $skillArray = [];
+        if ($search === ['*']) {
+            $skillArray = $this->entityManager->getRepository(Skills::class)->findAll();
+            $allInternships = array_fill_keys(array_map(function ($element) {
+                return $element->getName();
+            }, $skillArray), array());
+        } else {
+            foreach ($search as $f) {
+                $skill = $this->entityManager->getRepository(Skills::class)->find((int)$f);
+                $allInternships[$skill->getName()] = array();
+                array_push($skillArray, $skill);
+            }
+        }
+        //les stages en fonctions des skills
+        foreach ($internships as $internship) {
+            $skill = $internship->getSkills()->get(0);
+            if (array_search($skill, $skillArray) !== false) {
+                $internshipDetail = [
+                    'id' => $internship->getIDInternship(),
+                    'duree' => $internship->getDuration(),
+                    'promotion' => $internship->getPromotion(),
+                ];
+                array_push($allInternships[$skill->getName()], $internshipDetail);
+            }
+        }
+        /*
+        //les stages en fonctions des skills
+        foreach ($internships as $internship) {
+            foreach ($skillArray as $skill) {
+                if ($internship->getSkills()->contains($skill)) {
+                    $internshipDetail = [
+                        'id' => $internship->getIDInternship(),
+                    ];
+                    array_push($allInternships[$skill->getName()], $internshipDetail);
+                }
+            }
+        }
+         */
+        $data = [
+            'total' => count($internships),
+            'stages' => $allInternships,
+        ];
+
+        $payload = json_encode($data);
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
     }
 }

@@ -3,7 +3,8 @@
 {% block stylesheet %}
     <link href='css/OutputInternshipStats.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
-<script src='../../public/js/InternshipStats.js'></script>
+<script type="text/javascript" src='https://code.highcharts.com/highcharts.js'></script>
+<script src='js/InternshipStats.js'></script>
 {% endblock %}
 {% block Statistics %}
     <div class="navbar-current">
@@ -39,30 +40,9 @@
                     <p>250 stages avec ces compétences</p>
                 </div>
             </div>
-            <div class="container-skills-graph">
-                <div class="skills-graph">
-                    <div class="skills-graph-name">
-                        <p>Répartition des compétences</p>
-                    </div>
-                    <p>Graph camembert</p>
-                </div>
-            </div>
-            <div class="container-internship-time-graph">
-                <div class="internship-time-graph">
-                    <div class="internship-time-graph-name">
-                        <p>Durée du stage</p>
-                    </div>
-                    <canvas id="chart1"></canvas>
-                </div>
-            </div>
-            <div class="container-promotions-graph">
-                <div class="promotions-graph">
-                    <div class="promotions-graph-name">
-                        <p>Promotions</p>
-                    </div>
-                    <p>Graphe promotions</p>
-                </div>
-            </div>
+            <div class="container-skills-graph" id="graph-skill"></div>
+            <div class="container-internship-time-graph" id="graph-time"></div>
+            <div class="container-promotions-graph" id="graph-prom"></div>
             <div class="container-france-graph">
                 <div class="france-graph">
                     <div class="france-graph-name">
@@ -393,4 +373,5 @@
         </div>
     </div>
     </body>
+    <script>loadPage();</script>
 {% endblock %}
