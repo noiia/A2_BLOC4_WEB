@@ -110,6 +110,20 @@ function editProfile() {
         });
 }
 
+function delProfile() {
+    var id = document.getElementById("students-profile-id_user").textContent;
+    console.log("id : " + id);
+    fetch("https://inter-net.loc/Edition/Etudiants/delete/" + id, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+}
+
 function loadBubbleStudent(id = 1) {
     fetch("https://inter-net.loc/Edition/Etudiants/api/" + id, {
         method: "GET",

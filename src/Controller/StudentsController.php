@@ -32,7 +32,7 @@ class StudentsController
 
     public function Students(Request $request, Response $response): Response
     {
-        $students = $this->entityManager->getRepository(Users::class)->findAll();
+        $students = $this->entityManager->getRepository(Users::class)->findBy(["Del" => 0]);
         $promotions = $this->entityManager->getRepository(Promotion::class)->findAll();
 
         $runwayStudents = [];
@@ -155,7 +155,7 @@ class StudentsController
 
         $date = date_create($table['Date'], new DateTimeZone('UTC'));
         $user->setBirthDate($date);
-        
+
         $user->setProfileDescription($table['Description']);
         $user->setEmail($table['Email']);
         $user->setRole(1);

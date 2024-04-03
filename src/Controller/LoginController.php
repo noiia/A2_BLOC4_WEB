@@ -41,7 +41,7 @@ class LoginController
         $user = $this->entityManager->getRepository(Users::class)->findOneBy(['Login' => $username]);
         if ($user != null) {
 
-            if ((string)$hashedPassword === (string)$user->getPassword()) {
+            if ((string)$password === (string)$user->getPassword()) {
                 $this->session->set('user', $user);
                 $response->getBody()->write(json_encode(['success' => true]));
                 return $response->withHeader('content-type', 'application-json')->withStatus(200);
