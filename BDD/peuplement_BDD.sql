@@ -362,7 +362,7 @@ insert into manage_company (ID_users, ID_company) values (19, 7);
 insert into manage_company (ID_users, ID_company) values (15, 3), (15, 5), (15, 6), (15, 11), (15, 12), (15,13), (15,14);
 insert into manage_company (ID_users, ID_company) values (21,1), (21,2), (21,3), (21,4), (21,5), (21,6), (21,7), (21,8), (21,9), (21,10), (21,11), (21,12), (21,13), (21,14), (21,15), (21,16), (21,17), (21,18), (21,19), (21,20), (22,1), (22,2), (22,3), (22,4), (22,5), (22,6), (22,7), (22,8), (22,9), (22,10), (22,11), (22,12), (22,13), (22,14), (22,15), (22,16), (22,17), (22,18), (22,19), (22,20), (23,1), (23,2), (23,3), (23,4), (23,5), (23,6), (23,7), (23,8), (23,9), (23,10), (23,11), (23,12), (23,13), (23,14), (23,15), (23,16), (23,17), (23,18), (23,19), (23,20);
 
-INSERT INTO appliement_wishlist (Status, Del, ID_users, ID_internship) VALUES
+INSERT INTO workflow (Status, Del, ID_users, ID_internship) VALUES
 (1,0,1, 6),
 (2,0,6, 17),
 (3,0,4, 24),
@@ -393,6 +393,31 @@ INSERT INTO appliement_wishlist (Status, Del, ID_users, ID_internship) VALUES
 (2,0,15, 16),
 (2,0,13, 11);
 
+insert into wishlist (ID_internship, ID_users) values (1, 8);
+insert into wishlist (ID_internship, ID_users) values (2, 11);
+insert into wishlist (ID_internship, ID_users) values (3, 20);
+insert into wishlist (ID_internship, ID_users) values (4, 17);
+insert into wishlist (ID_internship, ID_users) values (5, 5);
+insert into wishlist (ID_internship, ID_users) values (6, 23);
+insert into wishlist (ID_internship, ID_users) values (7, 16);
+insert into wishlist (ID_internship, ID_users) values (8, 2);
+insert into wishlist (ID_internship, ID_users) values (9, 22);
+insert into wishlist (ID_internship, ID_users) values (10, 4);
+insert into wishlist (ID_internship, ID_users) values (11, 19);
+insert into wishlist (ID_internship, ID_users) values (12, 12);
+insert into wishlist (ID_internship, ID_users) values (13, 22);
+insert into wishlist (ID_internship, ID_users) values (14, 10);
+insert into wishlist (ID_internship, ID_users) values (15, 1);
+insert into wishlist (ID_internship, ID_users) values (16, 9);
+insert into wishlist (ID_internship, ID_users) values (17, 15);
+insert into wishlist (ID_internship, ID_users) values (18, 3);
+insert into wishlist (ID_internship, ID_users) values (19, 21);
+insert into wishlist (ID_internship, ID_users) values (20, 18);
+insert into wishlist (ID_internship, ID_users) values (21, 21);
+insert into wishlist (ID_internship, ID_users) values (22, 7);
+insert into wishlist (ID_internship, ID_users) values (23, 14);
+insert into wishlist (ID_internship, ID_users) values (24, 6);
+insert into wishlist (ID_internship, ID_users) values (25, 13);
 
 insert into seek (ID_internship, ID_skill) values (1, 8);
 insert into seek (ID_internship, ID_skill) values (2, 11);

@@ -78,7 +78,11 @@ class Internship
 
     public function __construct()
     {
+<<<<<<< HEAD
         $this->appliement_wishlist = new ArrayCollection();
+=======
+        $this->workflow = new ArrayCollection();
+>>>>>>> projetWeb/Dwin3
         $this->skills = new ArrayCollection();
     }
 

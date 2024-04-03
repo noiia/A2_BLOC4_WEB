@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Company;
-use App\Entity\Location;
-use App\Entity\Skills;
-use DI\Container;
-use Doctrine\Common\Collections\Criteria;
+use App\Entity\Users;
+use App\Entity\Workflow;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Views\Twig;
 
 use App\Entity\Internship;
 
@@ -28,48 +24,9 @@ class InternshipController
 
     public function Welcome(Request $request, Response $response): Response
     {
-        //chercher quelle filtre est actif
-        $params = $request->getQueryParams();
-        $criteria = Criteria::create();
-        $list = ["locations"=>'O', "companies"=>'O',"Starting_date"=>'D', "Duration"=>'B', "Max_places"=>'B', "Hourly_rate"=>'B', "Title"=>'C', "ID_Internship"=>'E'];
+        $user = $request->getAttribute("user");
+        $internships = $this->entityManager->getRepository(Internship::class)->findAll();
 
-        foreach ($list as $item=>$value){
-            if (array_key_exists($item, $params)){
-                $mm = explode(';', $params[$item]);
-                if ($value === 'B'){ //est un between
-                    if ($mm[0] !== ''){$criteria->Where(Criteria::expr()->gte($item, (int) $mm[0]));}
-                    if ($mm[1] !== ''){$criteria->andWhere(Criteria::expr()->lte($item, (int) $mm[1]));}
-                }
-                elseif ($value === 'D'){ //est un between
-                    if ($mm[0] !== ''){$criteria->Where(Criteria::expr()->gte($item, date_create($mm[0])));}
-                    if ($mm[1] !== ''){$criteria->andWhere(Criteria::expr()->lte($item, date_create($mm[1])));}
-                }
-                elseif ($value === 'O') {
-                    $array = array();
-                    $class = ['locations' => Location::class, 'companies' => Company::class][$item];
-                    foreach ($mm as $v) {
-                        array_push($array, Criteria::expr()->eq($item, $this->entityManager->find($class, $v)));
-                    }
-                    $criteria->andWhere(Criteria::expr()->orX(...$array));
-                }
-                elseif ($value === 'C'){
-                    $criteria->andWhere(Criteria::expr()->contains($item, '%'.$params[$item].'%'));
-                }
-                elseif ($value === 'E'){
-                    $criteria->andWhere(Criteria::expr()->eq($item, $params[$item]));
-                }
-            }
-        }
-        $internships = $this->entityManager->getRepository(Internship::class)->matching($criteria);
-        if (array_key_exists("skills", $params)) {
-            foreach ($internships as $internship) {
-                $have = false;
-                foreach (explode(';', $params['skills']) as $skillID) {
-                    if ($internship->getSkills()->contains($this->entityManager->find(Skills::class, $skillID))) {$have = true;break;}
-                }
-                if (!$have){$internships->removeElement($internship);}
-            }
-        }
         $runwayBubbles = [];
         $sixSkills = [];
         if ($internships) {
@@ -99,17 +56,27 @@ class InternshipController
                     ];
             }
         }
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'Welcome/Welcome.html.twig', [
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        $role = $user->getRole();
+
+        return $this->twig->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
+            'names' => $name,
+            'role' => $role
         ]);
     }
 
     public function InternshipApi(Request $request, Response $response, int $id)
     {
-
+        $userSession = $request->getAttribute("user");
 
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $workflow = $this->entityManager->getRepository(Workflow::class)->findBy(['internship' => $id]);
+
         $i = 0;
         $Skills = [];
         foreach ($internship->getSkills() as $skill) {
@@ -121,13 +88,30 @@ class InternshipController
             }
         }
         $j = 0;
-        if ($internship->getAppliementWishlist() != null) {
-            foreach ($internship->getAppliementWishlist() as $appliement) {
+        if ($workflow !== null) {
+            foreach ($workflow as $appliement) {
                 if ($appliement->getStatus() == 2) {
                     $j++;
                 }
             }
         }
+
+        $isAWish = false;
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->select('u', 'wish')
+            ->from('App\Entity\Users', 'u')
+            ->join('u.wishlist', 'wish')
+            ->where('u.ID_users = :ID_users')
+            ->andWhere('wish.ID_Internship = :wishlistId') // Utilisez la propriété de l'entité Wishlist
+            ->setParameter('ID_users', $user->getIDUsers())
+            ->setParameter('wishlistId', $id);
+        if ($qb->getQuery() != null) {
+            $result = $qb->getQuery()->getResult();
+            if ($result != null) {
+                $isAWish = true;
+            }
+        }
+
         if ($internship != null) {
             $data = [
                 'id' => $internship->getIDInternship(),
@@ -145,6 +129,7 @@ class InternshipController
                 'description' => $internship->getDescription(),
                 'skills' => $Skills,
                 'logo_path' => $internship->companies->getCompanyLogoPath(),
+                'isAWish' => $isAWish,
             ];
 
             $payload = json_encode($data);
@@ -156,28 +141,8 @@ class InternshipController
         }
     }
 
-    public function InternshipFilterApi(Request $request, Response $response, string $arg)
+    public function test(Request $request, Response $response, int $id)
     {
-        $search = explode('=', $arg);
-        $entity = null;
-        if ($search[0] === 'Skills') {
-            $entity = $this->entityManager->getRepository(Skills::class)->findOneBy(['Name' => $search[1]]);
-            if ($entity != null){$data = ['id' => $entity->getIDSkills(), 'name' => $entity->getName(),];}
-        }
-        elseif ($search[0] === 'locations'){
-            $entity = $this->entityManager->getRepository(Location::class)->findOneBy(['City' => $search[1]]);
-            if ($entity != null){$data = ['id'=>$entity->getIDLocation(), 'name'=>$entity->getCity()];}
-        }
-        elseif ($search[0] === 'companies'){
-            $entity = $this->entityManager->getRepository(Company::class)->findOneBy(['Name' => $search[1]]);
-            if ($entity != null){$data = ['id'=>$entity->getIDCompany(), 'name'=>$entity->getName()];}
-        }
-        if ($entity != null) {
-            $payload = json_encode($data);
-            $response->getBody()->write($payload);
-            return $response->withHeader('Content-Type', 'application/json');
-        } else {
-            return $response->withStatus(404)->getBody()->write('entitee introuvable');
-        }
+        return $response;
     }
 }

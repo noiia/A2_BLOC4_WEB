@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block pageIcon %}
+    <link rel="website icon" type="png" href='images/Icones/logo_seul_blanc.png'>
+    {% endblock %}
+        {% block stylesheet %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        {% block javascript %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+{% block body_left %}
+    <div class="main_left">
+        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross"
+             onclick="toggle_menu()">
+        <button id="button_back" onclick="window.location.href = '../Stage'">Retour</button>
+        <div class="left_container" id="left_array">
+            {% if role == 1 %}
+                <p>Etudiants</p>
+                <ul>
+                    <li><a href="../Edition/MonProfil">Mon profil</a></li>
+                    <li><a id="actual_page">WishList</a></li>
+                    <li><a href="../Postulations">Mes postulations</a></li>
+                </ul>
+            {% endif %}
+            {% if role == 2 %}
+                <p>Pilotes</p>
+                <ul>
+                    <li><a href="../Edition/MonProfil">Mon profil</a></li>
+                    <li><a href="../Edition/Etudiants">Etudiants</a></li>
+                    <li><a href="../Edition/Entreprises">Company</a></li>
+                    <li><a href="../Edition/Stages">Stages</a></li>
+                    <li><a id="actual_page">WishList</a></li>
+                </ul>
+            {% endif %}
+            {% if role == 3 %}
+                <p>Admin</p>
+                <ul>
+                    <li><a href="../Edition/MonProfil">Mon profil</a></li>
+                    <li><a href="../Edition/Etudiants">Etudiants</a></li>
+                    <li><a href="../Edition/Pilotes">Pilotes</a></li>
+                    <li><a href="../Edition/Entreprises">Company</a></li>
+                    <li><a href="../Edition/Stages">Stages</a></li>
+                    <li><a id="actual_page">WishList</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+    <div><img class="hamburger" src="images/Icones/hamburger.png" alt="hamburger"></div>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+</body>
+</html>

@@ -1,25 +1,27 @@
 {% extends 'base.html.twig' %}
 {% block title %} Inter'net - Entreprises {% endblock %}
-{% block stylesheet %} <link href='css/OutputCompany.css' rel="stylesheet"/> {% endblock %}
+{% block stylesheet %}
+    <link href='css/OutputCompany.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}<script src='js/Company.js'></script>{% endblock %}
 {% block company %}
     <div class="navbar-current">
-    <a href="../Entreprise">Entreprises</a>
-    <label class="label">***************</label>
+        <a href="../Entreprise">Entreprises</a>
+        <label class="label">***************</label>
     </div>
 {% endblock %}
 {% block body %}
     <body class="body-move" id="body">
-        <div class="full-runway" id="full-runway">
-            <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut();">
-                <img src="images/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
-            </button>
+    <div class="full-runway" id="full-runway">
+        <button class="retourHaut display-none" id="button-retour-haut" onclick="retournerEnHaut();">
+            <img src="images/Icones/fleche-retour-haut.png" alt="fleche retour haut" class="retaur-haut-logo-picture">
+        </button>
         <div class="runway-elements">
             <div class="parent-filter">
                 <div class="filter">
                     <div class="search_bar">
                         <input type="search" placeholder="Rechercher" id="general-search_bar">
-                        <button type="button" id="general-button_search" onclick="submitFilter()"><img src="images/Icones/logo_seul.png"alt="V" /></button>
+                        <button type="button" id="general-button_search"><img src="images/Icones/logo_seul.png"
+                                                                              alt="V"/></button>
                     </div>
                     <div class="filter-green">
                         <div class="filter-location">
@@ -27,25 +29,27 @@
                                 <p>Localité :</p>
                                 <div class="search_bar">
                                     <input type="search" id="input_localite" placeholder="Rechercher"
-                                           onkeydown="load_filter(event, 'input_localite');" data-children='loc'>
-                                    <button type="button" onclick="load_filter(event, 'input_localite');"><img
+                                           onkeydown="add_filter_block(event,'input_localite');"
+                                           data-array='["loc1", "loc2", "loc3", "loc4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_localite');"
+                                            data-array='["loc1", "loc2", "loc3", "loc4"]'><img
                                                 src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-block_search-bot">
-                                <div id="loc0" hidden onclick="del_filter_block(event, 'input_localite')">
+                                <div id="loc1" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc1" hidden onclick="del_filter_block(event, 'input_localite')">
+                                <div id="loc2" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc2" hidden onclick="del_filter_block(event, 'input_localite')">
+                                <div id="loc3" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc3" hidden onclick="del_filter_block(event, 'input_localite')">
+                                <div id="loc4" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
@@ -56,24 +60,27 @@
                                 <p>Secteur d'activités :</p>
                                 <div class="search_bar">
                                     <input type="search" id="input_activity" placeholder="Rechercher"
-                                           onkeydown="load_filter(event, 'input_activity');" data-children='act'>
-                                    <button type="button" onclick="load_filter(event, 'input_activity');"><img
-                                                src="images/Icones/logo_seul.png" alt="V"/></button></div>
+                                           onkeydown="add_filter_block(event,'input_activity');"
+                                           data-array='["act1", "act2", "act3", "act4"]'>
+                                    <button type="button" onclick="add_filter_block(event,'input_activity');"
+                                            data-array='["act1", "act2", "act3", "act4"]'><img
+                                                src="images/Icones/logo_seul.png" alt="V"/></button>
+                                </div>
                             </div>
                             <div class="filter-block_search-bot">
-                                <div id="act0" hidden onclick="del_filter_block(event, 'input_activity')">
+                                <div id="act1" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="act1" hidden onclick="del_filter_block(event, 'input_activity')">
+                                <div id="act2" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="act2" hidden onclick="del_filter_block(event, 'input_activity')">
+                                <div id="act3" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="act3" hidden onclick="del_filter_block(event, 'input_activity')">
+                                <div id="act4" hidden onclick="del_filter_block(event)">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
@@ -85,7 +92,8 @@
                             </div>
                             <div class="filter-any_search-bot">
                                 <div class="search_range">
-                                    <input type="range" min="1" max="10" step="1" id="rangeInput" value="0" oninput="input_filter();">
+                                    <input type="range" min="1" max="10" step="1" id="rangeInput" value="0"
+                                           oninput="input_filter();">
                                     <span id="rangeValue">0/10</span>
                                 </div>
                             </div>
@@ -98,17 +106,17 @@
                                 <div class="search_min-max">
                                     <label for="minimum-duration_internship">Minimum</label>
                                     <input type="number" id="minimum-duration_internship" inputmode="numeric" min="0"
-                                        placeholder="nombre minimum" />
+                                           placeholder="nombre minimum"/>
                                 </div>
                                 <div class="search_min-max">
                                     <label for="maximum-duration_internship">Maximum</label>
                                     <input type="number" id="maximum-duration_internship" inputmode="numeric" min="0"
-                                        placeholder="nombre maximum" />
+                                           placeholder="nombre maximum"/>
                                 </div>
                             </div>
                         </div>
                         <div class="filter-validate">
-                            <button type="button" onclick="submitFilter()">Valider</button>
+                            <button type="button">Valider</button>
                         </div>
                     </div>
                 </div>
@@ -118,7 +126,8 @@
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
                 {% for company in companies %}
-                <button class="container" id="{{ company.id }}" onclick="focus_container('container-{{ company.id }}')">
+                    <button class="container" id="{{ company.id }}"
+                            onclick="focus_container('container-{{ company.id }}')">
                     <span>
                         <div class="container-intern" id="container-{{ company.id }}">
                             <div class="container-div-para">
@@ -136,84 +145,93 @@
                             </div>
                         </div>
                     </span>
-                </button>
+                    </button>
                 {% endfor %}
             </div>
         </div>
         <!-- --------------------------------------------------------DEBUT BUBULLE ENTREPRISES------------------------------------------------------------------------- -->
         <template id="main-company">
             <div class="runway-container-intern-details" id="runway-container-intern-details">
-            <div class="container-intern-details second-scrollbar" id="container-intern-details">
-                <div class="container-close-tab">
-                    <button class="button-close-tab" id="button-close-tab">
-                        <img src="images/Icones/croix-supprimer-le-signe.png" alt="logo close tab" class="close-tab-logo-picture" onclick="toggle_bubulle();">
-                    </button>
-                </div>
-                <div class="container-header-company-details">
-                    <img src='images/CompanyLogo/logo_1.jpg' alt="logo company" class="company-logo-picture" id="Big-bubble-logo">
-                    <h1 id="Big-bubble-name"></h1>
-                </div>
-                <div class="container-left-and-right">
-                    <div class="container-company-details-left">
-                        <div class="container-company-details-sites">
-                            <h1>Site(s):</h1>
-                            <p id="Big-bubble-location"></p>
-                        </div>
-                        <div class="container-company-details-student-number">
-                            <h1>Nombre d'étudiants reçus:</h1>
-                            <p id="Big-bubble-number-student"></p>
-                        </div>
-                    </div>
-                    <div class="container-company-details-right">
-                        <div class="container-company-details-note">
-                            <p>Note moyenne:&nbsp<p id="rangeValue2"></p>/10</p>
-                        </div>
-                        <div class="container-company-details-note-bar">
-                            <input type="range" min="1" max="10" step="0.1" id="rangeInput2" value="4" disabled oninput="rangeValue2.innerText = this.value">
-                        </div>
-                        <div class="container-company-details-sector">
-                            <h1>Secteurs d'activités de l'entreprise:</h1>
-                        </div>
-                        <div class="container-company-details-sector-name" id="container-company-details-sector-name-list">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="container-company-details-description">
-                    <h1>Description de l'entreprise:</h1>
-                    <p id="Big-bubble-description"></p>
-                </div>
-                <div class="container-company-details-intern-name">
-                    <h1 id="internship-number"></h1>
-                </div>
-                <div class="container-company-details-intern-second-scrollbar" id="mini-internship-container">
-                    <!---------------------------- ici pour les mini stages ---------------------------->
-                </div>
-                <div class="container-note-and-button">
-                    <div class="container-intern-container-note">
-                        <div class="container-intern-your-note">
-                            <p>Votre note:&nbsp<p id="rangeValue3">5</p>/10</p>
-                        </div>
-                        <div class="container-company-details-note-bar2">
-                            <input type="range" min="1" max="10" step="1" id="rangeInput3" value="5" oninput="rangeValue3.innerText = this.value">
-                        </div>
-                    </div>
-                    <div class="container-company-poster-button">
-                        <button class="button-poster" id="button-poster" value="Poster" onclick="post_comment();">
-                            Poster
+                <div class="container-intern-details second-scrollbar" id="container-intern-details">
+                    <div class="container-close-tab">
+                        <button class="button-close-tab" id="button-close-tab">
+                            <img src="images/Icones/croix-supprimer-le-signe.png" alt="logo close tab"
+                                 class="close-tab-logo-picture" onclick="toggle_bubulle();">
                         </button>
                     </div>
-                </div>
-                <textarea type="text" class="container-company-your-review review-scrollbar" placeholder="Tapez votre avis..." id="comment-area"></textarea>
-                <div class="container-company-reviews-area">
-                    <div class="container-company-reviews-area-name">
-                        <h1>Avis:</h1>
+                    <div class="container-header-company-details">
+                        <img src='images/CompanyLogo/logo_1.jpg' alt="logo company" class="company-logo-picture"
+                             id="Big-bubble-logo">
+                        <p id="id-company"></p>
+                        <h1 id="Big-bubble-name"></h1>
                     </div>
-                    <div id="comment-container">
+                    <div class="container-left-and-right">
+                        <div class="container-company-details-left">
+                            <div class="container-company-details-sites">
+                                <h1>Site(s):</h1>
+                                <p id="Big-bubble-location"></p>
+                            </div>
+                            <div class="container-company-details-student-number">
+                                <h1>Nombre d'étudiants reçus:</h1>
+                                <p id="Big-bubble-number-student"></p>
+                            </div>
+                        </div>
+                        <div class="container-company-details-right">
+                            <div class="container-company-details-note">
+                                <p>Note moyenne:&nbsp
+                                <p id="rangeValue2"></p>/10</p>
+                            </div>
+                            <div class="container-company-details-note-bar">
+                                <input type="range" min="1" max="10" step="0.1" id="rangeInput2" value="4" disabled
+                                       oninput="rangeValue2.innerText = this.value">
+                            </div>
+                            <div class="container-company-details-sector">
+                                <h1>Secteurs d'activités de l'entreprise:</h1>
+                            </div>
+                            <div class="container-company-details-sector-name"
+                                 id="container-company-details-sector-name-list">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-company-details-description">
+                        <h1>Description de l'entreprise:</h1>
+                        <p id="Big-bubble-description"></p>
+                    </div>
+                    <div class="container-company-details-intern-name">
+                        <h1 id="internship-number"></h1>
+                    </div>
+                    <div class="container-company-details-intern-second-scrollbar" id="mini-internship-container">
+                        <!---------------------------- ici pour les mini stages ---------------------------->
+                    </div>
+                    <div class="container-note-and-button">
+                        <div class="container-intern-container-note">
+                            <div class="container-intern-your-note">
+                                <p>Votre note:&nbsp
+                                <p id="rangeValue3">5</p>/10</p>
+                            </div>
+                            <div class="container-company-details-note-bar2">
+                                <input type="range" min="1" max="10" step="1" id="rangeInput3" value="5"
+                                       oninput="rangeValue3.innerText = this.value">
+                            </div>
+                        </div>
+                        <div class="container-company-poster-button">
+                            <button class="button-poster" id="button-poster" value="Poster" onclick="post_comment();">
+                                Poster
+                            </button>
+                        </div>
+                    </div>
+                    <textarea type="text" class="container-company-your-review review-scrollbar"
+                              placeholder="Tapez votre avis..." id="comment-area"></textarea>
+                    <div class="container-company-reviews-area">
+                        <div class="container-company-reviews-area-name">
+                            <h1>Avis:</h1>
+                        </div>
+                        <div id="comment-container">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </template>
         <div id="bubble-place">
         </div>
@@ -225,9 +243,11 @@
         </template>
 
         <template id="mini-internship">
-            <button class="container-company-details-container-details-button" id="container-company-details-container-details-button">
-                <a id="test">
-                    <div class="container-company-details-container-details" id="container-company-details-container-details">
+            <button class="container-company-details-container-details-button"
+                    id="container-company-details-container-details-button">
+                <span>
+                    <div class="container-company-details-container-details"
+                         id="container-company-details-container-details">
                         <div class="container-company-intern-div-para">
                             <h1 class="container-h1" id="internship-title"></h1>
                             <p class="container-paragraph" id="internship-location"></p>
@@ -239,7 +259,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </span>
             </button>
         </template>
         <template id="comment-template">

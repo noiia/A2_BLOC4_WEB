@@ -11,7 +11,7 @@ function loadCompanyBubbleData(id = 1) {
             const mainTemplate = document.getElementById("main-company");
             const bubbleContainer = document.getElementById("bubble-place");
             const bubbleTemplate = mainTemplate.content.cloneNode(true);
-
+            bubbleTemplate.getElementById("id-company").textContent = data.id;
             bubbleTemplate.getElementById("Big-bubble-name").textContent = data.company;
             bubbleTemplate.getElementById("Big-bubble-location").textContent = data.zip_code + ' - ' + data.location;
             bubbleTemplate.getElementById("Big-bubble-number-student").textContent = data.number_former_intern + ' étudiants';
@@ -21,7 +21,6 @@ function loadCompanyBubbleData(id = 1) {
             bubbleTemplate.getElementById("internship-number").textContent = data.number_of_internship + " stages disponibles:";
             bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
             bubbleContainer.append(bubbleTemplate);
-
 
             const miniInternshipTemplate = document.getElementById("mini-internship");
             const sectorTemplate = document.getElementById("sector-template");
@@ -33,9 +32,6 @@ function loadCompanyBubbleData(id = 1) {
             const skillContainer = document.getElementById("skill-container");
 
             console.log(data.sector);
-            console.log(typeof data);
-            console.log(data instanceof new Map());
-
             i = 0;
             for (let sector of data.sector) {
                 const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
@@ -53,7 +49,6 @@ function loadCompanyBubbleData(id = 1) {
             }
             for (let internship of data.internship) {
                 const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
-                cloneInternshipTemplate.getElementById("test").href = 'https://inter-net.loc/Stage?ID_Internship=' + internship.id;
                 cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
                 cloneInternshipTemplate.getElementById("internship-location").textContent = "site de : " + internship.location;
                 cloneInternshipTemplate.getElementById("internship-starting-date").textContent = "A partir du " + internship.starting_date;
@@ -87,63 +82,10 @@ addEventListener("click", (event) => {
     }
 });
 
-//filtre
-
-function load_filter(event = Event, idFilter = '') {
-    if (event.key === 'Enter' || event instanceof PointerEvent) {
-        const idToName = new Map([["input_localite", 'locations'], ['input_activity', 'sector']]);
-        let input = document.getElementById(idFilter);
-        console.log(idToName.get(idFilter));
-        fetch("https://inter-net.loc/Entreprise/Filtre/" + idToName.get(idFilter) + '=' + input.value, {
-            method: "GET",
-            headers: {"Content-Type": "application/json",},
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                for (let [id, name] of idToName) {
-                    if (idFilter === id) {
-                        add_filter_block(idFilter, data);
-                        break;
-                    }
-                }
-            });
-    }
-}
-
 function input_filter() {
     document.getElementById("rangeValue").textContent = document.getElementById("rangeInput").value + "/10";
 }
 
-function submitFilter(event = Event) {
-    let url = [];
-    const filters_html = ["input_localite", "input_activity"];
-    const filters_url = ["locations", "sector"];
-    if (document.getElementById("general-search_bar").value !== '') {
-        url.push('Name=' + document.getElementById("general-search_bar").value);
-    }
-    for (let f in filters_html) {
-        let args = [];
-        let values = document.getElementById(filters_html[f]).dataset.values;
-        if (typeof values !== 'undefined' && values !== '') {
-            args = document.getElementById(filters_html[f]).dataset.values.split(';');
-            url.push(filters_url[f] + '=' + args.join(';'));
-        }
-    }
-    let range = document.getElementById('rangeInput').value;
-    if (range !== '1') {
-        url.push('rates=' + range);
-    }
-
-    let min = document.getElementById('minimum-duration_internship').value;
-    let max = document.getElementById('maximum-duration_internship').value;
-    if (max !== '' || min !== '') {
-        url.push('users=' + min + ';' + max);
-    }
-    console.log(url);
-    document.location.href = '?' + url.join('&');
-}
-
-//fin filtre
 function toggle_bubulle() {
     document.querySelector(".container-intern-details").classList.toggle('close-tab-clicked');
     document.querySelector("body").classList.toggle('mobile-scroll');
@@ -158,20 +100,19 @@ window.addEventListener("resize", () => {
 });
 
 function post_comment() {
-    var companyId = Number(document.activeElement.id);
-    //var userId = Number();
+    var companyId = Number(document.getElementById("id-company").textContent);
     var rate = Number(document.getElementById("rangeValue3").textContent);
-    var comment = document.getElementById("comment-area").textContent;
+    var comment = document.getElementById("comment-area").value;
 
     var json_data = {
         companyId: companyId,
-        userId: userId,
         rate: rate,
         comment: comment
     };
-
+    console.log(json_data);
     $.post("../Entreprise/addComment", {json: JSON.stringify(json_data)}, function (response) {
             console.log(response);
+            document.location.href = "../Entreprise";
         },
         'json')
         .fail(function (xhr, status, error) {

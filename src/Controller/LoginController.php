@@ -36,11 +36,12 @@ class LoginController
         $username = $jsonData['username'];
         $password = $jsonData['password'];
 
-        //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = hash('sha512', $password);
 
         $user = $this->entityManager->getRepository(Users::class)->findOneBy(['Login' => $username]);
         if ($user != null) {
-            if ($password == $user->getPassword()) {
+
+            if ((string)$password === (string)$user->getPassword()) {
                 $this->session->set('user', $user);
                 $response->getBody()->write(json_encode(['success' => true]));
                 return $response->withHeader('content-type', 'application-json')->withStatus(200);

@@ -7,6 +7,9 @@ use App\Controller\CompanyStatsController;
 use App\Controller\InternshipController;
 use App\Controller\InternshipStatsController;
 use App\Controller\LoginController;
+use App\Controller\ProfileController;
+use App\Controller\StudentsController;
+use App\Controller\WishlistController;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -49,7 +52,7 @@ return function (App $app) {
     $app->group('/', function ($group) {
         $group->get('disconnect', function ($request, $response) {
             Session::destroy();
-            return $response;
+            return $response->withHeader('Location', '/Login')->withStatus(302);
         });
 
         $group->get('Stage', [InternshipController::class, 'Welcome']);
@@ -66,8 +69,23 @@ return function (App $app) {
         $group->get('StatistiquesStages/Filtre/{arg}', [InternshipStatsController::class, 'InternshipStatsFilterApi']);
         $group->get('StatistiquesStages/api/{arg}', [InternshipStatsController::class, 'InternshipStatsApi']);
 
-        $group->get('MonProfil', [CompanyStatsController::class, 'CompanyStats']);
-        $group->get('Wishlist', [InternshipStatsController::class, 'InternshipStats']);
+        $group->get('Edition/MonProfil', [ProfileController::class, 'Profil']);
+
+        $group->get('Edition/Etudiants', [StudentsController::class, 'Students']);
+        $group->get('Edition/Etudiants/api/{id}', [StudentsController::class, 'StudentsApi']);
+        $group->post('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
+        $group->post('Edition/Etudiants/addPicture', [StudentsController::class, 'uploadPicture']);
+        $group->patch('Edition/Etudiants/edit', [StudentsController::class, 'updateStudents']);
+        $group->patch('Edition/Etudiants/delete/{id}', [StudentsController::class, 'delStudents']);
+        $group->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
+
+        $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Entreprises', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Stages', [WishlistController::class, 'Wishlist']);
+
+        $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
+        $group->post('Wishlist/add/{id}', [WishlistController::class, 'addInternshipToWishlist']);
+        $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
 
     })->add($authMiddleware);
 };
