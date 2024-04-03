@@ -111,3 +111,52 @@ function post_comment() {
             console.error(error);
         });
 }
+
+/* ------------------- PAGINATION ------------------*/
+function updatePage(currentPage, totalPages, companiesPerPage) {
+    var start = (currentPage - 1) * companiesPerPage;
+    var end = start + companiesPerPage;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    buttonsContainer.innerHTML = currentPage + " / " + totalPages;
+
+    // Gestion de la page précédente
+    var backButton = document.getElementById("id-button-back");
+    if (currentPage === 1) {
+        backButton.disabled = true;
+    } else {
+        backButton.disabled = false;
+        backButton.addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    }
+
+    // Gestion de la page suivante
+    var nextButton = document.getElementById("id-button-next");
+    if (currentPage === totalPages) {
+        nextButton.disabled = true;
+    } else {
+        nextButton.disabled = false;
+        nextButton.addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    }
+
+    // Mettre à jour l'affichage des boutons de stage en fonction de la page actuelle
+    var boutons = document.querySelectorAll('.container');
+    boutons.forEach(function(bouton, index) {
+        if (index >= start && index < end) {
+            bouton.style.display = 'block';
+        } else {
+            bouton.style.display = 'none';
+        }
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var currentPage = 1;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    var totalPages = parseInt(buttonsContainer.getAttribute("data-total-pages"));
+    var companiesPerPage = parseInt(buttonsContainer.getAttribute("data-companies-per-page"));
+
+    updatePage(currentPage, totalPages, companiesPerPage); // Appeler la fonction pour afficher la première page initialement
+
+    document.getElementById("id-button-back").addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    document.getElementById("id-button-next").addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+});

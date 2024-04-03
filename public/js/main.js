@@ -16,6 +16,7 @@ function focus_container(id) {
 
 // ------------------ parti Welcome/Entreprise ----------------
 // ------------------ parti Welcome/Entreprise ----------------
+
 window.onscroll = function () {
     afficherOuMasquerBouton();
 };
@@ -27,32 +28,32 @@ function afficherOuMasquerBouton() {
     if (document.documentElement.scrollTop < 115) {
 
         while (boutonRetourHaut.classList.length > 0) {
-            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+           boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
         }
         while (runwayContainerInternDetails.classList.length > 0) {
-            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
-        }
+           runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+       }
 
         boutonRetourHaut.classList.add('display-none');
         runwayContainerInternDetails.classList.add('runway-container-intern-details');
     }
-    else if (115<document.documentElement.scrollTop && document.documentElement.scrollTop<2700){
+    else if (115<document.documentElement.scrollTop && document.documentElement.scrollTop<2500){
 
         while (boutonRetourHaut.classList.length > 0) {
-            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+           boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
         }
         while (runwayContainerInternDetails.classList.length > 0) {
             runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
-        }
+       }
         boutonRetourHaut.classList.add('retourHaut');
         runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
     }
 
-    else if (document.documentElement.scrollTop>2700) {
-        while (boutonRetourHaut.classList.length > 0) {
-            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
-        }
-        while (runwayContainerInternDetails.classList.length > 0) {
+    else if (document.documentElement.scrollTop>2500) {
+       while (boutonRetourHaut.classList.length > 0) {
+           boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+       }
+       while (runwayContainerInternDetails.classList.length > 0) {
             runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
         }
 
@@ -60,6 +61,52 @@ function afficherOuMasquerBouton() {
         runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
         }
 }
+
+
+//window.onscroll = function () {
+//    afficherOuMasquerBouton();
+//};
+//
+//function afficherOuMasquerBouton() {
+//    var boutonRetourHaut = document.getElementById("button-retour-haut");
+//    var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
+//
+//    if (document.documentElement.scrollTop < 115) {
+//
+//        while (boutonRetourHaut.classList.length > 0) {
+//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+//        }
+//        while (runwayContainerInternDetails.classList.length > 0) {
+//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+//        }
+//
+//        boutonRetourHaut.classList.add('display-none');
+//        runwayContainerInternDetails.classList.add('runway-container-intern-details');
+//    }
+//    else if (115<document.documentElement.scrollTop && document.documentElement.scrollTop<2700){
+//
+//        while (boutonRetourHaut.classList.length > 0) {
+//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+//        }
+//        while (runwayContainerInternDetails.classList.length > 0) {
+//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+//        }
+//        boutonRetourHaut.classList.add('retourHaut');
+//        runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
+//    }
+//
+//    else if (document.documentElement.scrollTop>2700) {
+//        while (boutonRetourHaut.classList.length > 0) {
+//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+//        }
+//        while (runwayContainerInternDetails.classList.length > 0) {
+//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+//        }
+//
+//        boutonRetourHaut.classList.add('retourHaut-bot');
+//        runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
+//        }
+//}
 
 function retournerEnHaut() {
     window.scrollTo({

@@ -1639,6 +1639,7 @@ input[type="date"]{
 }
 
 .container-h1{
+  white-space: normal;
   text-align: justify;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1793,7 +1794,6 @@ input[type="date"]{
   .runway-container-intern-details-fixed{
     position: fixed;
     margin-top: -115px;
-    margin-left: -0.6%;
     display: inline-block;
     width: 55%;
   }
@@ -1801,6 +1801,45 @@ input[type="date"]{
 
 @media (min-width: 1536px){
   .runway-container-intern-details-fixed{
+    width: 47%;
+  }
+}
+
+.runway-container-intern-details-bot{
+  bottom: 440px;
+  z-index: 49;
+  height: auto;
+  font-weight: 500;
+}
+
+@media not all and (min-width: 1280px){
+  .runway-container-intern-details-bot{
+    position: fixed;
+    top: 115px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
+}
+
+@media not all and (min-width: 500px){
+  .runway-container-intern-details-bot{
+    margin-left: -25px;
+    width: 400px;
+  }
+}
+
+@media (min-width: 1280px){
+  .runway-container-intern-details-bot{
+    position: fixed;
+    margin-top: -115px;
+    display: inline-block;
+    width: 55%;
+  }
+}
+
+@media (min-width: 1536px){
+  .runway-container-intern-details-bot{
     width: 47%;
   }
 }
@@ -1904,6 +1943,27 @@ input[type="date"]{
 
 @media not all and (min-width: 850px){
   .retourHaut{
+    display: none;
+  }
+}
+
+.retourHaut-bot{
+  position: fixed;
+  bottom: 360px;
+  right: 2.5rem;
+  z-index: 50;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media not all and (min-width: 850px){
+  .retourHaut-bot{
     display: none;
   }
 }
@@ -2347,7 +2407,6 @@ input[type="date"]{
 
 .button-back{
   display: inline-flex;
-  width: 35px;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
@@ -2381,7 +2440,7 @@ input[type="date"]{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: inline-flex;
-  width: 35px;
+  width: 60px;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -2391,17 +2450,8 @@ input[type="date"]{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.too-much-pages{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  --tw-text-opacity: 1;
-  color: rgb(123 123 123 / var(--tw-text-opacity));
-}
-
 .button-next{
   display: inline-flex;
-  width: 35px;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;

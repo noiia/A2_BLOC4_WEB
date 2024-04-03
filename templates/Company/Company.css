@@ -415,7 +415,7 @@ input[type="date"] {
 }
 
 .container-h1 {
-    @apply text-xl underline font-bold text-justify max-[500px]:leading-3;
+    @apply whitespace-normal text-xl underline font-bold text-justify max-[500px]:leading-3;
 }
 
 .container-paragraph {
@@ -453,7 +453,11 @@ input[type="date"] {
 }
 
 .runway-container-intern-details-fixed {
-    @apply xl:fixed xl:mt-[-115px] xl:ml-[-0.6%] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+    @apply xl:fixed xl:mt-[-115px] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
+}
+
+.runway-container-intern-details-bot {
+    @apply xl:fixed bottom-[440px] xl:mt-[-115px] font-medium h-auto xl:w-[55%] 2xl:w-[47%] xl:inline-block max-xl:w-[80%] max-xl:mx-[10%] max-xl:fixed z-[49] max-xl:top-[115px] max-sm:w-[400px] max-sm:ml-[-25px];
 }
 
 .container-intern-details {
@@ -497,6 +501,10 @@ input[type="date"] {
 
 .retourHaut {
     @apply fixed bottom-10 right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
+}
+
+.retourHaut-bot {
+    @apply fixed bottom-[360px] right-10 h-[40px] bg-green-button p-2 text-secondary-true_white rounded-xl cursor-pointer max-ml:hidden z-50;
 }
 
 /* DEBUT ENTREPRISES */
@@ -668,7 +676,7 @@ input[type="date"] {
 }
 
 .button-back {
-    @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+    @apply inline-flex rounded-lg hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
 }
 
 .page-number {
@@ -676,15 +684,11 @@ input[type="date"] {
 }
 
 .page-number-selected {
-    @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[35px] justify-center items-center mx-1;
-}
-
-.too-much-pages {
-    @apply inline-flex justify-center items-center text-secondary-scroll_bar_grey;
+    @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[60px] justify-center items-center mx-1;
 }
 
 .button-next {
-    @apply inline-flex rounded-lg w-[35px] hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
+    @apply inline-flex rounded-lg hover:bg-secondary-grey text-secondary-scroll_bar_grey justify-center items-center;
 }
 
 /* --------------------------------- FIN PAGINATION --------------------*/

@@ -357,7 +357,7 @@ input[type="search"]::-webkit-search-cancel-button{
   }
 
   .header-intern-details {
-    @apply mb-5 grid grid-cols-[20%_70%_10%];
+    @apply items-center mb-5 grid grid-cols-[25%_65%_10%];
   }
 
   .company-logo-picture {
@@ -554,11 +554,7 @@ input[type="search"]::-webkit-search-cancel-button{
 }
 
 .page-number-selected {
-  @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[35px] justify-center items-center mx-1;
-}
-
-.too-much-pages {
-  @apply inline-flex justify-center items-center text-secondary-scroll_bar_grey;
+  @apply inline-flex rounded-full text-secondary-true_white bg-green-2 w-[60px] justify-center items-center mx-1;
 }
 
 .button-next {

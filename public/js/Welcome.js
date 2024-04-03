@@ -298,7 +298,7 @@ function updatePage(currentPage, totalPages, internshipsPerPage) {
     var start = (currentPage - 1) * internshipsPerPage;
     var end = start + internshipsPerPage;
     var buttonsContainer = document.getElementById("pagination-buttons");
-    buttonsContainer.innerHTML = currentPage;
+    buttonsContainer.innerHTML = currentPage + " / " + totalPages;
 
     // Gestion de la page précédente
     var backButton = document.getElementById("id-button-back");

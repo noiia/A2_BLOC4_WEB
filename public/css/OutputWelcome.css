@@ -1772,7 +1772,8 @@ input[type="search"]::-webkit-search-cancel-button{
 .header-intern-details{
   margin-bottom: 1.25rem;
   display: grid;
-  grid-template-columns: 20% 70% 10%;
+  grid-template-columns: 25% 65% 10%;
+  align-items: center;
 }
 
 .company-logo-picture{
@@ -2354,7 +2355,7 @@ input[type="search"]::-webkit-search-cancel-button{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: inline-flex;
-  width: 35px;
+  width: 60px;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -2362,14 +2363,6 @@ input[type="search"]::-webkit-search-cancel-button{
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.too-much-pages{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  --tw-text-opacity: 1;
-  color: rgb(123 123 123 / var(--tw-text-opacity));
 }
 
 .button-next{

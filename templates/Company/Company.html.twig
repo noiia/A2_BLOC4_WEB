@@ -3,7 +3,6 @@
 {% block stylesheet %}
     <link href='css/OutputCompany.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}<script src='js/Company.js'></script>
-<script src='js/pagination.js'></script>
 {% endblock %}
 {% block company %}
     <div class="navbar-current">
@@ -127,27 +126,36 @@
                 <div class="filter-mobile">
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
-                {% for company in companies %}
-                    <button class="container" id="{{ company.id }}"
-                            onclick="focus_container('container-{{ company.id }}')">
-                    <span>
-                        <div class="container-intern" id="container-{{ company.id }}">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">{{ company.company }}</h1>
-                                <p class="container-paragraph">Note: {{ company.rate }}/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>{{ company.sector_1 }}</li>
-                                        <li>{{ company.sector_2 }}</li>
-                                        <li>{{ company.sector_3 }}</li>
-                                    </ul>
+
+                {% set companiesPerPage = 10 %}
+                {% set currentPage=1 %}
+                {% set totalPages = (companies|length / companiesPerPage)|round %}
+
+                {% for page in range(1, (companies|length / companiesPerPage)|round) %}
+                    {% set start = (page - 1) * companiesPerPage %}
+                    {% set end = start + companiesPerPage %}
+                    {% for company in companies|slice(start, end) %}
+                        <button class="container" id="{{ company.id }}"
+                                onclick="focus_container('container-{{ company.id }}')">
+                        <span>
+                            <div class="container-intern" id="container-{{ company.id }}">
+                                <div class="container-div-para">
+                                    <h1 class="container-h1">{{ company.company }}</h1>
+                                    <p class="container-paragraph">Note: {{ company.rate }}/10</p>
+                                    <p class="container-paragraph">3 Stages</p>
+                                    <div class="container-skills">
+                                        <ul>
+                                            <li>{{ company.sector_1 }}</li>
+                                            <li>{{ company.sector_2 }}</li>
+                                            <li>{{ company.sector_3 }}</li>
+                                        </ul>
+                                    </div>
+                                    <img src='{{ company.imagePath }}' class="logo-company" id="image-micro-logo">
                                 </div>
-                                <img src='{{ company.imagePath }}' class="logo-company" id="image-micro-logo">
                             </div>
-                        </div>
-                    </span>
-                    </button>
+                        </span>
+                        </button>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
@@ -274,22 +282,10 @@
             </ul>
         </template>
     </div>
-
-
-    </body>
-    <!--
     <div class="container-pagination">
-        <button class="button-back" id="id-button-back"><</button>
-        <button class="page-number" id="id-page-number">1</button>
-        <button class="page-number-selected" id="id-page-number-selected">2</button>
-        <button class="page-number" id="id-page-number">3</button>
-        <div class="too-much-pages"><p>...</p></div>
-        <button class="page-number" id="id-page-number">99</button>
-        <button class="button-next" id="id-button-next">></button>
-    </div>-->
-
-    <div id="companies"></div>
-
-    <div id="pagination"></div>
-    <script src="js/test.js"></script>
+        <button class="button-back" id="id-button-back"><<</button>
+        <div class="page-number-selected" id="pagination-buttons" data-companies-per-page="{{ companiesPerPage }}" data-total-pages="{{ totalPages }}"></div>
+        <button class="button-next" id="id-button-next">>></button>
+    </div>
+    </body>
 {% endblock %}
