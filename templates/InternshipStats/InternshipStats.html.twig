@@ -18,24 +18,32 @@
         <div class="top-container">
             <div class="container-search">
                 <div class="left-container-search">
-                    <div class="left-container-search-name">
-                        <h1>Compétences:</h1>
+                    <div class="filter-block_search-top">
+                        <p>Localité :</p>
+                        <div class="search_bar">
+                            <input type="search" id="input_skills" placeholder="Rechercher"
+                                   onkeydown="load_filter(event, 'input_skills');" data-children='ski'>
+                            <button type="button" onclick="load_filter(event, 'input_skills');"><img
+                                        src="images/Icones/logo_seul.png" alt="V"/></button>
+                        </div>
                     </div>
-                    <div class="left-container-search-bar">
-                        <input type="search" placeholder="Rechercher">
-                        <button type="button">
-                            <img src="images/Icones/logo_seul.png" alt="V">
-                        </button>
-                    </div>
-                    <div class="left-container-search-cities">
-                        <ul>
-                            <li>Comp 1</li>
-                            <li>Comp 2</li>
-                        </ul>
-                        <ul>
-                            <li>Comp 3</li>
-                            <li>Comp 4</li>
-                        </ul>
+                    <div class="filter-block_search-bot">
+                        <div id="ski0" hidden onclick="del_filter_block(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski1" hidden onclick="del_filter_block(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski2" hidden onclick="del_filter_block(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski3" hidden onclick="del_filter_block(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
                     </div>
                     <p>250 stages avec ces compétences</p>
                 </div>
@@ -373,5 +381,5 @@
         </div>
     </div>
     </body>
-    <script>loadPage();</script>
+    <script>load_page();</script>
 {% endblock %}

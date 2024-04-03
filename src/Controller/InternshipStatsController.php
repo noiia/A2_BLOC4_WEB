@@ -45,6 +45,21 @@ class InternshipStatsController
         return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig');
     }
 
+    public function InternshipStatsFilterApi(Request $request, Response $response, string $arg)
+    {
+        $entity = $this->entityManager->getRepository(Skills::class)->findOneBy(['Name' => $arg]);
+        if ($entity != null) {
+            $data = ['id' => $entity->getIDSkills(), 'name' => $entity->getName(),];
+        }
+        if ($entity != null) {
+            $payload = json_encode($data);
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Competence introuvable');
+        }
+    }
+
     public function InternshipStatsApi(Request $request, Response $response, string $arg)
     {
         $search = explode(';', $arg);
@@ -71,7 +86,7 @@ class InternshipStatsController
                 $internshipDetail = [
                     'id' => $internship->getIDInternship(),
                     'duree' => $internship->getDuration(),
-                    'promotion' => $internship->getPromotion(),
+                    'promotion' => $internship->getPromotion()->getName(),
                 ];
                 array_push($allInternships[$skill->getName()], $internshipDetail);
             }
