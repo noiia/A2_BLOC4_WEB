@@ -7,13 +7,17 @@ function load_filter(event = Event, idFilter = '') {
         })
             .then((response) => response.json())
             .then((data) => {
-                add_filter_block("input_skills", data);
-                let values = input.dataset.values;
-                let args = [];
-                if (typeof values !== 'undefined' && values !== '') {
-                    args = values.split(';');
+                let add = add_filter_block("input_skills", data);
+                if (add) {
+                    let values = input.dataset.values;
+                    let args = [];
+                    if (typeof values !== 'undefined' && values !== '') {
+                        args = values.split(';');
+                    }
+                    load_page(args);
+                } else {
+                    alert("Si vous voulez ajouter une autre compétence vous devez deja en supprimer une.")
                 }
-                load_page(args);
             });
     }
 }
@@ -37,10 +41,11 @@ function add_filter_block(idInput, data) {
             txt.dataset.value = data.id;
             li.removeAttribute("hidden");
             console.log("recherche du filtre: '" + txt.textContent + "' dans " + idInput);
-            break;
+            return true; //à pu ajouter
         }
         i++;
     }
+    return false; //n'a pas pu ajouter
 }
 
 function load_page(filtre = []) {

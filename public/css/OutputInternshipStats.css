@@ -1197,6 +1197,11 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
+#nb_stages{
+  position: absolute;
+  bottom: 1rem;
+}
+
 /* ------------------------ DEBUT STATS ----------------------------*/
 
 .full-runway{

@@ -22,7 +22,6 @@ class InternshipStatsController
 
     public function InternshipStats(Request $request, Response $response): Response
     {
-        /*
         // debut svg
         $depToNbInternship = array_count_values(array_map(
             function ($element) {
@@ -40,7 +39,6 @@ class InternshipStatsController
         $svg->asXML('../public/images/svg/Carte_remplie_départements_français.svg');
 
         // fin svg
-        */
 
         return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig');
     }

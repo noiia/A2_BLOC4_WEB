@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
@@ -46,14 +45,6 @@ class Internship
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
 
-    #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy: 'internships')]
-    private Collection $appliement_wishlist;
-
-    public function getAppliementWishlist(): Collection
-    {
-        return $this->appliement_wishlist;
-    }
-
     #[JoinTable(name: "seek")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
     #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills')]
@@ -78,11 +69,7 @@ class Internship
 
     public function __construct()
     {
-<<<<<<< HEAD
-        $this->appliement_wishlist = new ArrayCollection();
-=======
         $this->workflow = new ArrayCollection();
->>>>>>> projetWeb/Dwin3
         $this->skills = new ArrayCollection();
     }
 
@@ -210,5 +197,4 @@ class Internship
     {
         return $this->promotions;
     }
-
 }
