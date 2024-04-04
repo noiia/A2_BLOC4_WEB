@@ -67,7 +67,6 @@ function load_page(filtre = []) {
     } else {
         lien += filtre.join(';');
     }
-    console.log(lien);
     //---avec api -> recup les stages avec compétences et le nb des autres
     fetch(lien, {
         method: "GET",
