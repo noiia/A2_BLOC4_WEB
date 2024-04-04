@@ -1627,14 +1627,9 @@ body::-webkit-scrollbar-track:hover{
   position: relative;
   height: 100%;
   width: 100%;
-  outline-style: solid;
-  outline-width: 4px;
-  outline-color: #000000;
 }
 
 .france-graph-name{
-  position: absolute;
-  bottom: 0px;
   width: 100%;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;

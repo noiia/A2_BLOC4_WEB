@@ -340,11 +340,11 @@ body::-webkit-scrollbar-track:hover {
 }
 
 .france-graph {
-    @apply relative h-full w-full outline outline-4 outline-secondary-true_black;
+    @apply relative h-full w-full;
 }
 
 .france-graph-name {
-    @apply absolute bottom-0 w-full text-center bg-green-button rounded-xl;
+    @apply w-full text-center bg-green-button rounded-xl;
 }
 
 .bottom-container {

@@ -1,3 +1,11 @@
+function del_filter_block_internshipStats(event = Event, idInput) {
+    event.currentTarget.hidden = true;
+    let input = document.getElementById(idInput);
+    let values = input.dataset.values.split(';');
+    values.splice(values.indexOf(event.currentTarget.dataset.value), 1); //suprime la valeur souhaite
+    load_page(values);
+}
+
 function load_filter(event = Event, idFilter = '') {
     if (event.key === 'Enter' || event instanceof PointerEvent) {
         let input = document.getElementById('input_skills');
@@ -67,6 +75,10 @@ function load_page(filtre = []) {
         .then((response) => response.json())
         .then((data) => {
             //format -> {tot:26, stages:{'JS':[stage1, stage2, ...], 'PHP':[stage2, stage9, ...]}; /!\ peut avoir le même dans JS et PHP
+            //svg + nb sous filtre
+            document.getElementById('mapSvg').src = "public/images/svg/Carte_remplie_départements_français.svg?timestamp=" + new Date().getTime();
+            console.log(document.getElementById('mapSvg').src);
+            document.getElementById('var-nb_stages').textContent = data.total;
             //camambert data
             let pieChartMap = new Map();
             Object.keys(data.stages).forEach((skill) => {
@@ -113,7 +125,6 @@ function load_page(filtre = []) {
             Object.keys(data.stages).forEach((skill) => {
                 barChartMap.set(skill, data.stages[skill].map((x) => x['promotion']));
             })
-            console.log(barChartMap);
             if (filtre.length === 0) {
                 let arrayProm = [];
                 let arrayValue = [];

@@ -28,32 +28,32 @@
                         </div>
                     </div>
                     <div class="filter-block_search-bot">
-                        <div id="ski0" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski0" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
-                        <div id="ski1" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski1" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
-                        <div id="ski2" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski2" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
-                        <div id="ski3" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski3" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
-                        <div id="ski4" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski4" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
-                        <div id="ski5" hidden onclick="del_filter_block(event, 'input_skills')">
+                        <div id="ski5" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
                             <p></p>
                             <img src="images/Icones/croix-supprimer-le-signe.png">
                         </div>
                     </div>
-                    <p id="nb_stages"><b>250</b> stages avec ces compétences</p>
+                    <p id="nb_stages"><b id="var-nb_stages">250</b> stages avec ces compétences</p>
                 </div>
             </div>
             <div class="container-skills-graph" id="graph-skill"></div>
@@ -65,7 +65,7 @@
                         <p>Localités</p>
                     </div>
                     <!-- -->
-                    <img id="mapSvg" src="images/svg/Carte_remplie_départements_français.svg"/>
+                    <img id="mapSvg"/>
                 </div>
             </div>
         </div>

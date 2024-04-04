@@ -197,4 +197,14 @@ class Internship
     {
         return $this->promotions;
     }
+
+    public function setLocation(Location $location): void
+    {
+        $this->locations = $location;
+    }
+
+    public function getLocation(): Location
+    {
+        return $this->locations;
+    }
 }
