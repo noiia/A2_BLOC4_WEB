@@ -36,14 +36,19 @@ function load_filter(event = Event, idFilter = '') {
                     if (typeof values !== 'undefined' && values !== '') {
                         args = values.split(';');
                     }
-                    load_page(args);
+                    let id = '';
+                    if (idFilter === 'input_city') {
+                        id = 'city'
+                    } else {
+                        id = 'sector'
+                    }
+                    load_page(args, id);
                 } else {
                     alert("Si vous voulez ajouter une ville ou un secteur vous devez deja en supprimer une.")
                 }
             });
     }
 }
-
 
 function add_filter_block(idInput, data) {
     let input = document.getElementById(idInput);

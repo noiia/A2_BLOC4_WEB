@@ -35,9 +35,9 @@ class CompanyStatsController
         if ($search[0] === 'city') {
             $entity = $this->entityManager->getRepository(Location::class)->findOneBy(['City' => $search[1]]);
             $data = ['id' => $entity->getIDLocation(), 'name' => $entity->getCity()];
-        } else if ($search[1] === 'sector') {
+        } else if ($search[0] === 'sector') {
             $entity = $this->entityManager->getRepository(Sector::class)->findOneBy(['Name' => $search[1]]);
-            $data = ['id' => $entity->getIDCompany(), 'name' => $entity->getName()];
+            $data = ['id' => $entity->getIDSector(), 'name' => $entity->getName()];
         }
         if ($entity != null) {
             $payload = json_encode($data);
