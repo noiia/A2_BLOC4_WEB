@@ -6,6 +6,7 @@ use App\Entity\Company;
 use App\Entity\Location;
 use App\Entity\Rate;
 use App\Entity\Sector;
+use App\Entity\Skills;
 use App\Entity\Users;
 use DateTimeZone;
 use Psr\Container\ContainerInterface;
@@ -28,6 +29,7 @@ class CompanyController
 
     public function Company(Request $request, Response $response): Response
     {
+        $userSession = $request->getAttribute("user");
         $params = $request->getQueryParams();
         $criteria = Criteria::create();
         $list = ["locations" => 'O', "Name" => 'C', "ID_company" => 'E'];
@@ -108,7 +110,6 @@ class CompanyController
         }
 
         $runwayBubbles = [];
-        $sixSkills = [];
         if ($companies) {
             foreach ($companies as $forCompany) {
                 $threeSectors = [];
@@ -143,9 +144,16 @@ class CompanyController
                     ];
             }
         }
+        $name[] = [
+            'name' => $userSession->getName(),
+            'surname' => $userSession->getSurname()
+        ];
+        $role = $userSession->getRole();
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
+            'names' => $name,
+            'role' => $role
         ]);
     }
 

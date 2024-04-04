@@ -39,7 +39,7 @@ function loadCompanyBubbleData(id = 1) {
             for (let internship of data.internship) {
                 const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
                 cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
-                cloneInternshipTemplate.getElementById("internship-location").textContent = "site de : " + internship.location;
+                cloneInternshipTemplate.getElementById("internship-location").textContent = "Site de : " + internship.location;
                 cloneInternshipTemplate.getElementById("internship-starting-date").textContent = "A partir du " + internship.starting_date;
                 cloneInternshipTemplate.getElementById("internship-duration").textContent = internship.duration + " semaines";
                 internshipContainer.append(cloneInternshipTemplate);
@@ -47,13 +47,27 @@ function loadCompanyBubbleData(id = 1) {
                 const skillTemplate = document.getElementById("skills-template");
                 const skillContainer = document.getElementById("skills-container");
 
-                //faire un modulo 3 pour afficher 3 skills dans chaque stage
+                // Initialiser un compteur pour limiter le nombre de compétences affichées à trois
+                let skillCount = 0;
+
+                // Parcourir les compétences du stage actuel
                 for (let skill of internship.skill) {
-                    const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
-                    cloneSkillTemplate.getElementById("skills").textContent = skill;
-                    skillContainer.append(cloneSkillTemplate);
+                    // Vérifier si le nombre de compétences affichées est inférieur à trois
+                    if (skillCount < 3) {
+                        // Cloner le template de compétence et l'ajouter au conteneur de compétences
+                        const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
+                        cloneSkillTemplate.getElementById("skills").textContent = skill;
+                        skillContainer.append(cloneSkillTemplate);
+
+                        // Incrémenter le compteur de compétences
+                        skillCount++;
+                    } else {
+                        // Sortir de la boucle si trois compétences ont été affichées
+                        break;
+                    }
                 }
             }
+
             for (let comment of data.comment) {
                 const cloneCommentTemplate = commentTemplate.content.cloneNode(true);
                 cloneCommentTemplate.getElementById("comment-user").textContent = comment.user + " - " + comment.note + "/10";
