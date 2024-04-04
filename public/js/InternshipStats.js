@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    load_page()
+});
+
 function del_filter_block_internshipStats(event = Event, idInput) {
     event.currentTarget.hidden = true;
     let input = document.getElementById(idInput);
@@ -57,7 +61,6 @@ function add_filter_block(idInput, data) {
 }
 
 function load_page(filtre = []) {
-    //filtre = [1, 5, 4];
     let lien = "https://inter-net.loc/StatistiquesStages/api/";
     if (filtre.length === 0) {
         lien += "*";
@@ -76,8 +79,7 @@ function load_page(filtre = []) {
         .then((data) => {
             //format -> {tot:26, stages:{'JS':[stage1, stage2, ...], 'PHP':[stage2, stage9, ...]}; /!\ peut avoir le même dans JS et PHP
             //svg + nb sous filtre
-            document.getElementById('mapSvg').src = "public/images/svg/Carte_remplie_départements_français.svg?timestamp=" + new Date().getTime();
-            console.log(document.getElementById('mapSvg').src);
+            document.getElementById('mapSvg').src = "public/images/svg/Carte_remplie_departements_français_locations.svg?timestamp=" + new Date().getTime();
             document.getElementById('var-nb_stages').textContent = data.total;
             //camambert data
             let pieChartMap = new Map();
@@ -89,10 +91,6 @@ function load_page(filtre = []) {
             let i = 2;
             while (pieChartArray.slice(0, i).map((x) => x[1]).reduce((a, b) => a + b, 0) < 0.85 * data.total && i <= pieChartArray.length) {
                 i++;
-            }
-            let j = pieChartArray.length;
-            while (j > i) {
-                j -= 1;
             }
             let autre = data.total - pieChartArray.map((x) => x[1]).reduce((a, b) => a + b, 0);
             pieChartArray.push(['Autres', autre]);
@@ -255,6 +253,4 @@ function load_page(filtre = []) {
             });
         })
 }
-
-
 

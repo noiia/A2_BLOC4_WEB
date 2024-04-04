@@ -31,8 +31,6 @@ class InternshipStatsController
         $entity = $this->entityManager->getRepository(Skills::class)->findOneBy(['Name' => $arg]);
         if ($entity != null) {
             $data = ['id' => $entity->getIDSkills(), 'name' => $entity->getName(),];
-        }
-        if ($entity != null) {
             $payload = json_encode($data);
             $response->getBody()->write($payload);
             return $response->withHeader('Content-Type', 'application/json');
@@ -110,13 +108,13 @@ class InternshipStatsController
             $locations
         ));
         $total = array_sum($depToNbInternship);
-        $svg = simplexml_load_file('../public/images/svg/Carte_vierge_départements_français.svg');
+        $svg = simplexml_load_file('../public/images/svg/Carte_vierge_departements_français.svg');
         foreach ($depToNbInternship as $dep => $nb) {
             $mapDep = $svg->xpath('//*[@id="dep' . $dep . '"]')[0];
             $mapDep['fill'] = $GREEN;
-            $mapDep['fill-opacity'] = ($nb / $total) * 5;
+            $mapDep['fill-opacity'] = ($nb / $total) * 5; // 2% de stage = 100% d'opacity
         }
-        $svg->asXML('../public/images/svg/Carte_remplie_départements_français.svg');
+        $svg->asXML('../public/images/svg/Carte_remplie_departements_français_locations.svg');
         // fin svg
     }
 

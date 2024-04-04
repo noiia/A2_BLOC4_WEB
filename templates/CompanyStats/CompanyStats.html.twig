@@ -3,6 +3,7 @@
 {% block stylesheet %}
     <link href='css/OutputCompanyStats.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
+<script type="text/javascript" src='https://code.highcharts.com/highcharts.js'></script>
 <script src='js/CompanyStats.js'></script>
 {% endblock %}
 {% block Statistics %}
@@ -16,55 +17,85 @@
     <div class="full-runway">
         <div class="both-container-stats">
             <div class="left-container-stats">
-                <div class="left-container-actual-stats">
-                    <p>Stats</p>
-                </div>
+                <div class="left-container-actual-stats" id="graph-city"></div>
                 <div class="left-container-search">
-                    <div class="left-container-search-name">
-                        <h1>Villes:</h1>
+                    <div class="filter-block_search-top">
+                        <p>Villes :</p>
+                        <div class="search_bar">
+                            <input type="search" id="input_city" placeholder="Rechercher"
+                                   onkeydown="load_filter(event, 'input_city');" data-children='city'>
+                            <button type="button" onclick="load_filter(event, 'input_city');"><img
+                                        src="images/Icones/logo_seul.png" alt="V"/></button>
+                        </div>
                     </div>
-                    <div class="left-container-search-bar">
-                        <input type="search" placeholder="Rechercher">
-                        <button type="button">
-                            <img src="images/Icones/logo_seul.png" alt="V">
-                        </button>
+                    <div class="filter-block_search-bot">
+                        <div id="city0" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="city1" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="city2" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="city3" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="city4" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="city5" hidden onclick="del_filter_block_internshipStats(event, 'input_city')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
                     </div>
-                    <div class="left-container-search-cities">
-                        <ul>
-                            <li>Ville 1</li>
-                            <li>Ville 2</li>
-                        </ul>
-                        <ul>
-                            <li>Ville 3</li>
-                            <li>Ville 4</li>
-                        </ul>
-                    </div>
+                    <p id="nb_stages"><b id="var-nb_stages">0</b> entreprises dans ces villes</p>
                 </div>
             </div>
             <div class="right-container-stats">
-                <div class="right-container-actual-stats">
-                    <p>Stats</p>
-                </div>
+                <img class="right-container-actual-stats" id="map-sector" src=""></img>
                 <div class="right-container-search">
-                    <div class="right-container-search-name">
-                        <h1>Secteurs d'activité:</h1>
+                    <div class="filter-block_search-top">
+                        <p>Secteurs d'activités :</p>
+                        <div class="search_bar">
+                            <input type="search" id="input_sector" placeholder="Rechercher"
+                                   onkeydown="load_filter(event, 'input_sector');" data-children='sect'>
+                            <button type="button" onclick="load_filter(event, 'input_sector');"><img
+                                        src="images/Icones/logo_seul.png" alt="V"/></button>
+                        </div>
                     </div>
-                    <div class="right-container-search-bar">
-                        <input type="search" placeholder="Rechercher">
-                        <button type="button">
-                            <img src="images/Icones/logo_seul.png" alt="V">
-                        </button>
+                    <div class="filter-block_search-bot">
+                        <div id="sect0" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="sect1" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="sect2" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="sect3" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="sect4" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="sect5" hidden onclick="del_filter_block_internshipStats(event, 'input_sector')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
                     </div>
-                    <div class="right-container-search-sectors">
-                        <ul>
-                            <li>Secteur 1</li>
-                            <li>Secteur 2</li>
-                        </ul>
-                        <ul>
-                            <li>Secteur 3</li>
-                            <li>Secteur 4</li>
-                        </ul>
-                    </div>
+                    <p id="nb_stages"><b id="var-nb_stages">0</b> entreprises avec ces secteurs d'activités</p>
                 </div>
             </div>
         </div>

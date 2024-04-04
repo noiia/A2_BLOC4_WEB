@@ -65,6 +65,9 @@ return function (App $app) {
         $group->post('Entreprise/addComment', [CompanyController::class, 'addComment']);
 
         $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
+        $group->get('StatistiquesEntreprises/Filtre/{arg}', [CompanyStatsController::class, 'CompanyStatsFilterApi']);
+        $group->get('StatistiquesEntreprises/api/{arg}', [CompanyStatsController::class, 'CompanyStatsApi']);
+
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
         $group->get('StatistiquesStages/Filtre/{arg}', [InternshipStatsController::class, 'InternshipStatsFilterApi']);
         $group->get('StatistiquesStages/api/{arg}', [InternshipStatsController::class, 'InternshipStatsApi']);
