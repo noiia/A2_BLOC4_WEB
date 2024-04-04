@@ -1,4 +1,5 @@
 function loadCompanyBubbleData(id = 1) {
+    console.log("https://inter-net.loc/Entreprise/api/"+id);
     fetch("https://inter-net.loc/Entreprise/api/" + id, {
         method: "GET",
         headers: {
@@ -25,28 +26,16 @@ function loadCompanyBubbleData(id = 1) {
             const miniInternshipTemplate = document.getElementById("mini-internship");
             const sectorTemplate = document.getElementById("sector-template");
             const commentTemplate = document.getElementById("comment-template");
-            const skillTemplate = document.getElementById("skill-template");
             const sectorContainer = document.getElementById("container-company-details-sector-name-list");
             const internshipContainer = document.getElementById("mini-internship-container");
             const commentContainer = document.getElementById("comment-container");
-            const skillContainer = document.getElementById("skill-container");
 
-            console.log(data.sector);
-            i = 0;
             for (let sector of data.sector) {
                 const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
-                console.log(i++);
-                console.log(sector[0]);
-                console.log(sector[1]);
-                cloneSectorTemplate.getElementById("sector-ref-1").textContent = sector[0];
-                if (sector[1] != null) {
-                    cloneSectorTemplate.getElementById("sector-ref-2").textContent = sector[1];
-                } else if (document.getElementById("sector-ref-2").textContent === null) {
-                    document.getElementById("sector-ref-2").remove()
-                    console.log("true");
-                }
+                cloneSectorTemplate.getElementById("sector-ref").textContent = sector;
                 sectorContainer.append(cloneSectorTemplate);
             }
+
             for (let internship of data.internship) {
                 const cloneInternshipTemplate = miniInternshipTemplate.content.cloneNode(true);
                 cloneInternshipTemplate.getElementById("internship-title").textContent = internship.title;
@@ -54,17 +43,22 @@ function loadCompanyBubbleData(id = 1) {
                 cloneInternshipTemplate.getElementById("internship-starting-date").textContent = "A partir du " + internship.starting_date;
                 cloneInternshipTemplate.getElementById("internship-duration").textContent = internship.duration + " semaines";
                 internshipContainer.append(cloneInternshipTemplate);
+
+                const skillTemplate = document.getElementById("skills-template");
+                const skillContainer = document.getElementById("skills-container");
+
+                //faire un modulo 3 pour afficher 3 skills dans chaque stage
+                for(let skill of internship.skill){
+                    const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
+                    cloneSkillTemplate.getElementById("skills").textContent = skill;
+                    skillContainer.append(cloneSkillTemplate);
+                }
             }
             for (let comment of data.comment) {
                 const cloneCommentTemplate = commentTemplate.content.cloneNode(true);
                 cloneCommentTemplate.getElementById("comment-user").textContent = comment.user + " - " + comment.note + "/10";
                 cloneCommentTemplate.getElementById("comment-description").textContent = comment.description;
                 commentContainer.append(cloneCommentTemplate);
-            }
-            for (let skill of data.skill) {
-                const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
-                cloneSkillTemplate.getElementById("skill").textContent = skill.name;
-                skillContainer.append(cloneSkillTemplate);
             }
         });
 }
@@ -74,7 +68,6 @@ var oldElement = 1;
 loadCompanyBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
-    console.log(focusedBubble);
     if (oldElement !== focusedBubble && focusedBubble > 0) {
         document.getElementById("runway-container-intern-details").remove();
         loadCompanyBubbleData(focusedBubble);
@@ -121,3 +114,49 @@ function post_comment() {
             console.error(error);
         });
 }
+
+/* ------------------- PAGINATION ------------------*/
+function updatePage(currentPage, totalPages, companiesPerPage) {
+    var start = (currentPage - 1) * companiesPerPage;
+    var end = start + companiesPerPage;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    buttonsContainer.innerHTML = currentPage + " / " + totalPages;
+
+    var backButton = document.getElementById("id-button-back");
+    if (currentPage === 1) {
+        backButton.disabled = true;
+    } else {
+        backButton.disabled = false;
+        backButton.addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    }
+
+    var nextButton = document.getElementById("id-button-next");
+    if (currentPage === totalPages) {
+        nextButton.disabled = true;
+    } else {
+        nextButton.disabled = false;
+        nextButton.addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    }
+
+    var boutons = document.querySelectorAll('.container');
+    boutons.forEach(function(bouton, index) {
+        if (index >= start && index < end) {
+            bouton.style.display = 'block';
+        } else {
+            bouton.style.display = 'none';
+        }
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var currentPage = 1;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    var totalPages = parseInt(buttonsContainer.getAttribute("data-total-pages"));
+    var companiesPerPage = parseInt(buttonsContainer.getAttribute("data-companies-per-page"));
+
+    updatePage(currentPage, totalPages, companiesPerPage); // Appeler la fonction pour afficher la première page initialement
+
+    document.getElementById("id-button-back").addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    document.getElementById("id-button-next").addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+});

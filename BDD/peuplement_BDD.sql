@@ -437,7 +437,7 @@ insert into seek (ID_internship, ID_skill) values (15, 1);
 insert into seek (ID_internship, ID_skill) values (16, 9);
 insert into seek (ID_internship, ID_skill) values (17, 15);
 insert into seek (ID_internship, ID_skill) values (18, 3);
-insert into seek (ID_internship, ID_skill) values (19, 24);
+insert into seek (ID_internship, ID_skill) values (19, 20);
 insert into seek (ID_internship, ID_skill) values (20, 18);
 insert into seek (ID_internship, ID_skill) values (21, 21);
 insert into seek (ID_internship, ID_skill) values (22, 7);
@@ -467,7 +467,7 @@ insert into seek (ID_internship, ID_skill) values (19, 22);
 insert into seek (ID_internship, ID_skill) values (20, 1);
 insert into seek (ID_internship, ID_skill) values (21, 19);
 insert into seek (ID_internship, ID_skill) values (22, 15);
-insert into seek (ID_internship, ID_skill) values (23, 24);
+insert into seek (ID_internship, ID_skill) values (23, 25);
 insert into seek (ID_internship, ID_skill) values (24, 5);
 insert into seek (ID_internship, ID_skill) values (25, 4);
 

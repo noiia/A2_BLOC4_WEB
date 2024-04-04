@@ -13,9 +13,8 @@ function focus_container(id) {
     }
 }
 
+// ------------------ parti Welcome/Entreprise ----------------
 
-// ------------------ parti Welcome/Entreprise ----------------
-// ------------------ parti Welcome/Entreprise ----------------
 window.onscroll = function () {
     afficherOuMasquerBouton();
 };
@@ -25,15 +24,36 @@ function afficherOuMasquerBouton() {
     var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
 
     if (document.documentElement.scrollTop < 115) {
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
         boutonRetourHaut.classList.add('display-none');
-        boutonRetourHaut.classList.remove('retourHaut');
         runwayContainerInternDetails.classList.add('runway-container-intern-details');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details-fixed');
-    } else {
+    } else if (115 < document.documentElement.scrollTop && document.documentElement.scrollTop < 2500) {
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
         boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
         runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details');
+    } else if (document.documentElement.scrollTop > 2500) {
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
+        boutonRetourHaut.classList.add('retourHaut-bot');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
     }
 }
 
@@ -89,23 +109,21 @@ function del_filter_block(event = Event, idInput) {
     values.join(';');
     input.dataset.values = values;
 }
-//diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
 
 // ------------------ parti gestion ---------------------
-function toggle_menu(){
+function toggle_menu() {
     document.querySelector(".main_left").classList.toggle('mobile-menu');
     document.querySelector("#close_menu").classList.toggle('display-cross');
 }
-function toggle_delete(){
-    if (container_focus !== null){
+
+function toggle_delete() {
+    if (container_focus !== null) {
         document.querySelector(".del_bg").classList.toggle('active-del_block');
     }
 }
 
 function del_current_container() {
     document.getElementById(container_focus).classList.add('del_current_container');
-    console.log(container_focus + " à été supprimé");
-    //suprimer dans la bdd
     toggle_delete();
     container_focus = null;
 }
@@ -172,7 +190,7 @@ function valid_promotion(isCompany = false) {
 }
 
 
-// -------------------- fin parti gestion ------------------- //
+// -------------------- fin partie gestion ------------------- //
 
 function formatDatabaseDate(databaseDate) {
     var data = databaseDate;

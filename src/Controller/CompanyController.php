@@ -3,15 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Company;
-use App\Entity\Location;
-use App\Entity\Promotion;
 use App\Entity\Rate;
 use App\Entity\Users;
-use DateTimeZone;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Views\Twig;
 
 class CompanyController
 {
@@ -80,24 +78,17 @@ class CompanyController
     public function CompanyApi(Request $request, Response $response, int $id)
     {
         $company = $this->entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $id]);
+
+
         $m = 0;
         $Sectors = [];
-        $second = null;
         foreach ($company->getSector() as $sector) {
+            $m++;
             if ($m <= 6) {
-                $m++;
-                if ($m % 2 != 0) {
-                    $second = $sector->getName();
-                } else if ($m % 2 == 0 && $second != null) {
-                    $Sectors[] = [$sector->getName(), $second];
-                    $second = null;
-                }
+                $Sectors[] = $sector->getName();
             } else {
                 break;
             }
-        }
-        if ($second != null) {
-            $Sectors[] = [$second];
         }
         $Internships = [];
         $i = 0;
@@ -109,7 +100,11 @@ class CompanyController
                     'location' => $internship->locations->getCity(),
                     'starting_date' => $internship->getStartingDate(),
                     'duration' => $internship->getDuration(),
+                    'skill'=>array_slice(array_map(function ($element){
+                        return $element->getName();
+                    },$internship->getSkills()->toArray()), 0,3)
                 ];
+
         }
 
         $j = 0;
