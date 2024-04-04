@@ -3,10 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Location;
 use App\Entity\Rate;
+use App\Entity\Sector;
 use App\Entity\Users;
+use DateTimeZone;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
+use Doctrine\Common\Collections\Criteria;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
@@ -24,8 +28,84 @@ class CompanyController
 
     public function Company(Request $request, Response $response): Response
     {
-        $user = $request->getAttribute("user");
-        $companies = $this->entityManager->getRepository(Company::class)->findAll();
+        $params = $request->getQueryParams();
+        $criteria = Criteria::create();
+        $list = ["locations" => 'O', "Name" => 'C', "ID_company" => 'E'];
+
+        foreach ($list as $item => $value) {
+            if (array_key_exists($item, $params)) {
+                $mm = explode(';', $params[$item]);
+                if ($value === 'O') {
+                    $array = array();
+                    $class = ['locations' => Location::class][$item];
+                    foreach ($mm as $v) {
+                        array_push($array, Criteria::expr()->eq($item, $this->entityManager->find($class, $v)));
+                    }
+                    $criteria->andWhere(Criteria::expr()->orX(...$array));
+                } elseif ($value === 'C') {
+                    $criteria->andWhere(Criteria::expr()->contains($item, '%' . $params[$item] . '%'));
+                } elseif ($value === 'E') {
+                    $criteria->andWhere(Criteria::expr()->eq($item, $params[$item]));
+                }
+            }
+        }
+
+        $companies = $this->entityManager->getRepository(Company::class)->matching($criteria);
+        //nb d'etudiants recu
+        if (array_key_exists("sector", $params)) {
+            foreach ($companies as $company) {
+                $have = false;
+                foreach (explode(';', $params['skills']) as $skillID) {
+                    if ($company->getSkills()->contains($this->entityManager->find(Skills::class, $skillID))) {
+                        $have = true;
+                        break;
+                    }
+                }
+                if (!$have) {
+                    $companies->removeElement($company);
+                }
+            }
+        }
+        if (array_key_exists("rates", $params)) {
+            foreach ($companies as $company) {
+                $avg = array_map(function ($element) {
+                    return $element->getNote();
+                }, $company->getRates()->toArray());
+                if (array_sum($avg) / count($avg) <= $params['rates']) {
+                    $companies->removeElement($company);
+                }
+            }
+        }
+        if (array_key_exists("users", $params)) {
+            $mm = explode(';', $params['users']);
+            if ($mm[0] === '') {
+                $mm[0] = 0;
+            } else {
+                $mm[0] = (int)$mm[0];
+            }
+            if ($mm[1] === '') {
+                $mm[1] = INF;
+            } else {
+                $mm[1] = (int)$mm[1];
+            }
+            var_dump($mm);
+            foreach ($companies as $company) {
+                //compte le nb de students ayant ete dans l'entreprise
+                $nbStudents = array_sum($company->getInternship()->map(function ($element) {//tous les stages dans l'entreprise
+                    return array_sum($element->getAppliementWishlist()->map(function ($element) {//tous les postulants des stags
+                        if ($element->getStatus() === 2 || $element->getStatus() === 4) {
+                            return 1;
+                        }//ceux qui sont ou ont ete dans le stage
+                        else {
+                            return 0;
+                        }
+                    })->toArray());//met en array pour faire la somme
+                })->toArray());//met en array pour faire la somme
+                if ($nbStudents < $mm[0] || $nbStudents > $mm[1]) {
+                    $companies->removeElement($company);
+                }
+            }
+        }
 
         $runwayBubbles = [];
         $sixSkills = [];
@@ -63,15 +143,9 @@ class CompanyController
                     ];
             }
         }
-        $name[] = [
-            'name' => $user->getName(),
-            'surname' => $user->getSurname()
-        ];
-        $role = $user->getRole();
-        return $this->twig->render($response, 'Company/Company.html.twig', [
+        $view = Twig::fromRequest($request);
+        return $view->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
-            'names' => $name,
-            'role' => $role,
         ]);
     }
 
@@ -100,9 +174,9 @@ class CompanyController
                     'location' => $internship->locations->getCity(),
                     'starting_date' => $internship->getStartingDate(),
                     'duration' => $internship->getDuration(),
-                    'skill'=>array_slice(array_map(function ($element){
+                    'skill' => array_slice(array_map(function ($element) {
                         return $element->getName();
-                    },$internship->getSkills()->toArray()), 0,3)
+                    }, $internship->getSkills()->toArray()), 0, 3)
                 ];
 
         }
@@ -160,6 +234,30 @@ class CompanyController
             return $response->withHeader('Content-Type', 'application/json');
         } else {
             return $response->withStatus(404)->getBody()->write('Entreprise introuvable');
+        }
+    }
+
+    public function CompanyFilterApi(Request $request, Response $response, string $arg)
+    {
+        $search = explode('=', $arg);
+        $entity = null;
+        if ($search[0] === 'locations') {
+            $entity = $this->entityManager->getRepository(Location::class)->findOneBy(['City' => $search[1]]);
+            if ($entity != null) {
+                $data = ['id' => $entity->getIDLocation(), 'name' => $entity->getCity()];
+            }
+        } elseif ($search[0] === 'sector') {
+            $entity = $this->entityManager->getRepository(Sector::class)->findOneBy(['Name' => $search[1]]);
+            if ($entity != null) {
+                $data = ['id' => $entity->getIDCompany(), 'name' => $entity->getName()];
+            }
+        }
+        if ($entity != null) {
+            $payload = json_encode($data);
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('entitee introuvable');
         }
     }
 
@@ -268,7 +366,8 @@ class CompanyController
         if ($this->entityManager->getRepository(Company::class)->findOneBy(["SIRET" => $table["SIRET"]]) == null) {
             $company = new Company();
         } else {
-            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["ID_company" => $table["SIRET"]]);
+            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["SIRET" => $table["SIRET"]]);
+            var_dump("company trouvée, id :" . $company->getIDCompany());
         }
 
         $company->setName($table['name']);

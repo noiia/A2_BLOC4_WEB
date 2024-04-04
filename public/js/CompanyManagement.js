@@ -223,11 +223,13 @@ function editCompany() {
             console.log(data);
             document.getElementById("add-Name").value = data.company;
             document.getElementById("N-Siret").value = data.SIRET;
-            document.getElementById("add-email").value = data.sector;
-            document.getElementById("id-input-creation-date").value = data.birthdate;
+            document.getElementById("select-sector").value = data.sector;
+            document.getElementById("add-email").value = data.email;
+            document.getElementById("id-input-creation-date").value = formatDTPDate(data.birthdate.date);
             document.getElementById("add-staff").value = data.staff;
             document.getElementById("select-type").value = data.type;
             document.getElementById("add-website").value = data.website;
+            document.getElementById("add-id-company").value = data.id;
             document.getElementById("add-description").value = data.description;
 
         });
