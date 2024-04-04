@@ -66,6 +66,18 @@ return function (App $app) {
         $group->get('Postulation', [\App\Controller\PostulationController::class, 'Postulation']);
 
         $group->get('InternshipManagement', [\App\Controller\InternshipManagementController::class, 'InternshipManagement']);
+        $group->get('InternshipManagement/api/{id}', [\App\Controller\InternshipManagementController::class, 'InternshipManagementApi']);
+        $group->post('InternshipManagement/add', [\App\Controller\InternshipManagementController::class, 'addInternshipManagement']);
+        $group->patch('InternshipManagement/delete/{id}', [\App\Controller\InternshipManagementController::class, 'delInternshipManagement']);
+        $group->patch('InternshipManagement/edit', [\App\Controller\InternshipManagementController::class, 'updateInternshipManagement']);
+
+        $group->get('Edition/Etudiants', [\App\Controller\StudentsController::class, 'Students']);
+        $group->get('Edition/Etudiants/api/{id}', [\App\Controller\StudentsController::class, 'StudentsApi']);
+        $group->post('Edition/Etudiants/add', [\App\Controller\StudentsController::class, 'addStudents']);
+        $group->post('Edition/Etudiants/addPicture', [\App\Controller\StudentsController::class, 'uploadPicture']);
+        $group->patch('Edition/Etudiants/edit', [\App\Controller\StudentsController::class, 'updateStudents']);
+        $group->patch('Edition/Etudiants/delete/{id}', [\App\Controller\StudentsController::class, 'delStudents']);
+        $group->get('Edition/Etudiants/location/{id}', [\App\Controller\StudentsController::class, 'locatePromotion']);
 
     })->add($authMiddleware);
 };

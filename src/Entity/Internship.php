@@ -64,6 +64,17 @@ class Internship
         return $this->skills;
     }
 
+    public function getSkillsAsString(): string
+    {
+        $skillsAsString = '';
+        foreach ($this->skills as $skill) {
+            $skillsAsString .= $skill->getName() . "\n";
+        }
+        return $skillsAsString;
+    }
+
+
+
     #[ManyToOne(targetEntity: Company::class, inversedBy: "internships")]
     #[JoinColumn(name: "ID_company", referencedColumnName: "ID_company")]
     public ?Company $companies;

@@ -682,7 +682,7 @@ body::-webkit-scrollbar-track:hover{
 
 /* --------------------- FIN SCROLLBARS-------------------- */
 
-/* ---------------------Onglet à gauche -------------------*/
+/* ---------------------Onglet Ã  gauche -------------------*/
 
 .main_left{
     position: fixed;
@@ -886,7 +886,7 @@ body::-webkit-scrollbar-track:hover{
     }
 }
 
-/* ----------- list à gauche ------------------*/
+/* ----------- list Ã  gauche ------------------*/
 
 .search_list-internships{
     display: flex;
@@ -1112,9 +1112,9 @@ body::-webkit-scrollbar-track:hover{
     display: none;
 }
 
-/* --------------- fin liste à gauche --------------------*/
+/* --------------- fin liste Ã  gauche --------------------*/
 
-/* --------------- profil à droite --------------------*/
+/* --------------- profil Ã  droite --------------------*/
 
 .btn_edit{
     margin-bottom: 1rem;
@@ -1169,7 +1169,7 @@ body::-webkit-scrollbar-track:hover{
 .profile_block{
     height: 434px;
     display: flex;
-    flex: 1 1 0;
+    flex: 1 1 0%;
     flex-direction: column;
     --tw-bg-opacity: 1;
     background-color: rgb(148 198 118 / var(--tw-bg-opacity));
@@ -1341,7 +1341,7 @@ body::-webkit-scrollbar-track:hover{
     filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-/* --------------- fin profil à droite --------------------*/
+/* --------------- fin profil Ã  droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
 
