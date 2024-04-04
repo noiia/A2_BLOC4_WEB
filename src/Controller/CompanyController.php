@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Location;
 use App\Entity\Rate;
 use App\Entity\Users;
+use DateTimeZone;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -100,9 +102,9 @@ class CompanyController
                     'location' => $internship->locations->getCity(),
                     'starting_date' => $internship->getStartingDate(),
                     'duration' => $internship->getDuration(),
-                    'skill'=>array_slice(array_map(function ($element){
+                    'skill' => array_slice(array_map(function ($element) {
                         return $element->getName();
-                    },$internship->getSkills()->toArray()), 0,3)
+                    }, $internship->getSkills()->toArray()), 0, 3)
                 ];
 
         }
@@ -268,7 +270,8 @@ class CompanyController
         if ($this->entityManager->getRepository(Company::class)->findOneBy(["SIRET" => $table["SIRET"]]) == null) {
             $company = new Company();
         } else {
-            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["ID_company" => $table["SIRET"]]);
+            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["SIRET" => $table["SIRET"]]);
+            var_dump("company trouvée, id :" . $company->getIDCompany());
         }
 
         $company->setName($table['name']);

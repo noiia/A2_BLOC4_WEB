@@ -199,3 +199,11 @@ function formatDatabaseDate(databaseDate) {
     const day = Number(data[8] + data[9]);
     return `${day}-${month}-${year}`;
 }
+
+function formatDTPDate(databaseDate) {
+    var data = databaseDate;
+    const year = data[0] + data[1] + data[2] + data[3];
+    const month = data[5] + data[6];
+    const day = data[8] + data[9];
+    return `${year}-${month}-${day}`;
+}
