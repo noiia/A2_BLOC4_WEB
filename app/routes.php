@@ -73,6 +73,7 @@ return function (App $app) {
         $group->get('Edition/Entreprises/mini-api', [CompanyController::class, 'miniCompanyManagementApi']);
         $group->get('Edition/Entreprises/api/{id}', [CompanyController::class, 'CompanyManagementApi']);
         $group->post('Edition/Entreprises/add', [CompanyController::class, 'addCompany']);
+        $group->patch('Edition/Entreprises/delete/{id}', [CompanyController::class, 'delCompany']);
 
         $group->post('Edition/Location/add', [LocationController::class, 'addLocation']);
         $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);

@@ -16,7 +16,8 @@
         <div class="search_list-companies" id="container-runway">
             <div class="search_bar">
                 <input type="search" placeholder="Rechercher" id="general-search_bar">
-                <button type="button" id="general-button_search"><img src="../images/Icones/logo_seul.png" alt="V"/>
+                <button type="button" id="general-button_search"><img
+                            src="../images/Icones/logo_seul.png" alt="V"/>
                 </button>
             </div>
             <template id="mini-company-template">
@@ -25,7 +26,7 @@
             <div class="list-companies second-scrollbar" id="company-runway">
                 <div class="add-del">
                     <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
-                    <button id="delete" onclick="toggle_delete();"><img
+                    <button id="delete" onclick="toggle_delete(); delCompany()"><img
                                 src="../images/Icones/poubelle-de-recyclage.png">
                     </button>
                 </div>

@@ -202,7 +202,7 @@ class CompanyController
 
     public function miniCompanyManagementApi(Request $request, Response $response): Response
     {
-        $Company = $this->entityManager->getRepository(Company::class)->findAll();
+        $Company = $this->entityManager->getRepository(Company::class)->findBy(['Del' => 0]);
 
         $companies = [];
         foreach ($Company as $forCompanies) {
@@ -300,9 +300,9 @@ class CompanyController
 
     function delCompany(Request $request, Response $response, int $id)
     {
-        $student = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $id]);
-        $student->setDel(1);
-        $this->entityManager->persist($student);
+        $company = $this->entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $id]);
+        $company->setDel(1);
+        $this->entityManager->persist($company);
         $this->entityManager->flush();
         $response->getBody()->write("Company deleted successfully");
         return $response;

@@ -233,10 +233,10 @@ function editProfile() {
         });
 }
 
-function delProfile() {
-    var id = document.getElementById("students-profile-id_user").textContent;
-
-    fetch("https://inter-net.loc/Edition/Etudiants/delete/" + id, {
+function delCompany() {
+    var id = document.getElementById("company-ID").textContent;
+    console.log(id);
+    fetch("https://inter-net.loc/Edition/Entreprises/delete/" + id, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
