@@ -29,6 +29,7 @@ class InternshipController
 
     public function Welcome(Request $request, Response $response): Response
     {
+        $userSession = $request->getAttribute("user");
         //chercher quelle filtre est actif
         $params = $request->getQueryParams();
         $criteria = Criteria::create();
@@ -109,9 +110,17 @@ class InternshipController
                     ];
             }
         }
+        $name[] = [
+            'name' => $userSession->getName(),
+            'surname' => $userSession->getSurname()
+        ];
+        $role = $userSession->getRole();
+
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
+            'names' => $name,
+            'role' => $role
         ]);
     }
 

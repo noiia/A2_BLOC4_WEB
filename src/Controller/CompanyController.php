@@ -6,6 +6,7 @@ use App\Entity\Company;
 use App\Entity\Location;
 use App\Entity\Rate;
 use App\Entity\Sector;
+use App\Entity\Skills;
 use App\Entity\Users;
 use DateTimeZone;
 use Psr\Container\ContainerInterface;
@@ -28,6 +29,8 @@ class CompanyController
 
     public function Company(Request $request, Response $response): Response
     {
+        $userSession = $request->getAttribute("user");
+
         $params = $request->getQueryParams();
         $criteria = Criteria::create();
         $list = ["locations" => 'O', "Name" => 'C', "ID_company" => 'E'];
@@ -88,7 +91,6 @@ class CompanyController
             } else {
                 $mm[1] = (int)$mm[1];
             }
-            var_dump($mm);
             foreach ($companies as $company) {
                 //compte le nb de students ayant ete dans l'entreprise
                 $nbStudents = array_sum($company->getInternship()->map(function ($element) {//tous les stages dans l'entreprise
@@ -108,7 +110,6 @@ class CompanyController
         }
 
         $runwayBubbles = [];
-        $sixSkills = [];
         if ($companies) {
             foreach ($companies as $forCompany) {
                 $threeSectors = [];
@@ -146,9 +147,18 @@ class CompanyController
                     ];
             }
         }
+
+        $name[] = [
+            'name' => $userSession->getName(),
+            'surname' => $userSession->getSurname()
+        ];
+        $role = $userSession->getRole();
+
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Company/Company.html.twig', [
             'companies' => $runwayBubbles,
+            'names' => $name,
+            'role' => $role
         ]);
     }
 
