@@ -1,3 +1,52 @@
+//filtre
+
+function submitFilter(event = Event) {
+    let url = [];
+    const filters_html = ["input_localite", "input_skills", "input_company"];
+    const filters_url = ["locations", "skills", "companies"];
+    const filters2_url = new Map([['Duration', '-duration_internship'], ['Max_places', '-max_places'], ['Hourly_rate', '-hourly_rate'], ['Starting_date', '_start_internship']]);
+    if (document.getElementById("general-search_bar").value !== '') {
+        url.push('Title=' + document.getElementById("general-search_bar").value);
+    }
+    for (let f in filters_html) {
+        let args = [];
+        let values = document.getElementById(filters_html[f]).dataset.values;
+        if (typeof values !== 'undefined' && values !== '') {
+            args = document.getElementById(filters_html[f]).dataset.values.split(';');
+            url.push(filters_url[f] + '=' + args.join(';'));
+        }
+    }
+    for (let [k, v] of filters2_url) {
+        let min = document.getElementById('minimum' + v).value;
+        let max = document.getElementById('maximum' + v).value;
+        if (max !== '' || min !== '') {
+            url.push(k + '=' + min + ';' + max);
+        }
+    }
+    console.log(url);
+    document.location.href = '?' + url.join('&');
+}
+
+function load_filter(event = Event, idFilter = '') {
+    if (event.key === 'Enter' || event instanceof PointerEvent) {
+        const idToName = new Map([["input_localite", 'locations'], ['input_company', 'companies'], ['input_skills', 'Skills']]);
+        let input = document.getElementById(idFilter);
+        fetch("https://inter-net.loc/Stage/Filtre/" + idToName.get(idFilter) + '=' + input.value, {
+            method: "GET",
+            headers: {"Content-Type": "application/json",},
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                for (let [id, name] of idToName) {
+                    if (idFilter === id) {
+                        add_filter_block(idFilter, data);
+                        break;
+                    }
+                }
+            });
+    }
+}
+
 function input_filter() {
     document.getElementById("rangeValue").textContent = "Bac+" + document.getElementById("rangeInput").value;
 }

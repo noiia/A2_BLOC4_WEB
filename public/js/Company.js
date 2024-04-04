@@ -1,5 +1,5 @@
 function loadCompanyBubbleData(id = 1) {
-    console.log("https://inter-net.loc/Entreprise/api/"+id);
+    console.log("https://inter-net.loc/Entreprise/api/" + id);
     fetch("https://inter-net.loc/Entreprise/api/" + id, {
         method: "GET",
         headers: {
@@ -48,7 +48,7 @@ function loadCompanyBubbleData(id = 1) {
                 const skillContainer = document.getElementById("skills-container");
 
                 //faire un modulo 3 pour afficher 3 skills dans chaque stage
-                for(let skill of internship.skill){
+                for (let skill of internship.skill) {
                     const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
                     cloneSkillTemplate.getElementById("skills").textContent = skill;
                     skillContainer.append(cloneSkillTemplate);
@@ -75,10 +75,63 @@ addEventListener("click", (event) => {
     }
 });
 
+//filtre
+
+function load_filter(event = Event, idFilter = '') {
+    if (event.key === 'Enter' || event instanceof PointerEvent) {
+        const idToName = new Map([["input_localite", 'locations'], ['input_activity', 'sector']]);
+        let input = document.getElementById(idFilter);
+        console.log(idToName.get(idFilter));
+        fetch("https://inter-net.loc/Entreprise/Filtre/" + idToName.get(idFilter) + '=' + input.value, {
+            method: "GET",
+            headers: {"Content-Type": "application/json",},
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                for (let [id, name] of idToName) {
+                    if (idFilter === id) {
+                        add_filter_block(idFilter, data);
+                        break;
+                    }
+                }
+            });
+    }
+}
+
 function input_filter() {
     document.getElementById("rangeValue").textContent = document.getElementById("rangeInput").value + "/10";
 }
 
+function submitFilter(event = Event) {
+    let url = [];
+    const filters_html = ["input_localite", "input_activity"];
+    const filters_url = ["locations", "sector"];
+    if (document.getElementById("general-search_bar").value !== '') {
+        url.push('Name=' + document.getElementById("general-search_bar").value);
+    }
+    for (let f in filters_html) {
+        let args = [];
+        let values = document.getElementById(filters_html[f]).dataset.values;
+        if (typeof values !== 'undefined' && values !== '') {
+            args = document.getElementById(filters_html[f]).dataset.values.split(';');
+            url.push(filters_url[f] + '=' + args.join(';'));
+        }
+    }
+    let range = document.getElementById('rangeInput').value;
+    if (range !== '1') {
+        url.push('rates=' + range);
+    }
+
+    let min = document.getElementById('minimum-duration_internship').value;
+    let max = document.getElementById('maximum-duration_internship').value;
+    if (max !== '' || min !== '') {
+        url.push('users=' + min + ';' + max);
+    }
+    console.log(url);
+    document.location.href = '?' + url.join('&');
+}
+
+//fin filtre
 function toggle_bubulle() {
     document.querySelector(".container-intern-details").classList.toggle('close-tab-clicked');
     document.querySelector("body").classList.toggle('mobile-scroll');
@@ -127,7 +180,10 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         backButton.disabled = true;
     } else {
         backButton.disabled = false;
-        backButton.addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
+        backButton.addEventListener("click", function () {
+            currentPage -= 1;
+            updatePage(currentPage, totalPages, companiesPerPage);
+        });
     }
 
     var nextButton = document.getElementById("id-button-next");
@@ -135,11 +191,14 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         nextButton.disabled = true;
     } else {
         nextButton.disabled = false;
-        nextButton.addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+        nextButton.addEventListener("click", function () {
+            currentPage += 1;
+            updatePage(currentPage, totalPages, companiesPerPage);
+        });
     }
 
     var boutons = document.querySelectorAll('.container');
-    boutons.forEach(function(bouton, index) {
+    boutons.forEach(function (bouton, index) {
         if (index >= start && index < end) {
             bouton.style.display = 'block';
         } else {
@@ -149,7 +208,7 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var currentPage = 1;
     var buttonsContainer = document.getElementById("pagination-buttons");
     var totalPages = parseInt(buttonsContainer.getAttribute("data-total-pages"));
@@ -157,6 +216,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     updatePage(currentPage, totalPages, companiesPerPage); // Appeler la fonction pour afficher la première page initialement
 
-    document.getElementById("id-button-back").addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
-    document.getElementById("id-button-next").addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
+    document.getElementById("id-button-back").addEventListener("click", function () {
+        currentPage -= 1;
+        updatePage(currentPage, totalPages, companiesPerPage);
+    });
+    document.getElementById("id-button-next").addEventListener("click", function () {
+        currentPage += 1;
+        updatePage(currentPage, totalPages, companiesPerPage);
+    });
 });
