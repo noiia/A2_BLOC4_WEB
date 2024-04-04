@@ -1,36 +1,3 @@
-$(document).ready(function () {
-    $("#postulation-button_postulation").click(function () {
-        console.log("postulation");
-        var postulationValue = "postulation";
-        var welcomePHP = "Welcome.php";
-        data = {
-            action: postulationValue
-        };
-        $.post(welcomePHP, data, function (response) {
-        })
-    });
-    var Value = "profile";
-    var PHPfiles = "Welcome.php";
-    data = {
-        action: Value
-    };
-    $.post(PHPfiles, data, function (response) {
-        $("#navbar-profile").append(response);
-    });
-})
-
-
-$(document).ready(function () {
-    var Value = "profile";
-    var PHPfiles = "Welcome.php";
-    data = {
-        action: Value
-    };
-    $.post(PHPfiles, data, function (response) {
-        $("#navbar-profile").append(response);
-    });
-});
-
 function input_filter() {
     document.getElementById("rangeValue").textContent = "Bac+" + document.getElementById("rangeInput").value;
 }

@@ -1111,6 +1111,97 @@ body::-webkit-scrollbar-track:hover{
 
 /* -----------------------FIN HEADER------------------------------- */
 
+/* filter */
+
+.search_bar{
+  display: flex;
+  height: 1.75rem;
+  width: 100%;
+}
+
+.search_bar input[type="search"]{
+  margin-right: -5px;
+  display: inline-block;
+  height: 100%;
+  width: 83.333333%;
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+  text-align: center;
+}
+
+.search_bar input[type="search"]:focus{
+  --tw-text-opacity: 1;
+  color: rgb(57 163 37 / var(--tw-text-opacity));
+  outline-width: 0px;
+}
+
+.search_bar button[type="button"]{
+  display: inline-block;
+  height: 100%;
+  width: 16.666667%;
+  border-radius: 0px;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 242 238 / var(--tw-bg-opacity));
+}
+
+.search_bar img{
+  display: inline-block;
+  height: 100%;
+  padding-left: 0.25rem;
+}
+
+.filter-block_search-bot{
+  display: flex;
+  flex: 1 1 0%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.filter-block_search-bot div{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  height: 1.5rem;
+  width: 48%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 203 203 / var(--tw-bg-opacity));
+  text-align: center;
+  img{
+    display: none;
+  }
+}
+
+.filter-block_search-bot div:hover{
+  cursor: pointer;
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 11 11 / var(--tw-bg-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  p{
+    display: none;
+  }
+  img{
+    margin-left: 45%;
+  }
+  img{
+    display: block;
+  }
+  img{
+    height: 100%;
+  }
+}
+
+#nb_stages{
+  position: absolute;
+  bottom: 1rem;
+}
+
 /* ------------------------ DEBUT STATS ----------------------------*/
 
 .full-runway{
@@ -1536,14 +1627,9 @@ body::-webkit-scrollbar-track:hover{
   position: relative;
   height: 100%;
   width: 100%;
-  outline-style: solid;
-  outline-width: 4px;
-  outline-color: #000000;
 }
 
 .france-graph-name{
-  position: absolute;
-  bottom: 0px;
   width: 100%;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;

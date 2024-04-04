@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
@@ -187,5 +186,25 @@ class Internship
     public function setDel(bool $Del): void
     {
         $this->Del = $Del;
+    }
+
+    public function setPromotion(Promotion $promotion): void
+    {
+        $this->promotions = $promotion;
+    }
+
+    public function getPromotion(): Promotion
+    {
+        return $this->promotions;
+    }
+
+    public function setLocation(Location $location): void
+    {
+        $this->locations = $location;
+    }
+
+    public function getLocation(): Location
+    {
+        return $this->locations;
     }
 }

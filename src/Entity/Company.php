@@ -91,6 +91,11 @@ class Company
         $this->sector = new ArrayCollection();
     }
 
+    public function getLocation(): Location
+    {
+        return $this->locations;
+    }
+
     public function setLocations(?Location $locations): void
     {
         $this->locations = $locations;

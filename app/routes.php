@@ -17,7 +17,13 @@ use Psr\Http\Server\RequestHandlerInterface;
 use RKA\Session;
 use Slim\App;
 use Slim\Routing\RouteContext;
+use Slim\Views\Twig;
+use Twig\Loader\FilesystemLoader;
 
+require_once __DIR__ . "/../src/Controller/InternshipController.php";
+
+$loader = new FilesystemLoader(__DIR__ . '/../templates');
+$twig = new Twig($loader);
 $authMiddleware = require_once __DIR__ . '/../src/Application/Middleware/AuthMiddleware.php';
 
 return function (App $app) {
@@ -49,15 +55,23 @@ return function (App $app) {
             Session::destroy();
             return $response->withHeader('Location', '/Login')->withStatus(302);
         });
+
         $group->get('Stage', [InternshipController::class, 'Welcome']);
         $group->get('Stage/{id}', [InternshipController::class, 'InternshipApi']);
+        $group->get('Stage/Filtre/{arg}', [InternshipController::class, 'InternshipFilterApi']);
 
         $group->get('Entreprise', [CompanyController::class, 'Company']);
         $group->get('Entreprise/api/{id}', [CompanyController::class, 'CompanyApi']);
+        $group->get('Entreprise/Filtre/{arg}', [CompanyController::class, 'CompanyFilterApi']);
         $group->post('Entreprise/addComment', [CompanyController::class, 'addComment']);
 
         $group->get('StatistiquesEntreprises', [CompanyStatsController::class, 'CompanyStats']);
+        $group->get('StatistiquesEntreprises/Filtre/{arg}', [CompanyStatsController::class, 'CompanyStatsFilterApi']);
+        $group->get('StatistiquesEntreprises/api/{arg}', [CompanyStatsController::class, 'CompanyStatsApi']);
+
         $group->get('StatistiquesStages', [InternshipStatsController::class, 'InternshipStats']);
+        $group->get('StatistiquesStages/Filtre/{arg}', [InternshipStatsController::class, 'InternshipStatsFilterApi']);
+        $group->get('StatistiquesStages/api/{arg}', [InternshipStatsController::class, 'InternshipStatsApi']);
 
         $group->get('Edition/MonProfil', [ProfileController::class, 'Profil']);
 

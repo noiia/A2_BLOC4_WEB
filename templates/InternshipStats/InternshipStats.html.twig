@@ -3,6 +3,7 @@
 {% block stylesheet %}
     <link href='css/OutputInternshipStats.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
+<script type="text/javascript" src='https://code.highcharts.com/highcharts.js'></script>
 <script src='js/InternshipStats.js'></script>
 {% endblock %}
 {% block Statistics %}
@@ -17,59 +18,54 @@
         <div class="top-container">
             <div class="container-search">
                 <div class="left-container-search">
-                    <div class="left-container-search-name">
-                        <h1>Compétences:</h1>
+                    <div class="filter-block_search-top">
+                        <p>Localité :</p>
+                        <div class="search_bar">
+                            <input type="search" id="input_skills" placeholder="Rechercher"
+                                   onkeydown="load_filter(event, 'input_skills');" data-children='ski'>
+                            <button type="button" onclick="load_filter(event, 'input_skills');"><img
+                                        src="images/Icones/logo_seul.png" alt="V"/></button>
+                        </div>
                     </div>
-                    <div class="left-container-search-bar">
-                        <input type="search" placeholder="Rechercher">
-                        <button type="button">
-                            <img src="images/Icones/logo_seul.png" alt="V">
-                        </button>
+                    <div class="filter-block_search-bot">
+                        <div id="ski0" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski1" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski2" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski3" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski4" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
+                        <div id="ski5" hidden onclick="del_filter_block_internshipStats(event, 'input_skills')">
+                            <p></p>
+                            <img src="images/Icones/croix-supprimer-le-signe.png">
+                        </div>
                     </div>
-                    <div class="left-container-search-cities">
-                        <ul>
-                            <li>Comp 1</li>
-                            <li>Comp 2</li>
-                        </ul>
-                        <ul>
-                            <li>Comp 3</li>
-                            <li>Comp 4</li>
-                        </ul>
-                    </div>
-                    <p>250 stages avec ces compétences</p>
+                    <p id="nb_stages"><b id="var-nb_stages">0</b> stages avec ces compétences</p>
                 </div>
             </div>
-            <div class="container-skills-graph">
-                <div class="skills-graph">
-                    <div class="skills-graph-name">
-                        <p>Répartition des compétences</p>
-                    </div>
-                    <p>Graph camembert</p>
-                </div>
-            </div>
-            <div class="container-internship-time-graph">
-                <div class="internship-time-graph">
-                    <div class="internship-time-graph-name">
-                        <p>Durée du stage</p>
-                    </div>
-                    <p>Graph durée de stage</p>
-                </div>
-            </div>
-            <div class="container-promotions-graph">
-                <div class="promotions-graph">
-                    <div class="promotions-graph-name">
-                        <p>Promotions</p>
-                    </div>
-                    <p>Graphe promotions</p>
-                </div>
-            </div>
+            <div class="container-skills-graph" id="graph-skill"></div>
+            <div class="container-internship-time-graph" id="graph-time"></div>
+            <div class="container-promotions-graph" id="graph-prom"></div>
             <div class="container-france-graph">
                 <div class="france-graph">
                     <div class="france-graph-name">
                         <p>Localités</p>
                     </div>
                     <!-- -->
-                    <img id="mapSvg" src="images/svg/Carte_remplie_départements_français.svg"/>
+                    <img id="mapSvg"/>
                 </div>
             </div>
         </div>
@@ -87,7 +83,7 @@
                                 <p>1</p>
                             </div>
                             <div class="container-company-intern-div-para">
-                                <h1 class="container-h1">Commercial H/F Bac+2</h1>
+                                <h1 class="container-h1">Ceci est une phrase tres tres longue mageule h/F Bac+2</h1>
                                 <p class="container-paragraph">Orange - Reims</p>
                                 <p class="container-paragraph">Début = 31/01/2024</p>
                                 <p class="container-paragraph">3 semaines</p>

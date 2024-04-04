@@ -56,39 +56,48 @@ function toggle_filterMenu() {
 
 // -------- ajouter/enlever fltre
 
-function add_filter_block(event = Event, idInput) {//ids est un tableau
-    var input = document.getElementById(idInput);
-    var ids = JSON.parse(event.currentTarget.dataset.array);
-
-    if (input.value !== "" && (event.key === 'Enter' || event instanceof PointerEvent)) {
-        for (var id in ids) {
-            var li = document.getElementById(ids[id]);
-            if (li.hidden) {
-                var txt = document.querySelector('#' + ids[id] + ' > p');
-                txt.textContent = input.value;
-                input.value = '';
-                li.removeAttribute("hidden");
-                console.log("recherche du filtre: '" + txt.textContent + "' dans " + idInput);
-                break;
+function add_filter_block(idInput, data) {
+    let input = document.getElementById(idInput);
+    let children = input.dataset.children;
+    let i = 0;
+    while (document.getElementById(children + i) !== null) {
+        let li = document.getElementById(children + i);
+        if (li.hidden) {
+            let txt = document.querySelector('#' + children + i + ' > p');
+            txt.textContent = data.name;
+            input.value = '';
+            //input.dataset.values = '';
+            if (input.dataset.values === '' || typeof input.dataset.values == 'undefined') {
+                input.dataset.values = data.id;
+            } else {
+                input.dataset.values = input.dataset.values + ';' + data.id;
             }
+            txt.dataset.value = data.id;
+            li.removeAttribute("hidden");
+            console.log("recherche du filtre: '" + txt.textContent + "' dans " + idInput);
+            break;
         }
+        i++;
     }
 }
 
-function del_filter_block(event = Event) {
+function del_filter_block(event = Event, idInput) {
     event.currentTarget.hidden = true;
+    let input = document.getElementById(idInput);
+    let values = input.dataset.values.split(';');
+    values.splice(values.indexOf(event.currentTarget.dataset.value), 1); //suprime la valeur souhaite
+    values.join(';');
+    input.dataset.values = values;
 }
-
 //diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
 
 // ------------------ parti gestion ---------------------
-function toggle_menu() {
+function toggle_menu(){
     document.querySelector(".main_left").classList.toggle('mobile-menu');
     document.querySelector("#close_menu").classList.toggle('display-cross');
 }
-
-function toggle_delete() {
-    if (container_focus !== null) {
+function toggle_delete(){
+    if (container_focus !== null){
         document.querySelector(".del_bg").classList.toggle('active-del_block');
     }
 }
