@@ -79,7 +79,7 @@ function load_page(filtre = []) {
         .then((data) => {
             //format -> {tot:26, stages:{'JS':[stage1, stage2, ...], 'PHP':[stage2, stage9, ...]}; /!\ peut avoir le même dans JS et PHP
             //svg + nb sous filtre
-            document.getElementById('mapSvg').src = "public/images/svg/Carte_remplie_departements_français_locations.svg?timestamp=" + new Date().getTime();
+            document.getElementById('mapSvg').src = "../images/svg/Carte_remplie_departements_français_locations.svg?timestamp=" + new Date().getTime();
             document.getElementById('var-nb_stages').textContent = data.total;
             //camambert data
             let pieChartMap = new Map();

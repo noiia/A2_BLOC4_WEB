@@ -55,6 +55,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/slim/twig-view" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpmailer/phpmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/akrabat/rka-slim-session-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/slim-bridge" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

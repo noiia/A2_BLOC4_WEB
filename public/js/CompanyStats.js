@@ -96,7 +96,7 @@ function load_page(filtre = [], idFiltre = '') {
             //format ->  /!\ peut avoir le même dans JS et PHP
             if (idFiltre === 'sector' || filtre.length === 0) {
                 console.log('entre bien');
-                document.getElementById('map-sector').src = "public/images/svg/Carte_remplie_departements_français_sectors.svg?timestamp=" + new Date().getTime();
+                document.getElementById('map-sector').src = "../images/svg/Carte_remplie_departements_français_sectors.svg?timestamp=" + new Date().getTime();
                 document.getElementById('var-nb_stages').textContent = data.total;
             }
             if (idFiltre === 'city' || filtre.length === 0) {
