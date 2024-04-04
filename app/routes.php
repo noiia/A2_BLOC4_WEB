@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Controller\CompanyController;
 use App\Controller\CompanyStatsController;
 use App\Controller\InternshipController;
+use App\Controller\InternshipManagementController;
 use App\Controller\InternshipStatsController;
 use App\Controller\LocationController;
 use App\Controller\LoginController;
@@ -93,7 +94,7 @@ return function (App $app) {
         $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
 
 
-        $group->get('Edition/Stages', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Stages', [InternshipManagementController::class, 'InternshipManagement']);
 
         $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
 

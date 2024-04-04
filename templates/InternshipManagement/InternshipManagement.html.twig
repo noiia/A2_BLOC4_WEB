@@ -1,0 +1,233 @@
+{% extends 'profileBase.html.twig' %}
+{% block title %}Inter'net - Gestion des stages{% endblock %}
+{% block stylesheet %}
+    <link href="../css/OutputInternshipManagement.css" rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src="../js/main.js"></script>
+<script src="../js/InternshipManagement.js"></script>
+{% endblock %}
+{% block body %}
+    <div class="main_right second-scrollbar">
+        <p id="right_title">Gestion des stages</p>
+        <img src="../images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="../images/Icones/logo_seul.png" alt="chercher un stage" id="menu_search" onclick="toggle_search()">
+        <div class="search_list-internships">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="../images/Icones/logo_seul.png" alt="V"/>
+                </button>
+            </div>
+            <div class="list-internships second-scrollbar">
+                <div class="add-del">
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img
+                                src="../images/Icones/poubelle-de-recyclage.png"></button>
+                </div>
+                {% for internship in internships %}
+                    <button class="internship" id="{{ internship.id }}">{{ internship.job }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <template id="id-template-internship-m">
+            <div class="profile_internship" id="template-space">
+                <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
+                <div class="profile_block">
+                    <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
+                    <div class="internship_top">
+                        <div class="left_profile">
+                            <p id="Bubble-job"></p>
+                            <p id="Bubble-school-grade"></p>
+                            <p id="Bubble-company"></p>
+                            <p id="Bubble-location"></p>
+                            <p id="Bubble-begin-date"></p>
+                            <p id="Bubble-hour-payment"></p>
+                            <p id="Bubble-week-payment"></p>
+                            <p id="Bubble-duration"></p>
+                            <p id="Bubble-taken-places"></p>
+                            <p id="Bubble-max-places"></p>
+                        </div>
+                        <div class="right_advantages second-scrollbar">
+                            <p>Avantages</p>
+                            <ul>
+                                <li id="Bubble-right-advantages-1"></li>
+                                <li id="Bubble-right-advantages-2"></li>
+                                <li id="Bubble-right-advantages-3"></li>
+                                <li id="Bubble-right-advantages-4"></li>
+                                <li id="Bubble-right-advantages-5"></li>
+                                <li id="Bubble-right-advantages-6"></li>
+                                <li id="Bubble-right-advantages-7"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="internship_mid">
+                        <label class="label-company_description" for="company_description">Description</label>
+                        <textarea id="Bubble-description" class="second-scrollbar" disabled></textarea>
+                    </div>
+                    <div class="internship_bot second-scrollbar">
+                        <div class="postulation">
+                            <a href="../templates/Profile/Profile.html.twig">{{ postulation.name }}
+                                + {{ postulation.surname }}</a>
+                            <img src="../images/Icones/check.png" class="black_check" id="1" onclick="toggle_valid(1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div id="bubble-place"></div>
+    </div>
+
+    <!-- -------------------------DEBUT POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="container-add-student hide_container">
+        <div class="add-student-name">
+            <h1>Ajouter un stage</h1>
+        </div>
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+            <button class="button-cancel" id="apply" onclick="valid_promotion();">Appliquer</button>
+        </div>
+        <div class="container-informations-and-description">
+            <div class="container-students-informations second-scrollbar">
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <form id="Internship-Form" onsubmit="return validerFormulaire()">
+                            <ul>
+                                <li><input placeholder="TITRE..." required></input></li>
+                                <li><input placeholder="Entreprise..." required></input></li>
+                                <li><input placeholder="Année d'étude..." list="student-year" id="select-student-year"
+                                           name="select-student-year" required>
+                                    <datalist id="student-year">
+                                        <option value="Bac+0">
+                                        <option value="Bac+1">
+                                        <option value="Bac+2">
+                                        <option value="Bac+3">
+                                        <option value="Bac+4">
+                                        <option value="Bac+5">
+                                        <option value="Bac+6">
+                                        <option value="Bac+7">
+                                        <option value="Bac+8">
+                                    </datalist>
+                                    </input></input></li>
+                                <li><input type="number" placeholder="Rémunération..." required></input></li>
+                            </ul>
+                            <ul>
+                                <li><input type="number" placeholder="Nombre d'heures... (par semaines)"
+                                           required></input></li>
+                                <li><input placeholder="Lieu..." required></input></li>
+                                <li><label for="id-input-starting-date">Début: </label><input type="date"
+                                                                                              id="id-input-starting-date"
+                                                                                              required></input></li>
+                                <li><input type="number" placeholder="Durée du stage... (semaines)" required></input>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                <div class="container-skills">
+                    <div class="id-internship">
+                        <h1>Numéro de stage</h1>
+                    </div>
+                    <div class="big-container">
+                        <div class="container-skills-name">
+                            <p>Compétences recherchées</p>
+                        </div>
+                        <div class="input-adresse">
+                            <input id="input-adresse" placeholder="Compétence..."></input>
+                        </div>
+                        <button class="add-button" id="add-button">Ajouter</button>
+                    </div>
+                    <div class="container-skills-scroll horizontal-second-scrollbar">
+                        <ul>
+                            {% for skill in skills %}
+                                <li>
+                                    <div class="each-skill">
+                                        <p>JS</p>
+                                        <button type="button" id="delete-promotion-button"
+                                                class="delete-promotion-button"><img
+                                                    src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle"
+                                                    id="picture-delete-skill"></button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="each-skill">
+                                        <p>JS</p>
+                                        <button type="button" id="delete-promotion-button"
+                                                class="delete-promotion-button"><img
+                                                    src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle"
+                                                    id="picture-delete-skill"></button>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                    <textarea class="second-scrollbar-description-internship"
+                              placeholder="Tapez votre description..."></textarea>
+                </div>
+            </div>
+            <div class="container-pilote-promotion second-scrollbar">
+                <div class="container-pilote-promotion-header">
+                    <div class="container-pilote-promotion-header-name">
+                        <h1>Avantages</h1>
+                    </div>
+                </div>
+                <div class="container-each-promotion">
+                    <textarea class="second-scrollbar-description-internship"
+                              placeholder="Tapez les avantages..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------FIN POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="del_bg">
+        <div class="del_block">
+            <div class="del_text">
+                Êtes-vous sûr de vouloir supprimer cette entreprise ?
+            </div>
+            <div class="del_button">
+                <button type="button" onclick="toggle_delete();">Annuler</button>
+                <button type="button" onclick="del_current_container();">Supprimer</button>
+            </div>
+        </div>
+    </div>
+    <div class="valid_bg">
+        <div class="valid_block">
+            <div class="valid_text">
+                Êtes-vous sûr de vouloir recruter cet élève comme stagiaire ?
+            </div>
+            <div class="valid_button">
+                <button type="button" onclick="toggle_valid(0);">Annuler</button>
+                <button type="button" onclick="valid_current_student();">Valider</button>
+            </div>
+        </div>
+    </div>
+    <div class="end_bg">
+        <div class="end_block">
+            <div class="end_text">
+                Pourquoi voulez vous-retirez cet élève de votre stage ?
+            </div>
+            <div class="end_choice">
+                <label for="radio_error"><input type="radio" id="radio_error" value="error" name="end_radio"> C'etait
+                    une erreur</label>
+                <label for="radio_need"><input type="radio" id="radio_need" value="need" name="end_radio"> Je n'ai plus
+                    besoin de cet élève</label>
+                <label for="radio_end"><input type="radio" id="radio_end" value="end" name="end_radio"> Son stage touche
+                    à son terme</label>
+            </div>
+            <div class="end_button">
+                <button type="button" onclick="toggle_end(0);">Annuler</button>
+                <button type="button" onclick="end_current_student();">Valider</button>
+            </div>
+        </div>
+    </div>
+
+    </body>
+{% endblock %}
+

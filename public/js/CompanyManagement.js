@@ -3,6 +3,10 @@ function toggle_search() {
     document.querySelector(".profile_company").classList.toggle('mobile-search_menu-profile');
 }
 
+function delAddressBubble() {
+    document.getElementById("location-minibubble").remove();
+}
+
 function addProfile() {
     document.querySelector('.container-add-student').classList.toggle('hide_container');
     document.getElementById("title-pop-up").textContent = "Ajouter un étudiant";
@@ -221,6 +225,8 @@ function editCompany() {
     }).then((response) => response.json())
         .then((data) => {
             console.log(data);
+            console.log(data.id_location_company);
+            showLocation(data.id_location_company);
             document.getElementById("add-Name").value = data.company;
             document.getElementById("N-Siret").value = data.SIRET;
             document.getElementById("select-sector").value = data.sector;

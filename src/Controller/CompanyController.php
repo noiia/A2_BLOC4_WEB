@@ -51,6 +51,9 @@ class CompanyController
                     $i++;
                     $mediumStars += $rate->getNote();
                 }
+                if ($i == 0) {
+                    $i++;
+                }
                 $finalRate = $mediumStars / $i;
                 $runwayBubbles[] =
                     [
@@ -251,6 +254,7 @@ class CompanyController
                 'logo_path' => $imagePath,
                 'website' => $company->getCompanyWebsiteLink(),
                 'email' => $company->getMail(),
+                'id_location_company' => $company->locations->getIDLocation(),
             ];
 
             $payload = json_encode($data);

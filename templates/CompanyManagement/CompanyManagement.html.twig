@@ -81,7 +81,7 @@
             <h1 id="title-pop-up">Ajouter une entreprise</h1>
         </div>
         <div class="div-button-apply">
-            <button class="button-apply" id="cancel" onclick="toggle_hide_popup()">Annuler</button>
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup(); delAddressBubble()">Annuler</button>
         </div>
         <div class="div-button-cancel">
             <button class="button-cancel" id="apply" onclick="newCompanyToBdd();">Appliquer
@@ -165,7 +165,7 @@
                     <input id="input-code-postal" placeholder="CP..."></input>
                 </div>
                 <template id="template-location">
-                    <div class="each-promotion">
+                    <div class="each-promotion" id="location-minibubble">
                         <h1 class="title-address" id="title-address">15 rue des pissenlits, 51500</h1>
                         <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img
                                     src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="bin-picture">
