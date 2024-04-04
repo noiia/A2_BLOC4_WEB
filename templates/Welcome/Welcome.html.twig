@@ -20,8 +20,8 @@
                 <div class="filter">
                     <div class="search_bar">
                         <input type="search" placeholder="Rechercher" id="general-search_bar">
-                        <button type="button" id="general-button_search"><img src='images/Icones/logo_seul.png'
-                                                                              alt="V"/></button>
+                        <button type="button" id="general-button_search" onclick="submitFilter()"><img
+                                    src='images/Icones/logo_seul.png' alt="V"/></button>
                     </div>
                     <div class="filter-green">
                         <div class="filter-location">
@@ -29,27 +29,25 @@
                                 <p>Localité :</p>
                                 <div class="search_bar">
                                     <input type="search" id="input_localite" placeholder="Rechercher"
-                                           onkeydown="add_filter_block(event,'input_localite');"
-                                           data-array='["loc1", "loc2", "loc3", "loc4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_localite');"
-                                            data-array='["loc1", "loc2", "loc3", "loc4"]'><img
+                                           onkeydown="load_filter(event, 'input_localite');" data-children='loc'>
+                                    <button type="button" onclick="load_filter(event, 'input_localite');"><img
                                                 src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-block_search-bot">
-                                <div id="loc1" hidden onclick="del_filter_block(event)">
+                                <div id="loc0" hidden onclick="del_filter_block(event, 'input_localite')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc2" hidden onclick="del_filter_block(event)">
+                                <div id="loc1" hidden onclick="del_filter_block(event, 'input_localite')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc3" hidden onclick="del_filter_block(event)">
+                                <div id="loc2" hidden onclick="del_filter_block(event, 'input_localite')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="loc4" hidden onclick="del_filter_block(event)">
+                                <div id="loc3" hidden onclick="del_filter_block(event, 'input_localite')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
@@ -60,27 +58,25 @@
                                 <p>Compétences :</p>
                                 <div class="search_bar">
                                     <input type="search" id="input_skills" placeholder="Rechercher"
-                                           onkeydown="add_filter_block(event,'input_skills');"
-                                           data-array='["skill1", "skill2", "skill3", "skill4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_skills');"
-                                            data-array='["skill1", "skill2", "skill3", "skill4"]'><img
+                                           onkeydown="load_filter(event, 'input_skills');" data-children='skill'>
+                                    <button type="button" onclick="load_filter(event, 'input_skill');"><img
                                                 src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-block_search-bot">
-                                <div id="skill1" hidden onclick="del_filter_block(event)">
+                                <div id="skill0" hidden onclick="del_filter_block(event, 'input_skill')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="skill2" hidden onclick="del_filter_block(event)">
+                                <div id="skill1" hidden onclick="del_filter_block(event, 'input_skill')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="skill3" hidden onclick="del_filter_block(event)">
+                                <div id="skill2" hidden onclick="del_filter_block(event, 'input_skill')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="skill4" hidden onclick="del_filter_block(event)">
+                                <div id="skill3" hidden onclick="del_filter_block(event, 'input_skill')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
@@ -124,27 +120,25 @@
                                 <p>Entreprises :</p>
                                 <div class="search_bar">
                                     <input type="search" id="input_company" placeholder="Rechercher"
-                                           onkeydown="add_filter_block(event,'input_company');"
-                                           data-array='["comp1", "comp2", "comp3", "comp4"]'>
-                                    <button type="button" onclick="add_filter_block(event,'input_company');"
-                                            data-array='["comp1", "comp2", "comp3", "comp4"]'><img
+                                           onkeydown="load_filter(event, 'input_company');" data-children='comp'>
+                                    <button type="button" onkeydown="load_filter(event, 'input_company');"><img
                                                 src="images/Icones/logo_seul.png" alt="V"/></button>
                                 </div>
                             </div>
                             <div class="filter-any_search-bot">
-                                <div id="comp1" hidden onclick="del_filter_block(event)">
+                                <div id="comp0" hidden onclick="del_filter_block(event, 'input_company')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="comp2" hidden onclick="del_filter_block(event)">
+                                <div id="comp1" hidden onclick="del_filter_block(event, 'input_company')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="comp3" hidden onclick="del_filter_block(event)">
+                                <div id="comp2" hidden onclick="del_filter_block(event, 'input_company')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
-                                <div id="comp4" hidden onclick="del_filter_block(event)">
+                                <div id="comp3" hidden onclick="del_filter_block(event, 'input_company')">
                                     <p></p>
                                     <img src="images/Icones/croix-supprimer-le-signe.png">
                                 </div>
@@ -214,7 +208,7 @@
                             </div>
                         </div>
                         <div class="filter-validate">
-                            <button type="button">Valider</button>
+                            <button type="button" onclick="submitFilter()">Valider</button>
                         </div>
                     </div>
                 </div>
