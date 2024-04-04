@@ -1,34 +1,52 @@
-$(document).ready(function () {
-    $("#postulation-button_postulation").click(function () {
-        console.log("postulation");
-        var postulationValue = "postulation";
-        var welcomePHP = "Welcome.php";
-        data = {
-            action: postulationValue
-        };
-        $.post(welcomePHP, data, function (response) {
-        })
-    });
-    var Value = "profile";
-    var PHPfiles = "Welcome.php";
-    data = {
-        action: Value
-    };
-    $.post(PHPfiles, data, function (response) {
-        $("#navbar-profile").append(response);
-    });
-})
-
-
 function input_filter() {
     document.getElementById("rangeValue").textContent = "Bac+" + document.getElementById("rangeInput").value;
 }
 
 //-- ----------------------DEBUT JS SCRIPT STEPHAN BUBULLE-------------------------- 
 
-function toggle_wishlist() {
-    document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
-    document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+function add_or_del_in_wish(isAWish) {
+    var internshipID = Number(document.getElementById("Big-bubble-ID").textContent);
+    console.log(internshipID);
+    if (isAWish === true) {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        console.log(isAWish);
+        fetch("https://inter-net.loc/Wishlist/add/" + internshipID, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("L'ajout a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la création :", error);
+            });
+    } else {
+        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+        fetch("https://inter-net.loc/Wishlist/delete/" + internshipID, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.location.href = "../Stage?id=" + internshipID;
+                } else {
+                    alert("La suppression a échoué.");
+                }
+            })
+            .catch(error => {
+                alert("Une erreur s'est produite lors de la suppression :", error);
+            });
+    }
 }
 
 function toggle_bubulle() {
@@ -41,17 +59,39 @@ function toggle_bubulle() {
 
 //- ---------------   JS POSTULATION ------------------------ -->
 
-function block_postulation() {
+function block_postulation(active = false) {
     document.querySelector("header").classList.toggle("when_postulation");
     document.querySelector(".full-runway").classList.toggle("when_postulation");
     document.querySelector("footer").classList.toggle("when_postulation");
     document.querySelector("body").classList.toggle("disable_scroll");
     document.querySelector(".postulation-bg").classList.toggle("postulation-off");
     document.querySelector(".postulation-bg").classList.toggle("postulation-on");
+
+    id = document.getElementById("Big-bubble-ID").textContent;
+
+    fetch("https://inter-net.loc/Stage/" + id, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            const postulationTemplate = document.getElementById("postulation-block");
+            const container = document.getElementById("postulation-place");
+
+            const postulationClone = postulationTemplate.content.cloneNode(true);
+
+            postulationClone.getElementById("postulation-job").textContent = data.job;
+            postulationClone.getElementById("postulation-company").textContent = data.company;
+            postulationClone.getElementById("postulation-location").textContent = data.location;
+
+            container.append(postulationClone);
+        });
 }
 
 //--------------FIN JS POSTULATION ------------------------ -->
-
 
 // input file
 function do_add_file() {
@@ -76,7 +116,7 @@ function add_file() {
             var txt = "\n";
             txt += '<div class="postulation-docs" id="' + name + '">';
             txt += '<p onclick="open_file(\'../../Assets/image/cesi-logo.png\')">' + name + '</p>';
-            txt += '<img src="../../Assets/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
+            txt += '<img src="images/Icones/poubelle-de-recyclage.png" onclick="del_file(\'' + name + '\');"/>';
             txt += '</div>';
             document.querySelector(".postulation-list_docs").innerHTML += txt;
             console.log('fichier sélectionné:', file);
@@ -96,7 +136,7 @@ function add_file() {
 
 function send_file(file) {
     //const uri = "C:/Program Files/XAMPP/htdocs/imgs"; // Remplacez "http://example.com/upload" par l'URL de votre point d'extrémité de téléversement sur le serveur Apache
-    const uri = "../../Assets/files/";
+    const uri = "./files";
     const xhr = new XMLHttpRequest(); // Création d'une nouvelle requête XMLHttpRequest
     const fd = new FormData(); // Création d'un objet FormData pour contenir les données à envoyer
 
@@ -109,6 +149,23 @@ function send_file(file) {
     fd.append('file', file); // Ajout du fichier à envoyer à l'objet FormData sous la clé 'file'
     // Envoi de l'objet FormData contenant le fichier
     xhr.send(fd);
+}
+
+function createPostulationPDF(username) {
+    var doc = new jsPDF();
+    motivationLetter = document.getElementById("postulation-motivation_letter").textContent;
+    doc.text(motivationLetter, 10, 10);
+    fileName = 'Lettre-de-motivation-' + username + '.pdf';
+    return doc.save(fileName);
+}
+
+function postulation() {
+    customPostulation = document.getElementById("postulation-motivation_letter").textContent;
+    if (customPostulation !== null) {
+        username = document.getElementById("user-name-session").textContent;
+        createPostulationPDF(username);
+    }
+
 }
 
 window.addEventListener("resize", () => {
@@ -148,48 +205,15 @@ function loadBubbleData(id = 1) {
             bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
             bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
             bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+            bubbleTemplate.getElementById("Big-bubble-ID").textContent = data.id;
+            bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
 
-            function checkFileExists(file, callback) {
-                $.ajax({
-                    type: 'HEAD',
-                    url: file,
-                    success: function () {
-                        callback(true);
-                    },
-                    error: function () {
-                        callback(false);
-                    }
-                });
+            container.append(bubbleTemplate);
+
+            if (data.isAWish) {
+                document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+                document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
             }
-
-            var imagePath = 'images/CompanyLogos/logo_' + data.id;
-            var finalImagePath;
-            checkFileExists(imagePath + '.jpg', function (success) {
-                if (success) {
-                    finalImagePath = imagePath + '.jpg'
-                    bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                    container.append(bubbleTemplate);
-                } else {
-                    checkFileExists(imagePath + '.jpeg', function (success) {
-                        if (success) {
-                            finalImagePath = imagePath + '.jpeg'
-                            bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                            container.append(bubbleTemplate);
-                        } else {
-                            checkFileExists(imagePath + '.png', function (success) {
-                                if (success) {
-                                    finalImagePath = imagePath + '.png'
-                                    bubbleTemplate.getElementById("Big-bubble-logo").src = finalImagePath;
-                                    container.append(bubbleTemplate);
-                                } else {
-                                    console.log('aucune image en mémoire')
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-
             const skillsContainer = document.getElementById("container-skills");
             for (let skills of data.skills) {
                 const skillsTemplate = littleTemplate.content.cloneNode(true);
@@ -200,8 +224,32 @@ function loadBubbleData(id = 1) {
 }
 
 
-const runway = document.getElementById("runway-element");
-var oldElement = 1;
+var url = window.location.href;
+var oldElement;
+if (url !== "https://inter-net.loc/Stage") {
+    if (url.split('?')[1] !== null) {
+        var queryString = url.split('?')[1];
+        var params = queryString.split('&');
+        var queryParams = {};
+        params.forEach(function (param) {
+            var keyValue = param.split('=');
+            var key = keyValue[0];
+            var value = keyValue[1];
+            key = decodeURIComponent(key);
+            value = decodeURIComponent(value);
+            queryParams[key] = value;
+        });
+
+        const runway = document.getElementById("runway-element")
+        if (Number(queryParams["id"]) !== null) {
+            oldElement = Number(queryParams["id"]);
+            console.log(Number(queryParams["id"]));
+        }
+    }
+} else {
+    oldElement = 1;
+}
+
 loadBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
@@ -211,3 +259,76 @@ addEventListener("click", (event) => {
         oldElement = focusedBubble;
     }
 });
+
+/* ------------------- PAGINATION ------------------*/
+function updatePage(currentPage, totalPages, internshipsPerPage) {
+    var start = (currentPage - 1) * internshipsPerPage;
+    var end = start + internshipsPerPage;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    buttonsContainer.innerHTML = currentPage + " / " + totalPages;
+
+    // Gestion de la page précédente
+    var backButton = document.getElementById("id-button-back");
+    if (currentPage === 1) {
+        backButton.disabled = true;
+    } else {
+        backButton.disabled = false;
+        backButton.addEventListener("click", function () {
+            currentPage -= 1;
+            updatePage(currentPage, totalPages, internshipsPerPage);
+        });
+    }
+
+    // Gestion de la page suivante
+    var nextButton = document.getElementById("id-button-next");
+    if (currentPage === totalPages) {
+        nextButton.disabled = true;
+    } else {
+        nextButton.disabled = false;
+        nextButton.addEventListener("click", function () {
+            currentPage += 1;
+            updatePage(currentPage, totalPages, internshipsPerPage);
+        });
+    }
+
+    // Mettre à jour l'affichage des boutons de stage en fonction de la page actuelle
+    var boutons = document.querySelectorAll('.container');
+    boutons.forEach(function (bouton, index) {
+        if (index >= start && index < end) {
+            bouton.style.display = 'block';
+        } else {
+            bouton.style.display = 'none';
+        }
+    });
+
+    // Cacher les éléments dont l'ID existe déjà
+    var internIds = [];
+    boutons.forEach(function (bouton) {
+        var id = bouton.getAttribute('id');
+        if (internIds.includes(id)) {
+            bouton.style.display = 'none';
+        } else {
+            internIds.push(id);
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var currentPage = 1;
+    var buttonsContainer = document.getElementById("pagination-buttons");
+    var totalPages = parseInt(buttonsContainer.getAttribute("data-total-pages"));
+    var internshipsPerPage = parseInt(buttonsContainer.getAttribute("data-internships-per-page"));
+
+    updatePage(currentPage, totalPages, internshipsPerPage); // Appeler la fonction pour afficher la première page initialement
+
+    document.getElementById("id-button-back").addEventListener("click", function () {
+        currentPage -= 1;
+        updatePage(currentPage, totalPages, internshipsPerPage);
+    });
+    document.getElementById("id-button-next").addEventListener("click", function () {
+        currentPage += 1;
+        updatePage(currentPage, totalPages, internshipsPerPage);
+    });
+});
+
+

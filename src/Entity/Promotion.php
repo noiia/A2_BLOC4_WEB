@@ -17,7 +17,6 @@ use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
 #[Table('Promotion')]
-
 class Promotion
 {
     #[Id]
@@ -28,15 +27,18 @@ class Promotion
     private string $Name;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
+
     #[ManyToOne(targetEntity: Location::class, inversedBy: "promotions")]
     #[JoinColumn(name: "ID_location", referencedColumnName: "ID_location")]
-    private ?Location $location;
+    public Location $location;
 
     #[ManyToMany(targetEntity: Users::class, mappedBy: 'promotions')]
     private Collection $users;
-    #[OneToMany(targetEntity: Internship::class, mappedBy:'companies')]
+    #[OneToMany(targetEntity: Internship::class, mappedBy: 'companies')]
     private Collection $internships;
-    public function __construct() {
+
+    public function __construct()
+    {
         $this->users = new ArrayCollection();
         $this->internships = new ArrayCollection();
     }

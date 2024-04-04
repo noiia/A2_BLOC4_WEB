@@ -22,15 +22,15 @@ class Rate
     #[Column(type: Types::SMALLINT)]
     private int $Note;
     #[Column(type: Types::STRING, length: 50)]
-    private int $Description;
+    private string $Description;
     #[Column(type: Types::BOOLEAN)]
-    private int $Del;
+    private bool $Del;
     #[ManyToOne(targetEntity: Company::class, inversedBy: "rates")]
     #[JoinColumn(name: "ID_company", referencedColumnName: "ID_company")]
     private ?Company $companies;
     #[ManyToOne(targetEntity: Users::class, inversedBy: "users")]
     #[JoinColumn(name: "ID_users", referencedColumnName: "ID_users")]
-    private ?Users $users;
+    public ?Users $users;
 
     public function getIDRate(): int
     {
@@ -52,23 +52,34 @@ class Rate
         $this->Note = $Note;
     }
 
-    public function getDescription(): int
+    public function getDescription(): string
     {
         return $this->Description;
     }
 
-    public function setDescription(int $Description): void
+    public function setDescription(string $Description): void
     {
         $this->Description = $Description;
     }
 
-    public function getDel(): int
+    public function getDel(): bool
     {
         return $this->Del;
     }
 
-    public function setDel(int $Del): void
+    public function setDel(bool $Del): void
     {
         $this->Del = $Del;
     }
+
+    public function setCompanies(?Company $companies): void
+    {
+        $this->companies = $companies;
+    }
+
+    public function setUsers(?Users $users): void
+    {
+        $this->users = $users;
+    }
+
 }

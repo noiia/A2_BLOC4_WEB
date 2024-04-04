@@ -14,7 +14,6 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 
 #[Entity]
@@ -25,7 +24,7 @@ class Internship
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]
     private int $ID_Internship;
-    #[Column(type:Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 50)]
     private string $Title;
     #[Column(type: Types::SMALLINT)]
     private int $Duration;
@@ -37,7 +36,7 @@ class Internship
     private int $Hour_per_week;
     #[Column(type: Types::INTEGER)]
     private int $Max_places;
-    #[Column(type:Types::STRING, length: 300)]
+    #[Column(type: Types::STRING, length: 300)]
     private string $Advantages;
     #[Column]
     private int $Worktime;
@@ -46,19 +45,13 @@ class Internship
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
 
-    #[OneToMany(targetEntity: Appliement_WishList::class, mappedBy:'internships')]
-    private Collection $appliement_wishlist;
-    public function getAppliementWishlist(): Collection
-    {
-        return $this->appliement_wishlist;
-    }
     #[JoinTable(name: "seek")]
     #[JoinColumn(name: 'id_internship', referencedColumnName: 'ID_Internship')]
     #[InverseJoinColumn(name: 'id_skill', referencedColumnName: 'ID_skills')]
     #[ManyToMany(targetEntity: Skills::class)]
     private Collection $skills;
 
-    
+
     public function getSkills(): Collection
     {
         return $this->skills;
@@ -74,12 +67,13 @@ class Internship
     #[JoinColumn(name: "ID_promotion", referencedColumnName: "ID_promotion", unique: false)]
     public Promotion $promotions;
 
-    public function __construct() {
-        $this->appliement_wishlist = new ArrayCollection();
+    public function __construct()
+    {
+        $this->workflow = new ArrayCollection();
         $this->skills = new ArrayCollection();
     }
 
-    public function toString() : string
+    public function toString(): string
     {
         return $this->Title;
     }
@@ -133,6 +127,7 @@ class Internship
     {
         $this->Hourly_rate = $Hourly_rate;
     }
+
     public function getHourPerWeek(): int
     {
         return $this->Hour_per_week;
@@ -193,4 +188,23 @@ class Internship
         $this->Del = $Del;
     }
 
+    public function setPromotion(Promotion $promotion): void
+    {
+        $this->promotions = $promotion;
+    }
+
+    public function getPromotion(): Promotion
+    {
+        return $this->promotions;
+    }
+
+    public function setLocation(Location $location): void
+    {
+        $this->locations = $location;
+    }
+
+    public function getLocation(): Location
+    {
+        return $this->locations;
+    }
 }

@@ -42,3 +42,6 @@ body{
 .connexion-btn-hidden{
     @apply hidden;
 }
+.text-rouge {
+    @apply absolute text-secondary-red text-lg bottom-[70px] left-[60px];
+}

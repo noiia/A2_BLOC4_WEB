@@ -13,8 +13,8 @@ function focus_container(id) {
     }
 }
 
-
 // ------------------ parti Welcome/Entreprise ----------------
+
 window.onscroll = function () {
     afficherOuMasquerBouton();
 };
@@ -24,15 +24,36 @@ function afficherOuMasquerBouton() {
     var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
 
     if (document.documentElement.scrollTop < 115) {
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
         boutonRetourHaut.classList.add('display-none');
-        boutonRetourHaut.classList.remove('retourHaut');
         runwayContainerInternDetails.classList.add('runway-container-intern-details');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details-fixed');
-    } else {
+    } else if (115 < document.documentElement.scrollTop && document.documentElement.scrollTop < 2500) {
+
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
         boutonRetourHaut.classList.add('retourHaut');
-        boutonRetourHaut.classList.remove('display-none');
         runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
-        runwayContainerInternDetails.classList.remove('runway-container-intern-details');
+    } else if (document.documentElement.scrollTop > 2500) {
+        while (boutonRetourHaut.classList.length > 0) {
+            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+        }
+        while (runwayContainerInternDetails.classList.length > 0) {
+            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+        }
+
+        boutonRetourHaut.classList.add('retourHaut-bot');
+        runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
     }
 }
 
@@ -55,30 +76,39 @@ function toggle_filterMenu() {
 
 // -------- ajouter/enlever fltre
 
-function add_filter_block(event = Event, idInput) {//ids est un tableau
-    var input = document.getElementById(idInput);
-    var ids = JSON.parse(event.currentTarget.dataset.array);
-
-    if (input.value !== "" && (event.key === 'Enter' || event instanceof PointerEvent)) {
-        for (var id in ids) {
-            var li = document.getElementById(ids[id]);
-            if (li.hidden) {
-                var txt = document.querySelector('#' + ids[id] + ' > p');
-                txt.textContent = input.value;
-                input.value = '';
-                li.removeAttribute("hidden");
-                console.log("recherche du filtre: '" + txt.textContent + "' dans " + idInput);
-                break;
+function add_filter_block(idInput, data) {
+    let input = document.getElementById(idInput);
+    let children = input.dataset.children;
+    let i = 0;
+    while (document.getElementById(children + i) !== null) {
+        let li = document.getElementById(children + i);
+        if (li.hidden) {
+            let txt = document.querySelector('#' + children + i + ' > p');
+            txt.textContent = data.name;
+            input.value = '';
+            //input.dataset.values = '';
+            if (input.dataset.values === '' || typeof input.dataset.values == 'undefined') {
+                input.dataset.values = data.id;
+            } else {
+                input.dataset.values = input.dataset.values + ';' + data.id;
             }
+            txt.dataset.value = data.id;
+            li.removeAttribute("hidden");
+            console.log("recherche du filtre: '" + txt.textContent + "' dans " + idInput);
+            break;
         }
+        i++;
     }
 }
 
-function del_filter_block(event = Event) {
+function del_filter_block(event = Event, idInput) {
     event.currentTarget.hidden = true;
+    let input = document.getElementById(idInput);
+    let values = input.dataset.values.split(';');
+    values.splice(values.indexOf(event.currentTarget.dataset.value), 1); //suprime la valeur souhaite
+    values.join(';');
+    input.dataset.values = values;
 }
-
-//diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
 
 // ------------------ parti gestion ---------------------
 function toggle_menu() {
@@ -94,8 +124,6 @@ function toggle_delete() {
 
 function del_current_container() {
     document.getElementById(container_focus).classList.add('del_current_container');
-    console.log(container_focus + " à été supprimé");
-    //suprimer dans la bdd
     toggle_delete();
     container_focus = null;
 }
@@ -122,6 +150,10 @@ function validerFormulaire(isCompany) {
     var formreturn = document.getElementById('Students-Form');
     console.log(formreturn);
     return true;  // Permettre la soumission du formulaire
+}
+
+function toggle_hide_popup() {
+    document.querySelector('.container-add-student').classList.toggle('hide_container');
 }
 
 // ------------ vérifier promotion
@@ -158,4 +190,12 @@ function valid_promotion(isCompany = false) {
 }
 
 
-// -------------------- fin parti gestion ------------------- //
+// -------------------- fin partie gestion ------------------- //
+
+function formatDatabaseDate(databaseDate) {
+    var data = databaseDate;
+    const year = Number(data[0] + data[1] + data[2] + data[3]);
+    const month = Number(data[5] + data[6]);
+    const day = Number(data[8] + data[9]);
+    return `${day}-${month}-${year}`;
+}

@@ -26,25 +26,39 @@ class Company
     #[Id]
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]
-    private ?int $ID_company = null;
-    #[Column(type:Types::STRING, length: 50)]
+    private int $ID_company;
+    #[Column(type: Types::STRING, length: 50)]
     private string $Name;
-    #[Column(type:Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 50)]
     private string $SIRET;
     #[Column(type: Types::DATE_MUTABLE)]
     private \DateTime $Creation_date;
-    #[Column(type:Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 50)]
     private string $Staff;
-    #[Column(type:Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 50)]
     private string $Type;
+    #[Column(type: Types::STRING, length: 100)]
+    private string $Mail;
     #[Column(type: Types::TEXT)]
     private string $Company_description;
+    #[Column(type: Types::STRING, length: 500)]
+    private string $Company_website_link;
+    #[Column(type: Types::STRING, length: 200)]
+    private string $Company_logo_path;
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    #[ManyToOne(targetEntity: Sector::class, inversedBy: "companies")]
-    #[JoinColumn(name: "ID_sector", referencedColumnName: "ID_sector")]
-    public ?Sector $sector;
-    #[OneToMany(targetEntity: Rate::class, mappedBy:'companies')]
+    #[JoinTable]
+    #[JoinColumn(name: 'ID_company', referencedColumnName: 'ID_company')]
+    #[InverseJoinColumn(name: 'ID_sector', referencedColumnName: 'ID_sector')]
+    #[ManyToMany(targetEntity: Sector::class)]
+    private Collection $sector;
+
+    public function getSector(): Collection
+    {
+        return $this->sector;
+    }
+
+    #[OneToMany(targetEntity: Rate::class, mappedBy: 'companies')]
     private Collection $rates;
 
     public function getRates(): Collection
@@ -57,18 +71,35 @@ class Company
     #[InverseJoinColumn(name: 'id_users', referencedColumnName: 'ID_users', unique: false)]
     #[ManyToMany(targetEntity: Users::class, inversedBy: "companies")]
     private Collection $users;
-    #[OneToMany(targetEntity: Internship::class, mappedBy:'companies')]
+    #[OneToMany(targetEntity: Internship::class, mappedBy: 'companies')]
     private Collection $internships;
+
+    public function getInternship(): Collection
+    {
+        return $this->internships;
+    }
+
     #[OneToOne(targetEntity: Location::class, inversedBy: 'companies')]
     #[JoinColumn(name: 'id_location', referencedColumnName: 'ID_location')]
     public ?Location $locations;
+
     public function __construct()
     {
         $this->rates = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->internships = new ArrayCollection();
+        $this->sector = new ArrayCollection();
     }
 
+    public function getLocation(): Location
+    {
+        return $this->locations;
+    }
+
+    public function setLocations(?Location $locations): void
+    {
+        $this->locations = $locations;
+    }
 
     public function getIDCompany(): int
     {
@@ -130,6 +161,26 @@ class Company
         $this->Type = $Type;
     }
 
+    public function getMail(): string
+    {
+        return $this->Mail;
+    }
+
+    public function setMail(string $Mail): void
+    {
+        $this->Mail = $Mail;
+    }
+
+    public function getCompanyWebsiteLink(): string
+    {
+        return $this->Company_website_link;
+    }
+
+    public function setCompanyWebsiteLink(string $Company_website_link): void
+    {
+        $this->Company_website_link = $Company_website_link;
+    }
+
     public function getCompanyDescription(): string
     {
         return $this->Company_description;
@@ -138,6 +189,16 @@ class Company
     public function setCompanyDescription(string $Company_description): void
     {
         $this->Company_description = $Company_description;
+    }
+
+    public function getCompanyLogoPath(): string
+    {
+        return $this->Company_logo_path;
+    }
+
+    public function setCompanyLogoPath(string $Company_logo_path): void
+    {
+        $this->Company_logo_path = $Company_logo_path;
     }
 
     public function isDel(): bool

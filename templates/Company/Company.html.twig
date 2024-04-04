@@ -2,8 +2,14 @@
 {% block title %} Inter'net - Entreprises {% endblock %}
 {% block stylesheet %}
     <link href='css/OutputCompany.css' rel="stylesheet"/> {% endblock %}
-{% block javascript %}<script src='js/Company.js'></script>{% endblock %}
-{% block company %}<label class="label">***************</label>{% endblock %}
+{% block javascript %}<script src='js/Company.js'></script>
+{% endblock %}
+{% block company %}
+    <div class="navbar-current">
+        <a href="../Entreprise">Entreprises</a>
+        <label class="label">***************</label>
+    </div>
+{% endblock %}
 {% block body %}
     <body class="body-move" id="body">
     <div class="full-runway" id="full-runway">
@@ -120,247 +126,41 @@
                 <div class="filter-mobile">
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
-                <button class="container" onclick="focus_container('container-1')">
-                    <span>
-                        <div class="container-intern" id="container-1">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" onclick="focus_container('container-2')">
-                    <span>
-                        <div class="container-intern" id="container-2">
-                            <div class="container-div-para">
-                                <img src="images/image/cesi-logo.png" alt="mini-company-logo" class="logo-company">
-                                <h1 class="container-h1">Cesi</h1>
-                                <p class="container-paragraph">Note: 12/10</p>
-                                <p class="container-paragraph">7 stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Js</li>
-                                        <li>PHP</li>
-                                        <li>Js</li>
-                                    </ul>
+
+                {% set companiesPerPage = 10 %}
+                {% set currentPage=1 %}
+                {% set totalPages = (companies|length / companiesPerPage)|round %}
+
+                {% for page in range(1, (companies|length / companiesPerPage)|round) %}
+                    {% set start = (page - 1) * companiesPerPage %}
+                    {% set end = start + companiesPerPage %}
+                    {% for company in companies|slice(start, end) %}
+                        <button class="container" id="{{ company.id }}"
+                                onclick="focus_container('container-{{ company.id }}')">
+                        <span>
+                            <div class="container-intern" id="container-{{ company.id }}">
+                                <div class="container-div-para">
+                                    <h1 class="container-h1">{{ company.company }}</h1>
+                                    <p class="container-paragraph">Note: {{ company.rate }}/10</p>
+                                    <p class="container-paragraph">3 Stages</p>
+                                    <div class="container-skills">
+                                        <ul>
+                                            <li>{{ company.sector_1 }}</li>
+                                            <li>{{ company.sector_2 }}</li>
+                                            <li>{{ company.sector_3 }}</li>
+                                        </ul>
+                                    </div>
+                                    <img src='{{ company.imagePath }}' class="logo-company" id="image-micro-logo">
                                 </div>
                             </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" onclick="focus_container('container-3')">
-                    <span>
-                        <div class="container-intern" id="container-3">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Acé-mieu</h1>
-                                <p class="container-paragraph">Note: 50/10</p>
-                                <p class="container-paragraph">87145 stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Js</li>
-                                        <li>Js</li>
-                                        <li>Js</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
-                <button class="container" id="container">
-                    <span>
-                        <div class="container-intern" id="container-intern">
-                            <div class="container-div-para">
-                                <h1 class="container-h1">Orange</h1>
-                                <p class="container-paragraph">Note: 4/10</p>
-                                <p class="container-paragraph">3 Stages</p>
-                                <div class="container-skills">
-                                    <ul>
-                                        <li>Informatique</li>
-                                        <li>Transport</li>
-                                        <li>Électronique</li>
-                                    </ul>
-                                </div>
-                                <img src="images/image/Master_Logo_RGB.png" alt="mini-company-logo"
-                                     class="logo-company">
-                            </div>
-                        </div>
-                    </span>
-                </button>
+                        </span>
+                        </button>
+                    {% endfor %}
+                {% endfor %}
             </div>
         </div>
         <!-- --------------------------------------------------------DEBUT BUBULLE ENTREPRISES------------------------------------------------------------------------- -->
-        <div id="bubble-place">
+        <template id="main-company">
             <div class="runway-container-intern-details" id="runway-container-intern-details">
                 <div class="container-intern-details second-scrollbar" id="container-intern-details">
                     <div class="container-close-tab">
@@ -370,295 +170,48 @@
                         </button>
                     </div>
                     <div class="container-header-company-details">
-                        <img src="images/image/Master_Logo_RGB.png" alt="logo company" class="company-logo-picture">
-                        <h1>Orange</h1>
+                        <img src='images/CompanyLogo/logo_1.jpg' alt="logo company" class="company-logo-picture"
+                             id="Big-bubble-logo">
+                        <p id="id-company"></p>
+                        <h1 id="Big-bubble-name"></h1>
                     </div>
                     <div class="container-left-and-right">
                         <div class="container-company-details-left">
                             <div class="container-company-details-sites">
                                 <h1>Site(s):</h1>
-                                <p>51100 - Reims</p>
-                                <p>75001 - Paris</p>
+                                <p id="Big-bubble-location"></p>
                             </div>
                             <div class="container-company-details-student-number">
                                 <h1>Nombre d'étudiants reçus:</h1>
-                                <p>525 étudiants</p>
+                                <p id="Big-bubble-number-student"></p>
                             </div>
                         </div>
                         <div class="container-company-details-right">
                             <div class="container-company-details-note">
                                 <p>Note moyenne:&nbsp
-                                <p id="rangeValue2">4</p>/10</p>
+                                <p id="rangeValue2"></p>/10</p>
                             </div>
                             <div class="container-company-details-note-bar">
-                                <input type="range" min="1" max="10" step="1" id="rangeInput2" value="4" disabled
+                                <input type="range" min="1" max="10" step="0.1" id="rangeInput2" value="4" disabled
                                        oninput="rangeValue2.innerText = this.value">
                             </div>
                             <div class="container-company-details-sector">
                                 <h1>Secteurs d'activités de l'entreprise:</h1>
                             </div>
-                            <div class="container-company-details-sector-name">
-                                <ul>
-                                    <li>Informatique / Télécoms</li>
-                                    <li>Électronique / Électricité</li>
-                                </ul>
-                                <ul>
-                                    <li>Transport / Logistique</li>
-                                    <li>Service aux entreprises</li>
-                                </ul>
+                            <div class="container-company-details-sector-name"
+                                 id="container-company-details-sector-name-list">
                             </div>
                         </div>
                     </div>
                     <div class="container-company-details-description">
                         <h1>Description de l'entreprise:</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco.</p>
+                        <p id="Big-bubble-description"></p>
                     </div>
                     <div class="container-company-details-intern-name">
-                        <h1>4 stages disponibles:</h1>
+                        <h1 id="internship-number"></h1>
                     </div>
-                    <div class="container-company-details-intern-second-scrollbar">
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
-                        <button class="container-company-details-container-details-button"
-                                id="container-company-details-container-details-button">
-                            <span>
-                                <div class="container-company-details-container-details"
-                                     id="container-company-details-container-details">
-                                    <div class="container-company-intern-div-para">
-                                        <h1 class="container-h1">Commercial H/F Bac+2</h1>
-                                        <p class="container-paragraph">Reims</p>
-                                        <p class="container-paragraph">Début = 31/01/2024</p>
-                                        <p class="container-paragraph">3 semaines</p>
-                                        <div class="container-company-intern-skills">
-                                            <ul>
-                                                <li>Informatique</li>
-                                                <li>Transport</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </button>
+                    <div class="container-company-details-intern-second-scrollbar" id="mini-internship-container">
+                        <!---------------------------- ici pour les mini stages ---------------------------->
                     </div>
                     <div class="container-note-and-button">
                         <div class="container-intern-container-note">
@@ -672,85 +225,67 @@
                             </div>
                         </div>
                         <div class="container-company-poster-button">
-                            <button class="button-poster" id="button-poster" value="Poster">
+                            <button class="button-poster" id="button-poster" value="Poster" onclick="post_comment();">
                                 Poster
                             </button>
                         </div>
                     </div>
                     <textarea type="text" class="container-company-your-review review-scrollbar"
-                              placeholder="Tapez votre avis..."></textarea>
+                              placeholder="Tapez votre avis..." id="comment-area"></textarea>
                     <div class="container-company-reviews-area">
                         <div class="container-company-reviews-area-name">
                             <h1>Avis:</h1>
                         </div>
-                        <div class="container-company-each-review-name">
-                            <h1>LAUMEL Stéphan - 0/10</h1>
-                        </div>
-                        <div class="container-company-each-review">
-                            <p>Po bien <br> Mérite pas sa glace aux fruits</p>
-                        </div>
-
-                        <div class="container-company-each-review-name">
-                            <h1>LEONIE Mathice - 0/10</h1>
-                        </div>
-                        <div class="container-company-each-review">
-                            <p>Dommage qu’on ne puisse pas mettre moins de 0/10...<br>N’a pas fini le projet en 2 jours
-                            </p>
-                        </div>
-
-                        <div class="container-company-each-review-name">
-                            <h1>LECOMTE Edwin - -20/10</h1>
-                        </div>
-                        <div class="container-company-each-review">
-                            <p>doit apprendre l’assembleur pour connaître un minimum de choses dans la vie</p>
-                        </div>
-
-                        <div class="container-company-each-review-name">
-                            <h1>Un monsieur gentil - 10/10</h1>
-                        </div>
-                        <div class="container-company-each-review">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco. </p>
+                        <div id="comment-container">
                         </div>
                     </div>
                 </div>
             </div>
+        </template>
+        <div id="bubble-place">
         </div>
+        <template id="sector-template">
+            <ul>
+                <li id="sector-ref"></li>
+            </ul>
+        </template>
+
+        <template id="mini-internship">
+            <button class="container-company-details-container-details-button"
+                    id="container-company-details-container-details-button">
+                <span>
+                    <div class="container-company-details-container-details"
+                         id="container-company-details-container-details">
+                        <div class="container-company-intern-div-para">
+                            <h1 class="container-h1" id="internship-title"></h1>
+                            <p class="container-paragraph" id="internship-location"></p>
+                            <p class="container-paragraph" id="internship-starting-date"></p>
+                            <p class="container-paragraph" id="internship-duration"></p>
+                            <div class="container-company-intern-skills" id="skills-container">
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </button>
+        </template>
+        <template id="comment-template">
+            <div class="container-company-each-review-name">
+                <h1 id="comment-user"></h1>
+            </div>
+            <div class="container-company-each-review">
+                <p id="comment-description"></p>
+            </div>
+        </template>
+        <template id="skills-template">
+            <ul>
+                <li id="skills"></li>
+            </ul>
+        </template>
+    </div>
+    <div class="container-pagination">
+        <button class="button-back" id="id-button-back"><<</button>
+        <div class="page-number-selected" id="pagination-buttons" data-companies-per-page="{{ companiesPerPage }}" data-total-pages="{{ totalPages }}"></div>
+        <button class="button-next" id="id-button-next">>></button>
     </div>
     </body>
-    <div class="container-pagination">
-        <button class="button-back" id="id-button-back"><</button>
-        <button class="page-number" id="id-page-number">1</button>
-        <button class="page-number-selected" id="id-page-number-selected">2</button>
-        <button class="page-number" id="id-page-number">3</button>
-        <div class="too-much-pages"><p>...</p></div>
-        <button class="page-number" id="id-page-number">99</button>
-        <button class="button-next" id="id-button-next">></button>
-    </div>
 {% endblock %}

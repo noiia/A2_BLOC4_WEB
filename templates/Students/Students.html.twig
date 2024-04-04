@@ -1,38 +1,34 @@
-<title>{% block title %} Inter'net - Étudiants {% endblock %}</title>
+{% extends 'profileBase.html.twig' %}
+{% block title %} Inter'net - Gestion des Étudiants {% endblock %}
 {% block stylesheet %}
-    <link href='css/OutputStudents.css' rel="stylesheet"/> {% endblock %}
+    <link href='../css/OutputStudents.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
-<script src='js/Students.js'></script>
-<script src='js/main.js'></script>
-
+<script src='../js/Students.js'></script>
+<script src='../js/main.js'></script>
 {% endblock %}
+
 {% block body %}
-    <body>
-    <div class="main_left">
-        <img src="images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu" class="display-cross"
-             onclick="toggle_menu()">
-        <button id="button_back" onclick="window.location.href = '../Welcome/Welcome.html'">Retour</button>
-    </div>
     <div class="main_right">
         <p id="right_title">Gestion des étudiants</p>
-        <img src="images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
-        <img src="images/Icones/logo_seul.png" alt="chercher un étudiant" id="menu_search" onclick="toggle_search()">
+        <img src="../images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="../images/Icones/logo_seul.png" alt="chercher un étudiant" id="menu_search" onclick="toggle_search()">
         <div class="search_list-students">
             <div class="search_bar">
                 <input type="search" placeholder="Rechercher" id="general-search_bar">
-                <button type="button" id="general-button_search"><img src="images/Icones/logo_seul.png" alt="V"/>
+                <button type="button" id="general-button_search"><img src="../images/Icones/logo_seul.png" alt="V"/>
                 </button>
             </div>
             <div class="list-students second-scrollbar">
                 <div class="add-del">
-                    <button id="add" onclick="addProfile({{ students|length }});">Ajouter</button>
-                    <button id="delete" onclick="toggle_delete();"><img src="images/Icones/poubelle-de-recyclage.png">
+                    <button id="add" onclick="addProfile();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img
+                                src="../images/Icones/poubelle-de-recyclage.png">
                     </button>
                 </div>
                 {% for student in students %}
-                    {% if student['Role']==3 and student['del']==0 %}
-                        <button class="student" id="{{ student['ID_users'] }}"
-                                onclick="focus_container('{{ student['ID_users'] }}')">{{ student['Surname'] }} {{ student['Name'] }}
+                    {% if student.Role == 1 and student.del == 0 %}
+                        <button class="student" id="{{ student.ID_users }}"
+                                onclick="focus_container('{{ student.ID_users }}')">{{ student.Surname }} {{ student.Name }}
                         </button>
                     {% endif %}
                 {% endfor %}
@@ -44,14 +40,15 @@
                 <div class="profile_block">
                     <div class="profile_top">
                         <button class="btn_edit" id="edit2" onclick="editProfile();">Editer</button>
-                        <img src="images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo">
+                        <img src="../images/profilesPictures/Abderrazak-Daoudi.png" alt="photo de l'étudiant"
+                             id="student_photo">
                         <div class="student_info">
                             <p id="students-profile-surname"></p>
                             <p id="students-profile-name"></p>
                             <p id="students-profile-id_user"></p>
                             <p id="students-profile-birth_date"></p>
                             <p id="students-profile-promotion"></p>
-                            <p id="students-profile-campus">Campus</p>
+                            <p id="students-profile-campus"></p>
                             <p id="students-profile-mail"></p>
                         </div>
                     </div>
@@ -74,23 +71,23 @@
     <!-- -------------------------DEBUT POP UP AJOUTER ELEVE ------------------------ -->
     <div class="container-add-student hide_container">
         <div class="add-student-name">
-            <h1>Ajouter un étudiant</h1>
+            <h1 id="title-pop-up">Ajouter un étudiant</h1>
         </div>
         <div class="div-button-apply">
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="valid_promotion(); applyChanges()">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="valid_promotion(); newProfileToBdd()">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations">
                 <div class="container-student-profile-picture">
                     <div class="student-profile-picture">
-                        <img src="images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
+                        <img src="../images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
                     </div>
                     <div class="add-profile-picture-button">
                         <label for="file-input">
-                            <img src="images/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp"
+                            <img src="../images/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp"
                                  id="add-profile-picture-button">
                         </label>
                         <input id="file-input" type="file" accept=".jpeg, .jpg, .png"/>
@@ -110,7 +107,8 @@
                                            name="select-promotion" required>
                                     <datalist id="promotions">
                                         {% for promotion in promotions %}
-                                            <option value="{{ promotion.name }}">{{ promotion.name }}</option>
+                                            <option value="{{ promotion.Name }}"
+                                                    data-id="{{ promotion.ID_promotion }}">{{ promotion.Name }}</option>
                                         {% endfor %}
                                     </datalist>
                                 </li>
@@ -153,10 +151,9 @@
             </div>
             <div class="del_button">
                 <button type="button" onclick="toggle_delete();">Annuler</button>
-                <button type="button" onclick="del_current_container();">Supprimer</button>
+                <button type="button" onclick="del_current_container(); delProfile();">Supprimer</button>
             </div>
         </div>
     </div>
-    </body>
 {% endblock %}
 

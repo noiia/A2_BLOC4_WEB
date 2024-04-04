@@ -69,28 +69,37 @@ INSERT INTO sector (ID_sector, Name, Del) VALUES ('14', 'Plastique / Caoutchouc'
 INSERT INTO sector (ID_sector, Name, Del) VALUES ('15', 'Services aux entreprises', 0);
 INSERT INTO sector (ID_sector, Name, Del) VALUES ('16', 'Textile / Habillement / Chaussure', 0);
 INSERT INTO sector (ID_sector, Name, Del) VALUES ('17', 'Transports / Logistique', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('18', 'industrie 1', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('19', 'industrie 2', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('20', 'industrie 3', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('21', 'industrie 4', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('22', 'industrie 5', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('23', 'industrie 6', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('24', 'industrie 7', 0);
+INSERT INTO sector (ID_sector, Name, Del) VALUES ('25', 'industrie 8', 0);
 
-INSERT INTO company (id_location, ID_company, Name, SIRET, Creation_date, Staff, Type, Company_description, Del, ID_sector) VALUES 
-(1,1, 'Total', '12345678900010', '1924-03-28', 173, 'Grande Entreprise', 'Entreprise pétrolière et gazière', 0, 3),
-(2,2, 'EDF', '98765432100020', '1946-04-08', 88, 'PME', 'Fournisseur d électricité', 0, 14),
-(3,3, 'Airbus', '56789012300030', '1970-12-18', 256, 'Start-up', 'Industrie aérospatiale', 0, 8),
-(4,4, 'Orange', '34567890100040', '1988-05-01', 141, 'Grande Entreprise', 'Opérateur de télécommunications', 0, 5),
-(5,5, 'L Oréal', '23456789000050', '1909-07-30', 72, 'Grande Entreprise', 'Cosmétiques et produits de beauté', 0, 10),
-(6,6, 'BNP Paribas', '78901234500060', '2000-07-23', 189, 'PME', 'Services bancaires et financiers', 0, 7),
-(7,7, 'Renault', '45678901200070', '1899-02-25', 134, 'Start-up', 'Constructeur automobile', 0, 2),
-(8,8, 'Sanofi', '56789012300080', '2004-08-20', 198, 'Grande Entreprise', 'Industrie pharmaceutique', 0, 15),
-(9,9, 'Capgemini', '67890123400090', '1967-10-01', 113, 'PME', 'Services informatiques et de conseil', 0, 4),
-(10,10, 'AXA', '78901234500100', '1985-09-26', 200, 'Start-up', 'Assurance et gestion d actifs', 0, 12),
-(11,11, 'Danone', '89012345600110', '1919-04-02', 54, 'Grande Entreprise', 'Produits alimentaires et boissons', 0, 17),
-(12,12, 'Engie', '90123456700120', '2008-07-22', 299, 'PME', 'Services énergétiques', 0, 11),
-(13,13, 'Veolia', '12345678900130', '1853-03-14', 125, 'Grande Entreprise', 'Services environnementaux', 0, 6),
-(14,14, 'Société Générale', '23456789000140', '1864-05-04', 46, 'PME', 'Services bancaires et financiers', 0, 9),
-(15,15, 'Schneider Electric', '34567890100150', '1836-03-02', 178, 'Grande Entreprise', 'Gestion de l énergie et automatisation', 0, 1),
-(16,16, 'LVMH', '45678901200160', '1987-01-01', 99, 'PME', 'Luxe et produits de haute qualité', 0, 16),
-(17,17, 'Auchan', '56789012300170', '1961-01-01', 221, 'Grande Entreprise', 'Distribution et commerce de détail', 0, 13),
-(18,18, 'AccorHotels', '67890123400180', '1967-08-19', 27, 'Start-up', 'Hôtellerie et services', 0, 14),
-(19,19, 'Dassault Systèmes', '78901234500190', '1981-06-24', 123, 'Grande Entreprise', 'Solutions logicielles et de conception', 0, 8),
-(20,20, 'Thales', '89012345600200', '1893-12-18', 157, 'PME', 'Technologies de l énergie et de la défense', 0, 5);
+
+INSERT INTO company (id_location, ID_company, Name, SIRET, Creation_date, Staff, Type, Company_description, Company_logo_path, Del) VALUES 
+(1,1, 'Total', '12345678900010', '1924-03-28', 173, 'Grande Entreprise', 'Entreprise pétrolière et gazière', 'images/CompanyLogos/logo_1.jpg', 0),
+(2,2, 'EDF', '98765432100020', '1946-04-08', 88, 'PME', 'Fournisseur d électricité', 'images/CompanyLogos/logo_2.png', 0),
+(3,3, 'Airbus', '56789012300030', '1970-12-18', 256, 'Start-up', 'Industrie aérospatiale', 'images/CompanyLogos/logo_3.png', 0),
+(4,4, 'Orange', '34567890100040', '1988-05-01', 141, 'Grande Entreprise', 'Opérateur de télécommunications', 'images/CompanyLogos/logo_4.png', 0),
+(5,5, 'L Oréal', '23456789000050', '1909-07-30', 72, 'Grande Entreprise', 'Cosmétiques et produits de beauté', 'images/CompanyLogos/logo_5.jpg', 0),
+(6,6, 'BNP Paribas', '78901234500060', '2000-07-23', 189, 'PME', 'Services bancaires et financiers', 'images/CompanyLogos/logo_6.jpg', 0),
+(7,7, 'Renault', '45678901200070', '1899-02-25', 134, 'Start-up', 'Constructeur automobile', 'images/CompanyLogos/logo_7.jpg', 0),
+(8,8, 'Sanofi', '56789012300080', '2004-08-20', 198, 'Grande Entreprise', 'Industrie pharmaceutique', 'images/CompanyLogos/logo_8.png', 0),
+(9,9, 'Capgemini', '67890123400090', '1967-10-01', 113, 'PME', 'Services informatiques et de conseil', 'images/CompanyLogos/logo_9.png', 0),
+(10,10, 'AXA', '78901234500100', '1985-09-26', 200, 'Start-up', 'Assurance et gestion d actifs', 'images/CompanyLogos/logo_10.png', 0),
+(11,11, 'Danone', '89012345600110', '1919-04-02', 54, 'Grande Entreprise', 'Produits alimentaires et boissons', 'images/CompanyLogos/logo_11.png', 0),
+(12,12, 'Engie', '90123456700120', '2008-07-22', 299, 'PME', 'Services énergétiques', 'images/CompanyLogos/logo_12.png', 0),
+(13,13, 'Veolia', '12345678900130', '1853-03-14', 125, 'Grande Entreprise', 'Services environnementaux', 'images/CompanyLogos/logo_13.png', 0),
+(14,14, 'Société Générale', '23456789000140', '1864-05-04', 46, 'PME', 'Services bancaires et financiers', 'images/CompanyLogos/logo_14.jpg', 0),
+(15,15, 'Schneider Electric', '34567890100150', '1836-03-02', 178, 'Grande Entreprise', 'Gestion de l énergie et automatisation', 'images/CompanyLogos/logo_15.png', 0),
+(16,16, 'LVMH', '45678901200160', '1987-01-01', 99, 'PME', 'Luxe et produits de haute qualité', 'images/CompanyLogos/logo_16.jpg', 0),
+(17,17, 'Auchan', '56789012300170', '1961-01-01', 221, 'Grande Entreprise', 'Distribution et commerce de détail', 'images/CompanyLogos/logo_17.png', 0),
+(18,18, 'AccorHotels', '67890123400180', '1967-08-19', 27, 'Start-up', 'Hôtellerie et services', 'images/CompanyLogos/logo_18.png', 0),
+(19,19, 'Dassault Systèmes', '78901234500190', '1981-06-24', 123, 'Grande Entreprise', 'Solutions logicielles et de conception', 'images/CompanyLogos/logo_19.jpg', 0),
+(20,20, 'Thales', '89012345600200', '1893-12-18', 157, 'PME', 'Technologies de l énergie et de la défense', 'images/CompanyLogos/logo_20.png', 0);
 
 insert into promotion (Name, Del, ID_location) values ('CESI_CPIA2_Informatique', 0, 10);
 insert into promotion (Name, Del, ID_location) values ('Fac_Master1_Droit', 0, 2);
@@ -353,7 +362,7 @@ insert into manage_company (ID_users, ID_company) values (19, 7);
 insert into manage_company (ID_users, ID_company) values (15, 3), (15, 5), (15, 6), (15, 11), (15, 12), (15,13), (15,14);
 insert into manage_company (ID_users, ID_company) values (21,1), (21,2), (21,3), (21,4), (21,5), (21,6), (21,7), (21,8), (21,9), (21,10), (21,11), (21,12), (21,13), (21,14), (21,15), (21,16), (21,17), (21,18), (21,19), (21,20), (22,1), (22,2), (22,3), (22,4), (22,5), (22,6), (22,7), (22,8), (22,9), (22,10), (22,11), (22,12), (22,13), (22,14), (22,15), (22,16), (22,17), (22,18), (22,19), (22,20), (23,1), (23,2), (23,3), (23,4), (23,5), (23,6), (23,7), (23,8), (23,9), (23,10), (23,11), (23,12), (23,13), (23,14), (23,15), (23,16), (23,17), (23,18), (23,19), (23,20);
 
-INSERT INTO appliement_wishlist (Status, Del, ID_users, ID_internship) VALUES
+INSERT INTO workflow (Status, Del, ID_users, ID_internship) VALUES
 (1,0,1, 6),
 (2,0,6, 17),
 (3,0,4, 24),
@@ -384,6 +393,31 @@ INSERT INTO appliement_wishlist (Status, Del, ID_users, ID_internship) VALUES
 (2,0,15, 16),
 (2,0,13, 11);
 
+insert into wishlist (ID_internship, ID_users) values (1, 8);
+insert into wishlist (ID_internship, ID_users) values (2, 11);
+insert into wishlist (ID_internship, ID_users) values (3, 20);
+insert into wishlist (ID_internship, ID_users) values (4, 17);
+insert into wishlist (ID_internship, ID_users) values (5, 5);
+insert into wishlist (ID_internship, ID_users) values (6, 23);
+insert into wishlist (ID_internship, ID_users) values (7, 16);
+insert into wishlist (ID_internship, ID_users) values (8, 2);
+insert into wishlist (ID_internship, ID_users) values (9, 22);
+insert into wishlist (ID_internship, ID_users) values (10, 4);
+insert into wishlist (ID_internship, ID_users) values (11, 19);
+insert into wishlist (ID_internship, ID_users) values (12, 12);
+insert into wishlist (ID_internship, ID_users) values (13, 22);
+insert into wishlist (ID_internship, ID_users) values (14, 10);
+insert into wishlist (ID_internship, ID_users) values (15, 1);
+insert into wishlist (ID_internship, ID_users) values (16, 9);
+insert into wishlist (ID_internship, ID_users) values (17, 15);
+insert into wishlist (ID_internship, ID_users) values (18, 3);
+insert into wishlist (ID_internship, ID_users) values (19, 21);
+insert into wishlist (ID_internship, ID_users) values (20, 18);
+insert into wishlist (ID_internship, ID_users) values (21, 21);
+insert into wishlist (ID_internship, ID_users) values (22, 7);
+insert into wishlist (ID_internship, ID_users) values (23, 14);
+insert into wishlist (ID_internship, ID_users) values (24, 6);
+insert into wishlist (ID_internship, ID_users) values (25, 13);
 
 insert into seek (ID_internship, ID_skill) values (1, 8);
 insert into seek (ID_internship, ID_skill) values (2, 11);
@@ -403,7 +437,7 @@ insert into seek (ID_internship, ID_skill) values (15, 1);
 insert into seek (ID_internship, ID_skill) values (16, 9);
 insert into seek (ID_internship, ID_skill) values (17, 15);
 insert into seek (ID_internship, ID_skill) values (18, 3);
-insert into seek (ID_internship, ID_skill) values (19, 24);
+insert into seek (ID_internship, ID_skill) values (19, 20);
 insert into seek (ID_internship, ID_skill) values (20, 18);
 insert into seek (ID_internship, ID_skill) values (21, 21);
 insert into seek (ID_internship, ID_skill) values (22, 7);
@@ -433,7 +467,7 @@ insert into seek (ID_internship, ID_skill) values (19, 22);
 insert into seek (ID_internship, ID_skill) values (20, 1);
 insert into seek (ID_internship, ID_skill) values (21, 19);
 insert into seek (ID_internship, ID_skill) values (22, 15);
-insert into seek (ID_internship, ID_skill) values (23, 24);
+insert into seek (ID_internship, ID_skill) values (23, 25);
 insert into seek (ID_internship, ID_skill) values (24, 5);
 insert into seek (ID_internship, ID_skill) values (25, 4);
 
@@ -463,3 +497,69 @@ insert into seek (ID_internship, ID_skill) values (22, 12);
 insert into seek (ID_internship, ID_skill) values (23, 13);
 insert into seek (ID_internship, ID_skill) values (24, 14);
 insert into seek (ID_internship, ID_skill) values (25, 10);
+
+
+insert into company_sector (ID_company, ID_sector) values (1, 8);
+insert into company_sector (ID_company, ID_sector) values (2, 11);
+insert into company_sector (ID_company, ID_sector) values (3, 15);
+insert into company_sector (ID_company, ID_sector) values (4, 17);
+insert into company_sector (ID_company, ID_sector) values (5, 5);
+insert into company_sector (ID_company, ID_sector) values (6, 20);
+insert into company_sector (ID_company, ID_sector) values (7, 16);
+insert into company_sector (ID_company, ID_sector) values (8, 2);
+insert into company_sector (ID_company, ID_sector) values (9, 10);
+insert into company_sector (ID_company, ID_sector) values (10, 4);
+insert into company_sector (ID_company, ID_sector) values (11, 19);
+insert into company_sector (ID_company, ID_sector) values (12, 12);
+insert into company_sector (ID_company, ID_sector) values (13, 14);
+insert into company_sector (ID_company, ID_sector) values (14, 10);
+insert into company_sector (ID_company, ID_sector) values (15, 1);
+insert into company_sector (ID_company, ID_sector) values (16, 9);
+insert into company_sector (ID_company, ID_sector) values (17, 15);
+insert into company_sector (ID_company, ID_sector) values (18, 3);
+insert into company_sector (ID_company, ID_sector) values (19, 19);
+insert into company_sector (ID_company, ID_sector) values (20, 18);
+
+
+insert into company_sector (ID_company, ID_sector) values (1, 20);
+insert into company_sector (ID_company, ID_sector) values (2, 3);
+insert into company_sector (ID_company, ID_sector) values (3, 13);
+insert into company_sector (ID_company, ID_sector) values (4, 9);
+insert into company_sector (ID_company, ID_sector) values (5, 18);
+insert into company_sector (ID_company, ID_sector) values (6, 12);
+insert into company_sector (ID_company, ID_sector) values (7, 6);
+insert into company_sector (ID_company, ID_sector) values (8, 8);
+insert into company_sector (ID_company, ID_sector) values (9, 22);
+insert into company_sector (ID_company, ID_sector) values (10, 16);
+insert into company_sector (ID_company, ID_sector) values (11, 2);
+insert into company_sector (ID_company, ID_sector) values (12, 7);
+insert into company_sector (ID_company, ID_sector) values (13, 17);
+insert into company_sector (ID_company, ID_sector) values (14, 11);
+insert into company_sector (ID_company, ID_sector) values (15, 14);
+insert into company_sector (ID_company, ID_sector) values (16, 23);
+insert into company_sector (ID_company, ID_sector) values (17, 21);
+insert into company_sector (ID_company, ID_sector) values (18, 10);
+insert into company_sector (ID_company, ID_sector) values (19, 22);
+insert into company_sector (ID_company, ID_sector) values (20, 1);
+
+
+insert into company_sector (ID_company, ID_sector) values (1, 6);
+insert into company_sector (ID_company, ID_sector) values (2, 1);
+insert into company_sector (ID_company, ID_sector) values (3, 17);
+insert into company_sector (ID_company, ID_sector) values (4, 12);
+insert into company_sector (ID_company, ID_sector) values (5, 6);
+insert into company_sector (ID_company, ID_sector) values (6, 3);
+insert into company_sector (ID_company, ID_sector) values (7, 20);
+insert into company_sector (ID_company, ID_sector) values (8, 11);
+insert into company_sector (ID_company, ID_sector) values (9, 2);
+insert into company_sector (ID_company, ID_sector) values (10, 8);
+insert into company_sector (ID_company, ID_sector) values (11, 10);
+insert into company_sector (ID_company, ID_sector) values (12, 25);
+insert into company_sector (ID_company, ID_sector) values (13, 9);
+insert into company_sector (ID_company, ID_sector) values (14, 16);
+insert into company_sector (ID_company, ID_sector) values (15, 22);
+insert into company_sector (ID_company, ID_sector) values (16, 25);
+insert into company_sector (ID_company, ID_sector) values (17, 18);
+insert into company_sector (ID_company, ID_sector) values (18, 7);
+insert into company_sector (ID_company, ID_sector) values (19, 23);
+insert into company_sector (ID_company, ID_sector) values (20, 16);
