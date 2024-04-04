@@ -33,9 +33,9 @@
             </div>
         </div>
         <div class="profile_company">
-            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();editCompany()">Editer</button>
             <div class="profile_block" id="main-block">
-                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
+                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup(); editCompany()">Editer</button>
                 <template id="main-bubble">
                     <div id="template-space">
                         <div class="company_top">
@@ -78,7 +78,7 @@
     <!-- ------------------------- POP UP AJOUTER PILOTE ------------------------ -->
     <div class="container-add-student hide_container">
         <div class="add-student-name">
-            <h1>Ajouter une entreprise</h1>
+            <h1 id="title-pop-up">Ajouter une entreprise</h1>
         </div>
         <div class="div-button-apply">
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup()">Annuler</button>

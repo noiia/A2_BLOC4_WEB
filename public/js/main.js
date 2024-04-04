@@ -164,3 +164,11 @@ function valid_promotion(isCompany = false) {
 
 
 // -------------------- fin parti gestion ------------------- //
+
+function formatDatabaseDate(databaseDate) {
+    var data = databaseDate;
+    const year = Number(data[0] + data[1] + data[2] + data[3]);
+    const month = Number(data[5] + data[6]);
+    const day = Number(data[8] + data[9]);
+    return `${day}-${month}-${year}`;
+}

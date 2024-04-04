@@ -208,11 +208,12 @@ function newCompanyToBdd() {
     //}
 }
 
-function editProfile() {
-    document.getElementById("title-pop-up").textContent = "Editer un étudiant";
+function editCompany() {
+    toggle_hide_popup();
+    document.getElementById("title-pop-up").textContent = "Editer une entreprise";
     document.querySelector('.container-add-student').classList.toggle('hide_container');
-    id = Number(document.getElementById("students-profile-id_user").textContent);
-    fetch("https://inter-net.loc/Edition/Etudiants/api/" + id, {
+    id = Number(document.getElementById("company-ID").textContent);
+    fetch("https://inter-net.loc/Edition/Entreprises/api/" + id, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -220,15 +221,14 @@ function editProfile() {
     }).then((response) => response.json())
         .then((data) => {
             console.log(data);
-            document.getElementById("editName").value = data.Name;
-            document.getElementById("editSurname").value = data.Surname;
-            document.getElementById("editDate").value = data.Birth_date;
-            document.getElementById("select-promotions").value = data.Promotion;
-            document.getElementById("select-campus").value = data.Campus;
-            document.getElementById("editEmail").value = data.Email;
-            document.getElementById("editID").value = data.ID_users;
-            document.getElementById("editDescription").value = data.Profile_Description;
-            document.getElementById("student_photo").src = data.ProfilePicture;
+            document.getElementById("add-Name").value = data.company;
+            document.getElementById("N-Siret").value = data.SIRET;
+            document.getElementById("add-email").value = data.sector;
+            document.getElementById("id-input-creation-date").value = data.birthdate;
+            document.getElementById("add-staff").value = data.staff;
+            document.getElementById("select-type").value = data.type;
+            document.getElementById("add-website").value = data.website;
+            document.getElementById("add-description").value = data.description;
 
         });
 }
@@ -265,7 +265,7 @@ function loadBubbleCompanyManagement(id = 1) {
             bubbleTemplate.getElementById("company-ID").textContent = data.id;
             bubbleTemplate.getElementById("company_description").textContent = data.description;
             bubbleTemplate.getElementById("company-people").textContent = data.staff;
-            bubbleTemplate.getElementById("company-birthdate").textContent = data.birthdate;
+            bubbleTemplate.getElementById("company-birthdate").textContent = formatDatabaseDate(data.birthdate.date);
             bubbleTemplate.getElementById("website-link").href = data.website;
             bubbleTemplate.getElementById("website-link").textContent = data.website;
             bubbleTemplate.getElementById("company_logo").src = "../" + data.logo_path;

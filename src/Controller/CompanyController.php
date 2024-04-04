@@ -253,6 +253,7 @@ class CompanyController
                 'type' => $company->getType(),
                 'logo_path' => $imagePath,
                 'website' => $company->getCompanyWebsiteLink(),
+                'email' => $company->getMail(),
             ];
 
             $payload = json_encode($data);
