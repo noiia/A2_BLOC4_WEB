@@ -104,6 +104,7 @@ class CompanyController
                         return $element->getName();
                     },$internship->getSkills()->toArray()), 0,3)
                 ];
+
         }
 
         $j = 0;

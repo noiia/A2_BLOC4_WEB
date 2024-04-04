@@ -1,4 +1,5 @@
 function loadCompanyBubbleData(id = 1) {
+    console.log("https://inter-net.loc/Entreprise/api/"+id);
     fetch("https://inter-net.loc/Entreprise/api/" + id, {
         method: "GET",
         headers: {
@@ -25,11 +26,9 @@ function loadCompanyBubbleData(id = 1) {
             const miniInternshipTemplate = document.getElementById("mini-internship");
             const sectorTemplate = document.getElementById("sector-template");
             const commentTemplate = document.getElementById("comment-template");
-            const skillTemplate = document.getElementById("skills-template");
             const sectorContainer = document.getElementById("container-company-details-sector-name-list");
             const internshipContainer = document.getElementById("mini-internship-container");
             const commentContainer = document.getElementById("comment-container");
-            const skillContainer = document.getElementById("skills-container");
 
             for (let sector of data.sector) {
                 const cloneSectorTemplate = sectorTemplate.content.cloneNode(true);
@@ -44,18 +43,22 @@ function loadCompanyBubbleData(id = 1) {
                 cloneInternshipTemplate.getElementById("internship-starting-date").textContent = "A partir du " + internship.starting_date;
                 cloneInternshipTemplate.getElementById("internship-duration").textContent = internship.duration + " semaines";
                 internshipContainer.append(cloneInternshipTemplate);
+
+                const skillTemplate = document.getElementById("skills-template");
+                const skillContainer = document.getElementById("skills-container");
+
+                //faire un modulo 3 pour afficher 3 skills dans chaque stage
+                for(let skill of internship.skill){
+                    const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
+                    cloneSkillTemplate.getElementById("skills").textContent = skill;
+                    skillContainer.append(cloneSkillTemplate);
+                }
             }
             for (let comment of data.comment) {
                 const cloneCommentTemplate = commentTemplate.content.cloneNode(true);
                 cloneCommentTemplate.getElementById("comment-user").textContent = comment.user + " - " + comment.note + "/10";
                 cloneCommentTemplate.getElementById("comment-description").textContent = comment.description;
                 commentContainer.append(cloneCommentTemplate);
-            }
-
-            for (let skill of data.skill) {
-                const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
-                cloneSkillTemplate.getElementById("skills").textContent = skill;
-                skillContainer.append(cloneSkillTemplate);
             }
         });
 }
