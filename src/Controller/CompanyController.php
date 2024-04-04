@@ -100,6 +100,9 @@ class CompanyController
                     'location' => $internship->locations->getCity(),
                     'starting_date' => $internship->getStartingDate(),
                     'duration' => $internship->getDuration(),
+                    'skill'=>array_slice(array_map(function ($element){
+                        return $element->getName();
+                    },$internship->getSkills()->toArray()), 0,3)
                 ];
         }
 
@@ -118,16 +121,7 @@ class CompanyController
                     ];
             }
         }
-        $i = 0;
-        $Skills = [];
-        foreach ($internship->getSkills() as $skill) {
-            $i++;
-            if ($i <= 3) {
-                $Skills[] = $skill->getName();
-            } else {
-                break;
-            }
-        }
+
         $imagePath = "";
         if ($company->getCompanyLogoPath() != null) {
             $imagePath = $company->getCompanyLogoPath();
@@ -147,7 +141,6 @@ class CompanyController
                 'comment' => $Comments,
                 'number_of_internship' => $i,
                 'logo_path' => $imagePath,
-                'skill' => $Skills,
             ];
 
             $payload = json_encode($data);

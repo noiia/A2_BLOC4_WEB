@@ -13,8 +13,6 @@ function focus_container(id) {
     }
 }
 
-
-// ------------------ parti Welcome/Entreprise ----------------
 // ------------------ parti Welcome/Entreprise ----------------
 
 window.onscroll = function () {
@@ -62,52 +60,6 @@ function afficherOuMasquerBouton() {
         }
 }
 
-
-//window.onscroll = function () {
-//    afficherOuMasquerBouton();
-//};
-//
-//function afficherOuMasquerBouton() {
-//    var boutonRetourHaut = document.getElementById("button-retour-haut");
-//    var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
-//
-//    if (document.documentElement.scrollTop < 115) {
-//
-//        while (boutonRetourHaut.classList.length > 0) {
-//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
-//        }
-//        while (runwayContainerInternDetails.classList.length > 0) {
-//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
-//        }
-//
-//        boutonRetourHaut.classList.add('display-none');
-//        runwayContainerInternDetails.classList.add('runway-container-intern-details');
-//    }
-//    else if (115<document.documentElement.scrollTop && document.documentElement.scrollTop<2700){
-//
-//        while (boutonRetourHaut.classList.length > 0) {
-//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
-//        }
-//        while (runwayContainerInternDetails.classList.length > 0) {
-//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
-//        }
-//        boutonRetourHaut.classList.add('retourHaut');
-//        runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
-//    }
-//
-//    else if (document.documentElement.scrollTop>2700) {
-//        while (boutonRetourHaut.classList.length > 0) {
-//            boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
-//        }
-//        while (runwayContainerInternDetails.classList.length > 0) {
-//            runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
-//        }
-//
-//        boutonRetourHaut.classList.add('retourHaut-bot');
-//        runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
-//        }
-//}
-
 function retournerEnHaut() {
     window.scrollTo({
         top: 0,
@@ -150,8 +102,6 @@ function del_filter_block(event = Event) {
     event.currentTarget.hidden = true;
 }
 
-//diff entre currentTarget et target : currentTarget est la div ayant l'event alors que le target est la div qui est actuellement clique/survole/...
-
 // ------------------ parti gestion ---------------------
 function toggle_menu() {
     document.querySelector(".main_left").classList.toggle('mobile-menu');
@@ -166,8 +116,6 @@ function toggle_delete() {
 
 function del_current_container() {
     document.getElementById(container_focus).classList.add('del_current_container');
-    console.log(container_focus + " à été supprimé");
-    //suprimer dans la bdd
     toggle_delete();
     container_focus = null;
 }

@@ -227,11 +227,12 @@
 
                 {% set internshipsPerPage = 10 %}
                 {% set currentPage = 1 %}
-                {% set totalPages = (internships|length / internshipsPerPage)|round %}
+                {% set totalInternships = internships|length %}
+                {% set totalPages = (totalInternships / internshipsPerPage)|round %}
 
-                {% for page in range(1, (internships|length / internshipsPerPage)|round) %}
+                {% for page in range(1, totalPages + 1) %}
                     {% set start = (page - 1) * internshipsPerPage %}
-                    {% set end = start + internshipsPerPage %}
+                    {% set end = start + min(internshipsPerPage, totalInternships - start) %}
                     {% for internship in internships|slice(start, end) %}
                         <button class="container" id="{{ internship.id }}" onclick="focus_container('container-{{ internship.id }}')">
                         <span>
@@ -276,19 +277,19 @@
                         </div>
 
                         <div class="container-left-informations">
-                            <h1>Entreprise :</h1>
+                            <h1>Entreprise:</h1>
                             <p id="Big-bubble-company"><a id="Big-bubble-company-link" href=""></a></p>
-                            <h1>Emplacement :</h1>
+                            <h1>Emplacement:</h1>
                             <p id="Big-bubble-location"></p>
-                            <h1>Niveau d'étude :</h1>
+                            <h1>Niveau d'étude:</h1>
                             <p id="Big-bubble-school-grade"></p>
                             <h1>Salaire :</h1>
                             <p id="Big-bubble-month-payment"></p>
-                            <h1>Date de début du stage :</h1>
+                            <h1>Date de début du stage:</h1>
                             <p id="Big-bubble-begin-date"></p>
                             <h1>Places disponibles:</h1>
                             <p id="Big-bubble-place"></p>
-                            <h1>Durée du stage :</h1>
+                            <h1>Durée du stage:</h1>
                             <p id="Big-bubble-duration"></p>
                         </div>
                         <div class="container-right-informations">
@@ -296,20 +297,20 @@
                                     onclick="block_postulation()">
                                 Postuler
                             </button>
-                            <p>Compétences recherchées :</p>
+                            <p>Compétences recherchées:</p>
                             <div class="container-skills-details" id="container-skills">
                             </div>
                         </div>
                         <div class="container1-bottom-informations">
-                            <h1>Avantages :</h1>
+                            <h1>Avantages:</h1>
                             <p id="Big-bubble-advantages"></p>
                         </div>
                         <div class="container2-bottom-informations">
-                            <h1>Description du poste :</h1>
+                            <h1>Description du poste:</h1>
                             <p id="Big-bubble-description"></p>
                         </div>
                         <div class="container2-bottom-informations">
-                            <h1>ID du poste :</h1>
+                            <h1>ID du poste:</h1>
                             <p id="Big-bubble-ID"></p>
                         </div>
                     </div>

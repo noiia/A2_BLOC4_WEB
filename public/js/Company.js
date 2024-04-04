@@ -51,6 +51,7 @@ function loadCompanyBubbleData(id = 1) {
                 cloneCommentTemplate.getElementById("comment-description").textContent = comment.description;
                 commentContainer.append(cloneCommentTemplate);
             }
+
             for (let skill of data.skill) {
                 const cloneSkillTemplate = skillTemplate.content.cloneNode(true);
                 cloneSkillTemplate.getElementById("skills").textContent = skill;
@@ -64,7 +65,6 @@ var oldElement = 1;
 loadCompanyBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
-    console.log(focusedBubble);
     if (oldElement !== focusedBubble && focusedBubble > 0) {
         document.getElementById("runway-container-intern-details").remove();
         loadCompanyBubbleData(focusedBubble);
@@ -119,7 +119,6 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
     var buttonsContainer = document.getElementById("pagination-buttons");
     buttonsContainer.innerHTML = currentPage + " / " + totalPages;
 
-    // Gestion de la page précédente
     var backButton = document.getElementById("id-button-back");
     if (currentPage === 1) {
         backButton.disabled = true;
@@ -128,7 +127,6 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         backButton.addEventListener("click", function() { currentPage -= 1; updatePage(currentPage, totalPages, companiesPerPage); });
     }
 
-    // Gestion de la page suivante
     var nextButton = document.getElementById("id-button-next");
     if (currentPage === totalPages) {
         nextButton.disabled = true;
@@ -137,7 +135,6 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         nextButton.addEventListener("click", function() { currentPage += 1; updatePage(currentPage, totalPages, companiesPerPage); });
     }
 
-    // Mettre à jour l'affichage des boutons de stage en fonction de la page actuelle
     var boutons = document.querySelectorAll('.container');
     boutons.forEach(function(bouton, index) {
         if (index >= start && index < end) {

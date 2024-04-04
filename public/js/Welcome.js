@@ -327,8 +327,18 @@ function updatePage(currentPage, totalPages, internshipsPerPage) {
             bouton.style.display = 'none';
         }
     });
-}
 
+    // Cacher les éléments dont l'ID existe déjà
+    var internIds = [];
+    boutons.forEach(function(bouton) {
+        var id = bouton.getAttribute('id');
+        if (internIds.includes(id)) {
+            bouton.style.display = 'none';
+        } else {
+            internIds.push(id);
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var currentPage = 1;
