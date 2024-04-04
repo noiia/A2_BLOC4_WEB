@@ -3,13 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Company;
+use App\Entity\Location;
+use App\Entity\Promotion;
 use App\Entity\Rate;
 use App\Entity\Users;
+use DateTimeZone;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Views\Twig;
 
 class CompanyController
 {
@@ -78,8 +80,6 @@ class CompanyController
     public function CompanyApi(Request $request, Response $response, int $id)
     {
         $company = $this->entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $id]);
-
-
         $m = 0;
         $Sectors = [];
         $second = null;
@@ -193,5 +193,135 @@ class CompanyController
 
         $response->getBody()->write(json_encode(['success' => true]));
         return $response->withHeader('content-type', 'application-json')->withStatus(200);
+    }
+
+    public function CompanyManagement(Request $request, Response $response): Response
+    {
+        return $this->twig->render($response, 'CompanyManagement/CompanyManagement.html.twig');
+    }
+
+    public function miniCompanyManagementApi(Request $request, Response $response): Response
+    {
+        $Company = $this->entityManager->getRepository(Company::class)->findAll();
+
+        $companies = [];
+        foreach ($Company as $forCompanies) {
+            $companies[] = ['id' => $forCompanies->getIDCompany(), 'name' => $forCompanies->getName()];
+        }
+        $payload = json_encode($companies);
+
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public function CompanyManagementApi(Request $request, Response $response, int $id)
+    {
+        $company = $this->entityManager->getRepository(Company::class)->findOneBy(['ID_company' => $id]);
+        $m = 0;
+        $Sectors = [];
+        $second = null;
+        foreach ($company->getSector() as $sector) {
+            if ($m <= 6) {
+                $m++;
+                if ($m % 2 != 0) {
+                    $second = $sector->getName();
+                } else if ($m % 2 == 0 && $second != null) {
+                    $Sectors[] = [$sector->getName(), $second];
+                    $second = null;
+                }
+            } else {
+                break;
+            }
+        }
+        if ($second != null) {
+            $Sectors[] = [$second];
+        }
+
+        $imagePath = "";
+        if ($company->getCompanyLogoPath() != null) {
+            $imagePath = $company->getCompanyLogoPath();
+        }
+        if ($company != null) {
+            $data = [
+                'id' => $company->getIDCompany(),
+                'company' => $company->getName(),
+                'SIRET' => $company->getSIRET(),
+                'description' => $company->getCompanyDescription(),
+                'sector' => $Sectors,
+                'staff' => $company->getStaff(),
+                'birthdate' => $company->getCreationDate(),
+                'type' => $company->getType(),
+                'logo_path' => $imagePath,
+                'website' => $company->getCompanyWebsiteLink(),
+            ];
+
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        } else {
+            return $response->withStatus(404)->getBody()->write('Entreprise introuvable');
+        }
+    }
+
+    function addCompany(Request $request, Response $response)
+    {
+        $jsonTable = $request->getBody();
+        $table = json_decode($jsonTable, true);
+        var_dump($table);
+        if ($this->entityManager->getRepository(Company::class)->findOneBy(["SIRET" => $table["SIRET"]]) == null) {
+            $company = new Company();
+        } else {
+            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["ID_company" => $table["SIRET"]]);
+        }
+
+        $company->setName($table['name']);
+        $company->setSIRET($table['SIRET']);
+        $date = date_create($table['Date'], new DateTimeZone('UTC'));
+        $company->setCreationDate($date);
+        $company->setStaff($table['staff']);
+        $company->setType($table['type']);
+        $company->setMail($table['Email']);
+        $company->setCompanyWebsiteLink($table['Website']);
+        $company->setCompanyDescription($table['Description']);
+        $company->setCompanyLogoPath("");
+        $company->setDel(0);
+
+        $location = $this->entityManager->getRepository(Location::class)->findOneBy(["ID_location" => $table['id_location']]);
+        $company->setLocations($location);
+
+
+        $this->entityManager->persist($company);
+        $this->entityManager->flush();
+        return $response->withStatus(200);
+
+    }
+
+
+    function delCompany(Request $request, Response $response, int $id)
+    {
+        $student = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $id]);
+        $student->setDel(1);
+        $this->entityManager->persist($student);
+        $this->entityManager->flush();
+        $response->getBody()->write("Company deleted successfully");
+        return $response;
+    }
+
+    function uploadPicture(Request $request, Response $response): Response
+    {
+        $file = $_FILES['file'];
+        $file_name = $file['name'];
+        $file_tmp = $file['tmp_name'];
+
+        $upload_directory = $_SERVER['DOCUMENT_ROOT'] . '/images/profilesPictures/';
+
+        if (move_uploaded_file($file_tmp, $upload_directory . $file_name)) {
+            $response->getBody()->write('Fichier téléchargé avec succès.');
+            return $response->withStatus(200);
+        } else {
+            $response->getBody()->write('Une erreur est survenue lors du téléchargement du fichier.');
+            return $response;
+        }
     }
 }

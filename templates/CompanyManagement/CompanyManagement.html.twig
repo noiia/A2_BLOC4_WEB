@@ -1,0 +1,193 @@
+{% extends 'profileBase.html.twig' %}
+{% block title %} Inter'net - Gestion des entreprises {% endblock %}
+{% block stylesheet %}
+    <link href='../css/OutputCompanyManagement.css' rel="stylesheet"/> {% endblock %}
+{% block javascript %}
+<script src='../js/CompanyManagement.js'></script>
+<script src='../js/main.js'></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_right second-scrollbar">
+        <p id="right_title">Gestion des entreprises</p>
+        <img src="../images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
+        <img src="../images/Icones/logo_seul.png" alt="chercher une entreprise" id="menu_search"
+             onclick="toggle_search()">
+        <div class="search_list-companies" id="container-runway">
+            <div class="search_bar">
+                <input type="search" placeholder="Rechercher" id="general-search_bar">
+                <button type="button" id="general-button_search"><img src="../images/Icones/logo_seul.png" alt="V"/>
+                </button>
+            </div>
+            <template id="mini-company-template">
+                <button class="company" id="mini-company"></button>
+            </template>
+            <div class="list-companies second-scrollbar" id="company-runway">
+                <div class="add-del">
+                    <button id="add" onclick="toggle_hide_popup();">Ajouter</button>
+                    <button id="delete" onclick="toggle_delete();"><img
+                                src="../images/Icones/poubelle-de-recyclage.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="profile_company">
+            <button class="btn_edit" id="edit1" onclick="toggle_hide_popup();">Editer</button>
+            <div class="profile_block" id="main-block">
+                <button class="btn_edit" id="edit2" onclick="toggle_hide_popup();">Editer</button>
+                <template id="main-bubble">
+                    <div id="template-space">
+                        <div class="company_top">
+                            <img src="" alt="logo de l'entreprise" id="company_logo">
+                            <div class="right_profile">
+                                <div class="top_profile">
+                                    <ul>
+                                        <li id="company-name"></li>
+                                        <li id="company-SIRET"></li>
+                                        <li id="company-ID"></li>
+                                    </ul>
+                                    <ul>
+                                        <li id="company-type"></li>
+                                        <li id="company-sector"></li>
+                                        <li id="company-people"></li>
+                                        <li id="company-birthdate"></li>
+                                    </ul>
+                                </div>
+                                <div class="bot_profile second-scrollbar" id="skills-container">
+                                    <template id="skill-template">
+                                        <div class="spot_company" id="skill-bubble"></div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="company_mid">
+                            <label class="label-company_description" for="company_description">Description</label>
+                            <textarea id="company_description" class="second-scrollbar" disabled></textarea>
+                        </div>
+                        <div class="company_bot">
+                            <p>Site Internet : <a href="https://www.reims.fr/" target="_blank" id="website-link">reims.fr</a>
+                            </p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+    <!-- ------------------------- POP UP AJOUTER PILOTE ------------------------ -->
+    <div class="container-add-student hide_container">
+        <div class="add-student-name">
+            <h1>Ajouter une entreprise</h1>
+        </div>
+        <div class="div-button-apply">
+            <button class="button-apply" id="cancel" onclick="toggle_hide_popup()">Annuler</button>
+        </div>
+        <div class="div-button-cancel">
+            <button class="button-cancel" id="apply" onclick="newCompanyToBdd();">Appliquer
+            </button>
+        </div>
+        <div class="container-informations-and-description">
+            <div class="container-students-informations">
+                <div class="container-student-profile-picture">
+                    <div class="student-profile-picture">
+                        <img src="../images/Icones/profile.png" alt="photo de l'étudiant" id="student_photo2">
+                    </div>
+                    <div class="add-profile-picture-button">
+                        <label for="file-input">
+                            <img src="../images/Icones/ajouter-profile-picture-button.png" alt="bouton ajouter une pp"
+                                 id="add-profile-picture-button">
+                        </label>
+                        <input id="file-input" type="file" accept=".jpeg, .jpg, .png"/>
+                    </div>
+                </div>
+                <div class="students-informations">
+                    <div class="students-each-informations">
+                        <form id="Company-Form" onsubmit="return validerFormulaire()">
+                            <ul id="id_first_ul">
+                                <li><input placeholder="Nom" required id="add-Name"></input></li>
+                                <li><input type="number" placeholder="N° SIRET" id="N-Siret" required></input></li>
+                                <li><input placeholder="Secteur d'activités..." list="sector" id="select-sector"
+                                           name="select-sector" required>
+                                    <datalist id="sector">
+                                        <option value="Electronique">
+                                        <option value="Commerce">
+                                        <option value="Betise">
+                                    </datalist>
+                                </li>
+                                <li><input type="url" placeholder="Site Internet" required id="add-website"></input>
+                                </li>
+                            </ul>
+                            <ul id="id_second_ul">
+                                <li><input type="email" placeholder="Mail" required id="add-email"></input></li>
+                                <li><input id="id-input-creation-date" type="date" required></input></li>
+                                <li><input type="number" placeholder="Effectif personnel" required
+                                           id="add-staff"></input></li>
+                                <li><input placeholder="Type..." list="type" id="select-type" name="select-type"
+                                           required>
+                                    <datalist id="type">
+                                        <option value="PME">
+                                        <option value="Start-up">
+                                        <option value="Grande entreprise">
+                                        <option value="Multinatinale">
+                                    </datalist>
+                                </li>
+                            </ul>
+                            <ul id="id_third_ul">
+                                <li><input type="number" disabled placeholder="ID entreprise" id="add-id-company"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="container-students-description second-scrollbar">
+                <div class="container-students-description-name">
+                    <h1>Description:</h1>
+                </div>
+                <div class="students-description">
+                <textarea class="second-scrollbar-description-internship"
+                          placeholder="Tapez votre description..." id="add-description"></textarea>
+                </div>
+            </div>
+            <div class="container-pilote-promotion second-scrollbar">
+                <div class="container-pilote-promotion-header">
+                    <div class="container-pilote-promotion-header-name">
+                        <h1>Adresses</h1>
+                    </div>
+                    <div class="container-pilote-promotion-header-add-button">
+                        <button class="button-add" id="add-button" onclick="newAddressToBdd();">Ajouter</button>
+                    </div>
+                </div>
+                <div class="input-adresse">
+                    <input id="input-adresse" placeholder="Adresse..."></input>
+                </div>
+                <div class="input-code-postal">
+                    <input id="input-code-postal" placeholder="CP..."></input>
+                </div>
+                <template id="template-location">
+                    <div class="each-promotion">
+                        <h1 class="title-address" id="title-address">15 rue des pissenlits, 51500</h1>
+                        <button type="button" id="delete-promotion-button" class="delete-promotion-button"><img
+                                    src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle" id="bin-picture">
+                        </button>
+                    </div>
+                </template>
+                <div class="container-each-promotion" id="container-location">
+                </div>
+            </div>
+        </div>
+        <!-- -------------------------FIN POP UP AJOUTER PILOTE ------------------------ -->
+        <div class="del_bg">
+            <div class="del_block">
+                <div class="del_text">
+                    Êtes-vous sûr de vouloir supprimer cette entreprise ?
+                </div>
+                <div class="del_button">
+                    <button type="button" onclick="toggle_delete();">Annuler</button>
+                    <button type="button" onclick="del_current_container();">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

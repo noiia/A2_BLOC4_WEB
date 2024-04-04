@@ -75,6 +75,10 @@ class StudentsController
             $tempPromotion["promotionName"] = $promotions->getName();
             $tempPromotion["promotionLocation"] = $promotions->location->getCity();
         }
+        $picturePath = "";
+        if ($student->getProfilePicturePath() !== null) {
+            $picturePath = $student->getProfilePicturePath();
+        }
         if ($student != null) {
             $data = [
                 'ID_users' => $student->getIDUsers(),
@@ -86,7 +90,7 @@ class StudentsController
                 'Role' => $student->getRole(),
                 'location' => $tempPromotion['promotionLocation'],
                 'Promotion' => $tempPromotion['promotionName'],
-                'ProfilePicture' => $student->getProfilePicturePath(),
+                'ProfilePicture' => $picturePath,
                 'Del' => $student->isDel(),
             ];
 
@@ -164,7 +168,9 @@ class StudentsController
         $user->setProfileDescription($table['Description']);
         $user->setEmail($table['Email']);
         $user->setRole(1);
-        $user->setProfilePicturePath($table['picturePath']);
+        if ($table['picturePath'] != null) {
+            $user->setProfilePicturePath($table['picturePath']);
+        }
         $user->setDel(0);
         $idPromotion = $table['idPromotion'];
 

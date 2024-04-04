@@ -45,7 +45,7 @@ class Users
     #[Column(type: Types::SMALLINT)]
     private int $Role;
     #[Column(type: Types::STRING, length: 200)]
-    private string $Profile_picture_path;
+    private string $Profile_picture_path = "";
     #[Column(type: Types::BOOLEAN)]
     private bool $Del;
     #[OneToMany(targetEntity: Rate::class, mappedBy: 'users')]

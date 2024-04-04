@@ -89,9 +89,9 @@ function newProfileToBdd() {
     var email = document.getElementById("editEmail").value;
     var Description = document.getElementById("editDescription").value;
     const fileInput = document.getElementById('file-input');
-    console.log(fileInput.files[0]);
     const file = fileInput.files[0];
-    if (file !== null) {
+    console.log(file);
+    if (file) {
         var picturePath = file.name;
         console.log(picturePath);
         uploadPicture(file).then(() => {
@@ -120,6 +120,7 @@ function newProfileToBdd() {
                     'Content-Type': 'application/json'
                 }
             }
+            console.log("on est avant fetchs");
             fetch('../Edition/Etudiants/add', options)
                 .then(response => response.text())
                 .then(data => {
@@ -157,6 +158,7 @@ function newProfileToBdd() {
         fetch('../Edition/Etudiants/add', options)
             .then(response => response.text())
             .then(data => {
+                window.location = "../Edition/Etudiants"
                 alert(data);
             })
             .catch(error => console.error('Erreur:', error));
@@ -201,6 +203,7 @@ function delProfile() {
             alert(data);
         })
 }
+
 
 function loadBubbleStudent(id = 1) {
     fetch("https://inter-net.loc/Edition/Etudiants/api/" + id, {

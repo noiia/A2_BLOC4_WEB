@@ -21,25 +21,29 @@ class Location
     #[GeneratedValue(strategy: 'AUTO')]
     #[Column(type: Types::INTEGER)]
     private int $ID_location;
-    #[Column(type:Types::STRING, length: 50)]
+    #[Column(type: Types::STRING, length: 100)]
+    private string $Street;
+    #[Column(type: Types::STRING, length: 50)]
     private string $City;
-    #[Column(type:Types::STRING, length: 5)]
+    #[Column(type: Types::STRING, length: 5)]
     private string $Zip_code;
-    #[Column(type:Types::STRING, length: 2)]
+    #[Column(type: Types::STRING, length: 2)]
     private string $Departement;
-    #[Column(type:Types::BOOLEAN)]
+    #[Column(type: Types::BOOLEAN)]
     private bool $Del;
-    #[OneToMany(targetEntity: Promotion::class, mappedBy:'location')]
+    #[OneToMany(targetEntity: Promotion::class, mappedBy: 'location')]
     private Collection $promotions;
-    #[OneToOne(targetEntity: Company::class, mappedBy:'locations')]
+    #[OneToOne(targetEntity: Company::class, mappedBy: 'locations')]
     public ?Company $companies;
     #[OneToMany(targetEntity: Internship::class, mappedBy: 'locations')]
     public Collection $internships;
+
     public function __construct()
     {
         $this->promotions = new ArrayCollection();
         $this->internships = new ArrayCollection();
     }
+
     public function getIDLocation(): int
     {
         return $this->ID_location;
@@ -48,6 +52,16 @@ class Location
     public function setIDLocation(int $ID_location): void
     {
         $this->ID_location = $ID_location;
+    }
+
+    public function getStreet(): string
+    {
+        return $this->Street;
+    }
+
+    public function setStreet(string $Street): void
+    {
+        $this->Street = $Street;
     }
 
     public function getCity(): string
@@ -89,5 +103,5 @@ class Location
     {
         $this->Del = $Del;
     }
-    
+
 }

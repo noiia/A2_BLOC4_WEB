@@ -1,19 +1,13 @@
-<title>{% block title %} Inter'net - Étudiants {% endblock %}</title>
+{% extends 'profileBase.html.twig' %}
+{% block title %} Inter'net - Gestion des Étudiants {% endblock %}
 {% block stylesheet %}
     <link href='../css/OutputStudents.css' rel="stylesheet"/> {% endblock %}
 {% block javascript %}
 <script src='../js/Students.js'></script>
 <script src='../js/main.js'></script>
-
 {% endblock %}
+
 {% block body %}
-    <body>
-    <div class="main_left">
-        <img src="../images/Icones/croix-supprimer-le-signe.png" alt="fermer le menu" id="close_menu"
-             class="display-cross"
-             onclick="toggle_menu()">
-        <button id="button_back" onclick="window.location.href = '../Stage'">Retour</button>
-    </div>
     <div class="main_right">
         <p id="right_title">Gestion des étudiants</p>
         <img src="../images/Icones/hamburger.png" alt="menu" id="menu" onclick="toggle_menu()">
@@ -32,9 +26,9 @@
                     </button>
                 </div>
                 {% for student in students %}
-                    {% if student['Role']==1 and student['del']==0 %}
-                        <button class="student" id="{{ student['ID_users'] }}"
-                                onclick="focus_container('{{ student['ID_users'] }}')">{{ student['Surname'] }} {{ student['Name'] }}
+                    {% if student.Role == 1 and student.del == 0 %}
+                        <button class="student" id="{{ student.ID_users }}"
+                                onclick="focus_container('{{ student.ID_users }}')">{{ student.Surname }} {{ student.Name }}
                         </button>
                     {% endif %}
                 {% endfor %}
@@ -161,6 +155,5 @@
             </div>
         </div>
     </div>
-    </body>
 {% endblock %}
 

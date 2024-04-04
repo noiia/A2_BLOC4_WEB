@@ -6,6 +6,7 @@ use App\Controller\CompanyController;
 use App\Controller\CompanyStatsController;
 use App\Controller\InternshipController;
 use App\Controller\InternshipStatsController;
+use App\Controller\LocationController;
 use App\Controller\LoginController;
 use App\Controller\ProfileController;
 use App\Controller\StudentsController;
@@ -68,9 +69,18 @@ return function (App $app) {
         $group->patch('Edition/Etudiants/delete/{id}', [StudentsController::class, 'delStudents']);
         $group->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
 
-        $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
-        $group->get('Edition/Entreprises', [WishlistController::class, 'Wishlist']);
+        $group->get('Edition/Entreprises', [CompanyController::class, 'CompanyManagement']);
+        $group->get('Edition/Entreprises/mini-api', [CompanyController::class, 'miniCompanyManagementApi']);
+        $group->get('Edition/Entreprises/api/{id}', [CompanyController::class, 'CompanyManagementApi']);
+        $group->post('Edition/Entreprises/add', [CompanyController::class, 'addCompany']);
+
+        $group->post('Edition/Location/add', [LocationController::class, 'addLocation']);
+        $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
+
+
         $group->get('Edition/Stages', [WishlistController::class, 'Wishlist']);
+
+        $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
 
         $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
         $group->post('Wishlist/add/{id}', [WishlistController::class, 'addInternshipToWishlist']);

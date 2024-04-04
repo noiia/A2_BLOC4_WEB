@@ -4,248 +4,299 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
     @apply font-display;
 }
-html, body{
+
+html, body {
     @apply w-full h-full overflow-hidden;
 }
-body{
+
+body {
     @apply inline-block;
 }
-button{
+
+button {
     @apply py-1 px-4 font-semibold rounded-xl shadow-md bg-green-true_btn outline-green-button hover:outline;
 }
+
 /* --------------------- DEBUT SCROLLBARS-------------------- */
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     @apply w-[15px];
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
     @apply bg-secondary-scroll_bar_grey;
-    border: 2px solid rgb(185,185,185);
+    border: 2px solid rgb(185, 185, 185);
     border-radius: 10px;
 }
 
-body::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
-body::-webkit-scrollbar-track:hover{
+body::-webkit-scrollbar-track:hover {
     @apply bg-secondary-grey;
 }
+
 /* --------------------- SECOND SCROLLBARS-------------------- */
 
-.second-scrollbar::-webkit-scrollbar{
+.second-scrollbar::-webkit-scrollbar {
     @apply w-[15px];
 }
 
-.second-scrollbar::-webkit-scrollbar-thumb{
+.second-scrollbar::-webkit-scrollbar-thumb {
     margin-block: 20px;
     @apply bg-secondary-scroll_bar_grey cursor-default;
-    border: 2px solid rgb(185,185,185);
+    border: 2px solid rgb(185, 185, 185);
     border-radius: 10px;
 }
 
-.second-scrollbar::-webkit-scrollbar-track{
+.second-scrollbar::-webkit-scrollbar-track {
     margin-block: 20px;
     border-radius: 10px;
 }
 
-.second-scrollbar::-webkit-scrollbar-track:hover{
+.second-scrollbar::-webkit-scrollbar-track:hover {
     @apply bg-secondary-grey cursor-default;
 }
 
 /* --------------------- FIN SCROLLBARS-------------------- */
 /* ---------------------Onglet à gauche -------------------*/
-.main_left{
+.main_left {
     @apply fixed bg-secondary-left_bg_grey w-1/4 h-full flex flex-col flex-wrap items-center top-0          max-lg:hidden max-lg:w-full;
 }
-#close_menu{
+
+#close_menu {
     @apply fixed right-0 top-0 m-3 w-5 cursor-pointer;
 }
-#button_back{
+
+#button_back {
     @apply relative w-4/5 h-12 mt-8 mb-2;
 }
 
-.left_container{
+.left_container {
     @apply relative w-4/5 p-3 my-3 bg-green-filter rounded-xl drop-shadow-xl;
 }
-.left_container p{
+
+.left_container p {
     @apply cursor-default;
 }
-.left_container ul{
+
+.left_container ul {
     @apply flex flex-col;
 }
-.left_container ul li a{
+
+.left_container ul li a {
     @apply relative inline left-[10%] cursor-pointer hover:text-green-true_btn;
 }
 
-.left_hide{
+.left_hide {
     @apply hidden;
 }
-#actual_page{
+
+#actual_page {
     @apply cursor-default underline hover:text-secondary-true_black;
 }
 
-.mobile-menu{
+.mobile-menu {
     @apply flex z-20;
 }
-.display-cross{
+
+.display-cross {
     @apply hidden;
 }
+
 /* ---------------------Fin onglet gauche -------------------*/
 /* --------------------- gestion des entreprises -------------------*/
-.main_right{
+.main_right {
     @apply fixed flex left-1/4 right-0 top-0 bottom-0 m-10 py-[3.25rem] px-10 rounded-xl outline outline-4 outline-green-button bg-secondary-white max-lg:left-0 max-md:px-1 max-md:pb-2 max-md:pt-[5rem] max-md:overflow-x-auto max-sm:m-2;
 }
-#right_title{
+
+#right_title {
     @apply absolute text-2xl right-5 top-7 px-3 py-1 rounded-xl outline outline-4 outline-green-button;
 }
-.right_top{
+
+.right_top {
     @apply h-[11%] flex justify-between items-end;
 }
-#menu{
+
+#menu {
     @apply hidden absolute cursor-pointer w-10 top-2 left-10 max-lg:block contrast-0 max-md:w-14 max-md:left-4;
 }
-#menu_search{
+
+#menu_search {
     @apply hidden absolute cursor-pointer w-14 top-2 left-[5.5rem] max-md:block;
 }
+
 /* ----------- list à gauche ------------------*/
-.search_list-companies{
+.search_list-companies {
     @apply flex h-full w-1/4 flex-col max-md:hidden max-md:w-full;
 }
-.mobile-search_menu-menu{
+
+.mobile-search_menu-menu {
     @apply flex;
 }
+
 .search_bar {
     @apply h-7 w-full mb-4 flex outline outline-2 outline-green-button rounded-xl;
 }
- .search_bar input[type="search"] {
+
+.search_bar input[type="search"] {
     @apply text-center h-full w-5/6 inline-block rounded-l-xl mr-[-5px] bg-secondary-white focus:outline-none focus:text-green-button;
 }
+
 .search_bar button[type="button"] {
     @apply h-full w-1/6 p-0 inline-block rounded-none rounded-r-xl shadow-none bg-secondary-white hover:outline-none;
 }
+
 .search_bar img {
     @apply h-full pl-1 inline-block;
 }
 
-.list-companies{
+.list-companies {
     @apply flex mt-2 flex-1 flex-col items-center justify-start rounded-xl overflow-y-auto overflow-x-hidden outline outline-1 outline-green-filter;
 }
-.add-del{
+
+.add-del {
     @apply sticky flex top-0 h-12 py-2 px-1 justify-evenly bg-secondary-white;
 }
-#add,#delete{
+
+#add, #delete {
     @apply w-[45%] p-0 font-bold;
 }
-#delete{
+
+#delete {
     @apply flex justify-center;
-    img{
+
+    img {
         @apply h-full;
     }
 }
-.company{
+
+.company {
     @apply w-[90%] my-2 font-normal outline bg-secondary-white outline-secondary-grey hover:outline-green-filter focus:outline-green-button;
 }
-.container_focus{
+
+.container_focus {
     @apply sticky top-12 outline-green-button;
 }
 
-.del_bg{
+.del_bg {
     @apply hidden fixed w-full h-full backdrop-blur-sm;
 }
-.del_block{
+
+.del_block {
     @apply relative w-[50%] h-[40%] top-[30%] left-[25%] rounded-xl bg-secondary-white outline outline-4 outline-green-button shadow-2xl;
 }
-.del_text{
+
+.del_text {
     @apply absolute top-[35%] left-[10%] right-[10%] text-3xl text-center font-bold;
 }
-.del_button{
+
+.del_button {
     @apply absolute flex w-full bottom-5 justify-center;
+
     button {
         @apply w-[30%] py-3 mx-3 bg-green-true_btn;
     }
 }
-.active-del_block{
+
+.active-del_block {
     @apply block;
 }
-.del_current_container{
+
+.del_current_container {
     @apply hidden;
 }
+
 /* --------------- fin liste à gauche --------------------*/
 /* --------------- profil à droite --------------------*/
-.btn_edit{
+.btn_edit {
     @apply mb-4 p-1 w-1/4 rounded-xl bg-green-true_btn;
 }
-#edit1{
+
+#edit1 {
     @apply max-md:hidden;
 }
-#edit2{
+
+#edit2 {
     @apply md:hidden absolute top-[5.25rem] left-5;
 }
 
-.profile_company{
-    @apply flex ml-2 flex-1 flex-col max-md:m-0;
+.profile_company {
+    @apply flex ml-2 flex-1 flex-col max-md:m-0 h-full;
 }
-.mobile-search_menu-profile{
+
+.mobile-search_menu-profile {
     @apply hidden;
 }
-.profile{
+
+.profile {
     @apply flex flex-col items-center;
 }
-.profile_block{
+
+.profile_block {
     @apply flex bg-green-header flex-col flex-1 max-md:bg-secondary-transparent;
 }
 
-.company_top{
-    @apply flex h-1/3 m-5 rounded-xl bg-secondary-white outline outline-green-button max-md:m-2 max-md:mt-0;
+.company_top {
+    @apply flex h-2/3 m-5 rounded-xl bg-secondary-white outline outline-green-button max-md:m-2 max-md:mt-0;
 }
-#company_logo{
+
+#company_logo {
     @apply w-1/3 max-h-full self-center object-contain;
 }
 
-.right_profile{
+.right_profile {
     @apply h-full w-2/3;
 }
-.top_profile{
+
+.top_profile {
     @apply flex h-1/2 w-full justify-around items-center;
 }
-.bot_profile{
+
+.bot_profile {
     @apply flex h-1/2 w-full items-center overflow-x-auto;
 }
-.spot_company{
+
+.spot_company {
     @apply flex h-2/3 w-[125px] min-w-[125px] mx-3 p-2 rounded-xl bg-green-button items-center justify-center shadow-xl;
 }
 
-.company_mid{
+.company_mid {
     @apply flex mx-5 flex-1 flex-col bg-secondary-white rounded-xl outline outline-green-button max-md:mx-2;
 }
-.label-company_description{
+
+.label-company_description {
     @apply block pl-5 font-semibold;
 }
-#company_description{
-    @apply h-full w-full pl-1 resize-none bg-secondary-transparent;
+
+#company_description {
+    @apply h-1/3 w-full pl-1 resize-none bg-secondary-transparent;
 }
 
-.company_bot{
+.company_bot {
     @apply m-5 pl-4 rounded-xl text-xl bg-secondary-white outline outline-green-button max-md:m-2;
-    p{
+
+    p {
         @apply font-bold;
     }
-    a{
+
+    a {
         @apply no-underline hover:underline hover:text-green-button;
     }
 }
+
 /* --------------- fin profil à droite --------------------*/
 
 /* ------------------ DEBUT POP-UP AJOUTER PILOTE -----------------*/
 .container-add-student {
     @apply rounded-xl top-[5%] left-[5%] fixed bg-secondary-white outline outline-4 outline-green-button h-[90%] w-[90%] z-40 max-md:h-[98%] max-md:w-[98%] max-md:top-[1%] max-md:left-[1%];
 }
-.hide_container{
+
+.hide_container {
     @apply hidden;
 }
 
@@ -293,7 +344,7 @@ body::-webkit-scrollbar-track:hover{
     @apply min-w-[33px] min-h-[35px] w-[15%] h-[15%] absolute bottom-0 right-0 max-xl:bottom-5 max-lg:bottom-9;
 }
 
-.add-profile-picture-button>input {
+.add-profile-picture-button > input {
     @apply hidden;
 }
 
@@ -327,14 +378,14 @@ body::-webkit-scrollbar-track:hover{
 }
 
 .students-each-informations input {
-    @apply  w-full bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
+    @apply w-full bg-green-text_bg placeholder-secondary-true_black focus:outline-none;
 }
 
 .container-students-description {
     @apply overflow-auto inline-block relative rounded-xl bg-secondary-white w-[68%] h-[44%] mx-[1%] mt-[50px] outline outline-secondary-true_black outline-4 pt-4 pr-6 pl-6 max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
 }
 
-.container-students-description-name h1{
+.container-students-description-name h1 {
     @apply text-2xl underline underline-offset-4 h-auto;
 }
 
@@ -342,12 +393,12 @@ body::-webkit-scrollbar-track:hover{
     @apply mt-2 p-4 w-full h-[80%] bg-secondary-filter_grey rounded-xl;
 }
 
-.students-description textarea{
+.students-description textarea {
     @apply overflow-auto w-full h-full resize-none bg-secondary-filter_grey outline-none;
 }
 
 .container-pilote-promotion {
-    @apply  relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
+    @apply relative inline-block overflow-auto p-2 bg-secondary-white outline outline-4 outline-secondary-true_black rounded-xl w-[27%] h-[44%] mx-[1%] max-xl:w-[47%] max-ml:h-[58%] max-ml:mt-[20px];
 }
 
 .container-pilote-promotion-header-name {
@@ -366,7 +417,7 @@ body::-webkit-scrollbar-track:hover{
     @apply relative p-2 bg-secondary-true_white rounded-xl w-full text-xl first:m-0 mt-1;
 }
 
-.each-promotion h1{
+.each-promotion h1 {
     @apply w-[88%];
 }
 
@@ -382,7 +433,7 @@ body::-webkit-scrollbar-track:hover{
     @apply inline-block w-[70%] ml-1 max-xl:w-[96%] max-xl:mb-1;
 }
 
-.input-adresse input{
+.input-adresse input {
     @apply w-full h-[50px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
 }
 
@@ -390,7 +441,7 @@ body::-webkit-scrollbar-track:hover{
     @apply inline-block w-[23%] ml-1 max-xl:w-[96%];
 }
 
-.input-code-postal input{
+.input-code-postal input {
     @apply w-full h-[50px] p-2 mt-2 text-lg bg-secondary-white outline outline-4 outline-green-1 resize-none rounded-xl;
 }
 
@@ -400,6 +451,7 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 /* ------------------ FIN POP-UP AJOUTER PILOTE ----------------- */
 
 /* ----------------------- fin gestion des eleves ------------------*/
