@@ -1207,7 +1207,7 @@ body::-webkit-scrollbar-track:hover{
 }
 
 #company_description{
-  height: 50%;
+  height: 33.333333%;
   width: 100%;
   resize: none;
   background-color: transparent;

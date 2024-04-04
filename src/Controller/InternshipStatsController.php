@@ -23,7 +23,17 @@ class InternshipStatsController
 
     public function InternshipStats(Request $request, Response $response): Response
     {
-        return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig');
+        $user = $request->getAttribute("user");
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        $role = $user->getRole();
+
+        return $this->twig->render($response, 'InternshipStats/InternshipStats.html.twig', [
+            'names' => $name,
+            'role' => $role
+        ]);
     }
 
     public function InternshipStatsFilterApi(Request $request, Response $response, string $arg): ResponseInterface|int

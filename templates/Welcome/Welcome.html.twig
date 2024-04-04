@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %} Inter'net - Stages {% endblock %}
 {% block stylesheet %}
-    <link href='css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
-{% block javascript %}<script src='js/Welcome.js'></script>{% endblock %}
+    <link href='../css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
+{% block javascript %}<script src='../js/Welcome.js'></script>{% endblock %}
 {% block welcome %}
     <div class="navbar-current">
         <a href="../Stage">Stages</a>
@@ -234,7 +234,8 @@
                     {% set start = (page - 1) * internshipsPerPage %}
                     {% set end = start + min(internshipsPerPage, totalInternships - start) %}
                     {% for internship in internships|slice(start, end) %}
-                        <button class="container" id="{{ internship.id }}" onclick="focus_container('container-{{ internship.id }}')">
+                        <button class="container" id="{{ internship.id }}"
+                                onclick="focus_container('container-{{ internship.id }}')">
                         <span>
                             <div class="container-intern" id="container-{{ internship.id }}">
                                 <div class="container-div-para">
@@ -363,7 +364,8 @@
     </div>
     <div class="container-pagination">
         <button class="button-back" id="id-button-back"><<</button>
-        <div class="page-number-selected" id="pagination-buttons" data-internships-per-page="{{ internshipsPerPage }}" data-total-pages="{{ totalPages }}"></div>
+        <div class="page-number-selected" id="pagination-buttons" data-internships-per-page="{{ internshipsPerPage }}"
+             data-total-pages="{{ totalPages }}"></div>
         <button class="button-next" id="id-button-next">>></button>
     </div>
     </body>

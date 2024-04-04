@@ -24,7 +24,17 @@ class CompanyStatsController
 
     public function CompanyStats(Request $request, Response $response): Response
     {
-        return $this->twig->render($response, 'CompanyStats/CompanyStats.html.twig');
+        $user = $request->getAttribute("user");
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        $role = $user->getRole();
+
+        return $this->twig->render($response, 'CompanyStats/CompanyStats.html.twig', [
+            'names' => $name,
+            'role' => $role
+        ]);
     }
 
 
