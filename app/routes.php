@@ -10,6 +10,7 @@ use App\Controller\InternshipStatsController;
 use App\Controller\LocationController;
 use App\Controller\LoginController;
 use App\Controller\ProfileController;
+use App\Controller\SkillsController;
 use App\Controller\StudentsController;
 use App\Controller\WishlistController;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -93,8 +94,13 @@ return function (App $app) {
         $group->post('Edition/Location/add', [LocationController::class, 'addLocation']);
         $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
 
+        $group->post('Edition/Competence/add', [SkillsController::class, 'addSkill']);
+        $group->get('Edition/Competence/api/{id}', [SkillsController::class, 'apiSkill']);
+        $group->patch('Edition/Competence/del', [SkillsController::class, 'delSkill']);
+
 
         $group->get('Edition/Stages', [InternshipManagementController::class, 'InternshipManagement']);
+        $group->post('Edition/Stages/add', [InternshipController::class, 'addInternship']);
 
         $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
 

@@ -85,7 +85,7 @@
             <button class="button-apply" id="cancel" onclick="toggle_hide_popup();">Annuler</button>
         </div>
         <div class="div-button-cancel">
-            <button class="button-cancel" id="apply" onclick="valid_promotion();">Appliquer</button>
+            <button class="button-cancel" id="apply" onclick="newInternshipToBdd()">Appliquer</button>
         </div>
         <div class="container-informations-and-description">
             <div class="container-students-informations second-scrollbar">
@@ -93,8 +93,8 @@
                     <div class="students-each-informations">
                         <form id="Internship-Form" onsubmit="return validerFormulaire()">
                             <ul>
-                                <li><input placeholder="TITRE..." required></input></li>
-                                <li><input placeholder="Entreprise..." required></input></li>
+                                <li><input placeholder="TITRE..." required id="add-title"></input></li>
+                                <li><input placeholder="Entreprise..." required id="add-company"></input></li>
                                 <li><input placeholder="Année d'étude..." list="student-year" id="select-student-year"
                                            name="select-student-year" required>
                                     <datalist id="student-year">
@@ -108,17 +108,19 @@
                                         <option value="Bac+7">
                                         <option value="Bac+8">
                                     </datalist>
-                                    </input></input></li>
-                                <li><input type="number" placeholder="Rémunération..." required></input></li>
+                                </li>
+                                <li><input type="number" placeholder="Rémunération..." required
+                                           id="add-hourly-rate"></input></li>
                             </ul>
                             <ul>
                                 <li><input type="number" placeholder="Nombre d'heures... (par semaines)"
-                                           required></input></li>
-                                <li><input placeholder="Lieu..." required></input></li>
+                                           required id="add-hour-per-week"></input></li>
+                                <li><input placeholder="Lieu..." required id="add-location"></input></li>
                                 <li><label for="id-input-starting-date">Début: </label><input type="date"
                                                                                               id="id-input-starting-date"
                                                                                               required></input></li>
-                                <li><input type="number" placeholder="Durée du stage... (semaines)" required></input>
+                                <li><input type="number" placeholder="Durée du stage... (semaines)" required
+                                           id="add-internship-duration"></input>
                                 </li>
                             </ul>
                         </form>
@@ -133,33 +135,25 @@
                             <p>Compétences recherchées</p>
                         </div>
                         <div class="input-adresse">
-                            <input id="input-adresse" placeholder="Compétence..."></input>
+                            <input id="input-skills" placeholder="Compétence..."></input>
                         </div>
-                        <button class="add-button" id="add-button">Ajouter</button>
+                        <button class="add-button" id="add-button" onclick="newSkillToBdd()">Ajouter</button>
                     </div>
                     <div class="container-skills-scroll horizontal-second-scrollbar">
-                        <ul>
-                            {% for skill in skills %}
-                                <li>
-                                    <div class="each-skill">
-                                        <p>JS</p>
-                                        <button type="button" id="delete-promotion-button"
-                                                class="delete-promotion-button"><img
-                                                    src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle"
-                                                    id="picture-delete-skill"></button>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="each-skill">
-                                        <p>JS</p>
-                                        <button type="button" id="delete-promotion-button"
-                                                class="delete-promotion-button"><img
-                                                    src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle"
-                                                    id="picture-delete-skill"></button>
-                                    </div>
-                                </li>
-                            {% endfor %}
+                        <template id="template-skills">
+                            <li>
+                                <div class="each-skill">
+                                    <p id="add-skills" value=""></p>
+                                    <button type="button" id="delete-promotion-button" class="delete-promotion-button">
+                                        <img src="../images/Icones/poubelle-de-recyclage.png" alt="poubelle"
+                                             id="picture-delete-skill">
+                                    </button>
+                                </div>
+                            </li>
+                        </template>
+                        <ul id="skills-container">
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -169,7 +163,7 @@
                 </div>
                 <div class="students-description">
                     <textarea class="second-scrollbar-description-internship"
-                              placeholder="Tapez votre description..."></textarea>
+                              placeholder="Tapez votre description..." id="add-description"></textarea>
                 </div>
             </div>
             <div class="container-pilote-promotion second-scrollbar">
@@ -180,7 +174,7 @@
                 </div>
                 <div class="container-each-promotion">
                     <textarea class="second-scrollbar-description-internship"
-                              placeholder="Tapez les avantages..."></textarea>
+                              placeholder="Tapez les avantages..." id="add-advantages"></textarea>
                 </div>
             </div>
         </div>

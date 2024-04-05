@@ -42,6 +42,163 @@ function end_current_student() {
     }
 }
 
+function showSkill(id = 0) {
+    fetch("https://inter-net.loc/Edition/Competence/api/" + id, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((response) => response.json())
+        .then((data) => {
+            const mainTemplate = document.getElementById("template-skills");
+            const bubbleContainer = document.getElementById("skills-container");
+            const bubbleTemplate = mainTemplate.content.cloneNode(true);
+            bubbleTemplate.getElementById("add-skills").textContent = data.name;
+            bubbleTemplate.getElementById("add-skills").id = data.id;
+            console.log(data.id);
+            bubbleContainer.append(bubbleTemplate);
+        });
+}
+
+function newSkillToBdd() {
+    var skill = document.getElementById("input-skills").value;
+    var newSkills = {
+        'skill': skill,
+    }
+    console.log(newSkills);
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(newSkills),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    console.log(options);
+    fetch('../Edition/Competence/add', options)
+        .then(response => response.text())
+        .then(data => {
+            console.log("data" + data);
+            var clearedData = JSON.parse(data);
+            idNewSkill = clearedData.id;
+            console.log(idNewSkill);
+            showSkill(idNewSkill)
+        })
+        .catch(error => console.error('Erreur:', error));
+}
+
+function delSkills(id) {
+
+}
+
+function newInternshipToBdd() {
+    var title = document.getElementById("add-title").value;
+    var company = document.getElementById("add-company").value;
+    var school_grade = document.getElementById("select-student-year").value;
+    var hourly_rate = document.getElementById("add-hourly-rate").value;
+    var hour_per_week = document.getElementById("add-hour-per-week").value;
+    var location = document.getElementById("add-location").value;
+    var begin_date = document.getElementById("id-input-starting-date").value;
+    var internship_duration = document.getElementById("add-internship-duration").value;
+    var Description = document.getElementById("add-description").value;
+    var advantages = document.getElementById("add-advantages").value;
+
+    const template = document.getElementById('template-skills');
+    const content = template.content.cloneNode(true);
+    const skillsList = content.querySelectorAll('.each-skill');
+    var skills = [];
+    skillsList.forEach(skill => {
+        const skillTextElement = skill.querySelector('p').textContent;
+        const id = skill.querySelector('p').id;
+        const skillObject = {
+            name: skillTextElement,
+            id: id
+        };
+
+        skills.push(skillObject); // Utilisez "skills" pour stocker les compétences
+    });
+
+    console.log(skills);
+
+    /*
+    const fileInput = document.getElementById('file-input');
+    const file = fileInput.files[0];
+    console.log(file);
+    if (file) {
+        var picturePath = file.name;
+        console.log(picturePath);
+        uploadPicture(file).then(() => {
+            console.log("on est juste après l'upload");
+            var dateString = new Date(Date.parse(date));
+            var idEditedUser = 0;
+            if (document.getElementById("editID").value != null) {
+                idEditedUser = document.getElementById("editID").value;
+            }
+            var newProfile = {
+                'Name': Name,
+                'Surname': Surname,
+                'Date': dateString,
+                'idPromotion': idPromotion,
+                'Email': email,
+                'Description': Description,
+                'picturePath': picturePath,
+                'editedUser': idEditedUser
+            }
+            console.log(newProfile);
+            console.log("on est avant options");
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(newProfile),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            console.log("on est avant fetchs");
+            fetch('../Edition/Etudiants/add', options)
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => console.error('Erreur:', error));
+        });
+    } else {
+*/
+    var dateString = new Date(Date.parse(begin_date));
+
+    //var idEditedCompany = 0;
+    //if (document.getElementById("add-id-company").value !== ("" || null)) {
+    //    idEditedCompany = document.getElementById("add-id-company").value;
+    //}
+
+    var newInternship = {
+        'title': title,
+        'company': company,
+        'date': dateString,
+        'school_grade': school_grade,
+        'hourly_rate': hourly_rate,
+        'hour_per_week': hour_per_week,
+        'location': location,
+        'internship_duration': internship_duration,
+        'Description': Description,
+        'advantages': advantages,
+        'skills': skills
+    }
+    console.log(newInternship);
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(newInternship),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch('../Edition/Stages/add', options)
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => console.error('Erreur:', error));
+    //}
+}
+
 function loadBubbleInternshipManagement(id = 1) {
     fetch("https://inter-net.loc/Stage/" + id, {
         method: "GET",

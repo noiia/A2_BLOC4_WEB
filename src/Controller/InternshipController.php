@@ -82,7 +82,6 @@ class InternshipController
             }
         }
         $runwayBubbles = [];
-        $sixSkills = [];
         if ($internships) {
             foreach ($internships as $forInternship) {
                 $i = 0;
@@ -222,6 +221,38 @@ class InternshipController
             return $response->withHeader('Content-Type', 'application/json');
         } else {
             return $response->withStatus(404)->getBody()->write('entitee introuvable');
+        }
+    }
+
+    function addInternship(Request $request, Response $response)
+    {
+        $json = $request->getParsedBody();
+
+        if (isset($json['title'])) {
+            $entity = new Internship();
+            $entity->setTitle($json['title']);
+            $entity->setTitle($json['company']);
+            $entity->setTitle($json['school_grade']);
+            $entity->setTitle($json['hourly_rate']);
+            $entity->setTitle($json['hour_per_week']);
+            $entity->setTitle($json['location']);
+            $entity->setTitle($json['date']);
+            $entity->setTitle($json['internship_duration']);
+            $entity->setTitle($json['skills']);
+            $entity->setTitle($json['advantages']);
+            $entity->setTitle($json['Description']);
+            $entity->setDel(0);
+
+            $this->entityManager->persist($entity);
+
+            $this->entityManager->flush();
+
+            $lastEntry = $this->entityManager->getRepository(Skills::class)->findOneBy([], ['ID_skills' => 'DESC']);
+            $response->getBody()->write(json_encode(['success' => true, 'id' => $lastEntry->getIDSkills()]));
+            return $response->withHeader('content-type', 'application-json')->withStatus(200);
+        } else {
+            $response->getBody()->write(json_encode(['success' => false]));
+            return $response->withHeader('content-type', 'application-json')->withStatus(501);
         }
     }
 }
