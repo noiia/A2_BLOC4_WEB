@@ -27,9 +27,15 @@ require_once __DIR__ . "/../src/Controller/InternshipController.php";
 $loader = new FilesystemLoader(__DIR__ . '/../templates');
 $twig = new Twig($loader);
 $authMiddleware = require_once __DIR__ . '/../src/Application/Middleware/AuthMiddleware.php';
+$piloteMiddleware = require_once __DIR__ . '/../src/Application/Middleware/PiloteMiddleware.php';
+$adminMiddleware = require_once __DIR__ . '/../src/Application/Middleware/AdminMiddleware.php';
+$wishlistMiddleware = require_once __DIR__ . '/../src/Application/Middleware/WishlistMiddleware.php';
 
 return function (App $app) {
     global $authMiddleware;
+    global $piloteMiddleware;
+    global $adminMiddleware;
+    global $wishlistMiddleware;
 
     $app->addBodyParsingMiddleware();
     $app->add(function (Request $request, RequestHandlerInterface $handler): Response {
@@ -52,7 +58,7 @@ return function (App $app) {
     $app->get('/Login', [LoginController::class, 'Login']);
     $app->post('/Login/Auth', [LoginController::class, 'testLogins']);
 
-    $app->group('/', function ($group) {
+    $app->group('/', function ($group) use ($piloteMiddleware, $wishlistMiddleware) {
         $group->get('disconnect', function ($request, $response) {
             Session::destroy();
             return $response->withHeader('Location', '/Login')->withStatus(302);
@@ -77,38 +83,35 @@ return function (App $app) {
 
         $group->get('Edition/MonProfil', [ProfileController::class, 'Profil']);
 
-        $group->get('Edition/Etudiants', [StudentsController::class, 'Students']);
-        $group->get('Edition/Etudiants/api/{id}', [StudentsController::class, 'StudentsApi']);
-        $group->post('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
-        $group->post('Edition/Etudiants/addPicture', [StudentsController::class, 'uploadPicture']);
-        $group->patch('Edition/Etudiants/edit', [StudentsController::class, 'updateStudents']);
-        $group->patch('Edition/Etudiants/delete/{id}', [StudentsController::class, 'delStudents']);
-        $group->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
+        $group->group('', function ($wishlist) {
+            $wishlist->get('Wishlist', [WishlistController::class, 'Wishlist']);
+            $wishlist->post('Wishlist/add/{id}', [WishlistController::class, 'addInternshipToWishlist']);
+            $wishlist->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
+        })->add($wishlistMiddleware);
 
-        $group->get('Edition/Entreprises', [CompanyController::class, 'CompanyManagement']);
-        $group->get('Edition/Entreprises/mini-api', [CompanyController::class, 'miniCompanyManagementApi']);
-        $group->get('Edition/Entreprises/api/{id}', [CompanyController::class, 'CompanyManagementApi']);
-        $group->get('Edition/Entreprises/reverseApi/{args}', [CompanyController::class, 'reverseApiCompany']);
-        $group->post('Edition/Entreprises/add', [CompanyController::class, 'addCompany']);
-        $group->patch('Edition/Entreprises/delete/{id}', [CompanyController::class, 'delCompany']);
-
-        $group->post('Edition/Location/add', [LocationController::class, 'addLocation']);
-        $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
-        $group->get('Edition/Location/reverseApi/{args}', [LocationController::class, 'reverseApiLocation']);
-
-        $group->post('Edition/Competence/add', [SkillsController::class, 'addSkill']);
-        $group->get('Edition/Competence/api/{id}', [SkillsController::class, 'apiSkill']);
-        $group->patch('Edition/Competence/del', [SkillsController::class, 'delSkill']);
-
-
-        $group->get('Edition/Stages', [InternshipManagementController::class, 'InternshipManagement']);
-        $group->post('Edition/Stages/add', [InternshipController::class, 'addInternship']);
-
-        $group->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
-
-        $group->get('Wishlist', [WishlistController::class, 'Wishlist']);
-        $group->post('Wishlist/add/{id}', [WishlistController::class, 'addInternshipToWishlist']);
-        $group->patch('Wishlist/delete/{id}', [WishlistController::class, 'deleteInternshipFromWishlist']);
-
+        $group->group('', function ($pilote) {
+            $pilote->get('Edition/Etudiants', [StudentsController::class, 'Students']);
+            $pilote->get('Edition/Etudiants/api/{id}', [StudentsController::class, 'StudentsApi']);
+            $pilote->post('Edition/Etudiants/add', [StudentsController::class, 'addStudents']);
+            $pilote->post('Edition/Etudiants/addPicture', [StudentsController::class, 'uploadPicture']);
+            $pilote->patch('Edition/Etudiants/edit', [StudentsController::class, 'updateStudents']);
+            $pilote->patch('Edition/Etudiants/delete/{id}', [StudentsController::class, 'delStudents']);
+            $pilote->get('Edition/Etudiants/location/{id}', [StudentsController::class, 'locatePromotion']);
+            $pilote->get('Edition/Entreprises', [CompanyController::class, 'CompanyManagement']);
+            $pilote->get('Edition/Entreprises/mini-api', [CompanyController::class, 'miniCompanyManagementApi']);
+            $pilote->get('Edition/Entreprises/api/{id}', [CompanyController::class, 'CompanyManagementApi']);
+            $pilote->get('Edition/Entreprises/reverseApi/{args}', [CompanyController::class, 'reverseApiCompany']);
+            $pilote->post('Edition/Entreprises/add', [CompanyController::class, 'addCompany']);
+            $pilote->patch('Edition/Entreprises/delete/{id}', [CompanyController::class, 'delCompany']);
+            $pilote->post('Edition/Location/add', [LocationController::class, 'addLocation']);
+            $pilote->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
+            $pilote->get('Edition/Location/reverseApi/{args}', [LocationController::class, 'reverseApiLocation']);
+            $pilote->post('Edition/Competence/add', [SkillsController::class, 'addSkill']);
+            $pilote->get('Edition/Competence/api/{id}', [SkillsController::class, 'apiSkill']);
+            $pilote->patch('Edition/Competence/del', [SkillsController::class, 'delSkill']);
+            $pilote->get('Edition/Stages', [InternshipManagementController::class, 'InternshipManagement']);
+            $pilote->post('Edition/Stages/add', [InternshipController::class, 'addInternship']);
+            $pilote->get('Edition/Pilotes', [WishlistController::class, 'Wishlist']);
+        })->add($piloteMiddleware);
     })->add($authMiddleware);
 };

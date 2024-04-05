@@ -56,7 +56,9 @@
                         {% if role > 2 %}
                             <a href="../Edition/Pilotes">Gestion des Pilotes</a>
                         {% endif %}
-                        <a href="../Wishlist">Wishlist</a>
+                        {% if role != 2 %}
+                            <a href="../Wishlist">Wishlist</a>
+                        {% endif %}
                         <a href="../disconnect" id="button-disconnect"
                            class="button-disconnect"><span>Déconnexion</span></a>
                     </div>
