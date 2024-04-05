@@ -207,4 +207,9 @@ class Internship
     {
         return $this->locations;
     }
+
+    public function setCompanies(?Company $companies): void
+    {
+        $this->companies = $companies;
+    }
 }

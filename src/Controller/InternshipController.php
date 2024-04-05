@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Company;
 use App\Entity\Location;
+use App\Entity\Promotion;
 use App\Entity\Skills;
 use App\Entity\Users;
 use App\Entity\Workflow;
+use DateTimeZone;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Doctrine\Common\Collections\Criteria;
@@ -229,26 +231,36 @@ class InternshipController
         $json = $request->getParsedBody();
 
         if (isset($json['title'])) {
-            $entity = new Internship();
-            $entity->setTitle($json['title']);
-            $entity->setTitle($json['company']);
-            $entity->setTitle($json['school_grade']);
-            $entity->setTitle($json['hourly_rate']);
-            $entity->setTitle($json['hour_per_week']);
-            $entity->setTitle($json['location']);
-            $entity->setTitle($json['date']);
-            $entity->setTitle($json['internship_duration']);
-            $entity->setTitle($json['skills']);
-            $entity->setTitle($json['advantages']);
-            $entity->setTitle($json['Description']);
-            $entity->setDel(0);
+            $internship = new Internship();
+            $internship->setTitle($json['title']);
+            $internship->setHourlyRate($json['hourly_rate']);
+            $internship->setHourPerWeek($json['hour_per_week']);
+            $internship->setWorktime($json['hour_per_week']);
+            $internship->setMaxPlaces(5);
+            $internship->setStartingDate(date_create($json['date'], new DateTimeZone('UTC')));
+            $internship->setDuration($json['internship_duration']);
+            $internship->setAdvantages($json['advantages']);
+            $internship->setDescription($json['Description']);
+            $internship->setDel(0);
 
-            $this->entityManager->persist($entity);
+            $company = $this->entityManager->getRepository(Company::class)->findOneBy(["ID_company" => $json['company']]);
+            $location = $this->entityManager->getRepository(Location::class)->find(["ID_location" => $json['location']]);
+            $promotion = $this->entityManager->getRepository(Promotion::class)->findOneBy(["ID_promotion" => 1]);
+
+            $internship->setCompanies($company);
+            $internship->setLocation($location);
+            $internship->setPromotion($promotion);
+
+            foreach ($json['skills'] as $skillId) {
+                $skill = $this->entityManager->getRepository(Skills::class)->find($skillId);
+                $internship->getSkills()->add($skill);
+            }
+
+            $this->entityManager->persist($internship);
 
             $this->entityManager->flush();
 
-            $lastEntry = $this->entityManager->getRepository(Skills::class)->findOneBy([], ['ID_skills' => 'DESC']);
-            $response->getBody()->write(json_encode(['success' => true, 'id' => $lastEntry->getIDSkills()]));
+            $response->getBody()->write(json_encode(['success' => true]));
             return $response->withHeader('content-type', 'application-json')->withStatus(200);
         } else {
             $response->getBody()->write(json_encode(['success' => false]));

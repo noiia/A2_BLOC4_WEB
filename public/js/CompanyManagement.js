@@ -22,7 +22,6 @@ function addProfile() {
 
 function uploadPicture(file) {
     return new Promise((resolve, reject) => {
-        console.log("iuifesfsefesf")
         const formData = new FormData();
         formData.append('file', file);
         const url = '../Edition/Etudiants/addPicture';
@@ -97,7 +96,6 @@ function newAddressToBdd() {
             'zipCode': zipCode,
             'city': city,
         }
-        console.log(newLocation);
         const options = {
             method: 'POST',
             body: JSON.stringify(newLocation),
@@ -109,10 +107,8 @@ function newAddressToBdd() {
         fetch('../Edition/Location/add', options)
             .then(response => response.text())
             .then(data => {
-                console.log(data);
                 var clearedData = JSON.parse(data);
                 idNewLocation = clearedData.id;
-                console.log(idNewLocation);
                 showLocation(JSON.parse(data).id)
             })
             .catch(error => console.error('Erreur:', error));
@@ -131,7 +127,6 @@ function newCompanyToBdd() {
     var website = document.getElementById("add-website").value;
     var Description = document.getElementById("add-description").value;
     var ID_location = idNewLocation;
-    console.log(ID_location);
     /*
     const fileInput = document.getElementById('file-input');
     const file = fileInput.files[0];
@@ -195,7 +190,6 @@ function newCompanyToBdd() {
         'id_location': ID_location,
         'editedCompany': idEditedCompany
     }
-    console.log(newCompany);
     const options = {
         method: 'POST',
         body: JSON.stringify(newCompany),
@@ -205,9 +199,6 @@ function newCompanyToBdd() {
     }
     fetch('../Edition/Entreprises/add', options)
         .then(response => response.text())
-        .then(data => {
-            alert(data);
-        })
         .catch(error => console.error('Erreur:', error));
     //}
 }
@@ -224,8 +215,6 @@ function editCompany() {
         },
     }).then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            console.log(data.id_location_company);
             showLocation(data.id_location_company);
             document.getElementById("add-Name").value = data.company;
             document.getElementById("N-Siret").value = data.SIRET;

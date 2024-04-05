@@ -60,6 +60,8 @@ function showSkill(id = 0) {
         });
 }
 
+var skills = [];
+
 function newSkillToBdd() {
     var skill = document.getElementById("input-skills").value;
     var newSkills = {
@@ -81,6 +83,7 @@ function newSkillToBdd() {
             var clearedData = JSON.parse(data);
             idNewSkill = clearedData.id;
             console.log(idNewSkill);
+            skills.push(idNewSkill);
             showSkill(idNewSkill)
         })
         .catch(error => console.error('Erreur:', error));
@@ -90,34 +93,49 @@ function delSkills(id) {
 
 }
 
+var validatedLocation;
+/*
+function controllLocation() {
+    var location = document.getElementById("add-location").value;
+    console.log(location);
+    fetch("https://inter-net.loc/Edition/Location/reverseApi/" + location, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((response) => response.json())
+        .then((data) => {
+            validatedLocation = data;
+        });
+}
+*/
+var validatedCompany;
+
+function controllCompany() {
+    var location = document.getElementById("add-company").value;
+    console.log(location);
+    fetch("https://inter-net.loc/Edition/Entreprises/reverseApi/" + location, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((response) => response.json())
+        .then((data) => {
+            validatedCompany = data.id_company;
+            validatedLocation = data.id_location;
+            document.getElementById("add-location").value = data.location_name;
+        });
+}
+
 function newInternshipToBdd() {
     var title = document.getElementById("add-title").value;
-    var company = document.getElementById("add-company").value;
     var school_grade = document.getElementById("select-student-year").value;
     var hourly_rate = document.getElementById("add-hourly-rate").value;
     var hour_per_week = document.getElementById("add-hour-per-week").value;
-    var location = document.getElementById("add-location").value;
     var begin_date = document.getElementById("id-input-starting-date").value;
     var internship_duration = document.getElementById("add-internship-duration").value;
     var Description = document.getElementById("add-description").value;
     var advantages = document.getElementById("add-advantages").value;
-
-    const template = document.getElementById('template-skills');
-    const content = template.content.cloneNode(true);
-    const skillsList = content.querySelectorAll('.each-skill');
-    var skills = [];
-    skillsList.forEach(skill => {
-        const skillTextElement = skill.querySelector('p').textContent;
-        const id = skill.querySelector('p').id;
-        const skillObject = {
-            name: skillTextElement,
-            id: id
-        };
-
-        skills.push(skillObject); // Utilisez "skills" pour stocker les compétences
-    });
-
-    console.log(skills);
 
     /*
     const fileInput = document.getElementById('file-input');
@@ -171,12 +189,12 @@ function newInternshipToBdd() {
 
     var newInternship = {
         'title': title,
-        'company': company,
+        'company': validatedCompany,
         'date': dateString,
         'school_grade': school_grade,
         'hourly_rate': hourly_rate,
         'hour_per_week': hour_per_week,
-        'location': location,
+        'location': validatedLocation,
         'internship_duration': internship_duration,
         'Description': Description,
         'advantages': advantages,

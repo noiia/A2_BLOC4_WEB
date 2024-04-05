@@ -433,4 +433,23 @@ class CompanyController
             return $response;
         }
     }
+
+    public function reverseApiCompany(Request $request, Response $response, string $args): Response
+    {
+        $company = $this->entityManager->getRepository(Company::class)->findOneBy(["Name" => $args]);
+
+        if ($company) {
+            $data = [
+                'id_company' => $company->getIDCompany(),
+                'id_location' => $company->locations->getIDLocation(),
+                'location_name' => $company->locations->getStreet() . " - " . $company->locations->getZipCode()
+            ];
+            $payload = json_encode($data);
+            $response->getBody()->write($payload);
+            return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
+        } else {
+            $response->getBody()->write('Emplacement géographique introuvable');
+            return $response->withStatus(404)->withHeader('Content-Type', 'text/plain');
+        }
+    }
 }

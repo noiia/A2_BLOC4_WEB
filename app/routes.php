@@ -88,11 +88,13 @@ return function (App $app) {
         $group->get('Edition/Entreprises', [CompanyController::class, 'CompanyManagement']);
         $group->get('Edition/Entreprises/mini-api', [CompanyController::class, 'miniCompanyManagementApi']);
         $group->get('Edition/Entreprises/api/{id}', [CompanyController::class, 'CompanyManagementApi']);
+        $group->get('Edition/Entreprises/reverseApi/{args}', [CompanyController::class, 'reverseApiCompany']);
         $group->post('Edition/Entreprises/add', [CompanyController::class, 'addCompany']);
         $group->patch('Edition/Entreprises/delete/{id}', [CompanyController::class, 'delCompany']);
 
         $group->post('Edition/Location/add', [LocationController::class, 'addLocation']);
         $group->get('Edition/Location/api/{id}', [LocationController::class, 'apiLocation']);
+        $group->get('Edition/Location/reverseApi/{args}', [LocationController::class, 'reverseApiLocation']);
 
         $group->post('Edition/Competence/add', [SkillsController::class, 'addSkill']);
         $group->get('Edition/Competence/api/{id}', [SkillsController::class, 'apiSkill']);

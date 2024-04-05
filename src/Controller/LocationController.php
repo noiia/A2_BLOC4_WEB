@@ -69,4 +69,23 @@ class LocationController
             return $response->withStatus(404)->getBody()->write('Emplacement géographique introuvable');
         }
     }
+
+    public function reverseApiLocation(Request $request, Response $response, string $args): Response
+    {
+        $locationParts = explode("-", $args);
+        $street = $locationParts[0];
+        $zipcode = $locationParts[1];
+
+        $location = $this->entityManager->getRepository(Location::class)->findOneBy(["Street" => $street]);
+
+        if ($location) {
+            $data = $location->getIDLocation();
+            $payload = json_encode($data);
+            $response->getBody()->write($payload);
+            return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
+        } else {
+            $response->getBody()->write('Emplacement géographique introuvable');
+            return $response->withStatus(404)->withHeader('Content-Type', 'text/plain');
+        }
+    }
 }
