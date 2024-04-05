@@ -65,11 +65,13 @@ return function (App $app) {
 
         $group->get('Postulation', [\App\Controller\PostulationController::class, 'Postulation']);
 
-        $group->get('InternshipManagement', [\App\Controller\InternshipManagementController::class, 'InternshipManagement']);
-        $group->get('InternshipManagement/api/{id}', [\App\Controller\InternshipManagementController::class, 'InternshipManagementApi']);
-        $group->post('InternshipManagement/add', [\App\Controller\InternshipManagementController::class, 'addInternshipManagement']);
-        $group->patch('InternshipManagement/delete/{id}', [\App\Controller\InternshipManagementController::class, 'delInternshipManagement']);
-        $group->patch('InternshipManagement/edit', [\App\Controller\InternshipManagementController::class, 'updateInternshipManagement']);
+        $group->post('Edition/Competence/add', [\App\Controller\SkillsController::class, 'addSkill']);
+        $group->get('Edition/Competence/api/{id}', [\App\Controller\SkillsController::class, 'apiSkill']);
+        $group->patch('Edition/Competence/del', [\App\Controller\SkillsController::class, 'delSkill']);
+
+        $group->get('Edition/Stages', [\App\Controller\InternshipManagementController::class, 'InternshipManagement']);
+        $group->post('Edition/Stages/add', [InternshipController::class, 'addInternship']);
+
 
         $group->get('Edition/Etudiants', [\App\Controller\StudentsController::class, 'Students']);
         $group->get('Edition/Etudiants/api/{id}', [\App\Controller\StudentsController::class, 'StudentsApi']);

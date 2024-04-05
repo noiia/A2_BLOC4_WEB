@@ -46,7 +46,7 @@ html,
   -moz-tab-size: 4;
   /* 3 */
   -o-tab-size: 4;
-  tab-size: 4;
+     tab-size: 4;
   /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
@@ -91,7 +91,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 
 abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /*
@@ -708,8 +708,8 @@ button[type="button"]{
 input[type="range"]{
   width: 70%;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: transparent;
 }
 
@@ -717,7 +717,7 @@ input[type="range"]::-webkit-slider-runnable-track{
   width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 0.75rem;
   border-style: none;
   --tw-bg-opacity: 1;
@@ -729,7 +729,7 @@ input[type="range"]::-webkit-slider-thumb{
   width: 1rem;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 9999px;
   border-width: 2px;
   border-style: solid;
@@ -751,15 +751,15 @@ input[type="date"]{
   height: 100%;
   width: 70%;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 #rangeInput::-webkit-slider-runnable-track{
   width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 0.75rem;
   border-style: none;
   --tw-bg-opacity: 1;
@@ -771,7 +771,7 @@ input[type="date"]{
   width: 1rem;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 9999px;
   border-width: 2px;
   border-style: solid;
@@ -785,15 +785,15 @@ input[type="date"]{
   height: 100%;
   width: 100%;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 #rangeInput2::-webkit-slider-runnable-track{
   width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 0.75rem;
   border-style: none;
   --tw-bg-opacity: 1;
@@ -805,7 +805,7 @@ input[type="date"]{
   width: 1rem;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 9999px;
   border-width: 2px;
   border-style: solid;
@@ -819,15 +819,15 @@ input[type="date"]{
   height: 100%;
   width: 100%;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 #rangeInput3::-webkit-slider-runnable-track{
   width: 100%;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 0.75rem;
   border-style: none;
   --tw-bg-opacity: 1;
@@ -839,7 +839,7 @@ input[type="date"]{
   width: 1rem;
   cursor: pointer;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   border-radius: 9999px;
   border-width: 2px;
   border-style: solid;
@@ -1596,7 +1596,7 @@ input[type="date"]{
 }
 
 .container-intern{
-  height: auto;
+  height: 200px;
   width: 350px;
   max-width: 42rem;
   overflow: hidden;
@@ -1616,13 +1616,13 @@ input[type="date"]{
 
 @media (min-width: 500px){
   .container-intern{
-    height: auto;
+    height: 250px;
     width: 425px;
   }
 
   .container-intern:hover{
-    --tw-scale-x: 1.05;
-    --tw-scale-y: 1.05;
+    --tw-scale-x: 1.1;
+    --tw-scale-y: 1.1;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }
@@ -1639,7 +1639,6 @@ input[type="date"]{
 }
 
 .container-h1{
-  white-space: normal;
   text-align: justify;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1685,7 +1684,7 @@ input[type="date"]{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: flex;
-  height: auto;
+  height: 38px;
   width: 125px;
   align-items: center;
   justify-content: center;
@@ -1737,7 +1736,6 @@ input[type="date"]{
 }
 
 .runway-container-intern-details{
-  position: relative;
   z-index: 49;
   height: auto;
   font-weight: 500;
@@ -1745,7 +1743,7 @@ input[type="date"]{
 
 @media not all and (min-width: 1280px){
   .runway-container-intern-details{
-    position: fixed;
+    position: absolute;
     top: 115px;
     margin-left: 10%;
     margin-right: 10%;
@@ -1764,83 +1762,6 @@ input[type="date"]{
   .runway-container-intern-details{
     display: inline-block;
     width: 80%;
-  }
-}
-
-.runway-container-intern-details-fixed{
-  z-index: 49;
-  height: auto;
-  font-weight: 500;
-}
-
-@media not all and (min-width: 1280px){
-  .runway-container-intern-details-fixed{
-    position: fixed;
-    top: 115px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-  }
-}
-
-@media not all and (min-width: 500px){
-  .runway-container-intern-details-fixed{
-    margin-left: -25px;
-    width: 400px;
-  }
-}
-
-@media (min-width: 1280px){
-  .runway-container-intern-details-fixed{
-    position: fixed;
-    margin-top: -115px;
-    display: inline-block;
-    width: 55%;
-  }
-}
-
-@media (min-width: 1536px){
-  .runway-container-intern-details-fixed{
-    width: 47%;
-  }
-}
-
-.runway-container-intern-details-bot{
-  bottom: 440px;
-  z-index: 49;
-  height: auto;
-  font-weight: 500;
-}
-
-@media not all and (min-width: 1280px){
-  .runway-container-intern-details-bot{
-    position: fixed;
-    top: 115px;
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-  }
-}
-
-@media not all and (min-width: 500px){
-  .runway-container-intern-details-bot{
-    margin-left: -25px;
-    width: 400px;
-  }
-}
-
-@media (min-width: 1280px){
-  .runway-container-intern-details-bot{
-    position: fixed;
-    margin-top: -115px;
-    display: inline-block;
-    width: 55%;
-  }
-}
-
-@media (min-width: 1536px){
-  .runway-container-intern-details-bot{
-    width: 47%;
   }
 }
 
@@ -1947,27 +1868,6 @@ input[type="date"]{
   }
 }
 
-.retourHaut-bot{
-  position: fixed;
-  bottom: 360px;
-  right: 2.5rem;
-  z-index: 50;
-  height: 40px;
-  cursor: pointer;
-  border-radius: 0.75rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(57 163 37 / var(--tw-bg-opacity));
-  padding: 0.5rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-@media not all and (min-width: 850px){
-  .retourHaut-bot{
-    display: none;
-  }
-}
-
 /* DEBUT ENTREPRISES */
 
 .container-header-company-details{
@@ -2002,7 +1902,6 @@ input[type="date"]{
   display: inline-grid;
   height: auto;
   width: 41%;
-  align-content: center;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -2030,8 +1929,7 @@ input[type="date"]{
 }
 
 .container-company-details-right{
-  margin-left: 1%;
-  margin-right: 7%;
+  margin-right: 8%;
   margin-top: 1rem;
   display: inline-grid;
   height: auto;
@@ -2087,7 +1985,8 @@ input[type="date"]{
 .container-company-details-sector-name ul{
   margin-right: -5px;
   margin-top: 0.25rem;
-  width: 100%;
+  display: inline-block;
+  width: 50%;
 }
 
 @media not all and (min-width: 850px){
@@ -2108,17 +2007,14 @@ input[type="date"]{
   display: flex;
   height: auto;
   min-height: 65px;
-  width: 100%;
+  width: 90%;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   border-radius: 0.75rem;
   --tw-bg-opacity: 1;
   background-color: rgb(57 163 37 / var(--tw-bg-opacity));
   padding: 0.5rem;
   text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 @media not all and (min-width: 850px){
@@ -2216,7 +2112,6 @@ input[type="date"]{
 
 .container-company-intern-div-para{
   position: relative;
-  height: 100%;
   padding: 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -2364,11 +2259,6 @@ input[type="date"]{
   padding: 0.75rem;
 }
 
-#id-company{
-  --tw-text-opacity: 1;
-  color: rgb(244 242 238 / var(--tw-text-opacity));
-}
-
 /* FIN ENTREPRISES * /
 
 /* -------------------------------LA FIN DU TAILWIND BUBULLE FAITE PAR STEPHAN------------------------- */
@@ -2381,14 +2271,14 @@ input[type="date"]{
   top: 0px;
   margin-top: 2.25rem;
   margin-right: 2.5rem;
-  max-height: 100px;
-  max-width: 200px;
+  height: 100px;
+  width: 100px;
 }
 
 @media not all and (min-width: 500px){
   .logo-company{
-    max-height: 70px;
-    max-width: 170px;
+    height: 70px;
+    width: 70px;
   }
 }
 
@@ -2407,6 +2297,7 @@ input[type="date"]{
 
 .button-back{
   display: inline-flex;
+  width: 35px;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
@@ -2440,7 +2331,7 @@ input[type="date"]{
   margin-left: 0.25rem;
   margin-right: 0.25rem;
   display: inline-flex;
-  width: 60px;
+  width: 35px;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
@@ -2450,8 +2341,17 @@ input[type="date"]{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.too-much-pages{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --tw-text-opacity: 1;
+  color: rgb(123 123 123 / var(--tw-text-opacity));
+}
+
 .button-next{
   display: inline-flex;
+  width: 35px;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;

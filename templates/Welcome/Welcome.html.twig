@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %} Inter'net - Stages {% endblock %}
 {% block stylesheet %}
-    <link href='css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
-{% block javascript %}<script src='js/Welcome.js'></script>{% endblock %}
+    <link href='../css/OutputWelcome.css' rel="stylesheet"/>{% endblock %}
+{% block javascript %}<script src='../js/Welcome.js'></script>{% endblock %}
 {% block welcome %}
     <div class="navbar-current">
         <a href="../Stage">Stages</a>
@@ -224,27 +224,37 @@
                     <button type="button" class="filter-button" onclick="toggle_filterMenu();">Filtrer</button>
                 </div>
                 <!-- zone de bulles -->
-                {% for internship in internships %}
-                    <button class="container" id="{{ internship.id }}"
-                            onclick="focus_container('container-{{ internship.id }}')">
-                            <span>
-                                <div class="container-intern" id="container-{{ internship.id }}">
-                                    <div class="container-div-para">
-                                        <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
-                                        <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
-                                        <p class="container-paragraph">{{ internship.begin_date }}</p>
-                                        <p class="container-paragraph">{{ internship.duration }}</p>
-                                        <div class="container-skills">
-                                            <ul>
-                                                <li>{{ internship.competence_1 }}</li>
-                                                <li>{{ internship.competence_2 }}</li>
-                                                <li>{{ internship.competence_3 }}</li>
-                                            </ul>
-                                        </div>
+
+                {% set internshipsPerPage = 10 %}
+                {% set currentPage = 1 %}
+                {% set totalInternships = internships|length %}
+                {% set totalPages = (totalInternships / internshipsPerPage)|round %}
+
+                {% for page in range(1, totalPages + 1) %}
+                    {% set start = (page - 1) * internshipsPerPage %}
+                    {% set end = start + min(internshipsPerPage, totalInternships - start) %}
+                    {% for internship in internships|slice(start, end) %}
+                        <button class="container" id="{{ internship.id }}"
+                                onclick="focus_container('container-{{ internship.id }}')">
+                        <span>
+                            <div class="container-intern" id="container-{{ internship.id }}">
+                                <div class="container-div-para">
+                                    <h1 class="container-h1">{{ internship.job }} - {{ internship.school_grade }}</h1>
+                                    <p class="container-paragraph">{{ internship.company }} - {{ internship.location }}</p>
+                                    <p class="container-paragraph">{{ internship.begin_date }}</p>
+                                    <p class="container-paragraph">{{ internship.duration }}</p>
+                                    <div class="container-skills">
+                                        <ul>
+                                            <li>{{ internship.competence_1 }}</li>
+                                            <li>{{ internship.competence_2 }}</li>
+                                            <li>{{ internship.competence_3 }}</li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </span>
-                    </button>
+                            </div>
+                        </span>
+                        </button>
+                    {% endfor %}
                 {% endfor %}
             </div>
         </div>
@@ -268,19 +278,19 @@
                         </div>
 
                         <div class="container-left-informations">
-                            <h1>Entreprise :</h1>
+                            <h1>Entreprise:</h1>
                             <p id="Big-bubble-company"><a id="Big-bubble-company-link" href=""></a></p>
-                            <h1>Emplacement :</h1>
+                            <h1>Emplacement:</h1>
                             <p id="Big-bubble-location"></p>
-                            <h1>Niveau d'étude :</h1>
+                            <h1>Niveau d'étude:</h1>
                             <p id="Big-bubble-school-grade"></p>
                             <h1>Salaire :</h1>
                             <p id="Big-bubble-month-payment"></p>
-                            <h1>Date de début du stage :</h1>
+                            <h1>Date de début du stage:</h1>
                             <p id="Big-bubble-begin-date"></p>
                             <h1>Places disponibles:</h1>
                             <p id="Big-bubble-place"></p>
-                            <h1>Durée du stage :</h1>
+                            <h1>Durée du stage:</h1>
                             <p id="Big-bubble-duration"></p>
                         </div>
                         <div class="container-right-informations">
@@ -288,20 +298,20 @@
                                     onclick="block_postulation()">
                                 Postuler
                             </button>
-                            <p>Compétences recherchées :</p>
+                            <p>Compétences recherchées:</p>
                             <div class="container-skills-details" id="container-skills">
                             </div>
                         </div>
                         <div class="container1-bottom-informations">
-                            <h1>Avantages :</h1>
+                            <h1>Avantages:</h1>
                             <p id="Big-bubble-advantages"></p>
                         </div>
                         <div class="container2-bottom-informations">
-                            <h1>Description du poste :</h1>
+                            <h1>Description du poste:</h1>
                             <p id="Big-bubble-description"></p>
                         </div>
                         <div class="container2-bottom-informations">
-                            <h1>ID du poste :</h1>
+                            <h1>ID du poste:</h1>
                             <p id="Big-bubble-ID"></p>
                         </div>
                     </div>
@@ -314,18 +324,21 @@
         <div id="bubble-place"></div>
     </div>
     <!-- ---------------------- POSTULER ------------------- -->
-    <div class="postulation-bg postulation-off">
-        <div class="postulation-block">
+    <template id="postulation-block">
+        <div class="postulation-block" id="postulation-block-in">
             <div class="postulation-top">
-                Vous êtes sur le point de postuler à <em>Commercial H/F - Orange - Reims</em><br>
+                Vous êtes sur le point de postuler à <em id="postulation-job"></em> - <em
+                        id="postulation-company"></em> - <em id="postulation-location"></em><br>
                 Nous vous invitons à renseigner vos documents.
-                <img src="images/Icones/croix-supprimer-le-signe.png" onclick="block_postulation()"/>
+                <img src="images/Icones/croix-supprimer-le-signe.png"
+                     onclick="block_postulation()"/>
             </div>
             <div class="postulation-bottom">
                 <div class="postulation-motivation">
                     Ecrire sa lettre de motivation
                     <textarea type="text" class="postulation-motivation_letter"
-                              placeholder="Bonjour, je suis interresser par votre offre de stage"></textarea>
+                              placeholder="Bonjour, je suis interresser par votre offre de stage"
+                              id="postulation-motivation_letter"></textarea>
                 </div>
                 <label id="postulation-text_center">ET/OU</label>
                 <div class="postulation-right">
@@ -342,19 +355,18 @@
                         Ajouter un fichier (.pdf)
                         <input type="file" id="file-input" accept=".pdf" onchange="add_file();">
                     </button>
-                    <button type="button" id="postulation-button_postulation">Postuler</button>
+                    <button type="button" id="postulation-button_postulation" onclick="postulation();">Postuler</button>
                 </div>
             </div>
         </div>
+    </template>
+    <div class="postulation-bg postulation-off" id="postulation-place">
     </div>
     <div class="container-pagination">
-        <button class="button-back" id="id-button-back"><</button>
-        <button class="page-number" id="id-page-number">1</button>
-        <button class="page-number-selected" id="id-page-number-selected">2</button>
-        <button class="page-number" id="id-page-number">3</button>
-        <div class="too-much-pages"><p>...</p></div>
-        <button class="page-number" id="id-page-number">99</button>
-        <button class="button-next" id="id-button-next">></button>
+        <button class="button-back" id="id-button-back"><<</button>
+        <div class="page-number-selected" id="pagination-buttons" data-internships-per-page="{{ internshipsPerPage }}"
+             data-total-pages="{{ totalPages }}"></div>
+        <button class="button-next" id="id-button-next">>></button>
     </div>
     </body>
 {% endblock %}

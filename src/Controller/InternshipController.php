@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use DI\Container;
+use App\Entity\Users;
+use App\Entity\Workflow;
 use Doctrine\ORM\EntityManager;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Views\Twig;
 
 use App\Entity\Internship;
 
@@ -24,8 +24,7 @@ class InternshipController
 
     public function Welcome(Request $request, Response $response): Response
     {
-        //$user = $request->getAttribute("user");
-        //var_dump($user);
+        $user = $request->getAttribute("user");
         $internships = $this->entityManager->getRepository(Internship::class)->findAll();
 
         $runwayBubbles = [];
@@ -57,17 +56,27 @@ class InternshipController
                     ];
             }
         }
-        $view = Twig::fromRequest($request);
-        return $view->render($response, 'Welcome/Welcome.html.twig', [
+        $name[] = [
+            'name' => $user->getName(),
+            'surname' => $user->getSurname()
+        ];
+        $role = $user->getRole();
+
+        return $this->twig->render($response, 'Welcome/Welcome.html.twig', [
             'internships' => $runwayBubbles,
+            'names' => $name,
+            'role' => $role
         ]);
     }
 
     public function InternshipApi(Request $request, Response $response, int $id)
     {
-
+        $userSession = $request->getAttribute("user");
 
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);
+        $user = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $workflow = $this->entityManager->getRepository(Workflow::class)->findBy(['internship' => $id]);
+
         $i = 0;
         $Skills = [];
         foreach ($internship->getSkills() as $skill) {
@@ -79,13 +88,30 @@ class InternshipController
             }
         }
         $j = 0;
-        if ($internship->getAppliementWishlist() != null) {
-            foreach ($internship->getAppliementWishlist() as $appliement) {
+        if ($workflow !== null) {
+            foreach ($workflow as $appliement) {
                 if ($appliement->getStatus() == 2) {
                     $j++;
                 }
             }
         }
+
+        $isAWish = false;
+        $qb = $this->entityManager->createQueryBuilder();
+        $qb->select('u', 'wish')
+            ->from('App\Entity\Users', 'u')
+            ->join('u.wishlist', 'wish')
+            ->where('u.ID_users = :ID_users')
+            ->andWhere('wish.ID_Internship = :wishlistId') // Utilisez la propriété de l'entité Wishlist
+            ->setParameter('ID_users', $user->getIDUsers())
+            ->setParameter('wishlistId', $id);
+        if ($qb->getQuery() != null) {
+            $result = $qb->getQuery()->getResult();
+            if ($result != null) {
+                $isAWish = true;
+            }
+        }
+
         if ($internship != null) {
             $data = [
                 'id' => $internship->getIDInternship(),
@@ -103,6 +129,7 @@ class InternshipController
                 'description' => $internship->getDescription(),
                 'skills' => $Skills,
                 'logo_path' => $internship->companies->getCompanyLogoPath(),
+                'isAWish' => $isAWish,
             ];
 
             $payload = json_encode($data);
@@ -112,5 +139,10 @@ class InternshipController
         } else {
             return $response->withStatus(404)->getBody()->write('Stage introuvable');
         }
+    }
+
+    public function test(Request $request, Response $response, int $id)
+    {
+        return $response;
     }
 }
