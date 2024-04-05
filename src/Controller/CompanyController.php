@@ -303,7 +303,12 @@ class CompanyController
 
     public function CompanyManagement(Request $request, Response $response): Response
     {
-        return $this->twig->render($response, 'CompanyManagement/CompanyManagement.html.twig');
+        $userSession = $request->getAttribute("user");
+        $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $role = $users->getRole();
+        return $this->twig->render($response, 'CompanyManagement/CompanyManagement.html.twig', [
+            'role' => $role,
+        ]);
     }
 
     public function miniCompanyManagementApi(Request $request, Response $response): Response

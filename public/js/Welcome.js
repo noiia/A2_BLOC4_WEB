@@ -226,7 +226,8 @@ window.addEventListener("resize", () => {
 });
 
 
-function loadBubbleData(id = 1) {
+function loadBubbleData(id = 0) {
+
     fetch("https://inter-net.loc/Stage/" + id, {
         method: "GET",
         headers: {
@@ -235,41 +236,44 @@ function loadBubbleData(id = 1) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
-            const mainTemplate = document.getElementById("main-internship");
-            const littleTemplate = document.getElementById("skills-template");
+                if (id !== 0) {
+                    console.log(data);
+                    const mainTemplate = document.getElementById("main-internship");
+                    const littleTemplate = document.getElementById("skills-template");
 
-            const container = document.getElementById("bubble-place");
+                    const container = document.getElementById("bubble-place");
 
-            const bubbleTemplate = mainTemplate.content.cloneNode(true);
+                    const bubbleTemplate = mainTemplate.content.cloneNode(true);
 
-            bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
-            bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
-            bubbleTemplate.getElementById("Big-bubble-company-link").textContent = data.company;
-            bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
-            bubbleTemplate.getElementById("Big-bubble-school-grade").textContent = data.school_grade;
-            bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.week_payment + " € par semaines soit " + data.hour_payment + " €/h";
-            bubbleTemplate.getElementById("Big-bubble-begin-date").textContent = data.begin_date;
-            bubbleTemplate.getElementById("Big-bubble-duration").textContent = data.duration;
-            bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
-            bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
-            bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
-            bubbleTemplate.getElementById("Big-bubble-ID").textContent = data.id;
-            bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
+                    bubbleTemplate.getElementById("Big-bubble-name").textContent = data.job;
+                    bubbleTemplate.getElementById("Big-bubble-company-link").href = "https://inter-net.loc/Entreprise/" + data.company;
+                    bubbleTemplate.getElementById("Big-bubble-company-link").textContent = data.company;
+                    bubbleTemplate.getElementById("Big-bubble-location").textContent = data.location;
+                    bubbleTemplate.getElementById("Big-bubble-school-grade").textContent = data.school_grade;
+                    bubbleTemplate.getElementById("Big-bubble-month-payment").textContent = data.week_payment + " € par semaines soit " + data.hour_payment + " €/h";
+                    bubbleTemplate.getElementById("Big-bubble-begin-date").textContent = data.begin_date;
+                    bubbleTemplate.getElementById("Big-bubble-duration").textContent = data.duration;
+                    bubbleTemplate.getElementById("Big-bubble-place").textContent = data.taken_places + "/" + data.max_places;
+                    bubbleTemplate.getElementById("Big-bubble-advantages").textContent = data.advantages;
+                    bubbleTemplate.getElementById("Big-bubble-description").textContent = data.description;
+                    bubbleTemplate.getElementById("Big-bubble-ID").textContent = data.id;
+                    bubbleTemplate.getElementById("Big-bubble-logo").src = data.logo_path;
 
-            container.append(bubbleTemplate);
+                    container.append(bubbleTemplate);
 
-            if (data.isAWish) {
-                document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
-                document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+                    if (data.isAWish) {
+                        document.querySelector(".selected-wishlist-logo-picture").classList.toggle('is-selected');
+                        document.querySelector(".unselected-wishlist-logo-picture").classList.toggle('remove-wishlist-picture');
+                    }
+                    const skillsContainer = document.getElementById("container-skills");
+                    for (let skills of data.skills) {
+                        const skillsTemplate = littleTemplate.content.cloneNode(true);
+                        skillsTemplate.getElementById("skills").textContent = skills;
+                        skillsContainer.append(skillsTemplate);
+                    }
+                }
             }
-            const skillsContainer = document.getElementById("container-skills");
-            for (let skills of data.skills) {
-                const skillsTemplate = littleTemplate.content.cloneNode(true);
-                skillsTemplate.getElementById("skills").textContent = skills;
-                skillsContainer.append(skillsTemplate);
-            }
-        });
+        );
 }
 
 
@@ -296,14 +300,16 @@ if (url !== "https://inter-net.loc/Stage") {
         }
     }
 } else {
-    oldElement = 1;
+    oldElement = 0;
 }
 
 loadBubbleData(oldElement);
 addEventListener("click", (event) => {
     var focusedBubble = Number(document.activeElement.id);
-    if (oldElement !== focusedBubble && focusedBubble > 0) {
-        document.getElementById("runway-container-intern-details").remove();
+    if (oldElement !== focusedBubble && focusedBubble >= 0) {
+        if (oldElement !== 0) {
+            document.getElementById("runway-container-intern-details").remove();
+        }
         loadBubbleData(focusedBubble);
         oldElement = focusedBubble;
     }
@@ -325,6 +331,7 @@ function updatePage(currentPage, totalPages, internshipsPerPage) {
         backButton.addEventListener("click", function () {
             currentPage -= 1;
             updatePage(currentPage, totalPages, internshipsPerPage);
+            retournerEnHaut();
         });
     }
 
@@ -337,6 +344,7 @@ function updatePage(currentPage, totalPages, internshipsPerPage) {
         nextButton.addEventListener("click", function () {
             currentPage += 1;
             updatePage(currentPage, totalPages, internshipsPerPage);
+            retournerEnHaut();
         });
     }
 
@@ -360,6 +368,59 @@ function updatePage(currentPage, totalPages, internshipsPerPage) {
             internIds.push(id);
         }
     });
+}
+
+window.onscroll = function () {
+    afficherOuMasquerBouton();
+};
+
+function afficherOuMasquerBouton() {
+    var boutonRetourHaut = document.getElementById("button-retour-haut");
+    var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
+    if (runwayContainerInternDetails !== null) {
+
+        if (document.documentElement.scrollTop < 115) {
+
+            while (boutonRetourHaut.classList.length > 0) {
+
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+
+            boutonRetourHaut.classList.add('display-none');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details');
+        } else if (115 < document.documentElement.scrollTop && document.documentElement.scrollTop < 2500) {
+
+            while (boutonRetourHaut.classList.length > 0) {
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+            boutonRetourHaut.classList.add('retourHaut');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
+        } else if (document.documentElement.scrollTop > 2500) {
+            while (boutonRetourHaut.classList.length > 0) {
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+
+            boutonRetourHaut.classList.add('retourHaut-bot');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
+        }
+    }
+}
+
+function retournerEnHaut() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
 }
 
 document.addEventListener("DOMContentLoaded", function () {
