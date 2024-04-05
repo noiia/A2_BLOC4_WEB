@@ -588,11 +588,11 @@ body::-webkit-scrollbar{
 body::-webkit-scrollbar-thumb{
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
-  border: 2px solid rgb(185,185,185);
+  border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-track{
+body::-webkit-scrollbar-track {
   border-radius: 10px;
 }
 
@@ -607,16 +607,16 @@ body::-webkit-scrollbar-track:hover{
   width: 15px;
 }
 
-.second-scrollbar::-webkit-scrollbar-thumb{
+.second-scrollbar::-webkit-scrollbar-thumb {
   margin-block: 5px;
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
-  border: 2px solid rgb(185,185,185);
+  border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
 }
 
-.second-scrollbar::-webkit-scrollbar-track{
+.second-scrollbar::-webkit-scrollbar-track {
   margin-block: 5px;
   border-radius: 10px;
 }
@@ -633,17 +633,17 @@ body::-webkit-scrollbar-track:hover{
   width: 15px;
 }
 
-.horizontal-second-scrollbar::-webkit-scrollbar-thumb{
+.horizontal-second-scrollbar::-webkit-scrollbar-thumb {
   margin-block: 20px;
   margin-left: 0.5rem;
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
-  border: 2px solid rgb(185,185,185);
+  border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
 }
 
-.horizontal-second-scrollbar::-webkit-scrollbar-track{
+.horizontal-second-scrollbar::-webkit-scrollbar-track {
   margin-block: 20px;
   margin-left: 0.5rem;
   border-radius: 10px;
@@ -661,16 +661,16 @@ body::-webkit-scrollbar-track:hover{
   width: 15px;
 }
 
-.second-scrollbar-description-internship::-webkit-scrollbar-thumb{
+.second-scrollbar-description-internship::-webkit-scrollbar-thumb {
   margin-block: 0px;
   cursor: default;
   --tw-bg-opacity: 1;
   background-color: rgb(123 123 123 / var(--tw-bg-opacity));
-  border: 2px solid rgb(185,185,185);
+  border: 2px solid rgb(185, 185, 185);
   border-radius: 10px;
 }
 
-.second-scrollbar-description-internship::-webkit-scrollbar-track{
+.second-scrollbar-description-internship::-webkit-scrollbar-track {
   margin-block: 0px;
   border-radius: 10px;
 }
@@ -992,7 +992,7 @@ body::-webkit-scrollbar-track:hover{
   padding-right: 0.25rem;
 }
 
-#add,#delete{
+#add, #delete{
   width: 45%;
   padding: 0px;
   font-weight: 700;
@@ -1150,6 +1150,8 @@ body::-webkit-scrollbar-track:hover{
 .profile_internship{
   margin-left: 0.5rem;
   display: flex;
+  height: 100%;
+  width: 100%;
   flex: 1 1 0%;
   flex-direction: column;
 }
@@ -1184,10 +1186,15 @@ body::-webkit-scrollbar-track:hover{
   }
 }
 
+#bubble-place{
+  height: 100%;
+  width: 100%;
+}
+
 .internship_top{
   margin: 1.25rem;
   display: flex;
-  height: 25%;
+  height: 40%;
   min-height: 11rem;
   justify-content: space-between;
 }

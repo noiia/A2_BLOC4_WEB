@@ -24,6 +24,8 @@ class ProfileController
     public function Profil(Request $request, Response $response): Response
     {
         $userSession = $request->getAttribute("user");
+        $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $role = $users->getRole();
 
         $myProfile[] = [
             'ID_users' => $userSession->getIDUsers(),
@@ -33,7 +35,6 @@ class ProfileController
             'Profile_Description' => $userSession->getProfileDescription(),
             'Email' => $userSession->getEmail(),
         ];
-        $role = $userSession->getRole();
 
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Profile/Profile.html.twig', [

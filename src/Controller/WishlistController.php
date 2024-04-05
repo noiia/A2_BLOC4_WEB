@@ -25,6 +25,7 @@ class WishlistController
         $userSession = $request->getAttribute("user");
         $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
         $internships = $users->getWishlist();
+        
         $internshipInWishlist = [];
         if ($internships != null) {
             foreach ($internships as $internship) {
