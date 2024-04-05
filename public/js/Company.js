@@ -145,6 +145,59 @@ window.addEventListener("resize", () => {
     }
 });
 
+window.onscroll = function () {
+    afficherOuMasquerBouton();
+};
+
+function afficherOuMasquerBouton() {
+    var boutonRetourHaut = document.getElementById("button-retour-haut");
+    var runwayContainerInternDetails = document.getElementById("runway-container-intern-details");
+    if (runwayContainerInternDetails !== null) {
+
+        if (document.documentElement.scrollTop < 115) {
+
+            while (boutonRetourHaut.classList.length > 0) {
+
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+
+            boutonRetourHaut.classList.add('display-none');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details');
+        } else if (115 < document.documentElement.scrollTop && document.documentElement.scrollTop < 2500) {
+
+            while (boutonRetourHaut.classList.length > 0) {
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+            boutonRetourHaut.classList.add('retourHaut');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details-fixed');
+        } else if (document.documentElement.scrollTop > 2500) {
+            while (boutonRetourHaut.classList.length > 0) {
+                boutonRetourHaut.classList.remove(boutonRetourHaut.classList.item(0));
+            }
+            while (runwayContainerInternDetails.classList.length > 0) {
+                runwayContainerInternDetails.classList.remove(runwayContainerInternDetails.classList.item(0));
+            }
+
+            boutonRetourHaut.classList.add('retourHaut-bot');
+            runwayContainerInternDetails.classList.add('runway-container-intern-details-bot');
+        }
+    }
+}
+
+function retournerEnHaut() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
+}
+
 function post_comment() {
     var companyId = Number(document.getElementById("id-company").textContent);
     var rate = Number(document.getElementById("rangeValue3").textContent);
@@ -183,6 +236,7 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         backButton.addEventListener("click", function () {
             currentPage -= 1;
             updatePage(currentPage, totalPages, companiesPerPage);
+            retournerEnHaut();
         });
     }
 
@@ -194,6 +248,7 @@ function updatePage(currentPage, totalPages, companiesPerPage) {
         nextButton.addEventListener("click", function () {
             currentPage += 1;
             updatePage(currentPage, totalPages, companiesPerPage);
+            retournerEnHaut();
         });
     }
 

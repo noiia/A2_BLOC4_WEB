@@ -127,6 +127,13 @@ class InternshipController
 
     public function InternshipApi(Request $request, Response $response, int $id)
     {
+        if ($id === 0) {
+            $data = [];
+            $payload = json_encode($data);
+
+            $response->getBody()->write($payload);
+            return $response->withHeader('Content-Type', 'application/json');
+        }
         $userSession = $request->getAttribute("user");
 
         $internship = $this->entityManager->getRepository(Internship::class)->findOneBy(['ID_Internship' => $id]);

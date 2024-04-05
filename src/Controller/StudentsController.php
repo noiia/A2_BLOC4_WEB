@@ -32,6 +32,10 @@ class StudentsController
 
     public function Students(Request $request, Response $response): Response
     {
+        $userSession = $request->getAttribute("user");
+        $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $role = $users->getRole();
+
         $students = $this->entityManager->getRepository(Users::class)->findBy(["Del" => 0]);
         $promotions = $this->entityManager->getRepository(Promotion::class)->findAll();
 
@@ -59,11 +63,13 @@ class StudentsController
                 'city' => $forPromotions->location->getCity()
             ];
         }
+
         $view = Twig::fromRequest($request);
         return $view->render($response, 'Students/Students.html.twig', [
             'students' => $runwayStudents,
             'promotions' => $differentPromotions,
             'locations' => $locations,
+            'role' => $role,
         ]);
     }
 

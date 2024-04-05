@@ -24,7 +24,9 @@ class InternshipManagementController
 
     public function InternshipManagement(Request $request, Response $response): Response
     {
-        $user = $request->getAttribute("user");
+        $userSession = $request->getAttribute("user");
+        $users = $this->entityManager->getRepository(Users::class)->findOneBy(['ID_users' => $userSession->getIDUsers()]);
+        $role = $users->getRole();
         $internshipManag = $this->entityManager->getRepository(Internship::class)->findAll();
         $data = [];
         if ($internshipManag) {
@@ -37,6 +39,7 @@ class InternshipManagementController
         }
         return $this->twig->render($response, 'InternshipManagement/InternshipManagement.html.twig', [
             'internships' => $data,
+            'role' => $role,
         ]);
     }
 }
